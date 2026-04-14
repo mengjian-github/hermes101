@@ -1,27 +1,30 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand: #18E299;
+  --color-brand: #00685f;
+  --color-brand-light: #008378;
   --color-brand-deep: #0fa76e;
-  --color-brand-light: #d4fae8;
-  --color-surface: #fafafa;
-  --color-text: #0d0d0d;
-  --color-text-secondary: #333333;
-  --color-text-muted: #666666;
+  --color-accent: #18E299;
+  --color-surface: #fbf9f5;
+  --color-surface-high: #eae8e4;
+  --color-surface-container: #efeeea;
+  --color-text: #1b1c1a;
+  --color-text-secondary: #3d4947;
+  --color-text-muted: #6d7a77;
   --color-border-custom: rgba(0,0,0,0.06);
   --color-border-hover: rgba(0,0,0,0.1);
-  --color-code-bg: #1e1e1e;
+  --color-code-bg: #1b1c1a;
   --color-code-text: #e5e5e5;
   --color-warn-bg: #fffbeb;
   --color-warn-border: #fde68a;
   --color-error: #d45656;
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #0d0d0d;
+  --background: #fbf9f5;
+  --foreground: #1b1c1a;
 }
 
 html {
@@ -38,12 +41,11 @@ body {
 code {
   font-family: var(--font-mono);
   font-size: 0.875em;
-  background: #f3f3f3;
+  background: #efeeea;
   padding: 2px 5px;
   border-radius: 4px;
 }
 
-/* Custom scrollbar for code blocks */
 pre::-webkit-scrollbar {
   height: 8px;
 }

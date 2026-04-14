@@ -59,14 +59,14 @@ export default function FaqPage() {
     <>
       <SchemaJsonLd schema={faqSchema} />
       <Navbar />
-      <main className="flex-1">
-        <div className="max-w-[800px] mx-auto px-6 pb-20">
+      <main className="flex-1 pt-28 md:pt-32 pb-20">
+        <div className="max-w-3xl mx-auto px-4 md:px-8">
           <VersionBanner />
 
-          <h1 className="text-[32px] md:text-4xl font-semibold leading-tight tracking-tight mt-10 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1b1c1a] tracking-tight mt-10 mb-3">
             常见问题
           </h1>
-          <p className="text-base text-[#666666] mb-8">
+          <p className="text-base md:text-lg text-[#3d4947] mb-8">
             安装失败、WSL2 报错、API key 配置、飞书/Telegram 不回复等高频问题速查。
           </p>
 
@@ -77,22 +77,22 @@ export default function FaqPage() {
                 <div
                   key={i}
                   id={`faq-${i + 1}`}
-                  className="bg-white border border-black/[0.06] rounded-2xl overflow-hidden scroll-mt-28"
+                  className="bg-white border border-[#e4e2de] rounded-2xl overflow-hidden scroll-mt-32"
                 >
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#fafafa] transition-colors"
+                    className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#fbf9f5] transition-colors"
                   >
-                    <span className="text-[17px] font-semibold pr-4">{f.q}</span>
+                    <span className="text-[17px] font-bold text-[#1b1c1a] pr-4">{f.q}</span>
                     <ChevronDown
                       size={20}
-                      className={`text-[#666666] shrink-0 transition-transform ${
+                      className={`text-[#6d7a77] shrink-0 transition-transform ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   {isOpen && (
-                    <div className="px-6 pb-5 text-[15px] text-[#333333] leading-7 border-t border-black/[0.06] pt-4">
+                    <div className="px-6 pb-5 text-[15px] text-[#3d4947] leading-7 border-t border-[#e4e2de] pt-4">
                       {f.a}
                     </div>
                   )}

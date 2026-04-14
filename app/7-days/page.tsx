@@ -105,14 +105,14 @@ export default function SevenDaysPage() {
     <>
       <SchemaJsonLd schema={learningResourceSchema} />
       <Navbar />
-      <main className="flex-1 pb-40">
-        <div className="max-w-[800px] mx-auto px-6">
+      <main className="flex-1 pt-28 md:pt-32 pb-40">
+        <div className="max-w-3xl mx-auto px-4 md:px-8">
           <VersionBanner />
 
-          <h1 className="text-[32px] md:text-4xl font-semibold leading-tight tracking-tight mt-10 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1b1c1a] tracking-tight mt-10 mb-3">
             7 天入门路径
           </h1>
-          <p className="text-base text-[#666666] mb-8">
+          <p className="text-base md:text-lg text-[#3d4947] mb-8">
             从安装到上线机器人，每天一个可验证成果。点击日期前的方框可以标记完成状态。
           </p>
 
@@ -122,12 +122,12 @@ export default function SevenDaysPage() {
               <button
                 key={d.day}
                 onClick={() => setActiveDay(d.day)}
-                className={`flex-1 min-w-[72px] text-center rounded-lg h-11 flex items-center justify-center text-[13px] font-semibold transition-colors ${
+                className={`flex-1 min-w-[68px] text-center rounded-lg h-11 flex items-center justify-center text-[13px] font-bold transition-colors ${
                   completed[d.day - 1]
-                    ? "bg-[#d4fae8] text-[#0fa76e]"
+                    ? "bg-[#008378]/20 text-[#00685f]"
                     : activeDay === d.day
-                    ? "bg-[#18E299] text-white"
-                    : "bg-[#e5e5e5] text-[#666666]"
+                    ? "bg-[#00685f] text-white"
+                    : "bg-[#eae8e4] text-[#6d7a77]"
                 }`}
               >
                 Day {d.day}
@@ -136,21 +136,21 @@ export default function SevenDaysPage() {
           </div>
 
           {/* Day sections */}
-          <div className="space-y-6">
+          <div className="space-y-5">
             {days.map((d, idx) => (
               <section
                 key={d.day}
                 id={`day-${d.day}`}
-                className={`relative bg-white border border-black/[0.06] rounded-2xl p-7 scroll-mt-28 transition-all ${
-                  completed[idx] ? "border-l-4 border-l-[#18E299]" : ""
+                className={`relative bg-white border rounded-2xl p-6 md:p-7 scroll-mt-32 transition-all ${
+                  completed[idx] ? "border-l-4 border-l-[#00685f] border-[#e4e2de]" : "border-[#e4e2de]"
                 }`}
               >
                 <button
                   onClick={() => toggleDay(idx)}
-                  className={`absolute right-6 top-7 w-[22px] h-[22px] rounded-md border flex items-center justify-center text-[13px] transition-colors ${
+                  className={`absolute right-5 top-6 w-[22px] h-[22px] rounded-md border flex items-center justify-center text-[13px] transition-colors ${
                     completed[idx]
-                      ? "bg-[#18E299] border-[#18E299] text-white"
-                      : "border-black/10 hover:border-black/20"
+                      ? "bg-[#00685f] border-[#00685f] text-white"
+                      : "border-[#e4e2de] hover:border-[#6d7a77]"
                   }`}
                   aria-label={`标记 Day ${d.day} 完成`}
                 >
@@ -158,17 +158,17 @@ export default function SevenDaysPage() {
                 </button>
 
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="bg-[#0d0d0d] text-white px-3 py-1 rounded-full text-[13px] font-semibold">
+                  <span className="bg-[#00685f] text-white px-3 py-1 rounded-full text-[13px] font-bold">
                     Day {d.day}
                   </span>
-                  <span className="text-xl font-semibold">{d.title}</span>
+                  <span className="text-xl font-bold text-[#1b1c1a]">{d.title}</span>
                 </div>
 
-                <div className="inline-flex items-center gap-2 bg-[#d4fae8] text-[#0fa76e] px-3.5 py-2 rounded-lg text-[13px] font-medium mb-4">
+                <div className="inline-flex items-center gap-2 bg-[#008378]/10 text-[#00685f] px-3.5 py-2 rounded-lg text-[13px] font-bold mb-4">
                   成果：{d.result}
                 </div>
 
-                <p className="text-[15px] text-[#333333] mb-4">{d.desc}</p>
+                <p className="text-[15px] text-[#3d4947] mb-4">{d.desc}</p>
 
                 {d.links.length > 0 && (
                   <div className="flex flex-wrap gap-3">
@@ -176,7 +176,7 @@ export default function SevenDaysPage() {
                       <Link
                         key={l.href}
                         href={l.href}
-                        className="text-sm text-[#0fa76e] underline underline-offset-2"
+                        className="text-sm text-[#00685f] font-bold underline underline-offset-2"
                       >
                         {l.label}
                       </Link>
@@ -189,33 +189,33 @@ export default function SevenDaysPage() {
         </div>
 
         {/* Bottom sticky nav */}
-        <div className="fixed bottom-0 left-0 right-0 bg-white/98 border-t border-black/[0.06] backdrop-blur-sm z-40">
-          <div className="max-w-[800px] mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="fixed bottom-0 left-0 right-0 bg-white/98 border-t border-[#e4e2de] backdrop-blur-sm z-40">
+          <div className="max-w-3xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
             <div className="flex gap-3">
               <button
                 onClick={() => setActiveDay((d) => Math.max(1, d - 1))}
                 disabled={activeDay === 1}
-                className="px-5 py-2.5 rounded-full text-sm font-medium border border-black/[0.06] text-[#666666] hover:border-black/10 hover:text-[#0d0d0d] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="px-5 py-2.5 rounded-full text-sm font-medium border border-[#e4e2de] text-[#6d7a77] hover:border-[#6d7a77] hover:text-[#1b1c1a] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 ← 前一天
               </button>
               <button
                 onClick={() => setActiveDay((d) => Math.min(7, d + 1))}
                 disabled={activeDay === 7}
-                className="px-5 py-2.5 rounded-full text-sm font-medium border border-black/[0.06] text-[#666666] hover:border-black/10 hover:text-[#0d0d0d] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="px-5 py-2.5 rounded-full text-sm font-medium border border-[#e4e2de] text-[#6d7a77] hover:border-[#6d7a77] hover:text-[#1b1c1a] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 后一天 →
               </button>
             </div>
             <div className="flex items-center gap-2.5">
-              <span className="text-[13px] text-[#666666]">进度</span>
-              <div className="w-28 h-1.5 bg-[#e5e5e5] rounded-full overflow-hidden">
+              <span className="text-[13px] text-[#6d7a77]">进度</span>
+              <div className="w-24 md:w-28 h-1.5 bg-[#eae8e4] rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[#18E299] transition-all duration-300"
+                  className="h-full bg-[#00685f] transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <span className="text-[13px] text-[#666666]">
+              <span className="text-[13px] text-[#6d7a77]">
                 {completedCount}/7
               </span>
             </div>

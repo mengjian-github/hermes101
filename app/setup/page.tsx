@@ -125,19 +125,19 @@ export default function SetupPage() {
     <>
       <SchemaJsonLd schema={techArticleSchema} />
       <Navbar />
-      <main className="flex-1">
-        <div className="max-w-[800px] mx-auto px-6 pb-20">
+      <main className="flex-1 pt-28 md:pt-32 pb-20">
+        <div className="max-w-3xl mx-auto px-4 md:px-8">
           <VersionBanner />
 
-          <h1 className="text-[32px] md:text-4xl font-semibold leading-tight tracking-tight mt-10 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1b1c1a] tracking-tight mt-10 mb-3">
             5 分钟安装 Hermes Agent
           </h1>
-          <p className="text-base text-[#666666] mb-8">
+          <p className="text-base md:text-lg text-[#3d4947] mb-8">
             选择你的操作系统，每步都有可复制命令。即使你是第一次打开终端，也能顺利跑通。
           </p>
 
           {/* Pre-checklist */}
-          <h2 className="text-xl font-semibold mb-4">前置检查清单</h2>
+          <h2 className="text-xl font-bold text-[#1b1c1a] mb-4">前置检查清单</h2>
           <div className="flex flex-wrap gap-3 mb-8">
             {checklist.map((item, i) => (
               <button
@@ -145,15 +145,15 @@ export default function SetupPage() {
                 onClick={() => toggleCheck(i)}
                 className={`flex items-center gap-2 rounded-full px-4 py-2.5 text-sm border transition-all ${
                   checks[i]
-                    ? "bg-[#d4fae8] border-[#18E299] text-[#0fa76e]"
-                    : "bg-white border-black/[0.06] text-[#333333] hover:border-black/10"
+                    ? "bg-[#008378]/15 border-[#00685f] text-[#00685f]"
+                    : "bg-white border-[#e4e2de] text-[#3d4947] hover:border-[#6d7a77]"
                 }`}
               >
                 <span
-                  className={`w-4 h-4 rounded flex items-center justify-center text-[11px] border ${
+                  className={`w-4 h-4 rounded flex items-center justify-center text-[11px] border transition-colors ${
                     checks[i]
-                      ? "bg-[#18E299] border-[#18E299] text-white"
-                      : "border-black/10"
+                      ? "bg-[#00685f] border-[#00685f] text-white"
+                      : "border-[#e4e2de]"
                   }`}
                 >
                   {checks[i] ? "✓" : ""}
@@ -164,15 +164,15 @@ export default function SetupPage() {
           </div>
 
           {/* Tabs */}
-          <div className="flex flex-col md:flex-row md:gap-6 border-b border-black/[0.06] mb-7">
+          <div className="flex flex-col md:flex-row md:gap-8 border-b border-[#e4e2de] mb-8">
             {tabs.map((t) => (
               <button
                 key={t.key}
                 onClick={() => setActiveTab(t.key)}
                 className={`text-left md:text-center text-[15px] font-medium pb-3 md:pb-3 border-b-2 mb-[-1px] transition-colors ${
                   activeTab === t.key
-                    ? "text-[#0d0d0d] border-[#18E299]"
-                    : "text-[#666666] border-transparent hover:text-[#0d0d0d]"
+                    ? "text-[#00685f] border-[#00685f]"
+                    : "text-[#6d7a77] border-transparent hover:text-[#1b1c1a]"
                 }`}
               >
                 {t.label}
@@ -185,20 +185,15 @@ export default function SetupPage() {
             {installData[activeTab].map((step, idx) => (
               <div key={idx}>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="w-7 h-7 rounded-full bg-[#0d0d0d] text-white text-[13px] font-semibold flex items-center justify-center">
+                  <span className="w-7 h-7 rounded-full bg-[#00685f] text-white text-[13px] font-bold flex items-center justify-center">
                     {idx + 1}
                   </span>
-                  <span className="text-[17px] font-semibold">{step.title}</span>
+                  <span className="text-[17px] font-semibold text-[#1b1c1a]">{step.title}</span>
                 </div>
-                <p className="text-[15px] text-[#333333] mb-3">{step.desc}</p>
+                <p className="text-[15px] text-[#3d4947] mb-3">{step.desc}</p>
                 <CodeBlock code={step.code} />
-                {activeTab === "windows" && idx === installData.windows.length - 1 && (
-                  <div className="mt-4 border-2 border-dashed border-[#e5e5e5] rounded-xl p-10 text-center text-sm text-[#999] bg-[#fafafa]">
-                    [截图位] 运行 hermes --version 的终端输出示例
-                  </div>
-                )}
-                {activeTab !== "windows" && idx === installData[activeTab].length - 1 && (
-                  <div className="mt-4 border-2 border-dashed border-[#e5e5e5] rounded-xl p-10 text-center text-sm text-[#999] bg-[#fafafa]">
+                {idx === installData[activeTab].length - 1 && (
+                  <div className="mt-4 border-2 border-dashed border-[#e4e2de] rounded-xl p-10 text-center text-sm text-[#6d7a77] bg-[#fbf9f5]">
                     [截图位] 运行 hermes --version 的终端输出示例
                   </div>
                 )}
@@ -207,27 +202,27 @@ export default function SetupPage() {
           </div>
 
           {/* FAQ accordion */}
-          <h2 className="text-xl font-semibold mb-4">常见安装错误速查</h2>
+          <h2 className="text-xl font-bold text-[#1b1c1a] mb-4">常见安装错误速查</h2>
           <div className="space-y-3 mb-10">
             {faqs.map((f, i) => (
               <div
                 key={i}
-                className="border border-black/[0.06] rounded-xl overflow-hidden"
+                className="border border-[#e4e2de] rounded-xl overflow-hidden bg-white"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between px-5 py-4 bg-white hover:bg-[#fafafa] transition-colors text-left"
+                  className="w-full flex items-center justify-between px-5 py-4 bg-white hover:bg-[#fbf9f5] transition-colors text-left"
                 >
-                  <span className="text-[15px] font-medium">{f.q}</span>
+                  <span className="text-[15px] font-semibold text-[#1b1c1a]">{f.q}</span>
                   <ChevronDown
                     size={18}
-                    className={`text-[#666666] transition-transform ${
+                    className={`text-[#6d7a77] transition-transform ${
                       openFaq === i ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {openFaq === i && (
-                  <div className="px-5 py-4 bg-[#fafafa] text-sm text-[#333333] border-t border-black/[0.06]">
+                  <div className="px-5 py-4 bg-[#fbf9f5] text-sm text-[#3d4947] border-t border-[#e4e2de]">
                     {f.a}
                   </div>
                 )}
@@ -239,7 +234,7 @@ export default function SetupPage() {
           <div className="text-center pt-4">
             <Link
               href="/7-days#day-1"
-              className="inline-flex items-center justify-center bg-[#0d0d0d] text-white px-8 py-3 rounded-full text-[15px] font-medium hover:opacity-92 transition-opacity"
+              className="inline-flex items-center justify-center bg-[#00685f] text-white px-8 py-3 rounded-full text-[15px] font-bold hover:shadow-lg transition-all active:scale-95"
             >
               继续 Day 1 学习路径 →
             </Link>

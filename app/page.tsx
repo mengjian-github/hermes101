@@ -2,12 +2,7 @@ import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SchemaJsonLd from "./components/SchemaJsonLd";
-
-export const metadata = {
-  title: "Hermes Agent 小白入门第一站 — hermes101",
-  description:
-    "5 分钟安装 Hermes Agent，7 天跟练入门，OpenClaw 一键无忧迁移。中文保姆级教程。",
-};
+import { Terminal, CalendarDays, RefreshCw, CheckCircle2 } from "lucide-react";
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -15,7 +10,7 @@ const websiteSchema = {
   name: "hermes101",
   url: "https://hermes101.pages.dev",
   description:
-    "Hermes Agent 小白入门站，63分钟安装、7天教程、OpenClaw迁移指南。",
+    "Hermes Agent 小白入门站，5 分钟安装、7 天教程、OpenClaw 迁移指南。",
 };
 
 export default function Home() {
@@ -23,76 +18,114 @@ export default function Home() {
     <>
       <SchemaJsonLd schema={websiteSchema} />
       <Navbar />
-      <main className="flex-1">
-        {/* Hero */}
-        <section className="text-center pt-24 pb-16 px-6 bg-gradient-to-b from-[rgba(24,226,153,0.08)] to-white">
-          <div className="max-w-[960px] mx-auto">
-            <h1 className="text-[40px] md:text-5xl font-semibold leading-tight tracking-tight mb-5">
-              Hermes Agent 小白入门第一站
-            </h1>
-            <p className="text-lg text-[#666666] mb-9">
-              5 分钟安装 · 7 天跟练 · OpenClaw 一键迁移
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/setup"
-                className="inline-flex items-center justify-center bg-[#0d0d0d] text-white px-8 py-3 rounded-full text-[15px] font-medium hover:opacity-92 transition-opacity"
-              >
-                5 分钟安装 Hermes
-              </Link>
-              <Link
-                href="/migrate"
-                className="inline-flex items-center justify-center bg-white text-[#0d0d0d] px-8 py-3 rounded-full text-[15px] font-medium border border-black/[0.08] hover:bg-[#fafafa] transition-colors"
-              >
-                从 OpenClaw 迁移
-              </Link>
+      <main className="flex-1 pt-28 md:pt-32 pb-20">
+        {/* Hero Section */}
+        <section className="max-w-7xl mx-auto px-4 md:px-8 mb-20 md:mb-24">
+          <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+            {/* Left Content */}
+            <div className="flex-1 text-left w-full">
+              <h1 className="font-sans font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#1b1c1a] tracking-tight mb-6 leading-[1.1]">
+                Hermes Agent<br />
+                <span className="text-[#00685f]">小白入门第一站</span>
+              </h1>
+              <p className="text-lg md:text-xl text-[#3d4947] mb-8 md:mb-10 leading-relaxed max-w-xl">
+                5 分钟安装 · 7 天跟练 · OpenClaw 一键迁移。
+                <br className="hidden sm:block" />
+                我们为每一位开发者提供最清晰的 Hermes 学习路径。
+              </p>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                <Link
+                  href="/setup"
+                  className="inline-flex items-center justify-center bg-[#00685f] text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-lg transition-all active:scale-95"
+                >
+                  5 分钟安装 Hermes
+                </Link>
+                <Link
+                  href="/migrate"
+                  className="inline-flex items-center justify-center bg-[#eae8e4] text-[#1b1c1a] px-8 py-4 rounded-full font-bold text-base hover:bg-[#e4e2de] transition-all active:scale-95"
+                >
+                  从 OpenClaw 迁移
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Visual - Terminal */}
+            <div className="flex-1 w-full relative">
+              <div className="bg-[#1b1c1a] rounded-xl p-5 md:p-6 shadow-2xl overflow-hidden font-mono text-[13px] md:text-sm transform md:rotate-1 hover:rotate-0 transition-transform duration-500 border border-white/10">
+                <div className="flex gap-1.5 md:gap-2 mb-4">
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-red-500" />
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500" />
+                  <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="space-y-2 text-[#6bd8cb]">
+                  <p className="opacity-60">$ curl -sSL https://hermes.install | bash</p>
+                  <p className="text-white/90">Installing hermes-core v0.8.x...</p>
+                  <p className="text-white/90">#################################### 100%</p>
+                  <p className="opacity-60">$ hermes --version</p>
+                  <div className="flex items-center gap-2 pt-1">
+                    <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#6bd8cb]" />
+                    <span className="text-[#6bd8cb]">Hermes Agent version 0.8.4 (stable)</span>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -z-10 -bottom-6 -right-6 w-48 h-48 md:w-64 md:h-64 bg-[#00685f]/5 rounded-full blur-3xl" />
             </div>
           </div>
         </section>
 
-        {/* Features */}
-        <section className="py-16 px-6">
-          <div className="max-w-[960px] mx-auto">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white border border-black/[0.06] rounded-2xl p-7 shadow-[0_2px_4px_rgba(0,0,0,0.03)] hover:border-black/10 hover:-translate-y-0.5 transition-all">
-                <div className="w-11 h-11 rounded-xl bg-[#d4fae8] flex items-center justify-center text-xl mb-4">
-                  ⚡
-                </div>
-                <h3 className="text-lg font-semibold mb-2">5 分钟安装</h3>
-                <p className="text-sm text-[#666666] leading-relaxed">
-                  支持 Mac、Linux 和 Windows WSL2。每步都有可复制命令和截图说明，预设小白可能遇到的每个坑。
+        {/* Features Bento Grid */}
+        <section className="max-w-7xl mx-auto px-4 md:px-8 mb-20 md:mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            {/* Card 1 */}
+            <div className="bg-[#008378]/10 p-6 md:p-8 rounded-2xl flex flex-col justify-between hover:bg-[#008378]/15 transition-colors">
+              <div>
+                <Terminal className="w-10 h-10 text-[#00685f] mb-5" strokeWidth={1.5} />
+                <h3 className="font-sans font-bold text-xl md:text-2xl mb-2 text-[#1b1c1a]">5 分钟安装</h3>
+                <p className="text-[#3d4947] leading-relaxed text-sm md:text-base">
+                  一键脚本支持主流操作系统，无需复杂配置，即刻开启你的 Agent 之旅。
                 </p>
               </div>
-              <div className="bg-white border border-black/[0.06] rounded-2xl p-7 shadow-[0_2px_4px_rgba(0,0,0,0.03)] hover:border-black/10 hover:-translate-y-0.5 transition-all">
-                <div className="w-11 h-11 rounded-xl bg-[#d4fae8] flex items-center justify-center text-xl mb-4">
-                  📅
-                </div>
-                <h3 className="text-lg font-semibold mb-2">7 天入门路径</h3>
-                <p className="text-sm text-[#666666] leading-relaxed">
-                  从第一次对话到接入飞书/Telegram机器人，每天一个可验证成果，跟着练就能跑通。
+            </div>
+            {/* Card 2 */}
+            <div className="bg-[#fea619]/10 p-6 md:p-8 rounded-2xl flex flex-col justify-between hover:bg-[#fea619]/15 transition-colors">
+              <div>
+                <CalendarDays className="w-10 h-10 text-[#855300] mb-5" strokeWidth={1.5} />
+                <h3 className="font-sans font-bold text-xl md:text-2xl mb-2 text-[#1b1c1a]">7 天入门路径</h3>
+                <p className="text-[#3d4947] leading-relaxed text-sm md:text-base">
+                  从环境搭建到部署第一个自动化工作流，科学编排的课程让你不再迷茫。
                 </p>
               </div>
-              <div className="bg-white border border-black/[0.06] rounded-2xl p-7 shadow-[0_2px_4px_rgba(0,0,0,0.03)] hover:border-black/10 hover:-translate-y-0.5 transition-all">
-                <div className="w-11 h-11 rounded-xl bg-[#d4fae8] flex items-center justify-center text-xl mb-4">
-                  🔄
-                </div>
-                <h3 className="text-lg font-semibold mb-2">OpenClaw 无忧迁移</h3>
-                <p className="text-sm text-[#666666] leading-relaxed">
-                  使用一条命令完成迁移，配置不会丢。附带完整检查清单和常见失败修复方案。
+            </div>
+            {/* Card 3 Large */}
+            <div className="bg-[#eae8e4] p-6 md:p-8 rounded-2xl flex flex-col justify-between group overflow-hidden relative">
+              <div className="relative z-10">
+                <RefreshCw className="w-10 h-10 text-[#924628] mb-5" strokeWidth={1.5} />
+                <h3 className="font-sans font-bold text-xl md:text-2xl mb-2 text-[#1b1c1a]">OpenClaw 无忧迁移</h3>
+                <p className="text-[#3d4947] leading-relaxed mb-5 text-sm md:text-base">
+                  完美兼容 OpenClaw 配置文件，零成本平替。我们提供详细的迁移映射表，助你平稳着陆。
                 </p>
+                <Link
+                  href="/migrate"
+                  className="text-[#00685f] font-bold text-sm flex items-center gap-1 group-hover:gap-2 transition-all"
+                >
+                  了解迁移指南 <span className="text-base">→</span>
+                </Link>
+              </div>
+              <div className="absolute -right-8 -bottom-8 opacity-5">
+                <RefreshCw className="w-32 h-32" />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Trust */}
-        <section className="text-center pb-20 px-6">
-          <div className="max-w-[960px] mx-auto">
-            <p className="text-[13px] text-[#666666] mb-1.5">
-              📌 本指南基于 Hermes v0.8.x | 最后更新：2026-04-14
+        {/* Trust Section */}
+        <section className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+          <div className="bg-[#efeeea]/70 py-10 md:py-12 rounded-2xl border border-[#e4e2de]/50">
+            <p className="text-[#6d7a77] font-bold text-[10px] md:text-xs tracking-widest uppercase mb-3 opacity-70">
+              基于 Hermes v0.8.x | 最后更新：2026-04-14
             </p>
-            <p className="text-[13px] text-[#666666]">
-              ⚠️ 本站为社区独立入门指南，非 Nous Research 官方文档
+            <p className="text-[#3d4947] text-xs md:text-sm max-w-md mx-auto leading-relaxed px-4">
+              本站为社区独立入门指南，非官方站点。所有教程均经过社区验证，确保安全可靠。
             </p>
           </div>
         </section>

@@ -34,13 +34,13 @@ export default function BlogPage() {
   return (
     <>
       <Navbar />
-      <main className="flex-1">
-        <div className="max-w-[800px] mx-auto px-6 pb-20">
+      <main className="flex-1 pt-28 md:pt-32 pb-20">
+        <div className="max-w-3xl mx-auto px-4 md:px-8">
           <VersionBanner />
-          <h1 className="text-[32px] md:text-4xl font-semibold leading-tight tracking-tight mt-10 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1b1c1a] tracking-tight mt-10 mb-3">
             博客
           </h1>
-          <p className="text-base text-[#666666] mb-8">
+          <p className="text-base md:text-lg text-[#3d4947] mb-8">
             深度教程、安装笔记和版本更新。每月至少 1 篇新文章。
           </p>
 
@@ -48,13 +48,13 @@ export default function BlogPage() {
             {upcoming.map((post) => (
               <div
                 key={post.slug}
-                className="bg-white border border-black/[0.06] rounded-2xl p-6 shadow-[0_2px_4px_rgba(0,0,0,0.03)] hover:border-black/10 transition-colors"
+                className="bg-white border border-[#e4e2de] rounded-2xl p-6 hover:border-[#6d7a77] transition-colors"
               >
-                <h2 className="text-lg font-semibold mb-2">{post.title}</h2>
-                <p className="text-sm text-[#666666] leading-relaxed mb-3">
+                <h2 className="text-lg font-bold text-[#1b1c1a] mb-2">{post.title}</h2>
+                <p className="text-sm text-[#3d4947] leading-relaxed mb-3">
                   {post.desc}
                 </p>
-                <span className="inline-flex items-center text-xs font-medium text-[#0fa76e] bg-[#d4fae8] px-2.5 py-1 rounded-md">
+                <span className="inline-flex items-center text-xs font-bold text-[#00685f] bg-[#008378]/10 px-2.5 py-1 rounded-md">
                   即将发布
                 </span>
               </div>

@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import VersionBanner from "../components/VersionBanner";
 import SchemaJsonLd from "../components/SchemaJsonLd";
 import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 
 const preChecks = [
   "备份 OpenClaw 配置文件",
@@ -106,27 +107,27 @@ export default function MigratePage() {
     <>
       <SchemaJsonLd schema={howToSchema} />
       <Navbar />
-      <main className="flex-1">
-        <div className="max-w-[800px] mx-auto px-6 pb-20">
+      <main className="flex-1 pt-28 md:pt-32 pb-20">
+        <div className="max-w-3xl mx-auto px-4 md:px-8">
           <VersionBanner />
 
           {/* Mood banner */}
-          <div className="bg-[#d4fae8] border border-[#18E299] rounded-xl px-6 py-4 mt-5 flex items-center gap-3.5 flex-wrap">
-            <span className="text-2xl">👍</span>
-            <span className="text-base font-medium text-[#0fa76e]">
+          <div className="bg-[#008378]/10 border border-[#00685f]/20 rounded-xl px-5 py-4 mt-5 flex items-center gap-3.5 flex-wrap">
+            <CheckCircle2 className="w-6 h-6 text-[#00685f] shrink-0" />
+            <span className="text-base font-bold text-[#00685f]">
               你的配置不会丢，迁移只需 3 步。我们帮你一条命令完成换仓。
             </span>
           </div>
 
-          <h1 className="text-[32px] md:text-4xl font-semibold leading-tight tracking-tight mt-8 mb-2">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1b1c1a] tracking-tight mt-8 mb-3">
             OpenClaw 迁移指南
           </h1>
-          <p className="text-base text-[#666666] mb-8">
+          <p className="text-base md:text-lg text-[#3d4947] mb-8">
             使用 <code>hermes claw migrate</code> 一键迁移。附带完整检查清单、常见失败修复和迁移后验证步骤。
           </p>
 
           {/* Pre checklist */}
-          <h2 className="text-xl font-semibold mt-10 mb-4">迁移前检查清单（10 项）</h2>
+          <h2 className="text-xl font-bold text-[#1b1c1a] mt-10 mb-4">迁移前检查清单（10 项）</h2>
           <div className="grid md:grid-cols-2 gap-3 mb-8">
             {preChecks.map((item, i) => (
               <button
@@ -134,15 +135,15 @@ export default function MigratePage() {
                 onClick={() => togglePre(i)}
                 className={`flex items-center gap-2.5 text-left rounded-xl px-4 py-3.5 text-sm border transition-all ${
                   pre[i]
-                    ? "bg-[#d4fae8] border-[#18E299] text-[#0fa76e]"
-                    : "bg-white border-black/[0.06] text-[#333333] hover:border-black/10"
+                    ? "bg-[#008378]/10 border-[#00685f] text-[#00685f]"
+                    : "bg-white border-[#e4e2de] text-[#3d4947] hover:border-[#6d7a77]"
                 }`}
               >
                 <span
-                  className={`w-[18px] h-[18px] rounded-[5px] flex items-center justify-center text-[11px] border ${
+                  className={`w-[18px] h-[18px] rounded-[5px] flex items-center justify-center text-[11px] border transition-colors ${
                     pre[i]
-                      ? "bg-[#18E299] border-[#18E299] text-white"
-                      : "border-black/10"
+                      ? "bg-[#00685f] border-[#00685f] text-white"
+                      : "border-[#e4e2de]"
                   }`}
                 >
                   {pre[i] ? "✓" : ""}
@@ -153,17 +154,17 @@ export default function MigratePage() {
           </div>
 
           {/* Command demo */}
-          <h2 className="text-xl font-semibold mt-10 mb-4">一键迁移命令</h2>
-          <div className="bg-[#1e1e1e] rounded-2xl p-7 text-[#e5e5e5] mb-8">
+          <h2 className="text-xl font-bold text-[#1b1c1a] mt-10 mb-4">一键迁移命令</h2>
+          <div className="bg-[#1b1c1a] rounded-2xl p-6 md:p-7 text-[#e5e5e5] mb-8 border border-white/10">
             <div className="flex gap-2 mb-5">
-              <span className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-              <span className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-              <span className="w-3 h-3 rounded-full bg-[#27c93f]" />
+              <span className="w-3 h-3 rounded-full bg-red-500" />
+              <span className="w-3 h-3 rounded-full bg-yellow-500" />
+              <span className="w-3 h-3 rounded-full bg-green-500" />
             </div>
             <div className="font-mono text-[15px] leading-7">
               <div>
                 <span className="text-[#888]">$</span>{" "}
-                <span className="text-[#18E299]">hermes claw migrate</span>
+                <span className="text-[#6bd8cb]">hermes claw migrate</span>
               </div>
               <div className="text-[#aaa] mt-2 space-y-1">
                 <div>🔄 正在读取 OpenClaw 配置...</div>
@@ -172,28 +173,28 @@ export default function MigratePage() {
                 <div>✅ 迁移完成！共迁移 12 项配置。</div>
               </div>
             </div>
-            <div className="flex items-center gap-2 mt-5 text-[#18E299] text-sm font-medium">
-              <span>✓</span> 迁移成功，你的配置毫无损失
+            <div className="flex items-center gap-2 mt-5 text-[#6bd8cb] text-sm font-bold">
+              <CheckCircle2 className="w-4 h-4" /> 迁移成功，你的配置毫无损失
             </div>
           </div>
 
           {/* Failures table */}
-          <h2 className="text-xl font-semibold mt-10 mb-4">常见失败场景</h2>
-          <div className="overflow-x-auto border border-black/[0.06] rounded-xl mb-8">
+          <h2 className="text-xl font-bold text-[#1b1c1a] mt-10 mb-4">常见失败场景</h2>
+          <div className="overflow-x-auto border border-[#e4e2de] rounded-xl mb-8 bg-white">
             <table className="w-full border-collapse text-sm min-w-[480px]">
-              <thead className="bg-[#fafafa]">
+              <thead className="bg-[#fbf9f5]">
                 <tr>
-                  <th className="text-left px-4 py-3.5 font-semibold border-b border-black/[0.06]">失败现象</th>
-                  <th className="text-left px-4 py-3.5 font-semibold border-b border-black/[0.06]">原因</th>
-                  <th className="text-left px-4 py-3.5 font-semibold border-b border-black/[0.06]">解决方案</th>
+                  <th className="text-left px-4 py-3.5 font-bold border-b border-[#e4e2de] text-[#1b1c1a]">失败现象</th>
+                  <th className="text-left px-4 py-3.5 font-bold border-b border-[#e4e2de] text-[#1b1c1a]">原因</th>
+                  <th className="text-left px-4 py-3.5 font-bold border-b border-[#e4e2de] text-[#1b1c1a]">解决方案</th>
                 </tr>
               </thead>
               <tbody>
                 {failures.map((f, i) => (
-                  <tr key={i} className="border-b border-black/[0.06] last:border-b-0">
-                    <td className="px-4 py-3.5 text-[#333333]">{f.symptom}</td>
-                    <td className="px-4 py-3.5 text-[#333333]">{f.reason}</td>
-                    <td className="px-4 py-3.5 text-[#333333]">{f.fix}</td>
+                  <tr key={i} className="border-b border-[#e4e2de] last:border-b-0">
+                    <td className="px-4 py-3.5 text-[#3d4947]">{f.symptom}</td>
+                    <td className="px-4 py-3.5 text-[#3d4947]">{f.reason}</td>
+                    <td className="px-4 py-3.5 text-[#3d4947]">{f.fix}</td>
                   </tr>
                 ))}
               </tbody>
@@ -201,7 +202,7 @@ export default function MigratePage() {
           </div>
 
           {/* Post checklist */}
-          <h2 className="text-xl font-semibold mt-10 mb-4">迁移后验证清单（5 项）</h2>
+          <h2 className="text-xl font-bold text-[#1b1c1a] mt-10 mb-4">迁移后验证清单（5 项）</h2>
           <div className="grid md:grid-cols-2 gap-3 mb-8">
             {postChecks.map((item, i) => (
               <button
@@ -209,15 +210,15 @@ export default function MigratePage() {
                 onClick={() => togglePost(i)}
                 className={`flex items-center gap-2.5 text-left rounded-xl px-4 py-3.5 text-sm border transition-all ${
                   post[i]
-                    ? "bg-[#d4fae8] border-[#18E299] text-[#0fa76e]"
-                    : "bg-white border-black/[0.06] text-[#333333] hover:border-black/10"
+                    ? "bg-[#008378]/10 border-[#00685f] text-[#00685f]"
+                    : "bg-white border-[#e4e2de] text-[#3d4947] hover:border-[#6d7a77]"
                 }`}
               >
                 <span
-                  className={`w-[18px] h-[18px] rounded-[5px] flex items-center justify-center text-[11px] border ${
+                  className={`w-[18px] h-[18px] rounded-[5px] flex items-center justify-center text-[11px] border transition-colors ${
                     post[i]
-                      ? "bg-[#18E299] border-[#18E299] text-white"
-                      : "border-black/10"
+                      ? "bg-[#00685f] border-[#00685f] text-white"
+                      : "border-[#e4e2de]"
                   }`}
                 >
                   {post[i] ? "✓" : ""}
@@ -228,24 +229,24 @@ export default function MigratePage() {
           </div>
 
           {/* Comparison table */}
-          <h2 className="text-xl font-semibold mt-10 mb-4">Hermes vs OpenClaw 对比</h2>
-          <div className="overflow-x-auto border border-black/[0.06] rounded-xl mb-10">
+          <h2 className="text-xl font-bold text-[#1b1c1a] mt-10 mb-4">Hermes vs OpenClaw 对比</h2>
+          <div className="overflow-x-auto border border-[#e4e2de] rounded-xl mb-10 bg-white">
             <table className="w-full border-collapse text-sm min-w-[360px]">
-              <thead className="bg-[#fafafa]">
+              <thead className="bg-[#fbf9f5]">
                 <tr>
-                  <th className="text-left px-4 py-3.5 font-semibold border-b border-black/[0.06]">维度</th>
-                  <th className="text-left px-4 py-3.5 font-semibold border-b border-black/[0.06]">Hermes</th>
-                  <th className="text-left px-4 py-3.5 font-semibold border-b border-black/[0.06]">OpenClaw</th>
+                  <th className="text-left px-4 py-3.5 font-bold border-b border-[#e4e2de] text-[#1b1c1a]">维度</th>
+                  <th className="text-left px-4 py-3.5 font-bold border-b border-[#e4e2de] text-[#1b1c1a]">Hermes</th>
+                  <th className="text-left px-4 py-3.5 font-bold border-b border-[#e4e2de] text-[#1b1c1a]">OpenClaw</th>
                 </tr>
               </thead>
               <tbody>
                 {compareData.map((row, i) => (
-                  <tr key={i} className="border-b border-black/[0.06] last:border-b-0">
-                    <td className="px-4 py-3.5 text-[#333333]">{row.dim}</td>
-                    <td className={`px-4 py-3.5 font-medium ${row.yes ? "text-[#0fa76e]" : "text-[#333333]"}`}>
+                  <tr key={i} className="border-b border-[#e4e2de] last:border-b-0">
+                    <td className="px-4 py-3.5 text-[#3d4947]">{row.dim}</td>
+                    <td className={`px-4 py-3.5 font-bold ${row.yes ? "text-[#00685f]" : "text-[#3d4947]"}`}>
                       {row.hermes}
                     </td>
-                    <td className="px-4 py-3.5 text-[#333333]">{row.openclaw}</td>
+                    <td className="px-4 py-3.5 text-[#3d4947]">{row.openclaw}</td>
                   </tr>
                 ))}
               </tbody>
@@ -256,7 +257,7 @@ export default function MigratePage() {
           <div className="text-center pt-4">
             <Link
               href="/7-days"
-              className="inline-flex items-center justify-center bg-[#0d0d0d] text-white px-8 py-3 rounded-full text-[15px] font-medium hover:opacity-92 transition-opacity"
+              className="inline-flex items-center justify-center bg-[#00685f] text-white px-8 py-3 rounded-full text-[15px] font-bold hover:shadow-lg transition-all active:scale-95"
             >
               开始 7 天 Hermes 学习路径 →
             </Link>
