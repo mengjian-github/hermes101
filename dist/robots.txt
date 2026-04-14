@@ -1,4 +1,0 @@
-User-Agent: *
-Allow: /
-
-Sitemap: https://hermes101.pages.dev/sitemap.xml
