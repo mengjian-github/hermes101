@@ -30,8 +30,8 @@ const installData: Record<string, { title: string; desc: string; code: string }[
     },
     {
       title: "安装 Hermes Agent",
-      desc: "使用 pip 一键安装。如果提示权限不足，可以加上 --user 参数。",
-      code: "pip3 install hermes-agent",
+      desc: "使用官方脚本一键安装。",
+      code: "curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash",
     },
     {
       title: "运行安装验证",
@@ -47,8 +47,8 @@ const installData: Record<string, { title: string; desc: string; code: string }[
     },
     {
       title: "安装 Hermes Agent",
-      desc: "使用 pip 一键安装。如果提示权限不足，可以加上 --user 参数。",
-      code: "pip3 install hermes-agent",
+      desc: "使用官方脚本一键安装。",
+      code: "curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash",
     },
     {
       title: "运行安装验证",
@@ -69,8 +69,8 @@ const installData: Record<string, { title: string; desc: string; code: string }[
     },
     {
       title: "安装 Hermes Agent",
-      desc: "使用 pip 一键安装。如果提示权限不足，可以加上 --user 参数。",
-      code: "pip3 install hermes-agent",
+      desc: "在 WSL2 中使用官方脚本一键安装。",
+      code: "curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash",
     },
     {
       title: "运行安装验证",
@@ -194,7 +194,7 @@ export default function SetupPage() {
                 <CodeBlock code={step.code} />
                 {idx === installData[activeTab].length - 1 && (
                   <div className="mt-4 border-2 border-dashed border-[#e4e2de] rounded-xl p-10 text-center text-sm text-[#6d7a77] bg-[#fbf9f5]">
-                    [截图位] 运行 hermes --version 的终端输出示例
+                    [截图位] 运行 hermes --version，应看到 v0.8.0
                   </div>
                 )}
               </div>

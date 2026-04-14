@@ -10,13 +10,12 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     q: "Windows 一定要装 WSL2 吗？（直装版可行吗？）",
-    a:
-      "目前推荐通过 WSL2 安装，因为 Hermes 的依赖在 Linux 环境下更稳定。Windows 直装版仍在实验阶段，遇到问题可以优先使用 WSL2 方案。",
+    a: "Native Windows is not supported，请使用 WSL2。",
   },
   {
     q: "没有 OpenAI API key 怎么办？（国产模型接入方案）",
     a:
-      "你可以在 ~/.hermes/config.yaml 中配置国产模型（如 DeepSeek、豆包、通义千问）的 API key。格式与 OpenAI 兼容，只需修改 base_url 和 model 名称即可。",
+      "你可以在 ~/.hermes/.env 中配置国产模型（如 DeepSeek、豆包、通义千问）的 API key。格式与 OpenAI 兼容，只需修改 base_url 和 model 名称即可。",
   },
   {
     q: "迁移后 Telegram bot 为什么不回复？",
@@ -30,7 +29,7 @@ const faqs = [
   },
   {
     q: "如何更新 Hermes 到最新版本？",
-    a: "运行 pip install -U hermes-agent 即可升级到最新版本。升级后建议执行 hermes --version 确认版本号。",
+    a: "运行 hermes update 即可升级到最新版本。升级后建议执行 hermes --version 确认版本号。",
   },
   {
     q: "本指南内容多久更新一次？",

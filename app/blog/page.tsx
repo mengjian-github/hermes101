@@ -3,8 +3,8 @@ import Footer from "../components/Footer";
 import VersionBanner from "../components/VersionBanner";
 
 export const metadata = {
-  title: "博客",
-  description: "hermes101 博客 - Hermes Agent 入门指南与更新日志",
+  title: "Hermes Agent 博客 | 安装教程、迁移指南与更新日志",
+  description: "hermes101 博客：Hermes Agent 小白入门教程、OpenClaw 迁移指南、飞书/Telegram 机器人配置与版本更新。",
 };
 
 const upcoming = [

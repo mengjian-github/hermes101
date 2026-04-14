@@ -3,8 +3,8 @@ import Footer from "../components/Footer";
 import VersionBanner from "../components/VersionBanner";
 
 export const metadata = {
-  title: "隐私政策",
-  description: "hermes101.site 隐私政策",
+  title: "隐私政策 | hermes101 - Hermes Agent 入门指南",
+  description: "hermes101.site 隐私政策：本站为静态入门指南，不收集个人身份信息，不使用追踪性 Cookie，学习进度仅存储在浏览器本地。",
 };
 
 export default function PrivacyPage() {
@@ -26,7 +26,10 @@ export default function PrivacyPage() {
             </p>
             <h2 className="text-xl font-bold text-[#1b1c1a] mt-8">1. 信息收集</h2>
             <p>
-              本站为静态入门指南网站，<strong>不收集任何个人身份信息</strong>（如姓名、邮箱、电话）。我们仅通过第三方分析工具（如 Plausible）匿名收集访问量和页面浏览数据，用于改进站点内容。
+              本站为静态入门指南网站，<strong>不收集任何个人身份信息</strong>（如姓名、邮箱、电话），也不使用任何第三方分析工具追踪访问行为。
+            </p>
+            <p>
+              本站托管在 Cloudflare Pages 上，Cloudflare 作为基础设施提供商可能会记录访问日志（如 IP 地址、浏览器类型、访问时间戳），这些数据受 Cloudflare 隐私政策约束，本站无法直接访问或控制。
             </p>
             <h2 className="text-xl font-bold text-[#1b1c1a] mt-8">2. Cookies</h2>
             <p>

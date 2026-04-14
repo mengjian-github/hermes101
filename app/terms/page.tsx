@@ -3,8 +3,8 @@ import Footer from "../components/Footer";
 import VersionBanner from "../components/VersionBanner";
 
 export const metadata = {
-  title: "使用条款",
-  description: "hermes101.site 使用条款",
+  title: "使用条款 | hermes101 - Hermes Agent 入门指南",
+  description: "hermes101.site 使用条款：本站为社区独立 Hermes Agent 入门指南，非官方站点。内容仅供学习参考，使用前请仔细阅读免责条款。",
 };
 
 export default function TermsPage() {

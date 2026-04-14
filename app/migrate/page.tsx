@@ -115,8 +115,13 @@ export default function MigratePage() {
           <div className="bg-[#008378]/10 border border-[#00685f]/20 rounded-xl px-5 py-4 mt-5 flex items-center gap-3.5 flex-wrap">
             <CheckCircle2 className="w-6 h-6 text-[#00685f] shrink-0" />
             <span className="text-base font-bold text-[#00685f]">
-              你的配置不会丢，迁移只需 3 步。我们帮你一条命令完成换仓。
+              迁移通常只需 3 步。我们帮你一条命令完成换仓。建议迁移前先备份配置。
             </span>
+          </div>
+
+          {/* Disclaimer */}
+          <div className="bg-[#fffbeb] border border-[#fde68a] rounded-xl px-5 py-3 mt-4 text-[13px] text-[#92400e]">
+            <strong>免责提醒：</strong>迁移结果因环境而异，以下方案可解决大多数问题，但无法保证所有环境 100% 迁移成功。操作前请先备份重要数据。
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-[#1b1c1a] tracking-tight mt-8 mb-3">
