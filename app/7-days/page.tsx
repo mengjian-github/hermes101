@@ -170,6 +170,12 @@ export default function SevenDaysPage() {
 
                 <p className="text-[15px] text-[#3d4947] mb-4">{d.desc}</p>
 
+                {d.day === 2 && (
+                  <div className="bg-[#fffbeb] border border-[#fde68a] rounded-lg px-4 py-3 text-[13px] text-[#92400e] mb-4">
+                    <strong>🔐 安全提醒：</strong>API key 是你的个人账户凭证，相当于密码。请勿将 key 截图发到微信群/小红书/公开论坛，建议写入 <code>.env</code> 文件并在 <code>.gitignore</code> 中排除。
+                  </div>
+                )}
+
                 {d.links.length > 0 && (
                   <div className="flex flex-wrap gap-3">
                     {d.links.map((l) => (
@@ -186,6 +192,11 @@ export default function SevenDaysPage() {
               </section>
             ))}
           </div>
+
+          {/* LocalStorage notice */}
+          <p className="text-center text-[12px] text-[#6d7a77] mt-8">
+            你的学习进度仅保存在当前浏览器中，不会上传到服务器。
+          </p>
         </div>
 
         {/* Bottom sticky nav */}

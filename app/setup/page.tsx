@@ -132,9 +132,14 @@ export default function SetupPage() {
           <h1 className="text-3xl md:text-4xl font-bold text-[#1b1c1a] tracking-tight mt-10 mb-3">
             5 分钟安装 Hermes Agent
           </h1>
-          <p className="text-base md:text-lg text-[#3d4947] mb-8">
+          <p className="text-base md:text-lg text-[#3d4947] mb-6">
             选择你的操作系统，每步都有可复制命令。即使你是第一次打开终端，也能顺利跑通。
           </p>
+
+          {/* Safety tip */}
+          <div className="bg-[#fffbeb] border border-[#fde68a] rounded-xl px-5 py-3 mb-8 text-[13px] text-[#92400e]">
+            <strong>⚠️ 操作提醒：</strong>Windows 用户安装 WSL2 涉及系统级设置变更，建议操作前备份重要数据。
+          </div>
 
           {/* Pre-checklist */}
           <h2 className="text-xl font-bold text-[#1b1c1a] mb-4">前置检查清单</h2>

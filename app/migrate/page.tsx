@@ -179,7 +179,7 @@ export default function MigratePage() {
               </div>
             </div>
             <div className="flex items-center gap-2 mt-5 text-[#6bd8cb] text-sm font-bold">
-              <CheckCircle2 className="w-4 h-4" /> 迁移成功，你的配置毫无损失
+              <CheckCircle2 className="w-4 h-4" /> 命令执行完成后，请对照下方验证清单确认配置
             </div>
           </div>
 
@@ -267,6 +267,11 @@ export default function MigratePage() {
               开始 7 天 Hermes 学习路径 →
             </Link>
           </div>
+
+          {/* LocalStorage notice */}
+          <p className="text-center text-[12px] text-[#6d7a77] mt-6">
+            你的迁移清单进度仅保存在当前浏览器中，不会上传到服务器。
+          </p>
         </div>
       </main>
       <Footer />
