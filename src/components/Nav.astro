@@ -1,0 +1,40 @@
+---
+---
+<nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-black/[0.06] h-16 flex items-center">
+  <div class="max-w-[960px] mx-auto w-full px-6 flex items-center justify-between">
+    <a href="/" class="font-semibold text-lg tracking-[-0.3px]">hermes101</a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="/setup" class="text-[15px] font-medium text-[#333] hover:text-[#0fa76e]">安装</a>
+      <a href="/7-days" class="text-[15px] font-medium text-[#333] hover:text-[#0fa76e]">7天教程</a>
+      <a href="/migrate" class="text-[15px] font-medium text-[#333] hover:text-[#0fa76e]">迁移</a>
+      <a href="/faq" class="text-[15px] font-medium text-[#333] hover:text-[#0fa76e]">FAQ</a>
+      <a href="/blog" class="text-[15px] font-medium text-[#333] hover:text-[#0fa76e]">博客</a>
+      <a href="/setup" class="bg-[#0d0d0d] text-white px-5 py-2 rounded-full text-sm font-medium hover:opacity-92">开始安装</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="菜单">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden absolute top-16 left-0 right-0 bg-white border-b border-black/[0.06] px-6 py-4 md:hidden">
+    <div class="flex flex-col gap-3">
+      <a href="/setup" class="text-[15px] font-medium text-[#333]">安装</a>
+      <a href="/7-days" class="text-[15px] font-medium text-[#333]">7天教程</a>
+      <a href="/migrate" class="text-[15px] font-medium text-[#333]">迁移</a>
+      <a href="/faq" class="text-[15px] font-medium text-[#333]">FAQ</a>
+      <a href="/blog" class="text-[15px] font-medium text-[#333]">博客</a>
+    </div>
+  </div>
+</nav>
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

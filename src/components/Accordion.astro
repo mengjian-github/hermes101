@@ -1,0 +1,30 @@
+---
+export interface Props { title: string; id?: string; }
+const { title, id } = Astro.props;
+---
+<div class="accordion border border-black/[0.06] rounded-xl overflow-hidden mb-3" {...(id ? { id } : {})}>
+  <button class="accordion-header w-full px-5 py-4 bg-white flex justify-between items-center text-[15px] font-medium hover:bg-[#fafafa]">
+    <span>{title}</span>
+    <span class="accordion-icon transition-transform duration-200">&#9662;</span>
+  </button>
+  <div class="accordion-body hidden px-5 py-4 bg-[#fafafa] text-sm text-[#333] border-t border-black/[0.06] leading-relaxed">
+    <slot />
+  </div>
+</div>
+<script>
+  document.querySelectorAll('.accordion-header').forEach((header) => {
+    header.addEventListener('click', () => {
+      const body = header.nextElementSibling;
+      const icon = header.querySelector('.accordion-icon');
+      if (!body) return;
+      const isHidden = body.classList.contains('hidden');
+      if (isHidden) {
+        body.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      } else {
+        body.classList.add('hidden');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+</script>

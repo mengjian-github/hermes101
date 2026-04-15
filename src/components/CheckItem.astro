@@ -1,0 +1,39 @@
+---
+export interface Props { text: string; id: string; }
+const { text, id } = Astro.props;
+---
+<div class="check-item cursor-pointer select-none transition-all bg-white border border-black/[0.06] rounded-[10px] px-4 py-3.5 text-sm text-[#333] flex items-center gap-2.5 hover:border-black/10" data-check-id={id}>
+  <span class="check-box w-[18px] h-[18px] border-2 border-black/[0.06] rounded-[5px] flex items-center justify-center text-[11px] text-white transition-all"></span>
+  <span class="check-text">{text}</span>
+</div>
+<script>
+  (function() {
+    const items = document.querySelectorAll('.check-item');
+    items.forEach((item) => {
+      const id = item.dataset.checkId;
+      if (!id) return;
+      const box = item.querySelector('.check-box');
+      const text = item.querySelector('.check-text');
+      const key = 'check:' + id;
+      const saved = localStorage.getItem(key) === '1';
+      function render(checked) {
+        if (checked) {
+          if (box) { box.classList.add('bg-[#18E299]', 'border-[#18E299]'); box.textContent = '✓'; }
+          item.classList.add('bg-[#d4fae8]', 'border-[#18E299]', 'text-[#0fa76e]');
+          if (text) text.classList.add('line-through', 'opacity-80');
+        } else {
+          if (box) { box.classList.remove('bg-[#18E299]', 'border-[#18E299]'); box.textContent = ''; }
+          item.classList.remove('bg-[#d4fae8]', 'border-[#18E299]', 'text-[#0fa76e]');
+          if (text) text.classList.remove('line-through', 'opacity-80');
+        }
+      }
+      render(saved);
+      item.addEventListener('click', () => {
+        const current = localStorage.getItem(key) === '1';
+        const next = !current;
+        localStorage.setItem(key, next ? '1' : '0');
+        render(next);
+      });
+    });
+  })();
+</script>

@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+export interface Props {
+  title: string;
+  description: string;
+  schema?: object;
+}
+const { title, description, schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  {schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )}
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0d0d0d;
+      --text-secondary: #333333;
+      --text-muted: #666666;
+      --border: rgba(0,0,0,0.06);
+      --border-hover: rgba(0,0,0,0.1);
+      --brand: #18E299;
+      --brand-deep: #0fa76e;
+      --brand-light: #d4fae8;
+      --surface: #fafafa;
+      --code-bg: #1e1e1e;
+      --code-text: #e5e5e5;
+      --warn-bg: #fffbeb;
+      --warn-border: #fde68a;
+      --error: #d45656;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    code {
+      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <slot />
+</body>
+</html>

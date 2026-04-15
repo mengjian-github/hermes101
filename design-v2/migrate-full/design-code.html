@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hermes 101 - Migration Guide</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#002116",
+                        "inverse-primary": "#17e299",
+                        "primary-fixed": "#4dffb3",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#005f3d",
+                        "outline": "#6b7b70",
+                        "secondary-fixed-dim": "#5ddd9f",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed-dim": "#aacfbe",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#002112",
+                        "tertiary": "#436557",
+                        "surface-container-highest": "#e2e2e2",
+                        "outline-variant": "#bacbbe",
+                        "surface-tint": "#006c47",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#18e299",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#005233",
+                        "tertiary-container": "#aacfbe",
+                        "surface-container-low": "#f3f3f3",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#005234",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e2e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-container": "#eeeeee",
+                        "inverse-surface": "#2f3131",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#2c4d40",
+                        "on-secondary-container": "#00734a",
+                        "background": "#f9f9f9",
+                        "primary-fixed-dim": "#17e299",
+                        "tertiary-fixed": "#c5ebd9",
+                        "surface": "#f9f9f9",
+                        "secondary-container": "#7bfab9",
+                        "on-primary-fixed": "#002112",
+                        "secondary": "#006c45",
+                        "on-tertiary-container": "#38594c",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "primary": "#006c47",
+                        "on-surface-variant": "#3b4a41",
+                        "secondary-fixed": "#7bfab9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["Geist Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md">
+<div class="flex items-center px-4 h-16 w-full max-w-md mx-auto">
+<button class="p-2 -ml-2 text-emerald-700 dark:text-emerald-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors rounded-full active:scale-95 active:duration-100">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="ml-2 font-['Inter'] font-semibold tracking-tight text-lg font-bold text-zinc-900 dark:text-white">Hermes 101</h1>
+</div>
+</header>
+<main class="max-w-[430px] mx-auto px-6 pt-24 pb-12 space-y-12">
+<!-- Hero Section -->
+<section class="space-y-4">
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface">OpenClaw 迁移指南</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                使用 <code class="bg-surface-container px-1.5 py-0.5 rounded font-mono text-sm text-primary">hermes claw migrate</code> 一键迁移。配置不会丢。
+            </p>
+</section>
+<!-- Process Timeline -->
+<section class="relative pt-4">
+<div class="flex justify-between items-center relative">
+<!-- Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-surface-container -translate-y-1/2 z-0"></div>
+<!-- Step 1 -->
+<div class="z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[11px] font-medium uppercase tracking-wider text-on-surface-variant">迁移前</span>
+</div>
+<!-- Step 2 -->
+<div class="z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[11px] font-medium uppercase tracking-wider text-on-surface-variant">迁移中</span>
+</div>
+<!-- Step 3 (Active) -->
+<div class="z-10 flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary-container ring-4 ring-white flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-primary">迁移后</span>
+</div>
+</div>
+</section>
+<!-- Pre-migration Checklist -->
+<section class="space-y-6">
+<h3 class="text-xl font-bold tracking-tight">迁移前检查清单（6 项）</h3>
+<div class="grid gap-3">
+<!-- Checklist Items -->
+<div class="flex items-center gap-4 p-4 rounded-xl bg-[#d4fae8]">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-primary-container">确认 OpenClaw 版本 &gt;= v2.4.1</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-[#d4fae8]">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-primary-container">导出现有 API Key 列表备份</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-[#d4fae8]">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-primary-container">确保 ~/.openclaw 目录可读</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-[#d4fae8]">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-primary-container">全局关闭活跃的 claw 任务</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-[#d4fae8]">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-primary-container">安装 Hermes 命令行工具</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-[#d4fae8]">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-primary-container">网络连接状态正常</span>
+</div>
+</div>
+</section>
+<!-- Command Blocks -->
+<section class="space-y-4">
+<!-- Command 1 -->
+<div class="bg-surface-container-low rounded-xl p-5 space-y-4">
+<div class="flex justify-between items-start">
+<code class="font-mono text-[15px] text-on-surface font-medium">hermes claw migrate</code>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant text-xs font-semibold">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                        复制
+                    </button>
+</div>
+<div class="space-y-2 border-t border-outline-variant/10 pt-4">
+<div class="flex items-center gap-2 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Scanning OpenClaw configuration...
+                    </div>
+<div class="flex items-center gap-2 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Transferring 14 environment profiles...
+                    </div>
+<div class="flex items-center gap-2 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-sm">check</span>
+                        Migration completed successfully.
+                    </div>
+</div>
+</div>
+<!-- Command 2 -->
+<div class="bg-surface-container-low rounded-xl p-5 space-y-4">
+<div class="flex justify-between items-start">
+<code class="font-mono text-[15px] text-on-surface font-medium leading-tight">hermes backup --output ~/hermes-migrated.zip</code>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant text-xs font-semibold">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                        复制
+                    </button>
+</div>
+</div>
+</section>
+<!-- Comparison Table -->
+<section class="space-y-6">
+<h3 class="text-xl font-bold tracking-tight">OpenClaw 与 Hermes v0.9 对照</h3>
+<div class="bg-white rounded-xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+<table class="w-full text-left text-sm">
+<thead class="bg-surface-container text-on-surface-variant font-semibold">
+<tr>
+<th class="px-4 py-3 font-bold">功能</th>
+<th class="px-4 py-3 font-bold">OpenClaw</th>
+<th class="px-4 py-3 font-bold">Hermes v0.9</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr>
+<td class="px-4 py-4 font-medium">Dashboard</td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">Backup/Import</td>
+<td class="px-4 py-4 text-zinc-400"><span class="material-symbols-outlined text-lg">remove</span></td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">平台接入</td>
+<td class="px-4 py-4 text-[#0fa76e] font-bold">24+</td>
+<td class="px-4 py-4 text-[#0fa76e] font-bold">48+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">Debug 命令</td>
+<td class="px-4 py-4 text-zinc-400"><span class="material-symbols-outlined text-lg">remove</span></td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">Watch Patterns</td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">MCP/Skill</td>
+<td class="px-4 py-4 text-zinc-400"><span class="material-symbols-outlined text-lg">remove</span></td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-medium">Cron 自动化</td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+<td class="px-4 py-4 text-[#0fa76e]"><span class="material-symbols-outlined text-lg">check</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Troubleshooting Accordion -->
+<section class="space-y-6">
+<h3 class="text-xl font-bold tracking-tight">常见失败场景</h3>
+<div class="space-y-3">
+<!-- Expanded Card -->
+<div class="bg-white rounded-xl border-l-4 border-primary shadow-sm overflow-hidden">
+<div class="p-5 flex justify-between items-center bg-surface-container-low/50">
+<span class="font-mono text-sm font-bold text-on-surface">提示 "claw 不存在"</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_less</span>
+</div>
+<div class="px-5 pb-5 pt-2 space-y-4">
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">原因</p>
+<p class="text-sm text-on-surface-variant">OpenClaw 未安装或未加入 PATH</p>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">解决</p>
+<p class="text-sm text-on-surface-variant">
+<code class="font-mono bg-surface-container px-1 rounded">which openclaw</code> 检查路径；如已卸载，手动复制 <code class="font-mono">~/.openclaw/config.yaml</code> 到 <code class="font-mono">~/.hermes/</code>
+</p>
+</div>
+</div>
+</div>
+<!-- Collapsed Cards -->
+<div class="bg-surface-container-low rounded-xl p-5 flex justify-between items-center opacity-80">
+<span class="font-mono text-sm font-medium text-on-surface-variant">权限拒绝 (EACCES)</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-5 flex justify-between items-center opacity-80">
+<span class="font-mono text-sm font-medium text-on-surface-variant">Yaml 解析失败</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-5 flex justify-between items-center opacity-80">
+<span class="font-mono text-sm font-medium text-on-surface-variant">端口占用 8080</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-5 flex justify-between items-center opacity-80">
+<span class="font-mono text-sm font-medium text-on-surface-variant">版本不兼容</span>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Post-migration Checklist -->
+<section class="space-y-6">
+<h3 class="text-xl font-bold tracking-tight">迁移后验证清单（5 项）</h3>
+<div class="grid gap-3">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-lowest border border-surface-container">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-surface">执行 hermes status 检查状态</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-lowest border border-surface-container">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-surface">登录 Web Dashboard 确认 UI 加载</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-lowest border border-surface-container">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-surface">尝试发起一次测试 API 调用</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-lowest border border-surface-container">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-surface">检查 Log 日志是否有 Error 报错</span>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl bg-surface-container-lowest border border-surface-container">
+<span class="material-symbols-outlined text-[#0fa76e]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm font-medium text-on-surface">设置开机自动启动项</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center py-3 px-6 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md z-50 pb-safe shadow-[0_-4px_24px_0_rgba(13,13,13,0.04)]">
+<div class="flex flex-col items-center justify-center bg-[#18e299] text-[#005f3d] rounded-xl px-5 py-1.5 transition-all">
+<span class="material-symbols-outlined">route</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide uppercase mt-1">Path</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 px-5 py-1.5 hover:text-emerald-600 dark:hover:text-emerald-300 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide uppercase mt-1">Resources</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-500 dark:text-zinc-400 px-5 py-1.5 hover:text-emerald-600 dark:hover:text-emerald-300 tap-highlight-transparent active:scale-90 transition-transform">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[11px] font-medium tracking-wide uppercase mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,456 @@
+[
+  {
+    "name": "7-days-full",
+    "data": {
+      "outputComponents": [
+        {
+          "design": {
+            "screens": [
+              {
+                "designSystem": {
+                  "designSystem": {
+                    "displayName": "Hermes Mint System",
+                    "theme": {
+                      "bodyFont": "INTER",
+                      "colorMode": "LIGHT",
+                      "colorVariant": "FIDELITY",
+                      "customColor": "#18E299",
+                      "designMd": "# Design System: Editorial Precision & Tonal Depth\n\n## 1. Overview & Creative North Star\n**Creative North Star: The Digital Curator**\nThis design system moves away from the rigid, boxed-in nature of traditional educational apps. Instead, it adopts a high-end editorial approach—treating the '7-Day Hermes Agent Learning Path' as a premium publication rather than a software checklist. \n\nTo break the \"template\" look, we utilize **Intentional Asymmetry** and **Tonal Layering**. By eschewing heavy borders and standard shadows in favor of subtle background shifts, we create a layout that feels \"grown\" rather than \"built.\" The experience should feel like a series of fine paper sheets layered atop one another, guiding the user through a focused, distraction-free intellectual journey.\n\n---\n\n## 2. Colors & Surface Philosophy\nThe palette is rooted in a \"Mint & Monochrome\" high-contrast foundation. It prioritizes legibility and a sense of progression through green-tinted neutrals.\n\n### The Color Tokens\n*   **Primary (Progress/Action):** `#18E299` (Bright Mint) — Used for high-momentum states.\n*   **Primary Deep (Interaction):** `#0fa76e` — Used for text links and semantic icons.\n*   **Surface Lowest:** `#ffffff` (Pure White) — The base canvas.\n*   **Surface Low:** `#fafafa` — The primary card and code block foundation.\n*   **Completed State:** `#d4fae8` — A soft, tonal reward for finished tasks.\n\n### The \"No-Line\" Rule\n**Explicit Instruction:** Designers are prohibited from using 1px solid borders for sectioning or containment. Boundaries must be defined solely through background color shifts. A `surface_container_low` section sitting on a `surface` background provides all the definition needed. If you feel a border is required, your tonal contrast is likely too weak.\n\n### Surface Hierarchy & Nesting\nTreat the UI as a physical stack. \n1.  **Level 0 (Canvas):** `surface` (`#f9f9f9`)\n2.  **Level 1 (Sections):** `surface_container_low` (`#f3f3f3`)\n3.  **Level 2 (Active Cards):** `surface_container_lowest` (`#ffffff`)\n\n### Signature Textures\nTo add \"soul\" to the interface, main CTAs and hero progress headers should use a subtle linear gradient: `primary` (`#18e299`) to `primary_container` (`#006c47`) at a 135-degree angle. This provides a tactile depth that flat hex codes cannot achieve.\n\n---\n\n## 3. Typography\nWe use **Inter** for its neutral, authoritative clarity and **Geist Mono** for technical precision.\n\n*   **Display (Editorial Moments):** `display-md` (2.75rem). Use for day markers (e.g., \"Day 01\"). Tighten tracking to -0.02em for a premium look.\n*   **Headlines (Lesson Titles):** `headline-sm` (1.5rem). Semi-bold. These are the anchors of the page.\n*   **Body (Instructional Content):** `body-lg` (1rem). High line-height (1.6) is mandatory to ensure the \"Editorial\" feel and prevent user fatigue.\n*   **Code (Technical Snippets):** `Geist Mono` (0.875rem). Set on `surface` backgrounds with a 12px (`0.75rem`) radius.\n\nThe hierarchy is built on **Scale Contrast**. Large Display text should sit near small, muted labels to create a sense of professional hierarchy and white-space confidence.\n\n---\n\n## 4. Elevation & Depth\nIn this system, \"Elevation\" is a color property, not a shadow property.\n\n### The Layering Principle\nStacking tiers creates \"Soft Lift.\" \n*   Place a `surface_container_lowest` (#ffffff) card on a `surface_container` (#eeeeee) background. \n*   The 12px (`0.75rem`) corner radius is mandatory for all nested containers to maintain the \"Material You\" softness.\n\n### Ambient Shadows\nShadows are used only for \"floating\" elements (e.g., a sticky 'Continue' button). \n*   **Specs:** `0px 10px 30px rgba(0, 108, 71, 0.08)`. \n*   Note the use of a tinted shadow (Primary Deep) instead of grey; this mimics natural light passing through a mint-tinted surface.\n\n### Glassmorphism\nFor mobile navigation headers or floating progress bars, use:\n*   `background: rgba(255, 255, 255, 0.7)`\n*   `backdrop-filter: blur(12px)`\nThis allows the content to bleed through, softening the layout’s edges.\n\n---\n\n## 5. Components\n\n### Buttons\n*   **Primary:** Gradient fill (`#18e299` to `#0fa76e`), white text, 12px radius. No shadow.\n*   **Tertiary:** Ghost style. No background, `on_surface` text, 12px radius. Only a `surface_variant` hover state.\n\n### Learning Cards\n*   **Standard State:** `surface_container_low` background. No border.\n*   **Active State:** `surface_container_lowest` background with an `ambient shadow`.\n*   **Completed State:** `brand_light` (`#d4fae8`) background. Icons switch to `brand_deep`.\n\n### Progress Indicators\n*   **The Progress Track:** A 4px thick line using `surface_container_highest`.\n*   **The Fill:** `primary` (`#18e299`).\n*   **Geometric Icons:** Use simple circles and squares. A \"Check\" is a simple 2px stroke geometric tick. No rounded caps on strokes; use butt caps for a more \"Architectural\" feel.\n\n### Input Fields & Code Blocks\n*   **Code Blocks:** `surface` (`#fafafa`) background. Use `Geist Mono`.\n*   **Spacing:** Forbid the use of divider lines. Separate list items with 16px of vertical white space or a subtle background shift.\n\n---\n\n## 6. Do's and Don'ts\n\n### Do\n*   **DO** use asymmetric padding. For example, give a header more top padding than bottom padding to create an editorial \"lift.\"\n*   **DO** use tonal shifts to indicate state. A \"Completed\" lesson should feel physically different (lighter, mintier) than an \"Upcoming\" lesson.\n*   **DO** leave significant negative space. If a screen feels full, it is wrong.\n\n### Don't\n*   **DON'T** use 1px borders. If you need a divider, use a 4px wide `surface_container` block or simply more white space.\n*   **DON'T** use emojis. Use sharp, geometric SVG icons to maintain an authoritative, high-end tone.\n*   **DON'T** use purple or high-chroma gradients. Keep gradients limited to the mint-green spectrum.\n*   **DON'T** use standard \"drop shadows.\" Use the ambient, tinted blurs defined in the Elevation section.",
+                      "font": "INTER",
+                      "headlineFont": "INTER",
+                      "labelFont": "INTER",
+                      "namedColors": {
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "error_container": "#ffdad6",
+                        "inverse_on_surface": "#f0f1f1",
+                        "inverse_primary": "#17e299",
+                        "inverse_surface": "#2f3131",
+                        "on_background": "#1a1c1c",
+                        "on_error": "#ffffff",
+                        "on_error_container": "#93000a",
+                        "on_primary": "#ffffff",
+                        "on_primary_container": "#005f3d",
+                        "on_primary_fixed": "#002112",
+                        "on_primary_fixed_variant": "#005234",
+                        "on_secondary": "#ffffff",
+                        "on_secondary_container": "#00734a",
+                        "on_secondary_fixed": "#002112",
+                        "on_secondary_fixed_variant": "#005233",
+                        "on_surface": "#1a1c1c",
+                        "on_surface_variant": "#3b4a41",
+                        "on_tertiary": "#ffffff",
+                        "on_tertiary_container": "#38594c",
+                        "on_tertiary_fixed": "#002116",
+                        "on_tertiary_fixed_variant": "#2c4d40",
+                        "outline": "#6b7b70",
+                        "outline_variant": "#bacbbe",
+                        "primary": "#006c47",
+                        "primary_container": "#18e299",
+                        "primary_fixed": "#4dffb3",
+                        "primary_fixed_dim": "#17e299",
+                        "secondary": "#006c45",
+                        "secondary_container": "#7bfab9",
+                        "secondary_fixed": "#7bfab9",
+                        "secondary_fixed_dim": "#5ddd9f",
+                        "surface": "#f9f9f9",
+                        "surface_bright": "#f9f9f9",
+                        "surface_container": "#eeeeee",
+                        "surface_container_high": "#e8e8e8",
+                        "surface_container_highest": "#e2e2e2",
+                        "surface_container_low": "#f3f3f3",
+                        "surface_container_lowest": "#ffffff",
+                        "surface_dim": "#dadada",
+                        "surface_tint": "#006c47",
+                        "surface_variant": "#e2e2e2",
+                        "tertiary": "#436557",
+                        "tertiary_container": "#aacfbe",
+                        "tertiary_fixed": "#c5ebd9",
+                        "tertiary_fixed_dim": "#aacfbe"
+                      },
+                      "overrideNeutralColor": "#FAFAFA",
+                      "overridePrimaryColor": "#18E299",
+                      "overrideSecondaryColor": "#0FA76E",
+                      "overrideTertiaryColor": "#D4FAE8",
+                      "roundness": "ROUND_EIGHT",
+                      "spacingScale": 2
+                    }
+                  },
+                  "name": "assets/71024d4c1c174af999c9c136e2e09e3f",
+                  "version": "1"
+                },
+                "deviceType": "MOBILE",
+                "generatedBy": "figaro_agent",
+                "height": "3490",
+                "htmlCode": {
+                  "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzM1MDIxZWU2NmRlMDRkMzI4NzA4NGMwNmZjNmY4ZTg0EgsSBxC03uj2swYYAZIBJAoKcHJvamVjdF9pZBIWQhQxMTU1NzQzMTk2MzY5MTA4MzU2NA&filename=&opi=96797242",
+                  "mimeType": "text/html",
+                  "name": "projects/11557431963691083564/files/36c0fb7d27bd4c3695923f50429b8d6c"
+                },
+                "id": "9c3b2e7f1743470494fe4128a5a29b09",
+                "name": "projects/11557431963691083564/screens/9c3b2e7f1743470494fe4128a5a29b09",
+                "prompt": "A long-scroll mobile-first tutorial page for '7-Day Hermes Agent Learning Path' showing the COMPLETE journey.\n\nDESIGN SYSTEM:\n- Background: pure white #ffffff\n- Primary brand: #18E299 (bright mint green)\n- Brand deep: #0fa76e\n- Brand light: #d4fae8\n- Surface: #fafafa\n- Text: #0d0d0d primary, #333333 secondary, #666666 muted\n- Border: rgba(0,0,0,0.06)\n- Fonts: Inter for UI text, Geist Mono for code snippets\n- 12px rounded corners, soft shadows, tonal layering\n\nPAGE CONTENT:\n1. Top Celebration Banner: '恭喜完成 7 天学习路径！', geometric confetti dots, trophy icon shape, soft #d4fae8 gradient. Progress '7/7 已完成'.\n2. Visual Timeline: Horizontal 7-segment bar, all completed with #0fa76e checkmarks.\n3. Accordion Day Cards (Stacked Vertically):\n   - Day 1: Collapsed, completed. '安装 + 第一次对话', result 'hermes --version 正常返回'.\n   - Day 2: Collapsed, completed. '配置模型和 API key', result '模型响应成功'.\n   - Day 3: Collapsed, completed. '连接飞书 / Telegram', result '拥有一个可回复消息的机器人'.\n   - Day 4: Collapsed, completed. '使用内置工具', result '成功调用天气、搜索、终端等技能'.\n   - Day 5: Collapsed, completed. '技能系统入门', result '安装并使用一个第三方技能'.\n   - Day 6: Collapsed, completed. '记忆与 Cron 自动化', result '设置一个定时任务或持久记忆'.\n   - Day 7: EXPANDED, completed highlight. '进阶与下一步', result '了解 MCP、自定义技能和部署选项'.\n     - Day 7 expanded card includes: Day badge 'Day 7', title, '今日目标' pill, 4 numbered summary steps, '迁移到 OpenClaw' link chip, '完成庆祝' mini card with star icon.\n4. Bottom Sticky Bar: '← 前一天' and '后一天 →' buttons, '7/7 已完成' with trophy icon.\n\nMobile-first: single column, max-width 430px. No purple gradients. Use simple geometric icon shapes instead of emojis.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0uhXsgnXyuW69S05upxXWS8HCWIUI2BfEtpni2HfLwz5aAlKLwn_aSMDQy_SNzIekFQ8HRKpvMJaVAKIFu-F5tKPLoDTMcRIB6b60m0HJ8QVMIA2n3rz6CFl2wuqTE6OC-D3FmJ5EZzbqHZVkKV9MFlGTQi4ADmUIhdMG3DVRrG_ueKEu4n3hfsW9-2CNGc-N4md9aNAdXe8AZv68CcuBqJ2SfWxLGArHpM_fwObcWGRQjD1yrNLkW9q8xyA",
+                  "name": "projects/11557431963691083564/files/f2090e5fda5e4b0e93fdc46681ee9df3"
+                },
+                "theme": {
+                  "bodyFont": "INTER",
+                  "colorMode": "LIGHT",
+                  "colorVariant": "FIDELITY",
+                  "customColor": "#18E299",
+                  "designMd": "# Design System: Editorial Precision & Tonal Depth\n\n## 1. Overview & Creative North Star\n**Creative North Star: The Digital Curator**\nThis design system moves away from the rigid, boxed-in nature of traditional educational apps. Instead, it adopts a high-end editorial approach—treating the '7-Day Hermes Agent Learning Path' as a premium publication rather than a software checklist. \n\nTo break the \"template\" look, we utilize **Intentional Asymmetry** and **Tonal Layering**. By eschewing heavy borders and standard shadows in favor of subtle background shifts, we create a layout that feels \"grown\" rather than \"built.\" The experience should feel like a series of fine paper sheets layered atop one another, guiding the user through a focused, distraction-free intellectual journey.\n\n---\n\n## 2. Colors & Surface Philosophy\nThe palette is rooted in a \"Mint & Monochrome\" high-contrast foundation. It prioritizes legibility and a sense of progression through green-tinted neutrals.\n\n### The Color Tokens\n*   **Primary (Progress/Action):** `#18E299` (Bright Mint) — Used for high-momentum states.\n*   **Primary Deep (Interaction):** `#0fa76e` — Used for text links and semantic icons.\n*   **Surface Lowest:** `#ffffff` (Pure White) — The base canvas.\n*   **Surface Low:** `#fafafa` — The primary card and code block foundation.\n*   **Completed State:** `#d4fae8` — A soft, tonal reward for finished tasks.\n\n### The \"No-Line\" Rule\n**Explicit Instruction:** Designers are prohibited from using 1px solid borders for sectioning or containment. Boundaries must be defined solely through background color shifts. A `surface_container_low` section sitting on a `surface` background provides all the definition needed. If you feel a border is required, your tonal contrast is likely too weak.\n\n### Surface Hierarchy & Nesting\nTreat the UI as a physical stack. \n1.  **Level 0 (Canvas):** `surface` (`#f9f9f9`)\n2.  **Level 1 (Sections):** `surface_container_low` (`#f3f3f3`)\n3.  **Level 2 (Active Cards):** `surface_container_lowest` (`#ffffff`)\n\n### Signature Textures\nTo add \"soul\" to the interface, main CTAs and hero progress headers should use a subtle linear gradient: `primary` (`#18e299`) to `primary_container` (`#006c47`) at a 135-degree angle. This provides a tactile depth that flat hex codes cannot achieve.\n\n---\n\n## 3. Typography\nWe use **Inter** for its neutral, authoritative clarity and **Geist Mono** for technical precision.\n\n*   **Display (Editorial Moments):** `display-md` (2.75rem). Use for day markers (e.g., \"Day 01\"). Tighten tracking to -0.02em for a premium look.\n*   **Headlines (Lesson Titles):** `headline-sm` (1.5rem). Semi-bold. These are the anchors of the page.\n*   **Body (Instructional Content):** `body-lg` (1rem). High line-height (1.6) is mandatory to ensure the \"Editorial\" feel and prevent user fatigue.\n*   **Code (Technical Snippets):** `Geist Mono` (0.875rem). Set on `surface` backgrounds with a 12px (`0.75rem`) radius.\n\nThe hierarchy is built on **Scale Contrast**. Large Display text should sit near small, muted labels to create a sense of professional hierarchy and white-space confidence.\n\n---\n\n## 4. Elevation & Depth\nIn this system, \"Elevation\" is a color property, not a shadow property.\n\n### The Layering Principle\nStacking tiers creates \"Soft Lift.\" \n*   Place a `surface_container_lowest` (#ffffff) card on a `surface_container` (#eeeeee) background. \n*   The 12px (`0.75rem`) corner radius is mandatory for all nested containers to maintain the \"Material You\" softness.\n\n### Ambient Shadows\nShadows are used only for \"floating\" elements (e.g., a sticky 'Continue' button). \n*   **Specs:** `0px 10px 30px rgba(0, 108, 71, 0.08)`. \n*   Note the use of a tinted shadow (Primary Deep) instead of grey; this mimics natural light passing through a mint-tinted surface.\n\n### Glassmorphism\nFor mobile navigation headers or floating progress bars, use:\n*   `background: rgba(255, 255, 255, 0.7)`\n*   `backdrop-filter: blur(12px)`\nThis allows the content to bleed through, softening the layout’s edges.\n\n---\n\n## 5. Components\n\n### Buttons\n*   **Primary:** Gradient fill (`#18e299` to `#0fa76e`), white text, 12px radius. No shadow.\n*   **Tertiary:** Ghost style. No background, `on_surface` text, 12px radius. Only a `surface_variant` hover state.\n\n### Learning Cards\n*   **Standard State:** `surface_container_low` background. No border.\n*   **Active State:** `surface_container_lowest` background with an `ambient shadow`.\n*   **Completed State:** `brand_light` (`#d4fae8`) background. Icons switch to `brand_deep`.\n\n### Progress Indicators\n*   **The Progress Track:** A 4px thick line using `surface_container_highest`.\n*   **The Fill:** `primary` (`#18e299`).\n*   **Geometric Icons:** Use simple circles and squares. A \"Check\" is a simple 2px stroke geometric tick. No rounded caps on strokes; use butt caps for a more \"Architectural\" feel.\n\n### Input Fields & Code Blocks\n*   **Code Blocks:** `surface` (`#fafafa`) background. Use `Geist Mono`.\n*   **Spacing:** Forbid the use of divider lines. Separate list items with 16px of vertical white space or a subtle background shift.\n\n---\n\n## 6. Do's and Don'ts\n\n### Do\n*   **DO** use asymmetric padding. For example, give a header more top padding than bottom padding to create an editorial \"lift.\"\n*   **DO** use tonal shifts to indicate state. A \"Completed\" lesson should feel physically different (lighter, mintier) than an \"Upcoming\" lesson.\n*   **DO** leave significant negative space. If a screen feels full, it is wrong.\n\n### Don't\n*   **DON'T** use 1px borders. If you need a divider, use a 4px wide `surface_container` block or simply more white space.\n*   **DON'T** use emojis. Use sharp, geometric SVG icons to maintain an authoritative, high-end tone.\n*   **DON'T** use purple or high-chroma gradients. Keep gradients limited to the mint-green spectrum.\n*   **DON'T** use standard \"drop shadows.\" Use the ambient, tinted blurs defined in the Elevation section.",
+                  "font": "INTER",
+                  "headlineFont": "INTER",
+                  "labelFont": "INTER",
+                  "namedColors": {
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "error_container": "#ffdad6",
+                    "inverse_on_surface": "#f0f1f1",
+                    "inverse_primary": "#17e299",
+                    "inverse_surface": "#2f3131",
+                    "on_background": "#1a1c1c",
+                    "on_error": "#ffffff",
+                    "on_error_container": "#93000a",
+                    "on_primary": "#ffffff",
+                    "on_primary_container": "#005f3d",
+                    "on_primary_fixed": "#002112",
+                    "on_primary_fixed_variant": "#005234",
+                    "on_secondary": "#ffffff",
+                    "on_secondary_container": "#00734a",
+                    "on_secondary_fixed": "#002112",
+                    "on_secondary_fixed_variant": "#005233",
+                    "on_surface": "#1a1c1c",
+                    "on_surface_variant": "#3b4a41",
+                    "on_tertiary": "#ffffff",
+                    "on_tertiary_container": "#38594c",
+                    "on_tertiary_fixed": "#002116",
+                    "on_tertiary_fixed_variant": "#2c4d40",
+                    "outline": "#6b7b70",
+                    "outline_variant": "#bacbbe",
+                    "primary": "#006c47",
+                    "primary_container": "#18e299",
+                    "primary_fixed": "#4dffb3",
+                    "primary_fixed_dim": "#17e299",
+                    "secondary": "#006c45",
+                    "secondary_container": "#7bfab9",
+                    "secondary_fixed": "#7bfab9",
+                    "secondary_fixed_dim": "#5ddd9f",
+                    "surface": "#f9f9f9",
+                    "surface_bright": "#f9f9f9",
+                    "surface_container": "#eeeeee",
+                    "surface_container_high": "#e8e8e8",
+                    "surface_container_highest": "#e2e2e2",
+                    "surface_container_low": "#f3f3f3",
+                    "surface_container_lowest": "#ffffff",
+                    "surface_dim": "#dadada",
+                    "surface_tint": "#006c47",
+                    "surface_variant": "#e2e2e2",
+                    "tertiary": "#436557",
+                    "tertiary_container": "#aacfbe",
+                    "tertiary_fixed": "#c5ebd9",
+                    "tertiary_fixed_dim": "#aacfbe"
+                  },
+                  "overrideNeutralColor": "#FAFAFA",
+                  "overridePrimaryColor": "#18E299",
+                  "overrideSecondaryColor": "#0FA76E",
+                  "overrideTertiaryColor": "#D4FAE8",
+                  "roundness": "ROUND_EIGHT",
+                  "spacingScale": 2
+                },
+                "title": "7-Day Hermes Learning Path (Completed)",
+                "width": "780"
+              }
+            ],
+            "theme": {}
+          }
+        },
+        {
+          "text": "I've designed the complete 7-day learning path for the Hermes Agent. \n\nThis mobile-first view features:\n*   **Celebration Banner:** A prominent top section with a trophy icon and a soft mint gradient to mark the completion of the journey.\n*   **7-Day Timeline:** A horizontal progress tracker showing all seven segments as completed.\n*   **Learning Journey Accordion:** A vertical stack of cards for each day. Days 1 through 6 are shown in a collapsed, completed state, while Day 7 is expanded to showcase the \"Next Steps,\" including numbered summaries and a special \"Completion\" card.\n*   **Brand Alignment:** The design strictly follows your specified palette of #18E299 and #0fa76e, with Inter and Geist Mono typography and soft 12px rounded corners.\n*   **Sticky Footer:** A fixed bottom bar for easy navigation and a final status confirmation.\n\nYou can see the full journey by scrolling through the new screen on the canvas."
+        },
+        {
+          "suggestion": "Expand Day 1 to show setup steps"
+        },
+        {
+          "suggestion": "Change the 'completed' color to a darker green"
+        },
+        {
+          "suggestion": "Add a 'Share Certificate' button to the banner"
+        }
+      ],
+      "projectId": "11557431963691083564",
+      "sessionId": "7555334026506515561"
+    },
+    "returncode": 0
+  },
+  {
+    "name": "migrate-full",
+    "data": {
+      "outputComponents": [
+        {
+          "designSystem": {
+            "designSystem": {
+              "displayName": "Hermes Mint",
+              "theme": {
+                "bodyFont": "INTER",
+                "colorMode": "LIGHT",
+                "colorVariant": "FIDELITY",
+                "customColor": "#18E299",
+                "designMd": "# Design System Specification: The Mint Narrative\n\n## 1. Overview & Creative North Star\n**Creative North Star: \"The Clinical Technologist\"**\n\nThis design system is built to transform a standard migration guide into a high-end, editorial-grade technical document. It moves away from the \"cluttered dashboard\" aesthetic, instead embracing a \"Clinical Technologist\" philosophy: precision, transparency, and high-velocity clarity. \n\nBy leveraging **Material You** tonal logic and a strict **No-Line Rule**, we create a sense of structure through atmospheric depth rather than rigid containment. The experience should feel like reading a premium architecture journal—expansive, intentional, and surgically clean.\n\n---\n\n## 2. Colors & Tonal Architecture\nThe palette is anchored by a high-chroma mint green, balanced against a hierarchy of surgical greys and \"warm-white\" surfaces.\n\n### Primary Tokens\n- **Primary (`#006c47`)**: Used for high-emphasis actions and key brand moments.\n- **Primary Container (`#18e299`)**: The signature \"Hermes Mint.\" Use this for active progress states, primary CTAs, and success indicators.\n- **On-Primary Container (`#005f3d`)**: The deep contrast for text sitting atop the Mint surface.\n\n### The \"No-Line\" Rule\nTraditional 1px borders are strictly prohibited for sectioning. Structural boundaries must be defined solely through:\n1.  **Background Shifts:** Transitioning from `surface` (`#f9f9f9`) to `surface-container-low` (`#f3f3f3`).\n2.  **Negative Space:** Using the spacing scale to create psychological groupings.\n\n### Surface Hierarchy & Nesting\nTreat the UI as a series of stacked, precision-cut sheets. \n- **Base Layer:** `surface-container-lowest` (`#ffffff`) for the main canvas.\n- **Content Blocks:** `surface-container` (`#eeeeee`) for code blocks and secondary cards.\n- **Floating Elements:** Use `surface-bright` with a soft ambient shadow to indicate a temporary state (like a tooltip or dropdown).\n\n### Glassmorphism & Depth\nWhile gradients are forbidden, **tonal transparency** is encouraged. For navigation bars or floating action bars, use `surface` at 80% opacity with a `20px` backdrop-blur to allow the content beneath to softly bleed through, maintaining a sense of place during the migration journey.\n\n---\n\n## 3. Typography\nThe typography uses a high-contrast scale to create an editorial feel, moving from massive, airy displays to compact, utilitarian labels.\n\n- **Display (Inter):** Large, bold, and tracked tightly (-2%). These are the \"Wayfinders.\"\n- **Headline (Inter):** Used for section starts. High contrast against body text ensures the user never loses their place in the migration flow.\n- **Title (Inter):** Semi-bold and authoritative. Used for card headers.\n- **Body (Inter):** Optimized for long-form reading. Line height should be generous (1.5x) to prevent cognitive fatigue during technical tasks.\n- **Code (Geist Mono):** Every code snippet must use Geist Mono. It is our \"Industrial Accent,\" providing a sharp, monospaced contrast to the soft UI.\n\n---\n\n## 4. Elevation & Depth\nElevation is achieved through **Tonal Layering** and **Ambient Shadows**, never through heavy lines.\n\n- **The Layering Principle:** To highlight a specific migration step, do not outline the box. Instead, place a `surface-container-lowest` card inside a `surface-container` section. The slight shift in \"whiteness\" provides a sophisticated, natural lift.\n- **Ambient Shadows:** When a floating effect is required (e.g., a \"Current Step\" card), use a shadow with a 24px blur and 4% opacity, using `#0d0d0d` as the base color. This mimics natural diffused light.\n- **The \"Ghost Border\" Fallback:** If a boundary is required for accessibility in complex data tables, use the `outline-variant` (`#bacbbe`) at **15% opacity**. It should be felt, not seen.\n\n---\n\n## 5. Components\n\n### Buttons\n- **Primary:** `primary-container` background with `on-primary-container` text. Rounded-md (12px). No shadow unless hovered.\n- **Secondary:** `surface-container-high` background. Subtle and integrated.\n- **Tertiary:** Text-only in `primary` (`#006c47`) with no background, used for low-priority navigation.\n\n### Code Blocks (The Migration Core)\n- **Background:** `surface-container-low` (`#f3f3f3`).\n- **Typography:** Geist Mono, `body-sm`.\n- **Styling:** 12px rounded corners. No border. Syntax highlighting should use tonal variations of Mint and Deep Green—avoid traditional \"rainbow\" syntax highlighting to maintain the brand’s clinical feel.\n\n### Status Chips\n- **Success:** `brand-light` (`#d4fae8`) background with `brand-deep` (`#0fa76e`) text.\n- **Warning:** `warning-background` (`#fffbeb`) with a ghost border of `warning-border` (`#fde68a`).\n\n### Cards & Progress\n- **The Progress Rail:** Use a thick (8px) `surface-container` track with a `primary-container` (Mint) fill.\n- **Cards:** Strictly no dividers. Use vertical white space (32px+) to separate content sections within a card.\n\n---\n\n## 6. Do's and Don'ts\n\n### Do\n*   **Do** use asymmetrical layouts. For example, a wide code block offset against a narrow explanatory column.\n*   **Do** utilize `surface-container` tiers to create \"nesting\" for complex migration steps.\n*   **Do** use Geist Mono for any technical value, version number, or terminal command.\n\n### Don't\n*   **Don't** use 1px solid borders to separate sections.\n*   **Don't** use emojis. The tone is professional, surgical, and focused.\n*   **Don't** use gradients. Visual interest must come from tonal shifts and typography, not color blends.\n*   **Don't** use standard \"drop shadows.\" Only use ultra-soft, low-opacity ambient shadows for floating elements.",
+                "font": "INTER",
+                "headlineFont": "INTER",
+                "labelFont": "INTER",
+                "namedColors": {
+                  "background": "#f9f9f9",
+                  "error": "#ba1a1a",
+                  "error_container": "#ffdad6",
+                  "inverse_on_surface": "#f0f1f1",
+                  "inverse_primary": "#17e299",
+                  "inverse_surface": "#2f3131",
+                  "on_background": "#1a1c1c",
+                  "on_error": "#ffffff",
+                  "on_error_container": "#93000a",
+                  "on_primary": "#ffffff",
+                  "on_primary_container": "#005f3d",
+                  "on_primary_fixed": "#002112",
+                  "on_primary_fixed_variant": "#005234",
+                  "on_secondary": "#ffffff",
+                  "on_secondary_container": "#00734a",
+                  "on_secondary_fixed": "#002112",
+                  "on_secondary_fixed_variant": "#005233",
+                  "on_surface": "#1a1c1c",
+                  "on_surface_variant": "#3b4a41",
+                  "on_tertiary": "#ffffff",
+                  "on_tertiary_container": "#38594c",
+                  "on_tertiary_fixed": "#002116",
+                  "on_tertiary_fixed_variant": "#2c4d40",
+                  "outline": "#6b7b70",
+                  "outline_variant": "#bacbbe",
+                  "primary": "#006c47",
+                  "primary_container": "#18e299",
+                  "primary_fixed": "#4dffb3",
+                  "primary_fixed_dim": "#17e299",
+                  "secondary": "#006c45",
+                  "secondary_container": "#7bfab9",
+                  "secondary_fixed": "#7bfab9",
+                  "secondary_fixed_dim": "#5ddd9f",
+                  "surface": "#f9f9f9",
+                  "surface_bright": "#f9f9f9",
+                  "surface_container": "#eeeeee",
+                  "surface_container_high": "#e8e8e8",
+                  "surface_container_highest": "#e2e2e2",
+                  "surface_container_low": "#f3f3f3",
+                  "surface_container_lowest": "#ffffff",
+                  "surface_dim": "#dadada",
+                  "surface_tint": "#006c47",
+                  "surface_variant": "#e2e2e2",
+                  "tertiary": "#436557",
+                  "tertiary_container": "#aacfbe",
+                  "tertiary_fixed": "#c5ebd9",
+                  "tertiary_fixed_dim": "#aacfbe"
+                },
+                "overrideNeutralColor": "#FAFAFA",
+                "overridePrimaryColor": "#18E299",
+                "overrideSecondaryColor": "#0FA76E",
+                "overrideTertiaryColor": "#D4FAE8",
+                "roundness": "ROUND_EIGHT",
+                "spacingScale": 2
+              }
+            },
+            "name": "assets/d9730cd070504274934efe053127e82b",
+            "version": "1"
+          }
+        },
+        {
+          "design": {
+            "screens": [
+              {
+                "designSystem": {
+                  "designSystem": {
+                    "displayName": "Hermes Mint",
+                    "theme": {
+                      "bodyFont": "INTER",
+                      "colorMode": "LIGHT",
+                      "colorVariant": "FIDELITY",
+                      "customColor": "#18E299",
+                      "designMd": "# Design System Specification: The Mint Narrative\n\n## 1. Overview & Creative North Star\n**Creative North Star: \"The Clinical Technologist\"**\n\nThis design system is built to transform a standard migration guide into a high-end, editorial-grade technical document. It moves away from the \"cluttered dashboard\" aesthetic, instead embracing a \"Clinical Technologist\" philosophy: precision, transparency, and high-velocity clarity. \n\nBy leveraging **Material You** tonal logic and a strict **No-Line Rule**, we create a sense of structure through atmospheric depth rather than rigid containment. The experience should feel like reading a premium architecture journal—expansive, intentional, and surgically clean.\n\n---\n\n## 2. Colors & Tonal Architecture\nThe palette is anchored by a high-chroma mint green, balanced against a hierarchy of surgical greys and \"warm-white\" surfaces.\n\n### Primary Tokens\n- **Primary (`#006c47`)**: Used for high-emphasis actions and key brand moments.\n- **Primary Container (`#18e299`)**: The signature \"Hermes Mint.\" Use this for active progress states, primary CTAs, and success indicators.\n- **On-Primary Container (`#005f3d`)**: The deep contrast for text sitting atop the Mint surface.\n\n### The \"No-Line\" Rule\nTraditional 1px borders are strictly prohibited for sectioning. Structural boundaries must be defined solely through:\n1.  **Background Shifts:** Transitioning from `surface` (`#f9f9f9`) to `surface-container-low` (`#f3f3f3`).\n2.  **Negative Space:** Using the spacing scale to create psychological groupings.\n\n### Surface Hierarchy & Nesting\nTreat the UI as a series of stacked, precision-cut sheets. \n- **Base Layer:** `surface-container-lowest` (`#ffffff`) for the main canvas.\n- **Content Blocks:** `surface-container` (`#eeeeee`) for code blocks and secondary cards.\n- **Floating Elements:** Use `surface-bright` with a soft ambient shadow to indicate a temporary state (like a tooltip or dropdown).\n\n### Glassmorphism & Depth\nWhile gradients are forbidden, **tonal transparency** is encouraged. For navigation bars or floating action bars, use `surface` at 80% opacity with a `20px` backdrop-blur to allow the content beneath to softly bleed through, maintaining a sense of place during the migration journey.\n\n---\n\n## 3. Typography\nThe typography uses a high-contrast scale to create an editorial feel, moving from massive, airy displays to compact, utilitarian labels.\n\n- **Display (Inter):** Large, bold, and tracked tightly (-2%). These are the \"Wayfinders.\"\n- **Headline (Inter):** Used for section starts. High contrast against body text ensures the user never loses their place in the migration flow.\n- **Title (Inter):** Semi-bold and authoritative. Used for card headers.\n- **Body (Inter):** Optimized for long-form reading. Line height should be generous (1.5x) to prevent cognitive fatigue during technical tasks.\n- **Code (Geist Mono):** Every code snippet must use Geist Mono. It is our \"Industrial Accent,\" providing a sharp, monospaced contrast to the soft UI.\n\n---\n\n## 4. Elevation & Depth\nElevation is achieved through **Tonal Layering** and **Ambient Shadows**, never through heavy lines.\n\n- **The Layering Principle:** To highlight a specific migration step, do not outline the box. Instead, place a `surface-container-lowest` card inside a `surface-container` section. The slight shift in \"whiteness\" provides a sophisticated, natural lift.\n- **Ambient Shadows:** When a floating effect is required (e.g., a \"Current Step\" card), use a shadow with a 24px blur and 4% opacity, using `#0d0d0d` as the base color. This mimics natural diffused light.\n- **The \"Ghost Border\" Fallback:** If a boundary is required for accessibility in complex data tables, use the `outline-variant` (`#bacbbe`) at **15% opacity**. It should be felt, not seen.\n\n---\n\n## 5. Components\n\n### Buttons\n- **Primary:** `primary-container` background with `on-primary-container` text. Rounded-md (12px). No shadow unless hovered.\n- **Secondary:** `surface-container-high` background. Subtle and integrated.\n- **Tertiary:** Text-only in `primary` (`#006c47`) with no background, used for low-priority navigation.\n\n### Code Blocks (The Migration Core)\n- **Background:** `surface-container-low` (`#f3f3f3`).\n- **Typography:** Geist Mono, `body-sm`.\n- **Styling:** 12px rounded corners. No border. Syntax highlighting should use tonal variations of Mint and Deep Green—avoid traditional \"rainbow\" syntax highlighting to maintain the brand’s clinical feel.\n\n### Status Chips\n- **Success:** `brand-light` (`#d4fae8`) background with `brand-deep` (`#0fa76e`) text.\n- **Warning:** `warning-background` (`#fffbeb`) with a ghost border of `warning-border` (`#fde68a`).\n\n### Cards & Progress\n- **The Progress Rail:** Use a thick (8px) `surface-container` track with a `primary-container` (Mint) fill.\n- **Cards:** Strictly no dividers. Use vertical white space (32px+) to separate content sections within a card.\n\n---\n\n## 6. Do's and Don'ts\n\n### Do\n*   **Do** use asymmetrical layouts. For example, a wide code block offset against a narrow explanatory column.\n*   **Do** utilize `surface-container` tiers to create \"nesting\" for complex migration steps.\n*   **Do** use Geist Mono for any technical value, version number, or terminal command.\n\n### Don't\n*   **Don't** use 1px solid borders to separate sections.\n*   **Don't** use emojis. The tone is professional, surgical, and focused.\n*   **Don't** use gradients. Visual interest must come from tonal shifts and typography, not color blends.\n*   **Don't** use standard \"drop shadows.\" Only use ultra-soft, low-opacity ambient shadows for floating elements.",
+                      "font": "INTER",
+                      "headlineFont": "INTER",
+                      "labelFont": "INTER",
+                      "namedColors": {
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "error_container": "#ffdad6",
+                        "inverse_on_surface": "#f0f1f1",
+                        "inverse_primary": "#17e299",
+                        "inverse_surface": "#2f3131",
+                        "on_background": "#1a1c1c",
+                        "on_error": "#ffffff",
+                        "on_error_container": "#93000a",
+                        "on_primary": "#ffffff",
+                        "on_primary_container": "#005f3d",
+                        "on_primary_fixed": "#002112",
+                        "on_primary_fixed_variant": "#005234",
+                        "on_secondary": "#ffffff",
+                        "on_secondary_container": "#00734a",
+                        "on_secondary_fixed": "#002112",
+                        "on_secondary_fixed_variant": "#005233",
+                        "on_surface": "#1a1c1c",
+                        "on_surface_variant": "#3b4a41",
+                        "on_tertiary": "#ffffff",
+                        "on_tertiary_container": "#38594c",
+                        "on_tertiary_fixed": "#002116",
+                        "on_tertiary_fixed_variant": "#2c4d40",
+                        "outline": "#6b7b70",
+                        "outline_variant": "#bacbbe",
+                        "primary": "#006c47",
+                        "primary_container": "#18e299",
+                        "primary_fixed": "#4dffb3",
+                        "primary_fixed_dim": "#17e299",
+                        "secondary": "#006c45",
+                        "secondary_container": "#7bfab9",
+                        "secondary_fixed": "#7bfab9",
+                        "secondary_fixed_dim": "#5ddd9f",
+                        "surface": "#f9f9f9",
+                        "surface_bright": "#f9f9f9",
+                        "surface_container": "#eeeeee",
+                        "surface_container_high": "#e8e8e8",
+                        "surface_container_highest": "#e2e2e2",
+                        "surface_container_low": "#f3f3f3",
+                        "surface_container_lowest": "#ffffff",
+                        "surface_dim": "#dadada",
+                        "surface_tint": "#006c47",
+                        "surface_variant": "#e2e2e2",
+                        "tertiary": "#436557",
+                        "tertiary_container": "#aacfbe",
+                        "tertiary_fixed": "#c5ebd9",
+                        "tertiary_fixed_dim": "#aacfbe"
+                      },
+                      "overrideNeutralColor": "#FAFAFA",
+                      "overridePrimaryColor": "#18E299",
+                      "overrideSecondaryColor": "#0FA76E",
+                      "overrideTertiaryColor": "#D4FAE8",
+                      "roundness": "ROUND_EIGHT",
+                      "spacingScale": 2
+                    }
+                  },
+                  "name": "assets/d9730cd070504274934efe053127e82b",
+                  "version": "1"
+                },
+                "deviceType": "MOBILE",
+                "generatedBy": "figaro_agent",
+                "height": "5928",
+                "htmlCode": {
+                  "downloadUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzBkOTVlYThjYzhjZDQ5OWY5M2FmNmYzYjJhZGFiNjUwEgsSBxC03uj2swYYAZIBJAoKcHJvamVjdF9pZBIWQhQxMTU1NzQzMTk2MzY5MTA4MzU2NA&filename=&opi=96797242",
+                  "mimeType": "text/html",
+                  "name": "projects/11557431963691083564/files/b155a9c806044a3e935cc4b18676100b"
+                },
+                "id": "9d34456866c9403b99ad97e012238311",
+                "name": "projects/11557431963691083564/screens/9d34456866c9403b99ad97e012238311",
+                "prompt": "Design a mobile-first migration guide page for \"OpenClaw → Hermes Migration\". \nLayout: Single column, 430px max width feel.\n\n1. Hero: Title \"OpenClaw 迁移指南\", Subtitle \"使用 hermes claw migrate 一键迁移。配置不会丢。\"\n2. Process Timeline: Horizontal timeline \"迁移前 → 迁移中 → 迁移后\". Step 3 active with filled #18E299 circle and white checkmark.\n3. Pre-migration Checklist: Title \"迁移前检查清单（6 项）\". 6 items, all checked. Use #d4fae8 bg and green checkmarks.\n4. Command Blocks: \n   - Card 1: `hermes claw migrate` in Geist Mono. \"复制\" button. Below: success state animation lines with checkmarks.\n   - Card 2: `hermes backup --output ~/hermes-migrated.zip` in Geist Mono. \"复制\" button.\n5. Comparison Table: Title \"OpenClaw 与 Hermes v0.9 对照\". 3 columns: 功能 | OpenClaw | Hermes v0.9. Rows: Dashboard, Backup/Import, 平台接入, Debug 命令, Watch Patterns, MCP/Skill, Cron 自动化. Use green checkmarks for \"有\" and gray dashes for \"无\".\n6. Troubleshooting Accordion: Title \"常见失败场景\". 5 cards. Card 1 expanded: \n   - Title: `提示 \"claw 不存在\"`\n   - Content: \"原因：OpenClaw 未安装或未加入 PATH\" + \"解决：which openclaw 检查路径；如已卸载，手动复制 ~/.openclaw/config.yaml 到 ~/.hermes/\"\n   - Other 4 cards collapsed.\n7. Post-migration Checklist: \"迁移后验证清单（5 项）\". 5 items, all checked.\n\nStyle: pure white #ffffff bg, #18E299 accents, #0fa76e links/icons, #fafafa surfaces, 12px rounded corners, Inter UI font, Geist Mono for code. No purple, no gradients, no emojis. Geometric icons only.",
+                "screenMetadata": {
+                  "agentType": "PRO_AGENT",
+                  "status": "COMPLETE"
+                },
+                "screenType": "DESIGN",
+                "screenshot": {
+                  "downloadUrl": "https://lh3.googleusercontent.com/aida/ADBb0uji6VEd5_dJTkDv0keFMtrgIs9xpMvGdduRsVU_eriKTp49SnaAgsoYFvETwChOjRBvf7nKZQXrX8ZraMx7_9UOML9KGZ_x73ursLkjvYu8HvPVEmsUmEell3HPCBCcgMPEQtwZgMhxiI5iVIRsgNxbWKTlCkVR7qkNLXNrO8QkLpf-icdhr2N384IV8Mnu68602ofBsCuDlSTUaW06DgsPkDM_xD2baFdWj1W-TBzIV1y91-7koG9aM-dC",
+                  "name": "projects/11557431963691083564/files/e97596424fe542048b084e4d7d050d5b"
+                },
+                "theme": {
+                  "bodyFont": "INTER",
+                  "colorMode": "LIGHT",
+                  "colorVariant": "FIDELITY",
+                  "customColor": "#18E299",
+                  "designMd": "# Design System Specification: The Mint Narrative\n\n## 1. Overview & Creative North Star\n**Creative North Star: \"The Clinical Technologist\"**\n\nThis design system is built to transform a standard migration guide into a high-end, editorial-grade technical document. It moves away from the \"cluttered dashboard\" aesthetic, instead embracing a \"Clinical Technologist\" philosophy: precision, transparency, and high-velocity clarity. \n\nBy leveraging **Material You** tonal logic and a strict **No-Line Rule**, we create a sense of structure through atmospheric depth rather than rigid containment. The experience should feel like reading a premium architecture journal—expansive, intentional, and surgically clean.\n\n---\n\n## 2. Colors & Tonal Architecture\nThe palette is anchored by a high-chroma mint green, balanced against a hierarchy of surgical greys and \"warm-white\" surfaces.\n\n### Primary Tokens\n- **Primary (`#006c47`)**: Used for high-emphasis actions and key brand moments.\n- **Primary Container (`#18e299`)**: The signature \"Hermes Mint.\" Use this for active progress states, primary CTAs, and success indicators.\n- **On-Primary Container (`#005f3d`)**: The deep contrast for text sitting atop the Mint surface.\n\n### The \"No-Line\" Rule\nTraditional 1px borders are strictly prohibited for sectioning. Structural boundaries must be defined solely through:\n1.  **Background Shifts:** Transitioning from `surface` (`#f9f9f9`) to `surface-container-low` (`#f3f3f3`).\n2.  **Negative Space:** Using the spacing scale to create psychological groupings.\n\n### Surface Hierarchy & Nesting\nTreat the UI as a series of stacked, precision-cut sheets. \n- **Base Layer:** `surface-container-lowest` (`#ffffff`) for the main canvas.\n- **Content Blocks:** `surface-container` (`#eeeeee`) for code blocks and secondary cards.\n- **Floating Elements:** Use `surface-bright` with a soft ambient shadow to indicate a temporary state (like a tooltip or dropdown).\n\n### Glassmorphism & Depth\nWhile gradients are forbidden, **tonal transparency** is encouraged. For navigation bars or floating action bars, use `surface` at 80% opacity with a `20px` backdrop-blur to allow the content beneath to softly bleed through, maintaining a sense of place during the migration journey.\n\n---\n\n## 3. Typography\nThe typography uses a high-contrast scale to create an editorial feel, moving from massive, airy displays to compact, utilitarian labels.\n\n- **Display (Inter):** Large, bold, and tracked tightly (-2%). These are the \"Wayfinders.\"\n- **Headline (Inter):** Used for section starts. High contrast against body text ensures the user never loses their place in the migration flow.\n- **Title (Inter):** Semi-bold and authoritative. Used for card headers.\n- **Body (Inter):** Optimized for long-form reading. Line height should be generous (1.5x) to prevent cognitive fatigue during technical tasks.\n- **Code (Geist Mono):** Every code snippet must use Geist Mono. It is our \"Industrial Accent,\" providing a sharp, monospaced contrast to the soft UI.\n\n---\n\n## 4. Elevation & Depth\nElevation is achieved through **Tonal Layering** and **Ambient Shadows**, never through heavy lines.\n\n- **The Layering Principle:** To highlight a specific migration step, do not outline the box. Instead, place a `surface-container-lowest` card inside a `surface-container` section. The slight shift in \"whiteness\" provides a sophisticated, natural lift.\n- **Ambient Shadows:** When a floating effect is required (e.g., a \"Current Step\" card), use a shadow with a 24px blur and 4% opacity, using `#0d0d0d` as the base color. This mimics natural diffused light.\n- **The \"Ghost Border\" Fallback:** If a boundary is required for accessibility in complex data tables, use the `outline-variant` (`#bacbbe`) at **15% opacity**. It should be felt, not seen.\n\n---\n\n## 5. Components\n\n### Buttons\n- **Primary:** `primary-container` background with `on-primary-container` text. Rounded-md (12px). No shadow unless hovered.\n- **Secondary:** `surface-container-high` background. Subtle and integrated.\n- **Tertiary:** Text-only in `primary` (`#006c47`) with no background, used for low-priority navigation.\n\n### Code Blocks (The Migration Core)\n- **Background:** `surface-container-low` (`#f3f3f3`).\n- **Typography:** Geist Mono, `body-sm`.\n- **Styling:** 12px rounded corners. No border. Syntax highlighting should use tonal variations of Mint and Deep Green—avoid traditional \"rainbow\" syntax highlighting to maintain the brand’s clinical feel.\n\n### Status Chips\n- **Success:** `brand-light` (`#d4fae8`) background with `brand-deep` (`#0fa76e`) text.\n- **Warning:** `warning-background` (`#fffbeb`) with a ghost border of `warning-border` (`#fde68a`).\n\n### Cards & Progress\n- **The Progress Rail:** Use a thick (8px) `surface-container` track with a `primary-container` (Mint) fill.\n- **Cards:** Strictly no dividers. Use vertical white space (32px+) to separate content sections within a card.\n\n---\n\n## 6. Do's and Don'ts\n\n### Do\n*   **Do** use asymmetrical layouts. For example, a wide code block offset against a narrow explanatory column.\n*   **Do** utilize `surface-container` tiers to create \"nesting\" for complex migration steps.\n*   **Do** use Geist Mono for any technical value, version number, or terminal command.\n\n### Don't\n*   **Don't** use 1px solid borders to separate sections.\n*   **Don't** use emojis. The tone is professional, surgical, and focused.\n*   **Don't** use gradients. Visual interest must come from tonal shifts and typography, not color blends.\n*   **Don't** use standard \"drop shadows.\" Only use ultra-soft, low-opacity ambient shadows for floating elements.",
+                  "font": "INTER",
+                  "headlineFont": "INTER",
+                  "labelFont": "INTER",
+                  "namedColors": {
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "error_container": "#ffdad6",
+                    "inverse_on_surface": "#f0f1f1",
+                    "inverse_primary": "#17e299",
+                    "inverse_surface": "#2f3131",
+                    "on_background": "#1a1c1c",
+                    "on_error": "#ffffff",
+                    "on_error_container": "#93000a",
+                    "on_primary": "#ffffff",
+                    "on_primary_container": "#005f3d",
+                    "on_primary_fixed": "#002112",
+                    "on_primary_fixed_variant": "#005234",
+                    "on_secondary": "#ffffff",
+                    "on_secondary_container": "#00734a",
+                    "on_secondary_fixed": "#002112",
+                    "on_secondary_fixed_variant": "#005233",
+                    "on_surface": "#1a1c1c",
+                    "on_surface_variant": "#3b4a41",
+                    "on_tertiary": "#ffffff",
+                    "on_tertiary_container": "#38594c",
+                    "on_tertiary_fixed": "#002116",
+                    "on_tertiary_fixed_variant": "#2c4d40",
+                    "outline": "#6b7b70",
+                    "outline_variant": "#bacbbe",
+                    "primary": "#006c47",
+                    "primary_container": "#18e299",
+                    "primary_fixed": "#4dffb3",
+                    "primary_fixed_dim": "#17e299",
+                    "secondary": "#006c45",
+                    "secondary_container": "#7bfab9",
+                    "secondary_fixed": "#7bfab9",
+                    "secondary_fixed_dim": "#5ddd9f",
+                    "surface": "#f9f9f9",
+                    "surface_bright": "#f9f9f9",
+                    "surface_container": "#eeeeee",
+                    "surface_container_high": "#e8e8e8",
+                    "surface_container_highest": "#e2e2e2",
+                    "surface_container_low": "#f3f3f3",
+                    "surface_container_lowest": "#ffffff",
+                    "surface_dim": "#dadada",
+                    "surface_tint": "#006c47",
+                    "surface_variant": "#e2e2e2",
+                    "tertiary": "#436557",
+                    "tertiary_container": "#aacfbe",
+                    "tertiary_fixed": "#c5ebd9",
+                    "tertiary_fixed_dim": "#aacfbe"
+                  },
+                  "overrideNeutralColor": "#FAFAFA",
+                  "overridePrimaryColor": "#18E299",
+                  "overrideSecondaryColor": "#0FA76E",
+                  "overrideTertiaryColor": "#D4FAE8",
+                  "roundness": "ROUND_EIGHT",
+                  "spacingScale": 2
+                },
+                "title": "OpenClaw → Hermes Migration Guide",
+                "width": "780"
+              }
+            ],
+            "theme": {}
+          }
+        },
+        {
+          "text": "I've created the mobile-first migration guide for the \"OpenClaw → Hermes Migration.\" \n\nThis version includes:\n- **Hero & Timeline:** A clear introduction with a 3-step timeline showing the migration as completed.\n- **Full Checklists:** Both pre-migration (6 items) and post-migration (5 items) checklists are shown as fully completed with the mint green theme.\n- **Interactive Elements:** Code blocks for the migration and backup commands, including success states.\n- **Comparison Table:** A clean feature breakdown between OpenClaw and Hermes v0.9.\n- **Troubleshooting:** A dedicated accordion section for common issues, with the first scenario expanded as requested.\n\nThe design strictly adheres to the Hermes Mint system, using pure white backgrounds, tonal surfaces for cards, and precise Inter and Geist Mono typography."
+        },
+        {
+          "suggestion": "Add a \"Success\" celebration screen"
+        },
+        {
+          "suggestion": "Design the \"Migration in Progress\" state"
+        },
+        {
+          "suggestion": "Create a desktop version of this guide"
+        }
+      ],
+      "projectId": "11557431963691083564",
+      "sessionId": "4563988772748056196"
+    },
+    "returncode": 0
+  }
+]

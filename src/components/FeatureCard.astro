@@ -1,0 +1,9 @@
+---
+export interface Props { icon: string; title: string; desc: string; }
+const { icon, title, desc } = Astro.props;
+---
+<div class="bg-white border border-black/[0.06] rounded-2xl p-7 shadow-[0_2px_4px_rgba(0,0,0,0.03)] transition-all hover:border-black/10 hover:-translate-y-0.5">
+  <div class="w-11 h-11 rounded-[10px] bg-[#d4fae8] flex items-center justify-center text-xl mb-4">{icon}</div>
+  <h3 class="text-lg font-semibold mb-2">{title}</h3>
+  <p class="text-sm text-[#666] leading-relaxed">{desc}</p>
+</div>
