@@ -4,44 +4,98 @@ import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import VersionBanner from "../components/VersionBanner";
+import Accordion from "../components/Accordion";
 import SchemaJsonLd from "../components/SchemaJsonLd";
-import { ChevronDown } from "lucide-react";
 
-const faqs = [
+const groups = [
   {
-    q: "Windows 一定要装 WSL2 吗？（直装版可行吗？）",
-    a: "Native Windows is not supported，请使用 WSL2。",
+    name: "安装与启动",
+    faqs: [
+      {
+        q: "Windows 一定要装 WSL2 吗？（直装版可行吗？）",
+        a: "当前推荐 Windows 用户使用 WSL2 运行 Hermes，这是最稳定的方案。如果你有 Termux/Android 设备，也可以直接安装。直装 Windows 版本可能遇到工具依赖缺失的问题，我们的教程以 WSL2 和 Termux 为主。",
+      },
+      {
+        q: "`hermes setup` 卡住了怎么办？",
+        a: "某些终端输入法可能与交互式向导不兼容。你可以按 Ctrl+C 退出后，手动编辑 ~/.hermes/config.yaml 创建初始配置，然后 Day 2 再补 API key。",
+      },
+      {
+        q: "Fast Mode 是什么？",
+        a: "v0.9 新增的 hermes --fast 参数。开启后 Hermes 会绕过闲聊式对话，直接尝试执行你的第一个任务，适合快速验证安装和配置是否正常。",
+      },
+      {
+        q: "Android 上运行 Hermes 会不会被杀后台？",
+        a: "可能会。建议将 Termux 设为无限制电池策略，并在运行 gateway 时执行 termux-wake-lock 保持唤醒。",
+      },
+    ],
   },
   {
-    q: "没有 OpenAI API key 怎么办？（国产模型接入方案）",
-    a:
-      "你可以在 ~/.hermes/.env 中配置国产模型（如 DeepSeek、豆包、通义千问）的 API key。格式与 OpenAI 兼容，只需修改 base_url 和 model 名称即可。",
+    name: "模型与 API",
+    faqs: [
+      {
+        q: "没有 OpenAI API key 怎么办？（国产模型接入方案）",
+        a: "Hermes 支持多种模型提供商，你可以使用 Anthropic Claude、阿里通义千问、智谱 AI 等国产模型。只需在 config.yaml 中更换对应的 base_url 和 api_key。v0.9 推荐使用 hermes auth add <provider> 存储密钥。",
+      },
+      {
+        q: "API key 迁移后无法调用是什么原因？",
+        a: "可能是 key 格式不兼容或 base_url 丢失。运行 hermes auth list 查看是否导入成功，并手动检查 ~/.hermes/config.yaml 补全 base_url。",
+      },
+      {
+        q: "回复为空或报错 429 怎么办？",
+        a: "表示遇到速率限制，建议换 provider 或在 config.yaml 中设置 fallback_model。",
+      },
+    ],
   },
   {
-    q: "迁移后 Telegram bot 为什么不回复？",
-    a:
-      "请检查三点：1) BotFather 中是否设置了 webhook；2) token 是否已过期；3) Hermes 日志中是否有连接报错。常见修复方式是重新获取 token 并重启 Hermes。",
+    name: "平台与机器人",
+    faqs: [
+      {
+        q: "迁移后 Telegram bot 为什么不回复？",
+        a: "请检查 webhook 地址是否更新为 Hermes 的服务地址，并确认 BotFather 中的 token 仍然有效。如果是轮询方式，请确保没有其他服务在占用该 token。也可以用 /debug 查看连接状态。",
+      },
+      {
+        q: "飞书机器人配置时 webhook 报错怎么办？",
+        a: "检查事件订阅里是否已正确勾选“消息”事件，确认 webhook 地址使用 HTTPS，并且服务器能够正常访问飞书的推送服务。",
+      },
+      {
+        q: "v0.9 新增了哪些平台？",
+        a: "除了 Telegram 和飞书，还支持 Discord、Slack、WhatsApp、Signal、Matrix、Email、Home Assistant、Mattermost、钉钉、企业微信、BlueBubbles、SMS 等。",
+      },
+    ],
   },
   {
-    q: "飞书机器人配置时 webhook 报错怎么办？",
-    a:
-      "飞书 webhook 需要正确的 IP 白名单和事件订阅配置。请确认你的服务器地址可以被公网访问，并在飞书开发者后台开启「机器人」和「事件订阅」权限。",
-  },
-  {
-    q: "如何更新 Hermes 到最新版本？",
-    a: "运行 hermes update 即可升级到最新版本。升级后建议执行 hermes --version 确认版本号。",
-  },
-  {
-    q: "本指南内容多久更新一次？",
-    a:
-      "我们承诺在 Hermes 发版后 7 天内检查并更新命令和截图。同时每月进行一次全站内容巡检，确保教程与最新版本保持一致。",
+    name: "迁移与升级",
+    faqs: [
+      {
+        q: "`hermes backup` 会备份我的代码仓库吗？",
+        a: "不会。hermes backup 会自动跳过 hermes-agent 源码目录和 __pycache__，只备份配置、状态、技能和记忆。",
+      },
+      {
+        q: "`watch_patterns` 支持正则吗？",
+        a: "支持子串匹配和部分正则。如果日志输出频繁，系统会自动限流（每 10 秒最多 8 条通知），持续过载会关闭 watch 以保护性能。",
+      },
+      {
+        q: "`/debug` 能看到什么？",
+        a: "当前 session 使用的模型、provider 连接状态、各平台 gateway 是否在线、最近 5 条错误摘要和推荐修复命令。",
+      },
+      {
+        q: "如何从 v0.8.x 升级到 v0.9.x？",
+        a: "三步：1) pip install --upgrade hermes-agent；2) hermes --version 确认版本；3) 如配置文件格式有变化，运行 hermes setup 自动迁移。",
+      },
+      {
+        q: "如何更新 Hermes 到最新版本？",
+        a: "使用 pip 升级即可： pip install --upgrade hermes-agent 。升级后建议重新检查 hermes --version 确认版本。",
+      },
+    ],
   },
 ];
+
+const allFaqs = groups.flatMap((g) => g.faqs);
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
+  mainEntity: allFaqs.map((f) => ({
     "@type": "Question",
     name: f.q,
     acceptedAnswer: {
@@ -52,7 +106,7 @@ const faqSchema = {
 };
 
 export default function FaqPage() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [openKey, setOpenKey] = useState<string>("0-0");
 
   return (
     <>
@@ -66,39 +120,32 @@ export default function FaqPage() {
             常见问题
           </h1>
           <p className="text-base md:text-lg text-[#3d4947] mb-8">
-            安装失败、WSL2 报错、API key 配置、飞书/Telegram 不回复等高频问题速查。
+            安装、配置、迁移、升级过程中遇到的高频问题速查，帮你快速排除。
           </p>
 
-          <div className="space-y-4">
-            {faqs.map((f, i) => {
-              const isOpen = open === i;
-              return (
-                <div
-                  key={i}
-                  id={`faq-${i + 1}`}
-                  className="bg-white border border-[#e4e2de] rounded-2xl overflow-hidden scroll-mt-32"
-                >
-                  <button
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#fbf9f5] transition-colors"
-                  >
-                    <span className="text-[17px] font-bold text-[#1b1c1a] pr-4">{f.q}</span>
-                    <ChevronDown
-                      size={20}
-                      className={`text-[#6d7a77] shrink-0 transition-transform ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-5 text-[15px] text-[#3d4947] leading-7 border-t border-[#e4e2de] pt-4">
-                      {f.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          {groups.map((g, gi) => (
+            <section key={g.name} className="mb-8">
+              <h2 className="text-lg font-bold text-[#0d0d0d] mb-4">{g.name}</h2>
+              <div className="space-y-3">
+                {g.faqs.map((f, fi) => {
+                  const key = `${gi}-${fi}`;
+                  return (
+                    <Accordion
+                      key={key}
+                      title={f.q}
+                      open={openKey === key}
+                      onToggle={() => setOpenKey(openKey === key ? "" : key)}
+                    >
+                      <div
+                        className="text-[15px] leading-7"
+                        dangerouslySetInnerHTML={{ __html: f.a }}
+                      />
+                    </Accordion>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
         </div>
       </main>
       <Footer />

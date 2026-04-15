@@ -10,7 +10,7 @@ export default function NotFound() {
         <div className="text-center max-w-md">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#d4fae8] flex items-center justify-center text-[#18E299]">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
             </svg>
           </div>
           <h1 className="text-4xl font-bold text-[#0d0d0d] mb-3">404</h1>
