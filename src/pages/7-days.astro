@@ -28,6 +28,7 @@ const days = [
       <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#eee] text-[#666] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">验证安装</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes --version</code>（应显示 v0.9.x）。</p></div></div>
       <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#eee] text-[#666] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#0d0d0d] mb-1">初始化配置向导</p><p class="text-sm text-[#666]">运行 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes setup</code> 交互式向导，生成 <code class="bg-[#fafafa] px-1.5 rounded text-sm">~/.hermes/config.yaml</code>。</p></div></div>
       <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#eee] text-[#666] flex items-center justify-center text-xs font-bold">6</div><div><p class="font-semibold text-[#0d0d0d] mb-1">第一次对话</p><p class="text-sm text-[#666]">在终端输入 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes</code>，发送 <code class="bg-[#fafafa] px-1.5 rounded text-sm">你好</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#eee] text-[#666] flex items-center justify-center text-xs font-bold">7</div><div><p class="font-semibold text-[#0d0d0d] mb-1">体验 Fast Mode</p><p class="text-sm text-[#666]">v0.9 新增 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes --fast</code>，绕过多余对话直接执行第一个任务，适合验证安装是否正常。</p></div></div>
     `,
     errors: [
       { title: "Python 版本过低", text: "安装 pyenv 或去 python.org 下载 3.11。" },
@@ -77,8 +78,8 @@ const days = [
       { title: "Dashboard 打不开", text: "检查 gateway 是否加了 --dashboard 参数启动；默认端口 18000 是否被占用。" },
     ],
     links: [
-      { text: "飞书配置详情 →", href: "/blog/feishu-bot-setup" },
-      { text: "Telegram 配置详情 →", href: "/blog/telegram-bot-setup" },
+      { text: "飞书配置详情 →", href: "#" },
+      { text: "Telegram 配置详情 →", href: "#" },
     ],
   },
   {
@@ -231,7 +232,7 @@ const days = [
               <div class="flex items-start justify-between mb-5">
                 <div class="flex items-center gap-3">
                   <span class="bg-[#18E299] text-[#005f3d] text-xs font-black px-2 py-1 rounded">{d.day}</span>
-                  <h3 class="text-xl font-bold tracking-tight text-[#0d0d0d]">{d.title}</h3>
+                  <h2 class="text-xl font-bold tracking-tight text-[#0d0d0d]">{d.title}</h2>
                 </div>
                 <span class="day-done-icon text-[#18E299] text-2xl hidden">✓</span>
               </div>

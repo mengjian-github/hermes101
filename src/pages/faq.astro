@@ -14,6 +14,7 @@ const groups = [
     faqs: [
       { q: "Windows 一定要装 WSL2 吗？（直装版可行吗？）", a: "当前推荐 Windows 用户使用 WSL2 运行 Hermes，这是最稳定的方案。如果你有 Termux/Android 设备，也可以直接安装。直装 Windows 版本可能遇到工具依赖缺失的问题，我们的教程以 WSL2 和 Termux 为主。" },
       { q: "`hermes setup` 卡住了怎么办？", a: "某些终端输入法可能与交互式向导不兼容。你可以按 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">Ctrl+C</code> 退出后，手动编辑 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">~/.hermes/config.yaml</code> 创建初始配置，然后 Day 2 再补充 API key。" },
+      { q: "Fast Mode 是什么？", a: "v0.9 新增的 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">hermes --fast</code> 参数。开启后 Hermes 会绕过闲聊式对话，直接尝试执行你的第一个任务，适合快速验证安装和配置是否正常。" },
       { q: "Android 上运行 Hermes 会不会被杀后台？", a: "可能会。建议将 Termux 设为无限制电池策略，并在运行 gateway 时执行 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">termux-wake-lock</code>。" },
     ]
   },
