@@ -2,7 +2,7 @@ import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SchemaJsonLd from "./components/SchemaJsonLd";
-import { Terminal, CalendarDays, RefreshCw, CheckCircle2 } from "lucide-react";
+import { Zap, CalendarDays, RefreshCw, CheckCircle2 } from "lucide-react";
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -59,12 +59,12 @@ export default function Home() {
                 </div>
                 <div className="space-y-2 text-[#6bd8cb]">
                   <p className="opacity-60">$ curl -sSL https://hermes.install | bash</p>
-                  <p className="text-white/90">Installing hermes-core v0.8.x...</p>
+                  <p className="text-white/90">Installing hermes-core v0.9.x...</p>
                   <p className="text-white/90">#################################### 100%</p>
                   <p className="opacity-60">$ hermes --version</p>
                   <div className="flex items-center gap-2 pt-1">
                     <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-[#6bd8cb]" />
-                    <span className="text-[#6bd8cb]">Hermes Agent version 0.8.4 (stable)</span>
+                    <span className="text-[#6bd8cb]">Hermes Agent version 0.9.2 (stable)</span>
                   </div>
                 </div>
               </div>
@@ -79,10 +79,10 @@ export default function Home() {
             {/* Card 1 */}
             <div className="bg-[#008378]/10 p-6 md:p-8 rounded-2xl flex flex-col justify-between hover:bg-[#008378]/15 transition-colors">
               <div>
-                <Terminal className="w-10 h-10 text-[#00685f] mb-5" strokeWidth={1.5} />
+                <Zap className="w-10 h-10 text-[#00685f] mb-5" strokeWidth={1.5} />
                 <h3 className="font-sans font-bold text-xl md:text-2xl mb-2 text-[#1b1c1a]">5 分钟安装</h3>
                 <p className="text-[#3d4947] leading-relaxed text-sm md:text-base">
-                  一键脚本支持主流操作系统，无需复杂配置，即刻开启你的 Agent 之旅。
+                  支持 Mac、Linux、Windows WSL2 和 Termux/Android。每步都有可复制命令和截图说明，预设小白可能遇到的每个坑。
                 </p>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function Home() {
                 <CalendarDays className="w-10 h-10 text-[#855300] mb-5" strokeWidth={1.5} />
                 <h3 className="font-sans font-bold text-xl md:text-2xl mb-2 text-[#1b1c1a]">7 天入门路径</h3>
                 <p className="text-[#3d4947] leading-relaxed text-sm md:text-base">
-                  从环境搭建到部署第一个自动化工作流，科学编排的课程让你不再迷茫。
+                  从第一次对话到接入飞书/Telegram 机器人，每天一个可验证成果。v0.9 新增 Dashboard、Fast Mode 和 backup/import。
                 </p>
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function Home() {
                 <RefreshCw className="w-10 h-10 text-[#924628] mb-5" strokeWidth={1.5} />
                 <h3 className="font-sans font-bold text-xl md:text-2xl mb-2 text-[#1b1c1a]">OpenClaw 无忧迁移</h3>
                 <p className="text-[#3d4947] leading-relaxed mb-5 text-sm md:text-base">
-                  完美兼容 OpenClaw 配置文件，零成本平替。我们提供详细的迁移映射表，助你平稳着陆。
+                  使用 <code>hermes claw migrate</code> 一键迁移，配置不会丢。v0.9 新增 backup/import 与 <code>/debug</code> 诊断，迁移更安心。
                 </p>
                 <Link
                   href="/migrate"
@@ -122,7 +122,7 @@ export default function Home() {
         <section className="max-w-7xl mx-auto px-4 md:px-8 text-center">
           <div className="bg-[#efeeea]/70 py-10 md:py-12 rounded-2xl border border-[#e4e2de]/50">
             <p className="text-[#6d7a77] font-bold text-[10px] md:text-xs tracking-widest uppercase mb-3 opacity-70">
-              基于 Hermes v0.8.x | 最后更新：2026-04-14
+              基于 Hermes v0.9.x | 最后更新：2026-04-15
             </p>
             <p className="text-[#3d4947] text-xs md:text-sm max-w-md mx-auto leading-relaxed px-4">
               本站为社区独立入门指南，非官方站点。所有教程均经过社区验证，确保安全可靠。

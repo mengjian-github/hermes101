@@ -19,7 +19,19 @@ export const metadata: Metadata = {
   },
   description:
     "5 分钟安装 Hermes Agent，7 天跟练入门，OpenClaw 一键无忧迁移。中文保姆级教程。",
-  keywords: ["Hermes Agent", "Hermes 安装", "Hermes 教程", "OpenClaw 迁移", "小白入门"],
+  keywords: [
+    "Hermes Agent",
+    "Hermes 安装",
+    "Hermes 教程",
+    "OpenClaw 迁移",
+    "小白入门",
+    "Hermes v0.9",
+    "Fast Mode",
+    "Dashboard",
+    "backup import",
+    "watch_patterns",
+    "MCP Skill",
+  ],
   authors: [{ name: "hermes101" }],
   openGraph: {
     type: "website",

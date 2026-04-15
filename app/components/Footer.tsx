@@ -5,7 +5,6 @@ const footerLinks = [
   { href: "/7-days", label: "7天教程" },
   { href: "/migrate", label: "迁移" },
   { href: "/faq", label: "FAQ" },
-  { href: "/blog", label: "博客" },
   { href: "/privacy", label: "隐私" },
   { href: "/terms", label: "条款" },
 ];
