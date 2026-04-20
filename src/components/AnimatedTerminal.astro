@@ -1,23 +1,12 @@
 ---
 ---
-<div class="terminal-wrapper relative">
-  <!-- Glow effect -->
-  <div class="absolute -inset-4 rounded-3xl opacity-30 blur-2xl pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(24,226,153,0.15), transparent 70%);"></div>
-
-  <div class="relative rounded-[var(--radius-card)] overflow-hidden" style="background: #0d0d14; border: 1px solid rgba(255,255,255,0.06);">
-    <!-- macOS-style title bar -->
-    <div class="flex items-center gap-3 px-4 py-3" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
-      <div class="flex gap-2">
-        <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
-        <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
-        <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
-      </div>
-      <span class="text-[12px]" style="color: #6a6a82;">Terminal</span>
-    </div>
-
-    <!-- Terminal content -->
-    <div id="terminal-content" class="px-5 py-4 min-h-[200px]" style="font-family: var(--font-mono); font-size: 14px; line-height: 1.7;">
-    </div>
+<div class="bg-[#1e1e1e] rounded-2xl p-7 text-[#e5e5e5]">
+  <div class="flex gap-2 mb-5">
+    <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+    <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+  </div>
+  <div id="terminal-content" style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 15px; line-height: 1.8;">
   </div>
 </div>
 
@@ -38,8 +27,8 @@
       { text: "Hello! I'm your Hermes Agent. How can I help?", delay: 25, pause: 2000 },
     ];
 
-    var lineHeight = 1.7;
-    var fontSize = 14;
+    var lineHeight = 1.8;
+    var fontSize = 15;
     var pxPerLine = fontSize * lineHeight;
 
     function typeLine(line, container) {
@@ -55,7 +44,7 @@
           lineEl.appendChild(promptSpan);
 
           var restSpan = document.createElement('span');
-          restSpan.style.color = '#cdd6f4';
+          restSpan.style.color = '#e5e5e5';
           lineEl.appendChild(restSpan);
 
           var rest = line.text.substring(2);
@@ -76,7 +65,7 @@
           lineEl.innerHTML = '&nbsp;';
           setTimeout(resolve, line.pause);
         } else {
-          lineEl.style.color = '#6a6a82';
+          lineEl.style.color = '#888';
           lineEl.textContent = line.text;
           setTimeout(resolve, line.pause);
         }

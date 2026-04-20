@@ -1,16 +1,15 @@
 ---
 import DarkModeToggle from './DarkModeToggle.astro';
 ---
-<nav id="main-nav" class="sticky top-0 z-50 h-16 flex items-center border-b transition-colors duration-200"
-     style="background: var(--bg-primary); border-color: var(--border);">
-  <div class="max-w-[1200px] mx-auto w-full px-6 flex items-center justify-between">
+<nav id="main-nav" class="sticky top-0 z-50 h-16 flex items-center bg-white/95 dark:bg-[#0d0d0f]/95 backdrop-blur-md border-b transition-colors duration-200"
+     style="border-color: var(--border);">
+  <div class="max-w-[960px] mx-auto w-full px-6 flex items-center justify-between">
     <!-- Left: Logo -->
     <div class="flex items-center gap-2">
-      <a href="/" class="font-display text-lg font-semibold tracking-[-0.3px] flex items-center gap-1.5" style="color: var(--text-primary);">
-        <span class="inline-block w-2 h-2 rounded-full bg-[#18E299]"></span>
+      <a href="/" class="text-lg font-semibold tracking-[-0.3px] flex items-center gap-1.5" style="color: var(--text);">
         hermes101
       </a>
-      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full" style="background: var(--bg-tertiary); color: var(--text-muted);">v0.9</span>
+      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[var(--surface)]" style="color: var(--text-muted);">v0.9</span>
     </div>
 
     <!-- Center: Nav links (desktop) -->
@@ -23,23 +22,16 @@ import DarkModeToggle from './DarkModeToggle.astro';
 
     <!-- Right: Actions -->
     <div class="hidden md:flex items-center gap-3">
-      <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener"
-         class="flex items-center gap-1.5 text-[13px] font-medium px-3 py-1.5 rounded-lg transition-colors"
-         style="color: var(--text-secondary); background: var(--bg-tertiary);">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        GitHub
-      </a>
       <DarkModeToggle />
       <a href="/setup"
-         class="inline-flex items-center gap-1.5 px-5 py-2 rounded-[var(--radius-button)] text-[14px] font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-         style="background: var(--brand-gradient); box-shadow: var(--glow-sm);">
+         class="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-[14px] font-semibold bg-[#0d0d0d] text-white dark:bg-white dark:text-[#0d0d0d] transition-transform hover:scale-[1.02] active:scale-[0.98]">
         开始安装
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>
 
     <!-- Mobile: hamburger -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 cursor-pointer" aria-label="菜单" style="color: var(--text-primary);">
+    <button id="mobile-menu-btn" class="md:hidden p-2 cursor-pointer" aria-label="菜单" style="color: var(--text);">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"></line>
         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -50,13 +42,12 @@ import DarkModeToggle from './DarkModeToggle.astro';
 </nav>
 
 <!-- Mobile Overlay Menu -->
-<div id="mobile-menu" class="fixed inset-0 z-[60] hidden" style="background: var(--bg-primary);">
+<div id="mobile-menu" class="fixed inset-0 z-[60] hidden bg-white dark:bg-[#0d0d0f]">
   <div class="flex items-center justify-between h-16 px-6">
-    <span class="font-display text-lg font-semibold flex items-center gap-1.5" style="color: var(--text-primary);">
-      <span class="inline-block w-2 h-2 rounded-full bg-[#18E299]"></span>
+    <span class="text-lg font-semibold" style="color: var(--text);">
       hermes101
     </span>
-    <button id="mobile-menu-close" class="p-2 cursor-pointer" aria-label="关闭菜单" style="color: var(--text-primary);">
+    <button id="mobile-menu-close" class="p-2 cursor-pointer" aria-label="关闭菜单" style="color: var(--text);">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -64,19 +55,22 @@ import DarkModeToggle from './DarkModeToggle.astro';
     </button>
   </div>
   <div class="flex flex-col gap-2 px-6 pt-4">
-    <a href="/setup" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text-primary); border-color: var(--border);">安装</a>
-    <a href="/7-days" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text-primary); border-color: var(--border);">7天教程</a>
-    <a href="/migrate" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text-primary); border-color: var(--border);">迁移</a>
-    <a href="/faq" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text-primary); border-color: var(--border);">FAQ</a>
+    <a href="/setup" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">安装</a>
+    <a href="/7-days" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">7天教程</a>
+    <a href="/migrate" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">迁移</a>
+    <a href="/faq" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">FAQ</a>
     <div class="flex items-center gap-3 pt-4">
       <DarkModeToggle />
-      <a href="/setup" class="flex-1 text-center px-5 py-3 rounded-[var(--radius-button)] text-[15px] font-semibold text-white" style="background: var(--brand-gradient);">开始安装 →</a>
+      <a href="/setup" class="flex-1 text-center px-5 py-3 rounded-full text-[15px] font-semibold bg-[#0d0d0d] text-white dark:bg-white dark:text-[#0d0d0d]">开始安装 →</a>
     </div>
   </div>
 </div>
 
 <style>
-  /* Nav link hover underline animation */
+  /* Nav link hover */
+  .nav-link:hover {
+    color: #0fa76e !important;
+  }
   .nav-link::after {
     content: '';
     position: absolute;
@@ -85,27 +79,18 @@ import DarkModeToggle from './DarkModeToggle.astro';
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background: #18E299;
+    background: #0fa76e;
     border-radius: 1px;
     transition: width 0.25s ease;
   }
   .nav-link:hover::after {
     width: 60%;
   }
-  .nav-link:hover {
-    color: var(--text-primary) !important;
-  }
 
   /* Scroll blur enhancement */
   #main-nav.scrolled {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-  }
-  .dark #main-nav.scrolled {
-    background: rgba(10, 10, 15, 0.85) !important;
-  }
-  #main-nav:not(.scrolled) {
-    background: var(--bg-primary);
   }
 </style>
 

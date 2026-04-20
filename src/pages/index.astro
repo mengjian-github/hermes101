@@ -49,24 +49,23 @@ const platforms = [
   <main>
     <!-- ====== Section 1: Hero ====== -->
     <section class="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
-      <!-- Gradient background -->
-      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(24,226,153,0.1), transparent 70%);"></div>
-      <div class="dark absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(24,226,153,0.08), transparent 70%);"></div>
+      <!-- Subtle green gradient background -->
+      <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(24,226,153,0.08) 0%, rgba(255,255,255,0) 60%);"></div>
 
-      <div class="relative max-w-[1200px] mx-auto px-6">
+      <div class="relative max-w-[960px] mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
           <!-- Left (60%) -->
           <div class="lg:col-span-3">
             <!-- Badge -->
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[13px] font-medium mb-6"
-                 style="background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-secondary);">
+                 style="background: var(--surface); border: 1px solid var(--border); color: var(--text-secondary);">
               <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#18E299]"></span>
               开源 AI Agent · 22+ 平台 · 200+ 技能
             </div>
 
             <!-- Title -->
-            <h1 class="font-display text-[clamp(36px,5vw,56px)] font-semibold leading-[1.15] tracking-[-0.5px] mb-5" style="color: var(--text-primary);">
-              你的 AI 编程助手，<br/><span class="brand-gradient-text">从安装到上线</span>
+            <h1 class="text-[clamp(36px,5vw,56px)] font-semibold leading-[1.15] tracking-[-0.5px] mb-5" style="color: var(--text);">
+              你的 AI 编程助手，<br/>从安装到上线
             </h1>
 
             <!-- Subtitle -->
@@ -77,23 +76,21 @@ const platforms = [
             <!-- CTAs -->
             <div class="flex flex-wrap gap-4 mb-10">
               <a href="/setup"
-                 class="inline-flex items-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-                 style="background: var(--brand-gradient); box-shadow: var(--glow-md);">
+                 class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold bg-[#0d0d0d] text-white dark:bg-white dark:text-[#0d0d0d] transition-transform hover:scale-[1.02] active:scale-[0.98]">
                 开始安装
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
               <a href="/7-days"
-                 class="inline-flex items-center gap-2 px-7 py-3.5 rounded-[var(--radius-button)] text-[15px] font-semibold transition-colors"
-                 style="background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary);">
+                 class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold bg-white dark:bg-[var(--surface)] border border-[var(--border)] transition-colors" style="color: var(--text);">
                 查看文档 →
               </a>
             </div>
 
             <!-- Stats -->
             <div class="flex flex-wrap gap-x-6 gap-y-2 text-[14px]" style="color: var(--text-muted);">
-              <span><strong class="font-semibold" style="color: var(--text-primary);">2,000+</strong> GitHub Stars</span>
-              <span><strong class="font-semibold" style="color: var(--text-primary);">22+</strong> 接入平台</span>
-              <span><strong class="font-semibold" style="color: var(--text-primary);">v0.9</strong> 稳定版</span>
+              <span><strong class="font-semibold" style="color: var(--text);">2,000+</strong> GitHub Stars</span>
+              <span><strong class="font-semibold" style="color: var(--text);">22+</strong> 接入平台</span>
+              <span><strong class="font-semibold" style="color: var(--text);">v0.9</strong> 稳定版</span>
             </div>
           </div>
 
@@ -106,12 +103,12 @@ const platforms = [
     </section>
 
     <!-- ====== Section 2: Platform Bar ====== -->
-    <section class="py-12" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-secondary);">
-      <div class="max-w-[1200px] mx-auto px-6">
+    <section class="py-12" style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface);">
+      <div class="max-w-[960px] mx-auto px-6">
         <p class="text-center text-sm font-medium mb-6" style="color: var(--text-muted);">支持 22+ 平台</p>
         <div class="flex flex-wrap justify-center gap-x-6 gap-y-3">
           {platforms.map(p => (
-            <span class="text-sm font-medium transition-colors hover:text-[#18E299]" style="color: var(--text-secondary);">{p}</span>
+            <span class="text-sm font-medium transition-colors hover:text-[#0fa76e]" style="color: var(--text-secondary);">{p}</span>
           ))}
         </div>
       </div>
@@ -119,9 +116,9 @@ const platforms = [
 
     <!-- ====== Section 3: 9 Core Features ====== -->
     <section class="py-20 md:py-28">
-      <div class="max-w-[1200px] mx-auto px-6">
+      <div class="max-w-[960px] mx-auto px-6">
         <div class="text-center mb-14">
-          <h2 class="font-display text-[clamp(28px,3.5vw,40px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text-primary);">9 大核心能力</h2>
+          <h2 class="text-[clamp(28px,3.5vw,40px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text);">9 大核心能力</h2>
           <p class="text-lg" style="color: var(--text-secondary);">不只是一个聊天机器人</p>
         </div>
         <FeatureGrid features={features} />
@@ -129,31 +126,30 @@ const platforms = [
     </section>
 
     <!-- ====== Section 4: 7-Day Path Preview ====== -->
-    <section class="py-20 md:py-28" style="background: var(--bg-secondary);">
-      <div class="max-w-[1200px] mx-auto px-6">
+    <section class="py-20 md:py-28" style="background: var(--surface);">
+      <div class="max-w-[960px] mx-auto px-6">
         <div class="text-center mb-14">
-          <h2 class="font-display text-[clamp(28px,3.5vw,40px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text-primary);">7 天从零到上线</h2>
+          <h2 class="text-[clamp(28px,3.5vw,40px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text);">7 天从零到上线</h2>
           <p class="text-lg" style="color: var(--text-secondary);">每天都有可验证的成果</p>
         </div>
 
         <!-- Horizontal scrollable days -->
         <div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory" style="-webkit-overflow-scrolling: touch;">
           {days.map(d => (
-            <div class="flex-shrink-0 w-[200px] snap-start rounded-[var(--radius-card)] p-6 transition-all duration-300 hover:-translate-y-1"
-                 style="background: var(--bg-primary); border: 1px solid var(--border);">
-              <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white mb-4"
-                   style="background: var(--brand-gradient);">
+            <div class="flex-shrink-0 w-[200px] snap-start rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--border-hover)]"
+                 style="background: var(--bg); border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
+              <div class="w-10 h-10 rounded-full bg-[#0d0d0d] dark:bg-white flex items-center justify-center text-sm font-bold text-white dark:text-[#0d0d0d] mb-4">
                 {d.day}
               </div>
-              <h3 class="font-semibold mb-1.5" style="color: var(--text-primary);">Day {d.day}</h3>
-              <p class="text-[15px] font-medium mb-1" style="color: var(--text-primary);">{d.title}</p>
+              <h3 class="font-semibold mb-1.5" style="color: var(--text);">Day {d.day}</h3>
+              <p class="text-[15px] font-medium mb-1" style="color: var(--text);">{d.title}</p>
               <p class="text-[13px]" style="color: var(--text-muted);">{d.desc}</p>
             </div>
           ))}
         </div>
 
         <div class="text-center mt-8">
-          <a href="/7-days" class="inline-flex items-center gap-1.5 text-[15px] font-medium hover:text-[#18E299] transition-colors" style="color: var(--brand);">
+          <a href="/7-days" class="inline-flex items-center gap-1.5 text-[15px] font-medium hover:text-[#0fa76e] transition-colors" style="color: var(--brand);">
             查看完整 7 天路径 →
           </a>
         </div>
@@ -162,51 +158,53 @@ const platforms = [
 
     <!-- ====== Section 5: Migration Teaser ====== -->
     <section class="py-20 md:py-28">
-      <div class="max-w-[1200px] mx-auto px-6">
+      <div class="max-w-[960px] mx-auto px-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Left text -->
           <div>
-            <h2 class="font-display text-[clamp(28px,3.5vw,40px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text-primary);">从 OpenClaw 迁移？<br/><span class="brand-gradient-text">3 步搞定</span></h2>
+            <h2 class="text-[clamp(28px,3.5vw,40px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text);">从 OpenClaw 迁移？<br/>3 步搞定</h2>
             <p class="text-lg leading-relaxed mb-6" style="color: var(--text-secondary);">
-              使用 <code class="px-2 py-0.5 rounded-md text-sm" style="background: var(--bg-tertiary); font-family: var(--font-mono);">hermes claw migrate</code> 一键迁移，配置不会丢。备份、导入、诊断一条龙。
+              使用 <code class="px-2 py-0.5 rounded-md text-sm" style="background: var(--surface); font-family: 'Geist Mono', monospace;">hermes claw migrate</code> 一键迁移，配置不会丢。备份、导入、诊断一条龙。
             </p>
-            <a href="/migrate" class="inline-flex items-center gap-1.5 text-[15px] font-medium hover:text-[#18E299] transition-colors" style="color: var(--brand);">
+            <a href="/migrate" class="inline-flex items-center gap-1.5 text-[15px] font-medium hover:text-[#0fa76e] transition-colors" style="color: var(--brand);">
               查看迁移指南 →
             </a>
           </div>
 
           <!-- Right code -->
-          <div class="rounded-[var(--radius-code)] overflow-hidden" style="background: #0d0d14; border: 1px solid rgba(255,255,255,0.06);">
-            <div class="px-5 py-4 overflow-x-auto">
-              <pre class="text-sm leading-relaxed m-0" style="font-family: var(--font-mono); color: var(--code-text);"><code>{
-`<span style="color: #18E299;">$</span> hermes claw migrate
-<span style="color: #6a6a82;">Migrating OpenClaw config...</span>
+          <div class="bg-[#1e1e1e] rounded-2xl p-7">
+            <div class="flex gap-2 mb-5">
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+            </div>
+            <pre class="text-sm leading-relaxed m-0" style="font-family: 'Geist Mono', monospace; color: #e5e5e5;"><code>{`<span style="color: #18E299;">$</span> hermes claw migrate
+<span style="color: #888;">Migrating OpenClaw config...</span>
 <span style="color: #18E299;">✓</span> API keys migrated
 <span style="color: #18E299;">✓</span> Platform configs migrated
 <span style="color: #18E299;">✓</span> All 3 agents imported
 
 <span style="color: #18E299;">$</span> hermes doctor
-<span style="color: #18E299;">✓</span> All systems operational`
-              }</code></pre>
-            </div>
+<span style="color: #18E299;">✓</span> All systems operational`}</code></pre>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ====== Section 6: CTA ====== -->
-    <section class="py-20 md:py-28 relative overflow-hidden" style="background: var(--bg-secondary);">
-      <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(24,226,153,0.06), transparent 70%);"></div>
-      <div class="relative max-w-[1200px] mx-auto px-6 text-center">
-        <h2 class="font-display text-[clamp(28px,4vw,48px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text-primary);">准备好开始了吗？</h2>
+    <section class="py-20 md:py-28" style="background: var(--surface);">
+      <div class="max-w-[960px] mx-auto px-6 text-center">
+        <h2 class="text-[clamp(28px,4vw,48px)] font-semibold tracking-[-0.3px] mb-4" style="color: var(--text);">准备好开始了吗？</h2>
         <p class="text-lg mb-8" style="color: var(--text-secondary);">5 分钟完成安装，立刻体验 AI Agent 的力量</p>
         <a href="/setup"
-           class="inline-flex items-center gap-2 px-10 py-4 rounded-[var(--radius-button)] text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
-           style="background: var(--brand-gradient); box-shadow: var(--glow-lg);">
+           class="inline-flex items-center gap-2 px-10 py-4 rounded-full text-lg font-semibold bg-[#0d0d0d] text-white dark:bg-white dark:text-[#0d0d0d] transition-transform hover:scale-[1.02] active:scale-[0.98]">
           开始安装 Hermes Agent
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
-        <p class="text-[13px] mt-4" style="color: var(--text-muted);">当前版本 v0.9.x · 开源免费 · MIT License</p>
+        <div class="mt-6 space-y-1">
+          <p class="text-[13px]" style="color: var(--text-muted);">📌 基于 Hermes v0.9.x | 最后更新：2026-04-20</p>
+          <p class="text-[13px]" style="color: var(--text-muted);">⚠️ 本站为社区独立指南，非官方文档</p>
+        </div>
       </div>
     </section>
   </main>
