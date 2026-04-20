@@ -1,18 +1,16 @@
 ---
+const year = new Date().getFullYear();
 ---
-<footer class="bg-[var(--surface)] border-t border-[var(--border)] py-10 mt-auto">
-  <div class="max-w-[960px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <div class="text-center md:text-left">
-      <span class="font-semibold text-lg tracking-[-0.3px]" style="color: var(--text);">hermes101</span>
-      <p class="text-xs mt-2" style="color: var(--text-muted);">本站为社区独立指南，非 Nous Research 官方文档</p>
+<footer class="w-full py-12 bg-[#0A0A0F] border-t border-white/[0.05]">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto">
+    <div class="mb-8 md:mb-0">
+      <a href="/" class="text-[#18E299] font-bold text-xl">Hermes Agent</a>
+      <p class="text-white/40 text-sm mt-2 tracking-tight">© {year} Hermes Agent. All rights reserved.</p>
     </div>
-    <div class="flex gap-5 flex-wrap justify-center">
-      <a href="/setup" class="text-sm hover:text-[#0fa76e] transition-colors" style="color: var(--text-muted);">安装</a>
-      <a href="/7-days" class="text-sm hover:text-[#0fa76e] transition-colors" style="color: var(--text-muted);">7天教程</a>
-      <a href="/migrate" class="text-sm hover:text-[#0fa76e] transition-colors" style="color: var(--text-muted);">迁移</a>
-      <a href="/faq" class="text-sm hover:text-[#0fa76e] transition-colors" style="color: var(--text-muted);">FAQ</a>
-      <a href="https://github.com/NousResearch/hermes-agent/discussions" target="_blank" rel="noopener" class="text-sm hover:text-[#0fa76e] transition-colors" style="color: var(--text-muted);">社区讨论</a>
+    <div class="flex gap-8">
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href="/faq">常见问题</a>
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href="https://github.com" target="_blank">GitHub</a>
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href="/migrate">迁移指南</a>
     </div>
-    <p class="text-[13px]" style="color: var(--text-muted);">© 2026 hermes101.pages.dev</p>
   </div>
 </footer>

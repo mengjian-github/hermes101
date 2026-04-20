@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0A0A0F;
+            color: #E4E1E9;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(27, 27, 32, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .terminal-bg {
+            background-color: #0E0E13;
+        }
+        .ghost-border {
+            border: 1px solid rgba(59, 74, 65, 0.15);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0F;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F1F25;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2a292f",
+                        "surface-bright": "#39383e",
+                        "surface-dim": "#131318",
+                        "secondary-fixed": "#b1f1cb",
+                        "on-primary-fixed": "#002112",
+                        "on-primary": "#003823",
+                        "surface": "#131318",
+                        "tertiary-container": "#ffb962",
+                        "secondary-container": "#135338",
+                        "on-surface-variant": "#bacbbe",
+                        "on-background": "#e4e1e9",
+                        "tertiary-fixed-dim": "#ffb962",
+                        "inverse-primary": "#006c47",
+                        "on-primary-container": "#005f3d",
+                        "on-secondary-fixed-variant": "#105136",
+                        "secondary": "#96d4b0",
+                        "outline-variant": "#3b4a41",
+                        "error-container": "#93000a",
+                        "tertiary": "#ffddb9",
+                        "primary": "#51ffb4",
+                        "on-secondary": "#003823",
+                        "primary-fixed-dim": "#17e299",
+                        "on-tertiary-fixed-variant": "#663e00",
+                        "inverse-surface": "#e4e1e9",
+                        "on-primary-fixed-variant": "#005234",
+                        "on-tertiary-fixed": "#2b1700",
+                        "on-tertiary-container": "#764900",
+                        "on-secondary-fixed": "#002112",
+                        "outline": "#859589",
+                        "on-secondary-container": "#88c6a3",
+                        "surface-container-highest": "#35343a",
+                        "surface-container-low": "#1b1b20",
+                        "tertiary-fixed": "#ffddb9",
+                        "surface-container": "#1f1f25",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#96d4b0",
+                        "surface-container-lowest": "#0e0e13",
+                        "inverse-on-surface": "#303036",
+                        "error": "#ffb4ab",
+                        "background": "#131318",
+                        "surface-tint": "#17e299",
+                        "on-surface": "#e4e1e9",
+                        "on-tertiary": "#472a00",
+                        "surface-variant": "#35343a",
+                        "primary-fixed": "#4dffb3",
+                        "primary-container": "#18e299",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="selection:bg-primary/30 selection:text-primary">
+<!-- TopAppBar from Shared Components JSON -->
+<header class="bg-[#131318]/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-[#3B4A41]/15 shadow-[0px_24px_48px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-[1400px] mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#18E299]" data-icon="terminal">terminal</span>
+<h1 class="text-xl font-black text-white tracking-tighter font-['Inter'] font-extrabold tracking-[-0.04em] uppercase">HERMES</h1>
+</div>
+<button class="bg-[#18e299] text-[#003823] px-6 py-1.5 rounded-full font-bold text-sm active:scale-[0.98] transition-all duration-300 hover:bg-[#51FFB4]">
+                Install CLI
+            </button>
+</div>
+</header>
+<main class="pt-32 pb-24 px-6 max-w-5xl mx-auto min-h-screen flex flex-col">
+<!-- Hero Section -->
+<div class="mb-20 text-center md:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-low ghost-border mb-6">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">5分钟完成安装</span>
+</div>
+<h2 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter mb-6">
+                安装 <span class="text-primary">Hermes Agent</span>
+</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                欢迎使用 Hermes 智能代理。请按照以下步骤配置您的本地开发环境，开启下一代 AI 自动化工作流。
+            </p>
+</div>
+<!-- Pre-check Section -->
+<div class="mb-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 rounded-2xl bg-surface-container-low ghost-border group hover:bg-surface-container transition-colors duration-300">
+<div class="mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="developer_board">developer_board</span>
+</div>
+<h3 class="text-white font-bold mb-2">Node.js 环境</h3>
+<p class="text-sm text-on-surface-variant">推荐使用 Node.js 18.x 或更高版本以获得最佳兼容性。</p>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low ghost-border group hover:bg-surface-container transition-colors duration-300">
+<div class="mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="account_tree">account_tree</span>
+</div>
+<h3 class="text-white font-bold mb-2">Git 工具</h3>
+<p class="text-sm text-on-surface-variant">用于同步最新核心组件及克隆必要的主题模板库。</p>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low ghost-border group hover:bg-surface-container transition-colors duration-300">
+<div class="mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="cloud_done">cloud_done</span>
+</div>
+<h3 class="text-white font-bold mb-2">网络连接</h3>
+<p class="text-sm text-on-surface-variant">安装过程中需要访问 Hermes Protocol 全球加速节点。</p>
+</div>
+</div>
+</div>
+<!-- OS Tab Switcher -->
+<div class="mb-12 border-b border-outline-variant/15 flex items-center gap-8 overflow-x-auto no-scrollbar">
+<button class="pb-4 text-primary font-bold border-b-2 border-primary transition-all whitespace-nowrap">Mac</button>
+<button class="pb-4 text-on-surface-variant font-medium hover:text-white transition-all whitespace-nowrap">Linux</button>
+<button class="pb-4 text-on-surface-variant font-medium hover:text-white transition-all whitespace-nowrap">Windows WSL2</button>
+<button class="pb-4 text-on-surface-variant font-medium hover:text-white transition-all whitespace-nowrap">Termux</button>
+</div>
+<!-- Vertical Timeline Steps -->
+<div class="space-y-16 relative">
+<!-- Connector Line -->
+<div class="absolute left-6 top-8 bottom-0 w-[2px] bg-gradient-to-b from-primary/30 via-outline-variant/10 to-transparent"></div>
+<!-- Step 1 -->
+<div class="relative flex gap-10">
+<div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-highest border border-primary/50 shrink-0">
+<span class="text-primary font-bold">1</span>
+</div>
+<div class="flex-grow pt-1">
+<h4 class="text-2xl font-bold text-white mb-4">执行一键安装脚本</h4>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                        打开您的终端，执行下方的 curl 命令。该脚本会自动检测您的系统环境并安装最新的 Hermes 运行时及其依赖包。
+                    </p>
+<div class="rounded-xl terminal-bg p-6 ghost-border font-mono text-sm group relative overflow-hidden">
+<div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 rounded-lg bg-surface-container-high hover:bg-surface-bright transition-colors text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+<div class="flex gap-4 mb-3 border-b border-outline-variant/10 pb-3">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+</div>
+</div>
+<code class="text-on-surface break-all">
+<span class="text-primary">curl</span> -fsSL https://get.hermes.protocol/install.sh | <span class="text-primary">sh</span>
+</code>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex gap-10">
+<div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-highest border border-primary/50 shrink-0">
+<span class="text-primary font-bold">2</span>
+</div>
+<div class="flex-grow pt-1">
+<h4 class="text-2xl font-bold text-white mb-4">身份验证与配置</h4>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                        安装完成后，您需要将本地代理与您的 Hermes 账户进行关联。通过 CLI 执行初始化指令并输入您的 API 密钥。
+                    </p>
+<div class="rounded-xl terminal-bg p-6 ghost-border font-mono text-sm group relative overflow-hidden">
+<div class="flex gap-4 mb-3 border-b border-outline-variant/10 pb-3">
+<span class="text-[10px] uppercase text-outline">Terminal — hermes config</span>
+</div>
+<code class="text-on-surface">
+<span class="text-primary">hermes</span> auth login <span class="text-tertiary">--key</span> YOUR_SECRET_TOKEN
+                        </code>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex gap-10">
+<div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-highest border border-primary/50 shrink-0">
+<span class="text-primary font-bold">3</span>
+</div>
+<div class="flex-grow pt-1">
+<h4 class="text-2xl font-bold text-white mb-4">启动 Hermes 引擎</h4>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                        一切就绪！现在您可以启动后台守护进程，Hermes 将开始分析您的工作流并提供智能协助。
+                    </p>
+<div class="rounded-xl terminal-bg p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-8">
+<code class="text-on-surface">
+<span class="text-primary">hermes</span> start
+                        </code>
+</div>
+<div class="p-8 rounded-3xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/10">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<h5 class="text-xl font-bold text-white mb-2">准备好了吗？</h5>
+<p class="text-on-surface-variant text-sm">现在就去仪表板查看您的节点状态。</p>
+</div>
+<button class="w-full md:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-primary-container to-primary text-on-primary font-black uppercase tracking-wider text-sm shadow-[0_0_15px_rgba(24,226,153,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all">
+                                前往仪表板
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- FAQ Section -->
+<div class="mt-32">
+<h3 class="text-3xl font-bold text-white mb-10 tracking-tight">常见问题 (FAQ)</h3>
+<div class="space-y-4">
+<div class="p-6 rounded-2xl bg-surface-container-low ghost-border">
+<button class="flex items-center justify-between w-full text-left">
+<span class="font-semibold text-white">如果安装脚本报错 "Permission Denied" 怎么办？</span>
+<span class="material-symbols-outlined text-primary" data-icon="expand_more">expand_more</span>
+</button>
+<div class="mt-4 text-on-surface-variant text-sm leading-relaxed">
+                        这通常是因为缺少 sudo 权限。您可以尝试在命令前加上 <code class="text-primary">sudo</code>，或者确保您有当前目录的写入权限。对于 Mac 用户，请确保已安装 Xcode Command Line Tools。
+                    </div>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low ghost-border">
+<button class="flex items-center justify-between w-full text-left">
+<span class="font-semibold text-white">如何卸载 Hermes Agent？</span>
+<span class="material-symbols-outlined text-outline" data-icon="add">add</span>
+</button>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low ghost-border">
+<button class="flex items-center justify-between w-full text-left">
+<span class="font-semibold text-white">支持哪些操作系统架构？</span>
+<span class="material-symbols-outlined text-outline" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer from Shared Components JSON -->
+<footer class="bg-[#0A0A0F] w-full py-16 mt-auto border-t border-[#3B4A41]/10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center px-8 space-y-4 md:space-y-0">
+<div class="flex flex-col gap-2">
+<div class="text-sm font-bold text-white font-['Inter']">HERMES INTELLIGENCE</div>
+<p class="font-['Inter'] text-[0.6875rem] font-medium tracking-wide uppercase text-slate-500">© 2024 Hermes Intelligence. All systems operational.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-[0.6875rem] font-medium tracking-wide uppercase text-slate-500 hover:text-[#18E299] transition-colors duration-200" href="#">Documentation</a>
+<a class="font-['Inter'] text-[0.6875rem] font-medium tracking-wide uppercase text-slate-500 hover:text-[#18E299] transition-colors duration-200" href="#">Changelog</a>
+<a class="font-['Inter'] text-[0.6875rem] font-medium tracking-wide uppercase text-slate-500 hover:text-[#18E299] transition-colors duration-200" href="#">Security</a>
+<a class="font-['Inter'] text-[0.6875rem] font-medium tracking-wide uppercase text-slate-500 hover:text-[#18E299] transition-colors duration-200" href="#">GitHub</a>
+</div>
+</div>
+</footer>
+</body></html>

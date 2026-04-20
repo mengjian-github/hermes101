@@ -42,19 +42,19 @@ const troubleshooting = [
     key: "claw",
     title: "提示 \"claw 不存在\"",
     reason: "OpenClaw 未安装或未加入 PATH。",
-    fix: "<code class=\"bg-[#fafafa] px-1 rounded text-sm\">which openclaw</code> 检查路径；如已卸载，手动复制 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">~/.openclaw/config.yaml</code> 到 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">~/.hermes/</code>",
+    fix: "<code class=\"bg-[#131318] px-1 rounded text-sm\">which openclaw</code> 检查路径；如已卸载，手动复制 <code class=\"bg-[#131318] px-1 rounded text-sm\">~/.openclaw/config.yaml</code> 到 <code class=\"bg-[#131318] px-1 rounded text-sm\">~/.hermes/</code>",
   },
   {
     key: "channel",
     title: "渠道配置丢失 / 机器人不回复",
     reason: "Token 过期或 webhook 未更新。",
-    fix: "重新获取 Token；运行 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">hermes gateway setup &lt;platform&gt;</code> 重新配置；用 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">/debug</code> 检查连接状态。",
+    fix: "重新获取 Token；运行 <code class=\"bg-[#131318] px-1 rounded text-sm\">hermes gateway setup &lt;platform&gt;</code> 重新配置；用 <code class=\"bg-[#131318] px-1 rounded text-sm\">/debug</code> 检查连接状态。",
   },
   {
     key: "apikey",
     title: "API key 迁移后无法调用",
     reason: "Key 格式不兼容或 base_url 丢失。",
-    fix: "<code class=\"bg-[#fafafa] px-1 rounded text-sm\">hermes auth list</code> 查看是否导入成功；手动编辑 <code class=\"bg-[#fafafa] px-1 rounded text-sm\">~/.hermes/config.yaml</code> 补全 base_url。",
+    fix: "<code class=\"bg-[#131318] px-1 rounded text-sm\">hermes auth list</code> 查看是否导入成功；手动编辑 <code class=\"bg-[#131318] px-1 rounded text-sm\">~/.hermes/config.yaml</code> 补全 base_url。",
   },
   {
     key: "stuck",
@@ -78,10 +78,10 @@ const troubleshooting = [
       <MoodBanner text="你的配置不会丢，迁移只需 3 步。我们帮你一条命令完成换仓。" />
 
       <h1 class="text-[36px] font-semibold leading-[1.3] tracking-[-0.3px] mt-8 mb-2">OpenClaw 迁移指南</h1>
-      <p class="text-base text-[#666] mb-8">使用 <code class="bg-[#fafafa] px-1.5 py-0.5 rounded text-sm">hermes claw migrate</code> 一键迁移。附带完整检查清单、常见失败修复和迁移后验证步骤。</p>
+      <p class="text-base text-[#859589] mb-8">使用 <code class="bg-[#131318] px-1.5 py-0.5 rounded text-sm">hermes claw migrate</code> 一键迁移。附带完整检查清单、常见失败修复和迁移后验证步骤。</p>
 
       <!-- Migration Infographic -->
-      <div class="mb-10 rounded-xl overflow-hidden border border-black/[0.06]">
+      <div class="mb-10 rounded-xl overflow-hidden border border-white/[0.06]">
         <img src="/infographic/migrate.png" alt="OpenClaw 迁移流程图" class="w-full" loading="lazy" />
       </div>
 
@@ -89,19 +89,19 @@ const troubleshooting = [
       <section class="mb-12">
         <div class="grid grid-cols-3 gap-6">
           <div class="flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#18E299] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">1</div>
-            <h3 class="font-bold text-[#0d0d0d] mb-1">迁移前备份</h3>
-            <p class="text-xs text-[#666]">备份旧配置，记录 API key</p>
+            <div class="w-14 h-14 rounded-2xl bg-[var(--brand)] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">1</div>
+            <h3 class="font-bold text-[#E4E1E9] mb-1">迁移前备份</h3>
+            <p class="text-xs text-[#859589]">备份旧配置，记录 API key</p>
           </div>
           <div class="flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#18E299] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">2</div>
-            <h3 class="font-bold text-[#0d0d0d] mb-1">一条命令迁移</h3>
-            <p class="text-xs text-[#666]">hermes claw migrate 自动完成</p>
+            <div class="w-14 h-14 rounded-2xl bg-[var(--brand)] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">2</div>
+            <h3 class="font-bold text-[#E4E1E9] mb-1">一条命令迁移</h3>
+            <p class="text-xs text-[#859589]">hermes claw migrate 自动完成</p>
           </div>
           <div class="flex flex-col items-center text-center">
-            <div class="w-14 h-14 rounded-2xl bg-[#18E299] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">3</div>
-            <h3 class="font-bold text-[#0d0d0d] mb-1">验证 + 上线</h3>
-            <p class="text-xs text-[#666]">确认机器人正常回复</p>
+            <div class="w-14 h-14 rounded-2xl bg-[var(--brand)] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">3</div>
+            <h3 class="font-bold text-[#E4E1E9] mb-1">验证 + 上线</h3>
+            <p class="text-xs text-[#859589]">确认机器人正常回复</p>
           </div>
         </div>
       </section>
@@ -110,13 +110,13 @@ const troubleshooting = [
       <section class="mb-10">
         <div class="flex items-baseline justify-between mb-5">
           <h2 class="text-xl font-semibold">迁移前检查清单（6 项）</h2>
-          <span class="text-sm font-mono text-[#0fa76e] font-bold" id="pre-count">0 / 6</span>
+          <span class="text-sm font-mono text-[#51FFB4] font-bold" id="pre-count">0 / 6</span>
         </div>
         <div class="grid gap-3" id="pre-checklist">
           {preChecks.map((c) => (
-            <div class="check-item cursor-pointer flex items-center gap-4 p-4 rounded-xl bg-[#fafafa] border border-black/[0.06] transition-colors hover:border-black/10" data-check={c.id}>
-              <div class="check-box w-6 h-6 rounded-md border-2 border-[#ccc] flex items-center justify-center text-white text-xs transition-all"></div>
-              <span class="text-sm font-medium text-[#333]">{c.text}</span>
+            <div class="check-item cursor-pointer flex items-center gap-4 p-4 rounded-xl bg-[#131318] border border-white/[0.06] transition-colors hover:border-black/10" data-check={c.id}>
+              <div class="check-box w-6 h-6 rounded-md border-2 border-[var(--surface-highest)] flex items-center justify-center text-white text-xs transition-all"></div>
+              <span class="text-sm font-medium text-[#BACBBE]">{c.text}</span>
             </div>
           ))}
         </div>
@@ -124,7 +124,7 @@ const troubleshooting = [
 
       <!-- Command Blocks -->
       <section class="mb-10 space-y-4">
-        <div class="bg-[#1e1e1e] rounded-xl overflow-hidden">
+        <div class="bg-[#0E0E13] rounded-xl overflow-hidden">
           <div class="flex items-center gap-2 px-5 py-3 border-b border-white/10">
             <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
             <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
@@ -159,7 +159,7 @@ const troubleshooting = [
           </div>
         </div>
 
-        <div class="bg-[#1e1e1e] rounded-xl p-5">
+        <div class="bg-[#0E0E13] rounded-xl p-5">
           <div class="flex justify-between items-start">
             <code class="font-mono text-[15px] text-[#e5e5e5] font-medium leading-tight"><span class="text-[#18E299]">$</span> hermes backup --output ~/hermes-migrated.zip</code>
             <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 text-[#aaa] text-xs font-semibold hover:bg-white/20 transition-colors" data-copy="hermes backup --output ~/hermes-migrated.zip">
@@ -174,48 +174,48 @@ const troubleshooting = [
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-5">Hermes v0.9 新功能对照表</h2>
         <TableWrap>
-          <thead class="bg-[#fafafa]">
+          <thead class="bg-[#131318]">
             <tr>
-              <th class="text-left py-3.5 px-4 font-semibold border-b border-black/[0.06]">功能</th>
-              <th class="text-left py-3.5 px-4 font-semibold border-b border-black/[0.06]">OpenClaw</th>
-              <th class="text-left py-3.5 px-4 font-semibold border-b border-black/[0.06]">Hermes v0.9.x</th>
+              <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">功能</th>
+              <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">OpenClaw</th>
+              <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">Hermes v0.9.x</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333] font-medium">Dashboard</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#999]">—</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#0fa76e] font-medium">✓ Web 实时状态面板</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Dashboard</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">—</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ Web 实时状态面板</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333] font-medium">Backup / Import</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#999]">手动拷贝</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#0fa76e] font-medium">✓ hermes backup / import</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Backup / Import</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">手动拷贝</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ hermes backup / import</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333] font-medium">平台接入</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333]">Telegram / 飞书</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#0fa76e] font-medium">✓ 8+ 平台</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">平台接入</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE]">Telegram / 飞书</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ 8+ 平台</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333] font-medium">Debug 命令</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#999]">—</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#0fa76e] font-medium">✓ /debug 快速诊断</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Debug 命令</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">—</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ /debug 快速诊断</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333] font-medium">Watch Patterns</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#999]">—</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#0fa76e] font-medium">✓ 后台进程输出监控</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Watch Patterns</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">—</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ 后台进程输出监控</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333] font-medium">MCP / Skill 市场</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#333]">基础工具</td>
-              <td class="py-3.5 px-4 border-b border-black/[0.06] text-[#0fa76e] font-medium">✓ /skills 丰富生态</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">MCP / Skill 市场</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE]">基础工具</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ /skills 丰富生态</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 text-[#333] font-medium">Cron 自动化</td>
-              <td class="py-3.5 px-4 text-[#999]">—</td>
-              <td class="py-3.5 px-4 text-[#0fa76e] font-medium">✓ 自然语言定时任务</td>
+              <td class="py-3.5 px-4 text-[#BACBBE] font-medium">Cron 自动化</td>
+              <td class="py-3.5 px-4 text-[#859589]">—</td>
+              <td class="py-3.5 px-4 text-[#51FFB4] font-medium">✓ 自然语言定时任务</td>
             </tr>
           </tbody>
         </TableWrap>
@@ -226,19 +226,19 @@ const troubleshooting = [
         <h2 class="text-xl font-semibold mb-5">常见失败场景</h2>
         <div class="space-y-3" id="troubleshooting-list">
           {troubleshooting.map((t, i) => (
-            <div class="trouble-item bg-white rounded-xl border border-black/[0.06] overflow-hidden" data-trouble={t.key}>
-              <button class="trouble-header w-full p-5 flex justify-between items-center text-left hover:bg-[#fafafa] transition-colors">
-                <span class="font-mono text-sm font-bold text-[#0d0d0d]">{t.title}</span>
-                <span class="trouble-arrow text-[#999] transition-transform">▼</span>
+            <div class="trouble-item bg-white rounded-xl border border-white/[0.06] overflow-hidden" data-trouble={t.key}>
+              <button class="trouble-header w-full p-5 flex justify-between items-center text-left hover:bg-[#131318] transition-colors">
+                <span class="font-mono text-sm font-bold text-[#E4E1E9]">{t.title}</span>
+                <span class="trouble-arrow text-[#859589] transition-transform">▼</span>
               </button>
-              <div class="trouble-body hidden px-5 pb-5 pt-0 space-y-4 border-l-4 border-[#18E299] ml-5">
+              <div class="trouble-body hidden px-5 pb-5 pt-0 space-y-4 border-l-4 border-[var(--brand)] ml-5">
                 <div class="space-y-1">
-                  <p class="text-[10px] uppercase tracking-widest text-[#999] font-bold">原因</p>
-                  <p class="text-sm text-[#666]">{t.reason}</p>
+                  <p class="text-[10px] uppercase tracking-widest text-[#859589] font-bold">原因</p>
+                  <p class="text-sm text-[#859589]">{t.reason}</p>
                 </div>
                 <div class="space-y-1">
-                  <p class="text-[10px] uppercase tracking-widest text-[#999] font-bold">解决方案</p>
-                  <p class="text-sm text-[#666]" set:html={t.fix} />
+                  <p class="text-[10px] uppercase tracking-widest text-[#859589] font-bold">解决方案</p>
+                  <p class="text-sm text-[#859589]" set:html={t.fix} />
                 </div>
               </div>
             </div>
@@ -250,20 +250,20 @@ const troubleshooting = [
       <section class="mb-10">
         <div class="flex items-baseline justify-between mb-5">
           <h2 class="text-xl font-semibold">迁移后验证清单（5 项）</h2>
-          <span class="text-sm font-mono text-[#0fa76e] font-bold" id="post-count">0 / 5</span>
+          <span class="text-sm font-mono text-[#51FFB4] font-bold" id="post-count">0 / 5</span>
         </div>
         <div class="grid gap-3" id="post-checklist">
           {postChecks.map((c) => (
-            <div class="check-item cursor-pointer flex items-center gap-4 p-4 rounded-xl bg-[#fafafa] border border-black/[0.06] transition-colors hover:border-black/10" data-check={c.id}>
-              <div class="check-box w-6 h-6 rounded-md border-2 border-[#ccc] flex items-center justify-center text-white text-xs transition-all"></div>
-              <span class="text-sm font-medium text-[#333]">{c.text}</span>
+            <div class="check-item cursor-pointer flex items-center gap-4 p-4 rounded-xl bg-[#131318] border border-white/[0.06] transition-colors hover:border-black/10" data-check={c.id}>
+              <div class="check-box w-6 h-6 rounded-md border-2 border-[var(--surface-highest)] flex items-center justify-center text-white text-xs transition-all"></div>
+              <span class="text-sm font-medium text-[#BACBBE]">{c.text}</span>
             </div>
           ))}
         </div>
       </section>
 
       <div class="text-center pt-10 pb-4">
-        <a href="/7-days" class="inline-block bg-[#0d0d0d] text-white dark:bg-white dark:text-[#0d0d0d] px-8 py-3 rounded-full text-[15px] font-medium hover:opacity-92 transition-opacity">开始 7 天 Hermes 学习路径 →</a>
+        <a href="/7-days" class="inline-block bg-[var(--brand)] text-[#003823] dark:bg-white dark:text-[#E4E1E9] px-8 py-3 rounded-full text-[15px] font-medium hover:opacity-92 transition-opacity">开始 7 天 Hermes 学习路径 →</a>
       </div>
     </article>
   </main>
@@ -282,14 +282,14 @@ const troubleshooting = [
         const saved = localStorage.getItem('check:' + id) === '1';
         if (saved) {
           done++;
-          item.classList.remove('bg-[#fafafa]', 'border-black/[0.06]');
-          item.classList.add('bg-[#d4fae8]', 'border-[#18E299]/20');
-          box.classList.add('bg-[#18E299]', 'border-[#18E299]');
+          item.classList.remove('bg-[#131318]', 'border-white/[0.06]');
+          item.classList.add('bg-[rgba(24,226,153,0.15)]', 'border-[var(--brand)]/20');
+          box.classList.add('bg-[var(--brand)]', 'border-[var(--brand)]');
           box.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
         } else {
-          item.classList.add('bg-[#fafafa]', 'border-black/[0.06]');
-          item.classList.remove('bg-[#d4fae8]', 'border-[#18E299]/20');
-          box.classList.remove('bg-[#18E299]', 'border-[#18E299]');
+          item.classList.add('bg-[#131318]', 'border-white/[0.06]');
+          item.classList.remove('bg-[rgba(24,226,153,0.15)]', 'border-[var(--brand)]/20');
+          box.classList.remove('bg-[var(--brand)]', 'border-[var(--brand)]');
           box.textContent = '';
         }
       });
@@ -342,8 +342,8 @@ const troubleshooting = [
           await navigator.clipboard.writeText(text);
           const original = btn.innerHTML;
           btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> 已复制';
-          btn.classList.add('text-[#0fa76e]');
-          setTimeout(() => { btn.innerHTML = original; btn.classList.remove('text-[#0fa76e]'); }, 1500);
+          btn.classList.add('text-[#51FFB4]');
+          setTimeout(() => { btn.innerHTML = original; btn.classList.remove('text-[#51FFB4]'); }, 1500);
         } catch (e) {}
       });
     });

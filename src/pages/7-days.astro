@@ -23,15 +23,15 @@ const days = [
     imgUrl: "/infographic/day1.png",
     title: "安装成功，并在终端说出第一句话",
     result: "运行 hermes --version 有输出，且在终端完成第一次对话",
-    outputHtml: `<div class="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#18E299]">$</span> hermes --version<br/>hermes v0.9.4<br/><br/><span class="text-[#18E299]">$</span> hermes<br/><span class="text-[#888]">Welcome to Hermes Agent v0.9.4</span><br/><span class="text-[#888]">Type your message or /help for commands</span><br/><br/><span class="text-[#0fa76e]">You:</span> 你好<br/><span class="text-[#0fa76e]">Hermes:</span> 你好！我是 Hermes，你的 AI 助手。有什么我能帮你的吗？</div>`,
+    outputHtml: `<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#18E299]">$</span> hermes --version<br/>hermes v0.9.4<br/><br/><span class="text-[#18E299]">$</span> hermes<br/><span class="text-[#888]">Welcome to Hermes Agent v0.9.4</span><br/><span class="text-[#888]">Type your message or /help for commands</span><br/><br/><span class="text-[#51FFB4]">You:</span> 你好<br/><span class="text-[#51FFB4]">Hermes:</span> 你好！我是 Hermes，你的 AI 助手。有什么我能帮你的吗？</div>`,
     stepsHtml: `
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#0d0d0d] mb-1">选择你的操作系统</p><p class="text-sm text-[#666]">进入对应 Tab（Mac / Linux / Windows WSL2 / Termux）。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#0d0d0d] mb-1">检查 Python 版本</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">python3 --version</code>（需 ≥ 3.10）。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#0d0d0d] mb-1">安装 Hermes</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">pip3 install --user hermes-agent</code></p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">验证安装</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes --version</code>（应显示 v0.9.x）。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#0d0d0d] mb-1">初始化配置向导</p><p class="text-sm text-[#666]">运行 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes setup</code> 交互式向导，生成 <code class="bg-[#fafafa] px-1.5 rounded text-sm">~/.hermes/config.yaml</code>。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">6</div><div><p class="font-semibold text-[#0d0d0d] mb-1">第一次对话</p><p class="text-sm text-[#666]">在终端输入 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes</code>，发送 <code class="bg-[#fafafa] px-1.5 rounded text-sm">你好</code>。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">7</div><div><p class="font-semibold text-[#0d0d0d] mb-1">体验 Fast Mode</p><p class="text-sm text-[#666]">v0.9 新增 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes --fast</code>，绕过多余对话直接执行第一个任务，适合验证安装是否正常。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#E4E1E9] mb-1">选择你的操作系统</p><p class="text-sm text-[#859589]">进入对应 Tab（Mac / Linux / Windows WSL2 / Termux）。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#E4E1E9] mb-1">检查 Python 版本</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">python3 --version</code>（需 ≥ 3.10）。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#E4E1E9] mb-1">安装 Hermes</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">pip3 install --user hermes-agent</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#E4E1E9] mb-1">验证安装</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">hermes --version</code>（应显示 v0.9.x）。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#E4E1E9] mb-1">初始化配置向导</p><p class="text-sm text-[#859589]">运行 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes setup</code> 交互式向导，生成 <code class="bg-[#131318] px-1.5 rounded text-sm">~/.hermes/config.yaml</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">6</div><div><p class="font-semibold text-[#E4E1E9] mb-1">第一次对话</p><p class="text-sm text-[#859589]">在终端输入 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes</code>，发送 <code class="bg-[#131318] px-1.5 rounded text-sm">你好</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">7</div><div><p class="font-semibold text-[#E4E1E9] mb-1">体验 Fast Mode</p><p class="text-sm text-[#859589]">v0.9 新增 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes --fast</code>，绕过多余对话直接执行第一个任务，适合验证安装是否正常。</p></div></div>
     `,
     errors: [
       { title: "Python 版本过低", text: "安装 pyenv 或去 python.org 下载 3.11。" },
@@ -48,13 +48,13 @@ const days = [
     imgUrl: "/infographic/day2.png",
     title: "配置模型与 API key，让 Hermes 能正常回复",
     result: "发送消息后，Hermes 能调用 LLM 并返回有意义的回答",
-    outputHtml: `<div class="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#18E299]">$</span> hermes<br/><span class="text-[#0fa76e]">You:</span> /provider<br/><span class="text-[#888]">Provider: openai</span><br/><span class="text-[#888]">Model: gpt-4.1</span><br/><span class="text-[#888]">Status: ✓ Connected</span><br/><br/><span class="text-[#0fa76e]">You:</span> 9.8 和 9.11 哪个大？<br/><span class="text-[#0fa76e]">Hermes:</span> 9.8 比 9.11 大。9.8 = 9.80，9.11 = 9.11，所以 9.80 > 9.11。</div>`,
+    outputHtml: `<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#18E299]">$</span> hermes<br/><span class="text-[#51FFB4]">You:</span> /provider<br/><span class="text-[#888]">Provider: openai</span><br/><span class="text-[#888]">Model: gpt-4.1</span><br/><span class="text-[#888]">Status: ✓ Connected</span><br/><br/><span class="text-[#51FFB4]">You:</span> 9.8 和 9.11 哪个大？<br/><span class="text-[#51FFB4]">Hermes:</span> 9.8 比 9.11 大。9.8 = 9.80，9.11 = 9.11，所以 9.80 > 9.11。</div>`,
     stepsHtml: `
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#0d0d0d] mb-1">打开配置文件</p><p class="text-sm text-[#666]">确认 <code class="bg-[#fafafa] px-1.5 rounded text-sm">~/.hermes/config.yaml</code> 中的 model 字段（默认 anthropic/claude-sonnet-4）。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#0d0d0d] mb-1">配置 API key</p><p class="text-sm text-[#666]">方式 A：写入 <code class="bg-[#fafafa] px-1.5 rounded text-sm">~/.hermes/.env</code>。方式 B（v0.9 推荐）：运行 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes auth add openai</code>，支持加密存储。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#0d0d0d] mb-1">测试模型连通性</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes</code> 进入对话，输入 <code class="bg-[#fafafa] px-1.5 rounded text-sm">/provider</code> 查看状态。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">验证回复质量</p><p class="text-sm text-[#666]">发送一条需要推理的消息（如“9.8 和 9.11 哪个大”）。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#0d0d0d] mb-1">（可选）切换模型</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">/model claude-sonnet-4 --global</code> 或 <code class="bg-[#fafafa] px-1.5 rounded text-sm">/model gpt-4.1</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#E4E1E9] mb-1">打开配置文件</p><p class="text-sm text-[#859589]">确认 <code class="bg-[#131318] px-1.5 rounded text-sm">~/.hermes/config.yaml</code> 中的 model 字段（默认 anthropic/claude-sonnet-4）。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#E4E1E9] mb-1">配置 API key</p><p class="text-sm text-[#859589]">方式 A：写入 <code class="bg-[#131318] px-1.5 rounded text-sm">~/.hermes/.env</code>。方式 B（v0.9 推荐）：运行 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes auth add openai</code>，支持加密存储。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#E4E1E9] mb-1">测试模型连通性</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">hermes</code> 进入对话，输入 <code class="bg-[#131318] px-1.5 rounded text-sm">/provider</code> 查看状态。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#E4E1E9] mb-1">验证回复质量</p><p class="text-sm text-[#859589]">发送一条需要推理的消息（如“9.8 和 9.11 哪个大”）。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#E4E1E9] mb-1">（可选）切换模型</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">/model claude-sonnet-4 --global</code> 或 <code class="bg-[#131318] px-1.5 rounded text-sm">/model gpt-4.1</code>。</p></div></div>
     `,
     errors: [
       { title: "API key 无效", text: "检查 key 是否过期；国产模型用户需同步修改 base_url。" },
@@ -70,14 +70,14 @@ const days = [
     imgUrl: "/infographic/day3.png",
     title: "连接第一个渠道机器人（飞书 / Telegram / Discord）",
     result: "在真实聊天应用里 @机器人，它能回复你",
-    outputHtml: `<div class="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#18E299]">$</span> hermes gateway setup telegram<br/><span class="text-[#888]">? Enter your Telegram Bot Token: </span>7123456789:AAH...</span><br/><span class="text-[#18E299]">✓ Telegram gateway configured</span><br/><br/><span class="text-[#18E299]">$</span> hermes gateway run<br/><span class="text-[#888]">Gateway started on port 18000</span><br/><span class="text-[#18E299]">✓</span> Telegram bot is online</div>`,
+    outputHtml: `<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#18E299]">$</span> hermes gateway setup telegram<br/><span class="text-[#888]">? Enter your Telegram Bot Token: </span>7123456789:AAH...</span><br/><span class="text-[#18E299]">✓ Telegram gateway configured</span><br/><br/><span class="text-[#18E299]">$</span> hermes gateway run<br/><span class="text-[#888]">Gateway started on port 18000</span><br/><span class="text-[#18E299]">✓</span> Telegram bot is online</div>`,
     stepsHtml: `
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#0d0d0d] mb-1">选择渠道</p><p class="text-sm text-[#666]">推荐顺序：Telegram → 飞书 → Discord。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#0d0d0d] mb-1">获取 token / webhook</p><p class="text-sm text-[#666]">按渠道文档获取必要的认证信息。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#0d0d0d] mb-1">配置渠道</p><p class="text-sm text-[#666]">v0.9 交互式向导支持 8+ 平台：<code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes gateway setup &lt;platform&gt;</code></p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">启动 gateway</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes gateway run</code></p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#0d0d0d] mb-1">测试机器人回复</p><p class="text-sm text-[#666]">在对应 App 里发送一条消息确认回复。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">6</div><div><p class="font-semibold text-[#0d0d0d] mb-1">v0.9 新功能：Dashboard</p><p class="text-sm text-[#666]">访问 <code class="bg-[#fafafa] px-1.5 rounded text-sm">http://localhost:18000/dashboard</code> 查看实时消息流、在线 session 数和调用记录。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#E4E1E9] mb-1">选择渠道</p><p class="text-sm text-[#859589]">推荐顺序：Telegram → 飞书 → Discord。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#E4E1E9] mb-1">获取 token / webhook</p><p class="text-sm text-[#859589]">按渠道文档获取必要的认证信息。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#E4E1E9] mb-1">配置渠道</p><p class="text-sm text-[#859589]">v0.9 交互式向导支持 8+ 平台：<code class="bg-[#131318] px-1.5 rounded text-sm">hermes gateway setup &lt;platform&gt;</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#E4E1E9] mb-1">启动 gateway</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">hermes gateway run</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#E4E1E9] mb-1">测试机器人回复</p><p class="text-sm text-[#859589]">在对应 App 里发送一条消息确认回复。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">6</div><div><p class="font-semibold text-[#E4E1E9] mb-1">v0.9 新功能：Dashboard</p><p class="text-sm text-[#859589]">访问 <code class="bg-[#131318] px-1.5 rounded text-sm">http://localhost:18000/dashboard</code> 查看实时消息流、在线 session 数和调用记录。</p></div></div>
     `,
     errors: [
       { title: "hermes gateway setup 没有想要的平台", text: "升级 hermes 到最新版：<code class=\"bg-[#fffbeb] px-1 rounded text-sm\">pip install --upgrade hermes-agent</code>。" },
@@ -98,12 +98,12 @@ const days = [
     imgUrl: "/infographic/day4.png",
     title: "调用第一个内置工具，让 Hermes 不只是聊天",
     result: "Hermes 成功调用至少 1 个工具并返回结果",
-    outputHtml: `<div class="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#0fa76e]">You:</span> 北京今天天气怎么样<br/><span class="text-[#888]">🔧 Calling tool: weather_lookup</span><br/><span class="text-[#0fa76e]">Hermes:</span> 北京今天晴，气温 22°C，湿度 35%，空气质量良好。适合户外活动。<br/><br/><span class="text-[#0fa76e]">You:</span> 搜索 Hermes Agent 最新版本<br/><span class="text-[#888]">🔧 Calling tool: web_search</span><br/><span class="text-[#0fa76e]">Hermes:</span> Hermes Agent 最新版本为 v0.9.4，发布于 2026-04-15...</div>`,
+    outputHtml: `<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#51FFB4]">You:</span> 北京今天天气怎么样<br/><span class="text-[#888]">🔧 Calling tool: weather_lookup</span><br/><span class="text-[#51FFB4]">Hermes:</span> 北京今天晴，气温 22°C，湿度 35%，空气质量良好。适合户外活动。<br/><br/><span class="text-[#51FFB4]">You:</span> 搜索 Hermes Agent 最新版本<br/><span class="text-[#888]">🔧 Calling tool: web_search</span><br/><span class="text-[#51FFB4]">Hermes:</span> Hermes Agent 最新版本为 v0.9.4，发布于 2026-04-15...</div>`,
     stepsHtml: `
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#0d0d0d] mb-1">查天气</p><p class="text-sm text-[#666]">例如发送“北京今天天气怎么样”。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#0d0d0d] mb-1">搜索实时信息</p><p class="text-sm text-[#666]">例如“Hermes v0.9 新功能”。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#0d0d0d] mb-1">执行安全终端命令</p><p class="text-sm text-[#666]">如 <code class="bg-[#fafafa] px-1.5 rounded text-sm">ls -la ~/.hermes</code>。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">体验浏览器工具</p><p class="text-sm text-[#666]">让 Hermes 打开一个网页并总结内容。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#E4E1E9] mb-1">查天气</p><p class="text-sm text-[#859589]">例如发送“北京今天天气怎么样”。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#E4E1E9] mb-1">搜索实时信息</p><p class="text-sm text-[#859589]">例如“Hermes v0.9 新功能”。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#E4E1E9] mb-1">执行安全终端命令</p><p class="text-sm text-[#859589]">如 <code class="bg-[#131318] px-1.5 rounded text-sm">ls -la ~/.hermes</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#E4E1E9] mb-1">体验浏览器工具</p><p class="text-sm text-[#859589]">让 Hermes 打开一个网页并总结内容。</p></div></div>
     `,
     errors: [
       { title: "工具没有触发", text: "检查 config.yaml 中 enabled_toolsets 是否包含对应工具集。" },
@@ -120,13 +120,13 @@ const days = [
     imgUrl: "/infographic/day5.png",
     title: "安装并使用第一个第三方技能（MCP / Skill）",
     result: "成功安装一个第三方技能，并通过对话触发它",
-    outputHtml: `<div class="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#0fa76e]">You:</span> /skills search weather<br/><span class="text-[#888]">📦 Found 3 skills:</span><br/><span class="text-[#888]">  1. mcp/weather - Weather lookup via OpenWeatherMap</span><br/><span class="text-[#888]">  2. mcp/weather-advanced - Extended forecast</span><br/><br/><span class="text-[#0fa76e]">You:</span> /skills install mcp/weather<br/><span class="text-[#18E299]">✓</span> <span class="text-[#888]">Installed mcp/weather v1.2.0</span><br/><br/><span class="text-[#0fa76e]">You:</span> 查一下上海天气<br/><span class="text-[#888]">🔧 Calling skill: mcp/weather</span><br/><span class="text-[#0fa76e]">Hermes:</span> 上海当前：多云 19°C，明天转晴 24°C。</div>`,
+    outputHtml: `<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#51FFB4]">You:</span> /skills search weather<br/><span class="text-[#888]">📦 Found 3 skills:</span><br/><span class="text-[#888]">  1. mcp/weather - Weather lookup via OpenWeatherMap</span><br/><span class="text-[#888]">  2. mcp/weather-advanced - Extended forecast</span><br/><br/><span class="text-[#51FFB4]">You:</span> /skills install mcp/weather<br/><span class="text-[#18E299]">✓</span> <span class="text-[#888]">Installed mcp/weather v1.2.0</span><br/><br/><span class="text-[#51FFB4]">You:</span> 查一下上海天气<br/><span class="text-[#888]">🔧 Calling skill: mcp/weather</span><br/><span class="text-[#51FFB4]">Hermes:</span> 上海当前：多云 19°C，明天转晴 24°C。</div>`,
     stepsHtml: `
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#0d0d0d] mb-1">浏览技能市场</p><p class="text-sm text-[#666]">在 Hermes CLI 中输入 <code class="bg-[#fafafa] px-1.5 rounded text-sm">/skills</code> 或 <code class="bg-[#fafafa] px-1.5 rounded text-sm">/skills search weather</code>。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#0d0d0d] mb-1">安装技能</p><p class="text-sm text-[#666]">例如：<code class="bg-[#fafafa] px-1.5 rounded text-sm">/skills install mcp/weather</code></p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#0d0d0d] mb-1">查看已安装技能</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">/skills list</code></p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">触发该技能</p><p class="text-sm text-[#666]">如“查一下上海天气”。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#0d0d0d] mb-1">卸载（可选）</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">/skills uninstall mcp/weather</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#E4E1E9] mb-1">浏览技能市场</p><p class="text-sm text-[#859589]">在 Hermes CLI 中输入 <code class="bg-[#131318] px-1.5 rounded text-sm">/skills</code> 或 <code class="bg-[#131318] px-1.5 rounded text-sm">/skills search weather</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#E4E1E9] mb-1">安装技能</p><p class="text-sm text-[#859589]">例如：<code class="bg-[#131318] px-1.5 rounded text-sm">/skills install mcp/weather</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#E4E1E9] mb-1">查看已安装技能</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">/skills list</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#E4E1E9] mb-1">触发该技能</p><p class="text-sm text-[#859589]">如“查一下上海天气”。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#E4E1E9] mb-1">卸载（可选）</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">/skills uninstall mcp/weather</code></p></div></div>
     `,
     errors: [
       { title: "/skills 命令不存在", text: "确保 Hermes 版本 ≥ v0.9.0；升级后重启 CLI / gateway。" },
@@ -143,14 +143,14 @@ const days = [
     imgUrl: "/infographic/day6.png",
     title: "后台进程监控 + 备份恢复",
     result: "启动一个后台任务并通过 watch_patterns 监控输出；创建一个配置备份",
-    outputHtml: `<div class="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#0fa76e]">You:</span> 在后台运行 python3 -m http.server 8080<br/><span class="text-[#888]">🚀 Started background process (session: bg_7a3f)</span><br/><span class="text-[#888]">👀 Watching for: "Serving"</span><br/><span class="text-[#18E299]">🔔 Match found: "Serving HTTP on 0.0.0.0 port 8080"</span><br/><br/><span class="text-[#0fa76e]">You:</span> hermes backup<br/><span class="text-[#18E299]">✓</span> <span class="text-[#888]">Backup saved: ~/hermes-backup-2026-04-20-143000.zip</span></div>`,
+    outputHtml: `<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#51FFB4]">You:</span> 在后台运行 python3 -m http.server 8080<br/><span class="text-[#888]">🚀 Started background process (session: bg_7a3f)</span><br/><span class="text-[#888]">👀 Watching for: "Serving"</span><br/><span class="text-[#18E299]">🔔 Match found: "Serving HTTP on 0.0.0.0 port 8080"</span><br/><br/><span class="text-[#51FFB4]">You:</span> hermes backup<br/><span class="text-[#18E299]">✓</span> <span class="text-[#888]">Backup saved: ~/hermes-backup-2026-04-20-143000.zip</span></div>`,
     stepsHtml: `
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#0d0d0d] mb-1">启动后台进程</p><p class="text-sm text-[#666]">例如让 Hermes 在后台运行 <code class="bg-[#fafafa] px-1.5 rounded text-sm">python3 -m http.server 8080</code>，如果输出中出现 "Serving" 就通知你。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#0d0d0d] mb-1">体验 watch_patterns</p><p class="text-sm text-[#666]">Hermes 会自动使用 <code class="bg-[#fafafa] px-1.5 rounded text-sm">watch_patterns=["Serving"]</code> 监控输出。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#0d0d0d] mb-1">查看后台进程</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">/status</code></p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">模拟崩溃恢复</p><p class="text-sm text-[#666]">关闭 terminal 再打开，运行 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes</code> 后输入 <code class="bg-[#fafafa] px-1.5 rounded text-sm">/status</code> 查看进程是否仍在监控中。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#0d0d0d] mb-1">创建备份</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes backup</code> 会在 Home 目录生成 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes-backup-YYYY-MM-DD-HHMMSS.zip</code>。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">6</div><div><p class="font-semibold text-[#0d0d0d] mb-1">验证备份可恢复</p><p class="text-sm text-[#666]">运行 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes import hermes-backup-XXXX.zip --dry-run</code> 或直接在新机器上 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes import</code> 恢复。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#E4E1E9] mb-1">启动后台进程</p><p class="text-sm text-[#859589]">例如让 Hermes 在后台运行 <code class="bg-[#131318] px-1.5 rounded text-sm">python3 -m http.server 8080</code>，如果输出中出现 "Serving" 就通知你。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#E4E1E9] mb-1">体验 watch_patterns</p><p class="text-sm text-[#859589]">Hermes 会自动使用 <code class="bg-[#131318] px-1.5 rounded text-sm">watch_patterns=["Serving"]</code> 监控输出。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#E4E1E9] mb-1">查看后台进程</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">/status</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#E4E1E9] mb-1">模拟崩溃恢复</p><p class="text-sm text-[#859589]">关闭 terminal 再打开，运行 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes</code> 后输入 <code class="bg-[#131318] px-1.5 rounded text-sm">/status</code> 查看进程是否仍在监控中。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#E4E1E9] mb-1">创建备份</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">hermes backup</code> 会在 Home 目录生成 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes-backup-YYYY-MM-DD-HHMMSS.zip</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">6</div><div><p class="font-semibold text-[#E4E1E9] mb-1">验证备份可恢复</p><p class="text-sm text-[#859589]">运行 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes import hermes-backup-XXXX.zip --dry-run</code> 或直接在新机器上 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes import</code> 恢复。</p></div></div>
     `,
     errors: [
       { title: "后台进程启动但 watch 没触发", text: "检查输出中是否真的有匹配字符串；大小写敏感；可用 .* 做正则模糊匹配。" },
@@ -167,13 +167,13 @@ const days = [
     imgUrl: "/infographic/day7.png",
     title: "进阶：自定义配置、迁移与排错",
     result: "能独立使用 /debug 诊断问题，并掌握从 OpenClaw 迁移的完整流程",
-    outputHtml: `<div class="bg-[#1e1e1e] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#0fa76e]">You:</span> /debug<br/><span class="text-[#888]">Model: gpt-4.1 (openai) — ✓ Connected</span><br/><span class="text-[#888]">Gateway: Telegram — ✓ Online</span><br/><span class="text-[#888]">Skills: 3 installed</span><br/><span class="text-[#888]">Last errors: none</span><br/><br/><span class="text-[#18E299]">$</span> hermes cron create --schedule "0 9 * * *" --prompt "总结今天的新闻"<br/><span class="text-[#18E299]">✓</span> <span class="text-[#888]">Cron job created: daily-news-9am</span></div>`,
+    outputHtml: `<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]"><span class="text-[#51FFB4]">You:</span> /debug<br/><span class="text-[#888]">Model: gpt-4.1 (openai) — ✓ Connected</span><br/><span class="text-[#888]">Gateway: Telegram — ✓ Online</span><br/><span class="text-[#888]">Skills: 3 installed</span><br/><span class="text-[#888]">Last errors: none</span><br/><br/><span class="text-[#18E299]">$</span> hermes cron create --schedule "0 9 * * *" --prompt "总结今天的新闻"<br/><span class="text-[#18E299]">✓</span> <span class="text-[#888]">Cron job created: daily-news-9am</span></div>`,
     stepsHtml: `
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#0d0d0d] mb-1">学习 /debug 命令</p><p class="text-sm text-[#666]">v0.9 新增：在对话中输入 <code class="bg-[#fafafa] px-1.5 rounded text-sm">/debug</code>，查看模型状态、平台连接状态、最近 5 条错误日志摘要。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#0d0d0d] mb-1">查看完整配置</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">/config</code> 可以查看所有可自定义字段。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#0d0d0d] mb-1">学习 Cron 自动化</p><p class="text-sm text-[#666]"><code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes cron create --schedule "0 9 * * *" --prompt "总结今天的新闻"</code></p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#0d0d0d] mb-1">输出自己的检查清单</p><p class="text-sm text-[#666]">回顾 7 天内容，整理一份自己的运行清单。</p></div></div>
-      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[#d4fae8] text-[#0fa76e] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#0d0d0d] mb-1">迁移 OpenClaw</p><p class="text-sm text-[#666]">如果有 OpenClaw 历史配置，阅读 migrate 页并执行 <code class="bg-[#fafafa] px-1.5 rounded text-sm">hermes claw migrate</code>。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">1</div><div><p class="font-semibold text-[#E4E1E9] mb-1">学习 /debug 命令</p><p class="text-sm text-[#859589]">v0.9 新增：在对话中输入 <code class="bg-[#131318] px-1.5 rounded text-sm">/debug</code>，查看模型状态、平台连接状态、最近 5 条错误日志摘要。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">2</div><div><p class="font-semibold text-[#E4E1E9] mb-1">查看完整配置</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">/config</code> 可以查看所有可自定义字段。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">3</div><div><p class="font-semibold text-[#E4E1E9] mb-1">学习 Cron 自动化</p><p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded text-sm">hermes cron create --schedule "0 9 * * *" --prompt "总结今天的新闻"</code></p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">4</div><div><p class="font-semibold text-[#E4E1E9] mb-1">输出自己的检查清单</p><p class="text-sm text-[#859589]">回顾 7 天内容，整理一份自己的运行清单。</p></div></div>
+      <div class="flex gap-4"><div class="flex-shrink-0 w-6 h-6 rounded-full bg-[rgba(24,226,153,0.15)] text-[#51FFB4] flex items-center justify-center text-xs font-bold">5</div><div><p class="font-semibold text-[#E4E1E9] mb-1">迁移 OpenClaw</p><p class="text-sm text-[#859589]">如果有 OpenClaw 历史配置，阅读 migrate 页并执行 <code class="bg-[#131318] px-1.5 rounded text-sm">hermes claw migrate</code>。</p></div></div>
     `,
     errors: [
       { title: "/debug 无输出", text: "该命令需要 gateway v0.9.2+ 或 CLI v0.9.2+；升级后重试。" },
@@ -193,12 +193,12 @@ const days = [
       <VersionBanner />
 
       <h1 class="text-[36px] font-semibold leading-[1.3] tracking-[-0.3px] mt-10 mb-2">7 天入门路径</h1>
-      <p class="text-base text-[#666] mb-8">从安装到上线机器人，每天一个可验证成果。点击卡片可展开/折叠。</p>
+      <p class="text-base text-[#859589] mb-8">从安装到上线机器人，每天一个可验证成果。点击卡片可展开/折叠。</p>
 
       <!-- Celebration Banner -->
       <div id="celebration-banner" class="hidden relative overflow-hidden rounded-xl bg-gradient-to-br from-[#c5ebd9] to-[#7bfab9] p-8 text-center shadow-[0px_10px_30px_rgba(0,108,71,0.08)] mb-10">
         <div class="absolute inset-0 pointer-events-none opacity-40">
-          <div class="absolute w-1 h-1 rounded-full bg-[#18E299]" style="top: 10%; left: 15%;"></div>
+          <div class="absolute w-1 h-1 rounded-full bg-[var(--brand)]" style="top: 10%; left: 15%;"></div>
           <div class="absolute w-1 h-1 rounded-full bg-[#005234]" style="top: 20%; right: 20%;"></div>
           <div class="absolute w-1 h-1 rounded-full bg-white" style="bottom: 15%; left: 30%;"></div>
           <div class="absolute w-1 h-1 rounded-full bg-[#006c47]" style="top: 40%; left: 5%;"></div>
@@ -223,10 +223,10 @@ const days = [
         <div class="flex justify-between mt-4 px-1" id="timeline-icons">
           {days.map((d, i) => (
             <div class="flex flex-col items-center gap-2 timeline-icon" data-day={d.id} title={`Day ${i+1}: ${d.title}`}>
-              <div class="w-8 h-8 rounded-full bg-[#e5e5e5] flex items-center justify-center text-xs font-bold text-[#666] transition-colors">
+              <div class="w-8 h-8 rounded-full bg-[#e5e5e5] flex items-center justify-center text-xs font-bold text-[#859589] transition-colors">
                 {i + 1}
               </div>
-              <span class="text-[11px] font-semibold text-[#666]">{d.day}</span>
+              <span class="text-[11px] font-semibold text-[#859589]">{d.day}</span>
             </div>
           ))}
         </div>
@@ -237,36 +237,36 @@ const days = [
         {days.map((d, idx) => (
           <div class="day-wrapper" data-day={d.id} data-idx={idx}>
             <!-- Collapsed Header -->
-            <div class="day-header cursor-pointer rounded-xl p-5 flex items-center justify-between transition-colors hover:bg-[#fafafa]" data-action="toggle">
+            <div class="day-header cursor-pointer rounded-xl p-5 flex items-center justify-between transition-colors hover:bg-[#131318]" data-action="toggle">
               <div class="flex items-center gap-4">
-                <div class="day-check w-9 h-9 rounded-full border-2 border-black/[0.06] flex items-center justify-center text-lg transition-all" data-day-check={d.id}>
+                <div class="day-check w-9 h-9 rounded-full border-2 border-white/[0.06] flex items-center justify-center text-lg transition-all" data-day-check={d.id}>
                   <span class="day-check-icon">{d.icon}</span>
                 </div>
                 <div>
-                  <h3 class="font-semibold text-[#0d0d0d] text-[15px]">{d.day}: {d.title}</h3>
-                  <p class="text-xs text-[#666] mt-0.5">{d.result}</p>
+                  <h3 class="font-semibold text-[#E4E1E9] text-[15px]">{d.day}: {d.title}</h3>
+                  <p class="text-xs text-[#859589] mt-0.5">{d.result}</p>
                 </div>
               </div>
-              <span class="day-arrow text-[#999] text-lg transition-transform">→</span>
+              <span class="day-arrow text-[#859589] text-lg transition-transform">→</span>
             </div>
 
             <!-- Expanded Body -->
-            <div class="day-body hidden bg-white rounded-xl p-6 border-l-[6px] border-[#18E299] shadow-[0px_10px_30px_rgba(0,108,71,0.06)]">
+            <div class="day-body hidden bg-white rounded-xl p-6 border-l-[6px] border-[var(--brand)] shadow-[0px_10px_30px_rgba(0,108,71,0.06)]">
               <div class="flex items-start justify-between mb-5">
                 <div class="flex items-center gap-3">
-                  <span class="bg-[#18E299] text-[#005f3d] text-xs font-black px-2 py-1 rounded">{d.day}</span>
-                  <h2 class="text-xl font-bold tracking-tight text-[#0d0d0d]">{d.title}</h2>
+                  <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">{d.day}</span>
+                  <h2 class="text-xl font-bold tracking-tight text-[#E4E1E9]">{d.title}</h2>
                 </div>
                 <span class="day-done-icon text-[#18E299] text-2xl hidden">✓</span>
               </div>
 
-              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f3f3f3] text-[#006c47] font-bold text-xs mb-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-5">
                 <span class="text-sm">🎯</span>
                 今日目标: {d.result}
               </div>
 
               <!-- Infographic -->
-              <div class="mb-6 rounded-xl overflow-hidden border border-black/[0.06]">
+              <div class="mb-6 rounded-xl overflow-hidden border border-white/[0.06]">
                 <img src={d.imgUrl} alt={`${d.day} ${d.title}`} class="w-full" loading="lazy" />
               </div>
 
@@ -278,7 +278,7 @@ const days = [
               <div class="mb-6">
                 <div class="flex items-center gap-2 mb-3">
                   <span class="text-sm">📋</span>
-                  <span class="text-xs font-bold text-[#0d0d0d] uppercase tracking-wider">你将看到</span>
+                  <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span>
                 </div>
                 <Fragment set:html={d.outputHtml} />
               </div>
@@ -286,12 +286,12 @@ const days = [
               {d.errors.length > 0 && (
                 <div class="space-y-3 mb-6">
                   {d.errors.map((e) => (
-                    <div class="bg-[#FFFBEB] border-l-4 border-[#F59E0B] p-4 rounded-lg">
+                    <div class="bg-[rgba(255,185,98,0.08)] border-l-4 border-[rgba(255,185,98,0.25)] p-4 rounded-lg">
                       <div class="flex items-center gap-2 mb-1">
-                        <span class="text-[#F59E0B] text-sm">⚠️</span>
-                        <span class="text-xs font-bold text-[#92400E]">常见错误：{e.title}</span>
+                        <span class="text-[#FFB962] text-sm">⚠️</span>
+                        <span class="text-xs font-bold text-[#FFB962]">常见错误：{e.title}</span>
                       </div>
-                      <p class="text-sm text-[#92400E]" set:html={e.text} />
+                      <p class="text-sm text-[#FFB962]" set:html={e.text} />
                     </div>
                   ))}
                 </div>
@@ -300,7 +300,7 @@ const days = [
               {d.links.length > 0 && (
                 <div class="flex flex-wrap gap-2">
                   {d.links.map((l) => (
-                    <a href={l.href} class="flex items-center gap-1 bg-[#fafafa] border border-black/[0.06] px-3 py-1.5 rounded-full text-xs font-medium text-[#666] hover:bg-[#f3f3f3] transition-colors">
+                    <a href={l.href} class="flex items-center gap-1 bg-[#131318] border border-white/[0.06] px-3 py-1.5 rounded-full text-xs font-medium text-[#859589] hover:bg-[#1F1F25] transition-colors">
                       <span class="text-sm">→</span>
                       {l.text}
                     </a>
@@ -308,9 +308,9 @@ const days = [
                 </div>
               )}
 
-              <div class="mt-6 pt-5 border-t border-black/[0.06] flex justify-between items-center">
-                <button class="day-mark-btn inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#18E299] text-white text-xs font-bold hover:bg-[#15c988] transition-colors" data-day-mark={d.id}>✓ 标记完成</button>
-                <button class="day-close-btn text-xs text-[#999] hover:text-[#666]" data-action="close">收起</button>
+              <div class="mt-6 pt-5 border-t border-white/[0.06] flex justify-between items-center">
+                <button class="day-mark-btn inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--brand)] text-white text-xs font-bold hover:bg-[#15c988] transition-colors" data-day-mark={d.id}>✓ 标记完成</button>
+                <button class="day-close-btn text-xs text-[#859589] hover:text-[#859589]" data-action="close">收起</button>
               </div>
             </div>
           </div>
@@ -320,18 +320,18 @@ const days = [
   </main>
 
   <!-- Bottom Sticky Bar -->
-  <div class="fixed bottom-0 left-0 right-0 bg-white/98 border-t border-black/[0.06] px-6 py-4 backdrop-blur-sm z-40">
+  <div class="fixed bottom-0 left-0 right-0 bg-white/98 border-t border-white/[0.06] px-6 py-4 backdrop-blur-sm z-40">
     <div class="max-w-[960px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
       <div class="flex gap-3">
-        <button id="prev-day" class="bg-white border border-black/[0.06] px-5 py-2.5 rounded-full text-sm font-medium text-[#666] hover:border-black/10 hover:text-[#0d0d0d] transition-colors">← 前一天</button>
-        <button id="next-day" class="bg-white border border-black/[0.06] px-5 py-2.5 rounded-full text-sm font-medium text-[#666] hover:border-black/10 hover:text-[#0d0d0d] transition-colors">后一天 →</button>
+        <button id="prev-day" class="bg-white border border-white/[0.06] px-5 py-2.5 rounded-full text-sm font-medium text-[#859589] hover:border-black/10 hover:text-[#E4E1E9] transition-colors">← 前一天</button>
+        <button id="next-day" class="bg-white border border-white/[0.06] px-5 py-2.5 rounded-full text-sm font-medium text-[#859589] hover:border-black/10 hover:text-[#E4E1E9] transition-colors">后一天 →</button>
       </div>
       <div class="flex items-center gap-2.5">
-        <span class="text-[13px] text-[#666]">进度</span>
+        <span class="text-[13px] text-[#859589]">进度</span>
         <div class="w-[120px] h-1.5 bg-[#e5e5e5] rounded-full overflow-hidden">
-          <div id="day-progress-bar" class="h-full bg-[#18E299] transition-all duration-300" style="width: 0%"></div>
+          <div id="day-progress-bar" class="h-full bg-[var(--brand)] transition-all duration-300" style="width: 0%"></div>
         </div>
-        <span id="day-progress-text" class="text-[13px] text-[#666]">0/7</span>
+        <span id="day-progress-text" class="text-[13px] text-[#859589]">0/7</span>
       </div>
     </div>
   </div>
@@ -358,8 +358,8 @@ const days = [
 
       // Timeline bar
       document.querySelectorAll('.timeline-seg').forEach((seg, i) => {
-        if (getDone(dayIds[i])) { seg.classList.remove('bg-[#e5e5e5]'); seg.classList.add('bg-[#18E299]'); }
-        else { seg.classList.add('bg-[#e5e5e5]'); seg.classList.remove('bg-[#18E299]'); }
+        if (getDone(dayIds[i])) { seg.classList.remove('bg-[#e5e5e5]'); seg.classList.add('bg-[var(--brand)]'); }
+        else { seg.classList.add('bg-[#e5e5e5]'); seg.classList.remove('bg-[var(--brand)]'); }
       });
 
       // Timeline icons
@@ -367,17 +367,17 @@ const days = [
         const circle = icon.querySelector('div');
         const label = icon.querySelector('span');
         if (getDone(dayIds[i])) {
-          circle.className = 'w-8 h-8 rounded-full bg-[#d4fae8] flex items-center justify-center text-sm font-bold text-[#0fa76e]';
+          circle.className = 'w-8 h-8 rounded-full bg-[rgba(24,226,153,0.15)] flex items-center justify-center text-sm font-bold text-[#51FFB4]';
           circle.textContent = '✓';
-          label.className = 'text-[11px] font-semibold text-[#0fa76e]';
+          label.className = 'text-[11px] font-semibold text-[#51FFB4]';
         } else if (i === currentIdx) {
-          circle.className = 'w-8 h-8 rounded-full bg-[#18E299] flex items-center justify-center text-white text-xs font-bold';
+          circle.className = 'w-8 h-8 rounded-full bg-[var(--brand)] flex items-center justify-center text-white text-xs font-bold';
           circle.textContent = i + 1;
-          label.className = 'text-[11px] font-bold text-[#0fa76e]';
+          label.className = 'text-[11px] font-bold text-[#51FFB4]';
         } else {
-          circle.className = 'w-8 h-8 rounded-full bg-[#e5e5e5] flex items-center justify-center text-xs font-bold text-[#666]';
+          circle.className = 'w-8 h-8 rounded-full bg-[#e5e5e5] flex items-center justify-center text-xs font-bold text-[#859589]';
           circle.textContent = i + 1;
-          label.className = 'text-[11px] font-semibold text-[#666]';
+          label.className = 'text-[11px] font-semibold text-[#859589]';
         }
       });
 
@@ -394,16 +394,16 @@ const days = [
         const doneIcon = wrap.querySelector('.day-done-icon');
 
         if (done) {
-          check.classList.add('bg-[#18E299]', 'border-[#18E299]');
+          check.classList.add('bg-[var(--brand)]', 'border-[var(--brand)]');
           const iconEl = check.querySelector('.day-check-icon');
           if (iconEl) iconEl.innerHTML = '✓';
-          header.classList.add('bg-[#d4fae8]/40');
+          header.classList.add('bg-[rgba(24,226,153,0.15)]/40');
           if (doneIcon) doneIcon.classList.remove('hidden');
         } else {
-          check.classList.remove('bg-[#18E299]', 'border-[#18E299]');
+          check.classList.remove('bg-[var(--brand)]', 'border-[var(--brand)]');
           const iconEl = check.querySelector('.day-check-icon');
           if (iconEl) iconEl.textContent = wrap.dataset.day === 'day-1' ? '💻' : wrap.dataset.day === 'day-2' ? '🔑' : wrap.dataset.day === 'day-3' ? '🤖' : wrap.dataset.day === 'day-4' ? '🛠' : wrap.dataset.day === 'day-5' ? '📦' : wrap.dataset.day === 'day-6' ? '🔄' : '🚀';
-          header.classList.remove('bg-[#d4fae8]/40');
+          header.classList.remove('bg-[rgba(24,226,153,0.15)]/40');
           if (doneIcon) doneIcon.classList.add('hidden');
         }
 

@@ -2,27 +2,30 @@
 export interface Props { title: string; id?: string; }
 const { title, id } = Astro.props;
 ---
-<div class="accordion rounded-2xl overflow-hidden mb-3" {...(id ? { id } : {})} style="border: 1px solid var(--border);">
-  <button class="accordion-header w-full px-5 py-4 flex justify-between items-center text-[15px] font-medium transition-colors cursor-pointer" style="background: var(--bg); color: var(--text);">
+<div class="accordion-item" {...(id ? { id } : {})}>
+  <button class="accordion-header" style="font-size: 15px;">
     <span>{title}</span>
-    <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted);">&#9662;</span>
+    <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
   </button>
-  <div class="accordion-body hidden px-5 py-4 text-sm leading-relaxed" style="background: var(--surface); color: var(--text-secondary); border-top: 1px solid var(--border);">
+  <div class="accordion-body hidden">
     <slot />
   </div>
 </div>
 <script>
   document.querySelectorAll('.accordion-header').forEach((header) => {
     header.addEventListener('click', () => {
+      const item = header.closest('.accordion-item');
       const body = header.nextElementSibling;
       const icon = header.querySelector('.accordion-icon');
       if (!body) return;
       const isHidden = body.classList.contains('hidden');
       if (isHidden) {
         body.classList.remove('hidden');
+        item?.classList.add('active');
         if (icon) icon.style.transform = 'rotate(180deg)';
       } else {
         body.classList.add('hidden');
+        item?.classList.remove('active');
         if (icon) icon.style.transform = 'rotate(0deg)';
       }
     });

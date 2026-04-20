@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hermes Agent - AI编程助手</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002112",
+                        "on-secondary": "#003823",
+                        "error-container": "#93000a",
+                        "outline-variant": "#3b4a41",
+                        "surface-container-highest": "#35343a",
+                        "on-surface-variant": "#bacbbe",
+                        "surface-tint": "#17e299",
+                        "on-tertiary-fixed": "#2b1700",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#663e00",
+                        "surface-container-high": "#2a292f",
+                        "surface": "#131318",
+                        "on-tertiary-container": "#764900",
+                        "background": "#0A0A0F",
+                        "inverse-surface": "#e4e1e9",
+                        "error": "#ffb4ab",
+                        "on-surface": "#e4e1e9",
+                        "surface-dim": "#131318",
+                        "primary-fixed-dim": "#17e299",
+                        "tertiary-fixed-dim": "#ffb962",
+                        "on-tertiary": "#472a00",
+                        "surface-bright": "#39383e",
+                        "secondary-fixed": "#b1f1cb",
+                        "primary-fixed": "#4dffb3",
+                        "on-secondary-container": "#88c6a3",
+                        "on-primary-fixed": "#002112",
+                        "surface-container": "#1f1f25",
+                        "on-error": "#690005",
+                        "secondary-fixed-dim": "#96d4b0",
+                        "surface-container-low": "#1b1b20",
+                        "tertiary": "#ffddb9",
+                        "surface-variant": "#35343a",
+                        "inverse-on-surface": "#303036",
+                        "on-secondary-fixed-variant": "#105136",
+                        "on-background": "#e4e1e9",
+                        "tertiary-container": "#ffb962",
+                        "on-primary-fixed-variant": "#005234",
+                        "primary-container": "#18e299",
+                        "primary": "#51ffb4",
+                        "tertiary-fixed": "#ffddb9",
+                        "inverse-primary": "#006c47",
+                        "on-primary": "#003823",
+                        "surface-container-lowest": "#0e0e13",
+                        "on-primary-container": "#005f3d",
+                        "secondary-container": "#135338",
+                        "secondary": "#96d4b0",
+                        "outline": "#859589"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0A0A0F;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+        }
+        .terminal-glow {
+            box-shadow: 0 0 40px rgba(24, 226, 153, 0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased selection:bg-primary/30 selection:text-primary">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#0A0A0F]/80 backdrop-blur-lg border-b border-white/[0.05]">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#18E299]" data-icon="terminal">terminal</span>
+<span class="text-2xl font-black text-white italic tracking-[-0.04em]">Hermes Agent</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#18E299] font-bold transition-all duration-300" href="#">Docs</a>
+<a class="text-white/60 font-medium hover:text-[#51FFB4] transition-all duration-300" href="#">Pricing</a>
+<a class="text-white/60 font-medium hover:text-[#51FFB4] transition-all duration-300" href="#">GitHub</a>
+</nav>
+<button class="bg-[#18E299] text-[#003823] px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform duration-300">
+                Get Started
+            </button>
+</div>
+</header>
+<main class="pt-32 pb-20 overflow-hidden">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col items-center text-center mb-16">
+<!-- Badge Pill -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.1] bg-surface-container-low mb-8 transition-colors hover:border-primary/50">
+<span class="w-2 h-2 rounded-full bg-[#18E299] animate-pulse"></span>
+<span class="text-xs font-bold tracking-widest text-white">OPEN SOURCE AI AGENT · 22+ PLATFORMS</span>
+</div>
+<!-- Main Heading -->
+<h1 class="text-6xl md:text-8xl font-extrabold tracking-[-0.04em] mb-4">
+<span class="text-[#18E299]">AI编程助手</span>
+<br/>
+<span class="text-white">从安装到上线</span>
+</h1>
+<!-- Subtitle -->
+<p class="text-xl md:text-2xl text-white/90 font-medium max-w-2xl mb-12">
+                    5分钟安装，7天掌握
+                </p>
+<!-- CTA Cluster -->
+<div class="flex flex-col sm:flex-row gap-6 mb-20">
+<button class="px-10 py-4 bg-[#18E299] text-[#003823] rounded-full font-black text-lg hover:shadow-[0_0_20px_rgba(24,226,153,0.4)] transition-all active:scale-95">
+                        开始安装
+                    </button>
+<button class="px-10 py-4 border-2 border-white text-white rounded-full font-black text-lg hover:bg-white hover:text-[#0A0A0F] transition-all active:scale-95">
+                        查看文档
+                    </button>
+</div>
+<!-- Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-y border-white/[0.05] py-10 w-full max-w-4xl">
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black text-white">2,000+</span>
+<span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">Stars</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black text-white">22+</span>
+<span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">Platforms</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black text-white">v0.9.1</span>
+<span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">Version</span>
+</div>
+</div>
+</div>
+<!-- Terminal Mockup -->
+<div class="relative max-w-5xl mx-auto">
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[120%] h-[120%] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="bg-[#0E0E13] rounded-xl overflow-hidden border border-white/[0.05] terminal-glow relative z-10">
+<!-- Terminal Header -->
+<div class="bg-surface-container-low px-4 py-3 border-b border-white/[0.05] flex items-center justify-between">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-error/30"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary/30"></div>
+<div class="w-3 h-3 rounded-full bg-primary/30"></div>
+</div>
+<div class="text-[10px] font-mono text-white/40 tracking-widest">BASH — HERMES_INSTALLER</div>
+<div class="w-12"></div>
+</div>
+<!-- Terminal Content -->
+<div class="p-8 font-mono text-sm md:text-base leading-relaxed">
+<div class="flex gap-4">
+<span class="text-white/40">1</span>
+<p class="text-white"><span class="text-primary">$</span> curl -fsSL https://hermes.agent/install.sh | bash</p>
+</div>
+<div class="flex gap-4 mt-2">
+<span class="text-white/40">2</span>
+<p class="text-primary-fixed">Checking environment dependencies... [OK]</p>
+</div>
+<div class="flex gap-4 mt-1">
+<span class="text-white/40">3</span>
+<p class="text-primary-fixed">Initializing Hermes AI Neural Engine...</p>
+</div>
+<div class="flex gap-4 mt-1">
+<span class="text-white/40">4</span>
+<p class="text-primary-fixed">Mounting 22+ cloud platforms... [SUCCESS]</p>
+</div>
+<div class="flex gap-4 mt-1">
+<span class="text-white/40">5</span>
+<p class="text-white"><span class="text-primary">$</span> hermes start --project my-awesome-app</p>
+</div>
+<div class="flex gap-4 mt-2">
+<span class="text-white/40">6</span>
+<div class="bg-primary/10 text-[#51ffb4] px-4 py-2 rounded-lg border border-primary/20 w-full">
+<p class="font-bold">🚀 Hermes Agent is now active.</p>
+<p class="text-sm">Ready to code from installation to production.</p>
+</div>
+</div>
+<div class="flex gap-4 mt-4">
+<span class="text-white/40">7</span>
+<p class="text-white"><span class="text-primary">$</span> <span class="animate-pulse">_</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Feature Grid (Bento) -->
+<section class="max-w-7xl mx-auto px-6 mt-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 bg-surface-container-low rounded-lg p-10 relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="text-4xl font-black text-white mb-4">智能多平台部署</h3>
+<p class="text-white/60 max-w-md">一键分发至 AWS, Vercel, Docker 等22个主流平台，让部署不再成为负担。</p>
+</div>
+<div class="absolute right-0 bottom-0 w-1/2 h-full opacity-20 group-hover:opacity-40 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Abstract visualization of a global server network with glowing green data streams in a dark technical environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFwgK_1FlAWjhLTKnayg49zC9rbF9gdZMb8jyfWeG7yyrOH-IZF0GN_aSr5SPh8tY3MynamQ_y1H-D4c4dHhKq03BYV6XKx3jBkkxEzLXqdHQ5ujEWUvmW1kP__3Hyo8mBFmFwKuadqiXN2SCo9-PcrYKWzMVHQlTbWvcnqXPCZkgLyOvJceOHny3IMdIUzgSMwalXZYPpgrdkq6sZM3OCXVfCLz0YXDXZrT5Z6kHEBGWCSD5q6B7LDg5rdulPXKv6cGSX4YWt_Nc"/>
+</div>
+</div>
+<div class="md:col-span-4 bg-[#18E299] rounded-lg p-10 flex flex-col justify-between">
+<span class="material-symbols-outlined text-4xl text-[#003823]" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<div>
+<h3 class="text-3xl font-black text-[#003823] mb-2">极速响应</h3>
+<p class="text-[#003823]/80 font-bold">亚秒级代码生成，实时感知开发上下文。</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-[#0A0A0F] border-t border-white/[0.05]">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<span class="text-[#18E299] font-bold text-xl">Hermes Agent</span>
+<p class="text-white/40 text-sm mt-2 font-['Inter'] tracking-tight">© 2024 Hermes Agent. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-white/40 text-sm font-['Inter'] hover:text-white transition-colors" href="#">Documentation</a>
+<a class="text-white/40 text-sm font-['Inter'] hover:text-white transition-colors" href="#">Changelog</a>
+<a class="text-white/40 text-sm font-['Inter'] hover:text-white transition-colors" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>

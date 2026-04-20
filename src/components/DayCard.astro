@@ -2,16 +2,16 @@
 export interface Props { day: string; title: string; result: string; id: string; }
 const { day, title, result, id } = Astro.props;
 ---
-<div class="day-section relative bg-white border border-black/[0.06] rounded-2xl p-7 mb-6 scroll-mt-24" id={id}>
-  <div class="day-check absolute right-6 top-7 w-[22px] h-[22px] border-2 border-black/[0.06] rounded-md cursor-pointer flex items-center justify-center text-white text-[13px] transition-all" data-day-check={id}></div>
+<div class="day-section relative bg-white border border-white/[0.06] rounded-2xl p-7 mb-6 scroll-mt-24" id={id}>
+  <div class="day-check absolute right-6 top-7 w-[22px] h-[22px] border-2 border-white/[0.06] rounded-md cursor-pointer flex items-center justify-center text-white text-[13px] transition-all" data-day-check={id}></div>
   <div class="flex items-center gap-3 mb-3">
-    <span class="bg-[#0d0d0d] text-white px-3 py-1 rounded-full text-[13px] font-semibold">{day}</span>
+    <span class="bg-[var(--brand)] text-[#003823] px-3 py-1 rounded-full text-[13px] font-semibold">{day}</span>
     <h3 class="text-xl font-semibold">{title}</h3>
   </div>
-  <div class="inline-flex items-center gap-2 bg-[#d4fae8] text-[#0fa76e] px-3.5 py-2 rounded-lg text-[13px] font-medium mb-4">
+  <div class="inline-flex items-center gap-2 bg-[rgba(24,226,153,0.15)] text-[#51FFB4] px-3.5 py-2 rounded-lg text-[13px] font-medium mb-4">
     成果：{result}
   </div>
-  <div class="text-[15px] text-[#333] leading-relaxed">
+  <div class="text-[15px] text-[#BACBBE] leading-relaxed">
     <slot />
   </div>
 </div>
@@ -24,11 +24,11 @@ const { day, title, result, id } = Astro.props;
       const saved = localStorage.getItem(key) === '1';
       function render(checked) {
         if (checked) {
-          el.classList.add('bg-[#18E299]', 'border-[#18E299]');
+          el.classList.add('bg-[var(--brand)]', 'border-[var(--brand)]');
           el.textContent = '✓';
           if (el.parentElement) el.parentElement.classList.add('border-l-4', 'border-l-[#18E299]');
         } else {
-          el.classList.remove('bg-[#18E299]', 'border-[#18E299]');
+          el.classList.remove('bg-[var(--brand)]', 'border-[var(--brand)]');
           el.textContent = '';
           if (el.parentElement) el.parentElement.classList.remove('border-l-4', 'border-l-[#18E299]');
         }

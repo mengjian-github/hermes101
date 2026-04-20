@@ -1,126 +1,67 @@
 ---
-import DarkModeToggle from './DarkModeToggle.astro';
+const currentPath = Astro.url.pathname;
+const links = [
+  { href: "/", label: "首页" },
+  { href: "/setup", label: "安装" },
+  { href: "/7-days", label: "7天教程" },
+  { href: "/migrate", label: "迁移" },
+  { href: "/faq", label: "FAQ" },
+];
 ---
-<nav id="main-nav" class="sticky top-0 z-50 h-16 flex items-center bg-white/95 dark:bg-[#0d0d0f]/95 backdrop-blur-md border-b transition-colors duration-200"
-     style="border-color: var(--border);">
-  <div class="max-w-[960px] mx-auto w-full px-6 flex items-center justify-between">
-    <!-- Left: Logo -->
+<header class="fixed top-0 w-full z-50 bg-[#0A0A0F]/80 backdrop-blur-xl border-b border-white/[0.05]">
+  <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
     <div class="flex items-center gap-2">
-      <a href="/" class="text-lg font-semibold tracking-[-0.3px] flex items-center gap-1.5" style="color: var(--text);">
-        hermes101
-      </a>
-      <span class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-[var(--surface)]" style="color: var(--text-muted);">v0.9</span>
+      <span class="material-symbols-outlined text-[#18E299]" style="font-variation-settings: 'FILL' 1;">terminal</span>
+      <a href="/" class="text-2xl font-black text-white italic tracking-[-0.04em]">Hermes Agent</a>
     </div>
-
-    <!-- Center: Nav links (desktop) -->
-    <div class="hidden md:flex items-center gap-1">
-      <a href="/setup" class="nav-link relative px-4 py-2 text-[15px] font-medium transition-colors" style="color: var(--text-secondary);">安装</a>
-      <a href="/7-days" class="nav-link relative px-4 py-2 text-[15px] font-medium transition-colors" style="color: var(--text-secondary);">7天教程</a>
-      <a href="/migrate" class="nav-link relative px-4 py-2 text-[15px] font-medium transition-colors" style="color: var(--text-secondary);">迁移</a>
-      <a href="/faq" class="nav-link relative px-4 py-2 text-[15px] font-medium transition-colors" style="color: var(--text-secondary);">FAQ</a>
-    </div>
-
-    <!-- Right: Actions -->
-    <div class="hidden md:flex items-center gap-3">
-      <DarkModeToggle />
+    <nav class="hidden md:flex items-center gap-8">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-medium text-sm transition-all duration-300",
+            currentPath === link.href
+              ? "text-[#18E299] font-bold"
+              : "text-white/60 hover:text-[#51FFB4]"
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-4">
       <a href="/setup"
-         class="inline-flex items-center gap-1.5 px-5 py-2 rounded-full text-[14px] font-semibold bg-[#0d0d0d] text-white dark:bg-white dark:text-[#0d0d0d] transition-transform hover:scale-[1.02] active:scale-[0.98]">
+         class="bg-[var(--brand)] text-[#003823] px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform duration-300 text-sm">
         开始安装
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
-    </div>
-
-    <!-- Mobile: hamburger -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 cursor-pointer" aria-label="菜单" style="color: var(--text);">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
-  </div>
-</nav>
-
-<!-- Mobile Overlay Menu -->
-<div id="mobile-menu" class="fixed inset-0 z-[60] hidden bg-white dark:bg-[#0d0d0f]">
-  <div class="flex items-center justify-between h-16 px-6">
-    <span class="text-lg font-semibold" style="color: var(--text);">
-      hermes101
-    </span>
-    <button id="mobile-menu-close" class="p-2 cursor-pointer" aria-label="关闭菜单" style="color: var(--text);">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-  </div>
-  <div class="flex flex-col gap-2 px-6 pt-4">
-    <a href="/setup" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">安装</a>
-    <a href="/7-days" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">7天教程</a>
-    <a href="/migrate" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">迁移</a>
-    <a href="/faq" class="mobile-nav-link text-lg font-medium py-3 border-b" style="color: var(--text); border-color: var(--border);">FAQ</a>
-    <div class="flex items-center gap-3 pt-4">
-      <DarkModeToggle />
-      <a href="/setup" class="flex-1 text-center px-5 py-3 rounded-full text-[15px] font-semibold bg-[#0d0d0d] text-white dark:bg-white dark:text-[#0d0d0d]">开始安装 →</a>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
     </div>
   </div>
-</div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.05]">
+    <nav class="flex flex-col px-6 py-4 gap-4">
+      {links.map(link => (
+        <a
+          href={link.href}
+          class:list={[
+            "font-medium text-sm py-2",
+            currentPath === link.href
+              ? "text-[#18E299] font-bold"
+              : "text-white/60"
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
 
-<style>
-  /* Nav link hover */
-  .nav-link:hover {
-    color: #0fa76e !important;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: #0fa76e;
-    border-radius: 1px;
-    transition: width 0.25s ease;
-  }
-  .nav-link:hover::after {
-    width: 60%;
-  }
-
-  /* Scroll blur enhancement */
-  #main-nav.scrolled {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-  }
-</style>
-
-<script>
-  // Scroll blur
-  const nav = document.getElementById('main-nav');
-  if (nav) {
-    const handleScroll = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-  }
-
-  // Mobile menu
-  const openBtn = document.getElementById('mobile-menu-btn');
-  const closeBtn = document.getElementById('mobile-menu-close');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (openBtn && closeBtn && mobileMenu) {
-    openBtn.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    });
-    const close = () => {
-      mobileMenu.classList.add('hidden');
-      document.body.style.overflow = '';
-    };
-    closeBtn.addEventListener('click', close);
-    mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', close);
-    });
-  }
+<script is:inline>
+  document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+  });
 </script>

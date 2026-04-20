@@ -9,7 +9,7 @@ const { title, description, schema } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,8 +18,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <link rel="canonical" href={canonical} />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Fonts: Inter + Geist Mono + Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
   <!-- OG Image -->
   <meta property="og:title" content={title} />
@@ -36,16 +37,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   {schema && (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   )}
-
-  <!-- Theme Init (runs before render to prevent flash) -->
-  <script is:inline>
-    (function() {
-      const stored = localStorage.getItem('theme');
-      const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
-      const dark = stored ? stored === 'dark' : prefersDark;
-      document.documentElement.classList.toggle('dark', dark);
-    })();
-  </script>
 </head>
 <body class="antialiased">
   <slot />

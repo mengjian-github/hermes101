@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hermes Agent - 7天入门路径</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#17e299",
+                        "primary-container": "#18e299",
+                        "on-secondary-fixed": "#002112",
+                        "surface-container": "#1f1f25",
+                        "inverse-surface": "#e4e1e9",
+                        "on-tertiary-fixed": "#2b1700",
+                        "surface": "#131318",
+                        "on-tertiary-container": "#764900",
+                        "on-error": "#690005",
+                        "primary": "#51ffb4",
+                        "tertiary-fixed-dim": "#ffb962",
+                        "tertiary-container": "#ffb962",
+                        "on-tertiary": "#472a00",
+                        "surface-container-high": "#2a292f",
+                        "on-background": "#e4e1e9",
+                        "surface-variant": "#35343a",
+                        "on-primary-container": "#005f3d",
+                        "surface-container-lowest": "#0e0e13",
+                        "secondary-container": "#135338",
+                        "tertiary": "#ffddb9",
+                        "primary-fixed": "#4dffb3",
+                        "on-surface-variant": "#bacbbe",
+                        "inverse-primary": "#006c47",
+                        "secondary-fixed": "#b1f1cb",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#1b1b20",
+                        "outline-variant": "#3b4a41",
+                        "surface-bright": "#39383e",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#35343a",
+                        "on-secondary-fixed-variant": "#105136",
+                        "on-primary-fixed-variant": "#005234",
+                        "inverse-on-surface": "#303036",
+                        "background": "#0a0a0f",
+                        "secondary": "#96d4b0",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#88c6a3",
+                        "outline": "#859589",
+                        "on-tertiary-fixed-variant": "#663e00",
+                        "surface-dim": "#131318",
+                        "on-secondary": "#003823",
+                        "on-primary-fixed": "#002112",
+                        "tertiary-fixed": "#ffddb9",
+                        "primary-fixed-dim": "#17e299",
+                        "on-primary": "#003823",
+                        "secondary-fixed-dim": "#96d4b0",
+                        "on-surface": "#e4e1e9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ghost-border {
+            outline: 1px solid rgba(59, 74, 65, 0.15);
+        }
+        body {
+            background-color: #0A0A0F;
+            color: #e4e1e9;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0A0A0F]/80 backdrop-blur-xl shadow-[0px_24px_48px_rgba(0,0,0,0.5)]">
+<div class="flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="text-slate-400 active:scale-95 transition-transform hover:bg-[#1B1B20] p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-[#18E299] font-['Inter'] font-extrabold tracking-tighter text-2xl">7天入门路径</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8 text-sm font-bold">
+<a class="text-[#18E299] font-bold" href="#">Guide</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Logs</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Tasks</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Cyberpunk style minimalist avatar of a high-tech architect pilot with neon green accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLClvPAHpdl0wIbdN0C7497_4u6-wwBmfsTFhiGyS6IROU9S-evxw-VzOCjM8Rfu9qUXQUqgpJKH-ybCUHdnUwvZ_WvqOIxf-nS1cj8maiwFHYMhUco5Buw6ieFjP5t9NfLfbdEtGf8bneNXTTGISgN2UpGjyTHhaQghTsxQZKwRWg0OVcugImuyFlSy-NQMfq4DEfq2CAjU2NGmJCXAzNZfrx8iB_Cr1f-qImraSO--SsL27GYrygCtRLgCQMsQQbhNV6IjeglNg"/>
+</div>
+</div>
+</div>
+<!-- Visual Timeline Bar -->
+<div class="px-6 pb-2">
+<div class="flex gap-1.5 h-1.5 w-full">
+<div class="flex-1 bg-primary rounded-full shadow-[0px_0px_10px_rgba(24,226,153,0.4)]"></div>
+<div class="flex-1 bg-surface-container-highest rounded-full"></div>
+<div class="flex-1 bg-surface-container-highest rounded-full"></div>
+<div class="flex-1 bg-surface-container-highest rounded-full"></div>
+<div class="flex-1 bg-surface-container-highest rounded-full"></div>
+<div class="flex-1 bg-surface-container-highest rounded-full"></div>
+<div class="flex-1 bg-surface-container-highest rounded-full"></div>
+</div>
+</div>
+</header>
+<main class="pt-28 px-4 md:px-12 max-w-5xl mx-auto space-y-6">
+<!-- Introduction Monolith -->
+<section class="mb-12">
+<p class="text-primary-fixed-dim font-bold tracking-[0.2em] text-[10px] uppercase mb-2">Architect Protocol</p>
+<h2 class="text-display-lg text-white font-extrabold text-5xl md:text-6xl tracking-[-0.04em] leading-none mb-6">
+                初始化 <br/> <span class="text-primary">Hermes</span> 代理内核
+            </h2>
+<p class="text-slate-400 max-w-xl text-lg leading-relaxed">
+                欢迎来到 Hermes 核心开发路径。这套为期 7 天的精简协议将协助你从零构建属于自己的高精度 AI 代理。
+            </p>
+</section>
+<!-- Day Cards Container -->
+<div class="space-y-4">
+<!-- Day 1: Expanded State -->
+<div class="bg-surface-container-low rounded-lg overflow-hidden border-l-4 border-primary shadow-2xl transition-all duration-500">
+<div class="p-6 flex items-start justify-between">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary shadow-[inset_0px_0px_20px_rgba(24,226,153,0.1)]">
+<span class="material-symbols-outlined text-3xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<span class="text-primary text-xs font-bold tracking-widest uppercase">Day 01</span>
+<h3 class="text-white text-xl font-bold tracking-tight">核心引擎初始化</h3>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500" data-icon="expand_less">expand_less</span>
+</div>
+<div class="px-6 pb-8 space-y-8">
+<!-- Steps List -->
+<div class="space-y-4 max-w-2xl">
+<div class="flex items-start gap-4">
+<div class="w-6 h-6 rounded-full bg-primary flex-shrink-0 flex items-center justify-center text-[#003823] text-[10px] font-bold">1</div>
+<p class="text-on-surface leading-snug">配置基础环境变量并拉取最新的 <code class="text-primary font-mono px-1.5 py-0.5 bg-primary/5 rounded">hermes-core</code> 镜像。</p>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-6 h-6 rounded-full border border-outline-variant flex-shrink-0 flex items-center justify-center text-slate-500 text-[10px] font-bold">2</div>
+<p class="text-on-surface leading-snug">连接到神经网络节点并建立加密双向链路。</p>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-6 h-6 rounded-full border border-outline-variant flex-shrink-0 flex items-center justify-center text-slate-500 text-[10px] font-bold">3</div>
+<p class="text-on-surface leading-snug">验证本地算力分配协议。</p>
+</div>
+</div>
+<!-- Terminal Output -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/10 overflow-hidden font-mono text-sm">
+<div class="bg-surface-container-low px-4 py-2 flex items-center justify-between ghost-border">
+<span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Terminal Output</span>
+<div class="flex gap-1.5">
+<div class="w-2 h-2 rounded-full bg-error/40"></div>
+<div class="w-2 h-2 rounded-full bg-tertiary/40"></div>
+<div class="w-2 h-2 rounded-full bg-primary/40"></div>
+</div>
+</div>
+<div class="p-6 space-y-1.5">
+<p class="text-primary flex gap-3"><span class="opacity-40">01</span> $ hermes init --protocol=v3</p>
+<p class="text-slate-400 flex gap-3"><span class="opacity-40">02</span> [INFO] Downloading kernel signatures...</p>
+<p class="text-slate-400 flex gap-3"><span class="opacity-40">03</span> [OK] Signature verified. (SHA-256: 8f2a...)</p>
+<p class="text-primary flex gap-3"><span class="opacity-40">04</span> [SUCCESS] Kernel core mapped to memory address 0xFA42</p>
+</div>
+</div>
+<!-- Error Warnings Section -->
+<div class="border-2 border-tertiary-container/30 bg-tertiary-container/5 rounded-xl p-5 flex items-start gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="warning">warning</span>
+<div>
+<h4 class="text-tertiary font-bold text-sm mb-1">潜在架构冲突</h4>
+<p class="text-tertiary/80 text-xs leading-relaxed">如果在拉取镜像时遇到 `ECONNRESET`，请检查您的代理配置或更换接入节点。Hermes 要求最低 10ms 的延迟以维持感知链路同步。</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="flex justify-end">
+<button class="bg-gradient-to-br from-primary-container to-primary text-on-primary font-bold px-10 py-4 rounded-full flex items-center gap-2 hover:shadow-[0px_0px_20px_rgba(24,226,153,0.3)] active:scale-95 transition-all">
+                            Mark Complete
+                            <span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Day 2: Collapsed State -->
+<div class="bg-surface-container rounded-lg ghost-border hover:bg-surface-container-high transition-colors group cursor-pointer">
+<div class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center text-slate-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="terminal">terminal</span>
+</div>
+<div>
+<span class="text-slate-500 text-xs font-bold tracking-widest uppercase">Day 02</span>
+<h3 class="text-white text-xl font-bold tracking-tight">自定义逻辑语法</h3>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Day 3: Collapsed State -->
+<div class="bg-surface-container rounded-lg ghost-border hover:bg-surface-container-high transition-colors group cursor-pointer">
+<div class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center text-slate-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="hub">hub</span>
+</div>
+<div>
+<span class="text-slate-500 text-xs font-bold tracking-widest uppercase">Day 03</span>
+<h3 class="text-white text-xl font-bold tracking-tight">集成多模态接口</h3>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Day 4: Collapsed State -->
+<div class="bg-surface-container rounded-lg ghost-border hover:bg-surface-container-high transition-colors group cursor-pointer">
+<div class="p-6 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center text-slate-500 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="memory">memory</span>
+</div>
+<div>
+<span class="text-slate-500 text-xs font-bold tracking-widest uppercase">Day 04</span>
+<h3 class="text-white text-xl font-bold tracking-tight">知识库矢量化</h3>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Sticky Progress Bar -->
+<footer class="fixed bottom-0 left-0 w-full z-50 bg-[#131318]/90 backdrop-blur-md border-t border-outline-variant/10 shadow-[0px_-10px_30px_rgba(0,0,0,0.5)]">
+<div class="max-w-5xl mx-auto px-6 py-4 flex flex-col gap-3">
+<div class="flex justify-between items-end">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<span class="text-primary text-xl font-black font-['Inter']">1/7</span>
+<span class="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Protocol Progress</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<p class="text-slate-400 text-sm hidden md:block">正在进行 Day 01: 核心引擎初始化</p>
+</div>
+<button class="bg-surface-container-highest text-white px-6 py-2 rounded-full text-sm font-bold active:scale-95 transition-all hover:bg-surface-variant">
+                    View Logs
+                </button>
+</div>
+<!-- Mini Progress bar -->
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[14.2%] shadow-[0px_0px_10px_rgba(24,226,153,0.5)] transition-all duration-700"></div>
+</div>
+</div>
+</footer>
+<!-- Side Navigation (Web Only) -->
+<div class="hidden lg:flex fixed left-0 top-0 h-screen w-20 z-[60] flex-col py-8 items-center bg-[#131318] border-r border-outline-variant/5">
+<div class="text-[#18E299] font-black mb-12">H.</div>
+<div class="flex flex-col gap-8">
+<a class="flex flex-col items-center justify-center bg-[#18E299] text-[#003823] rounded-full w-12 h-12 mb-1 shadow-[0px_0px_15px_rgba(24,226,153,0.3)]" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person_2">person_2</span>
+</a>
+</div>
+</div>
+</body></html>

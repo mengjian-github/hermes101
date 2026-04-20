@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>常见问题 - Hermes Agent</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0F;
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0e0e13",
+                      "on-primary-container": "#005f3d",
+                      "secondary-container": "#135338",
+                      "secondary": "#96d4b0",
+                      "outline": "#859589",
+                      "primary": "#51ffb4",
+                      "tertiary-fixed": "#ffddb9",
+                      "inverse-primary": "#006c47",
+                      "on-primary": "#003823",
+                      "surface-variant": "#35343a",
+                      "inverse-on-surface": "#303036",
+                      "on-secondary-fixed-variant": "#105136",
+                      "on-background": "#e4e1e9",
+                      "tertiary-container": "#ffb962",
+                      "on-primary-fixed-variant": "#005234",
+                      "primary-container": "#18e299",
+                      "secondary-fixed-dim": "#96d4b0",
+                      "surface-container-low": "#1b1b20",
+                      "tertiary": "#ffddb9",
+                      "surface-bright": "#39383e",
+                      "secondary-fixed": "#b1f1cb",
+                      "primary-fixed": "#4dffb3",
+                      "on-secondary-container": "#88c6a3",
+                      "on-primary-fixed": "#002112",
+                      "surface-container": "#1f1f25",
+                      "on-error": "#690005",
+                      "inverse-surface": "#e4e1e9",
+                      "error": "#ffb4ab",
+                      "on-surface": "#e4e1e9",
+                      "surface-dim": "#131318",
+                      "primary-fixed-dim": "#17e299",
+                      "tertiary-fixed-dim": "#ffb962",
+                      "on-tertiary": "#472a00",
+                      "on-tertiary-fixed": "#2b1700",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#663e00",
+                      "surface-container-high": "#2a292f",
+                      "surface": "#131318",
+                      "on-tertiary-container": "#764900",
+                      "background": "#131318",
+                      "on-secondary-fixed": "#002112",
+                      "on-secondary": "#003823",
+                      "error-container": "#93000a",
+                      "outline-variant": "#3b4a41",
+                      "surface-container-highest": "#35343a",
+                      "on-surface-variant": "#bacbbe",
+                      "surface-tint": "#17e299"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              }
+            },
+          }
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen flex flex-col overflow-x-hidden">
+<!-- Header Section (TopAppBar) -->
+<header class="fixed top-0 w-full z-50 bg-[#0A0A0F]/80 backdrop-blur-xl border-b border-[#3B4A41]/15">
+<div class="flex justify-between items-center px-8 py-6 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#18E299] text-3xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<h1 class="font-['Inter'] font-extrabold tracking-tighter text-2xl text-[#18E299]">常见问题</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-slate-400 font-medium hover:text-[#51FFB4] transition-colors" href="#">文档</a>
+<a class="text-slate-400 font-medium hover:text-[#51FFB4] transition-colors" href="#">社区</a>
+<a class="text-slate-400 font-medium hover:text-[#51FFB4] transition-colors" href="#">日志</a>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/20">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+</nav>
+<button class="md:hidden text-slate-400">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-32 pb-24 px-6 md:px-12 w-full max-w-7xl mx-auto">
+<!-- Hero Search -->
+<section class="mb-20 text-center md:text-left flex flex-col md:flex-row items-end justify-between gap-12">
+<div class="max-w-2xl">
+<h2 class="text-6xl md:text-8xl font-black tracking-tighter text-on-surface mb-6 leading-[0.9]">
+                    HELP<br/><span class="text-primary">CENTER</span>
+</h2>
+<p class="text-on-surface-variant text-lg max-w-md leading-relaxed">
+                    探索关于 Hermes Agent 的全方位支持，从基础安装到复杂的 API 集成。
+                </p>
+</div>
+<div class="w-full md:w-96">
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-none rounded-full px-6 py-4 text-on-surface focus:ring-2 focus:ring-primary/30 transition-all placeholder:text-slate-600" placeholder="搜索问题..." type="text"/>
+<span class="material-symbols-outlined absolute right-5 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-primary transition-colors">search</span>
+</div>
+</div>
+</section>
+<!-- FAQ Sections Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Sidebar Navigation (Anchor) -->
+<aside class="lg:col-span-3 hidden lg:block sticky top-32 h-fit">
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-surface-container-low text-primary font-bold group transition-all" href="#install">
+<span class="material-symbols-outlined text-xl">download_for_offline</span>
+                        安装与启动
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-container-low text-slate-400 hover:text-on-surface group transition-all" href="#models">
+<span class="material-symbols-outlined text-xl">neurology</span>
+                        模型与 API
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-container-low text-slate-400 hover:text-on-surface group transition-all" href="#platforms">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+                        平台与机器人
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-surface-container-low text-slate-400 hover:text-on-surface group transition-all" href="#migration">
+<span class="material-symbols-outlined text-xl">update</span>
+                        迁移与升级
+                    </a>
+</div>
+</aside>
+<!-- Content Area -->
+<div class="lg:col-span-9 space-y-24">
+<!-- Section 1: Installation -->
+<section id="install">
+<div class="flex items-center gap-4 mb-8">
+<span class="w-12 h-px bg-primary/30"></span>
+<h3 class="text-sm font-bold tracking-[0.2em] uppercase text-primary">安装与启动</h3>
+</div>
+<div class="space-y-4">
+<!-- Accordion Item 1 (Active Style) -->
+<div class="bg-[#12121A] rounded-2xl p-6 border-l-4 border-primary shadow-2xl">
+<div class="flex justify-between items-center mb-4">
+<h4 class="text-lg font-bold text-on-surface">如何在本地环境快速部署 Hermes Agent？</h4>
+<span class="material-symbols-outlined text-primary">keyboard_arrow_up</span>
+</div>
+<div class="text-on-surface-variant space-y-4">
+<p>建议使用 Docker 进行快速部署，以避免环境依赖冲突。执行以下命令即可启动：</p>
+<!-- Terminal Mockup -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/10">
+<div class="bg-surface-container-low px-4 py-2 border-b border-outline-variant/10 flex items-center gap-2">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-error/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary/50"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary/50"></div>
+</div>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold ml-2">Terminal</span>
+</div>
+<div class="p-5 font-mono text-sm leading-relaxed">
+<div class="flex gap-4">
+<span class="text-slate-600">1</span>
+<code class="text-primary">git clone https://github.com/hermes/agent.git</code>
+</div>
+<div class="flex gap-4">
+<span class="text-slate-600">2</span>
+<code class="text-primary">cd hermes-agent &amp;&amp; docker-compose up -d</code>
+</div>
+<div class="flex gap-4 mt-2">
+<span class="text-slate-600">3</span>
+<code class="text-tertiary-fixed"># 等待服务就绪，访问 localhost:3000</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Accordion Item 2 -->
+<div class="bg-[#12121A] rounded-2xl p-6 border-l-4 border-transparent hover:border-primary/30 transition-all cursor-pointer group">
+<div class="flex justify-between items-center">
+<h4 class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">启动时遇到 Node.js 版本错误怎么办？</h4>
+<span class="material-symbols-outlined text-slate-500">keyboard_arrow_down</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Models & API -->
+<section id="models">
+<div class="flex items-center gap-4 mb-8">
+<span class="w-12 h-px bg-primary/30"></span>
+<h3 class="text-sm font-bold tracking-[0.2em] uppercase text-primary">模型与 API</h3>
+</div>
+<div class="grid md:grid-cols-2 gap-4">
+<div class="bg-[#12121A] rounded-2xl p-8 border border-outline-variant/10 hover:border-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary-container mb-6 text-3xl">key</span>
+<h4 class="text-xl font-bold text-on-surface mb-4">如何配置 OpenAI API Key？</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                                在项目根目录的 .env 文件中，将 OPENAI_API_KEY 替换为您自己的密钥即可。支持所有符合 OpenAI 格式的中转服务。
+                            </p>
+<a class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                                查看配置指南 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="bg-[#12121A] rounded-2xl p-8 border border-outline-variant/10 hover:border-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary-container mb-6 text-3xl">model_training</span>
+<h4 class="text-xl font-bold text-on-surface mb-4">支持哪些开源模型？</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                                Hermes 原生支持 Llama 3, Qwen 2, 以及 Mistral。您可以通过 Ollama 或 LocalAI 进行本地化集成。
+                            </p>
+<a class="text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                                兼容性列表 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Section 3: Platforms & Bots -->
+<section id="platforms">
+<div class="flex items-center gap-4 mb-8">
+<span class="w-12 h-px bg-primary/30"></span>
+<h3 class="text-sm font-bold tracking-[0.2em] uppercase text-primary">平台与机器人</h3>
+</div>
+<div class="space-y-4">
+<div class="bg-[#12121A] rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 border-l-4 border-transparent hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface">我可以将 Hermes 集成到 Telegram 吗？</h4>
+<p class="text-slate-500 text-sm">是的，我们提供现成的 Telegram Bot 适配器。</p>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full text-sm font-bold hover:scale-105 active:scale-95 transition-all">
+                                配置教程
+                            </button>
+</div>
+<div class="bg-[#12121A] rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 border-l-4 border-transparent hover:bg-surface-container-low transition-all">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<h4 class="text-lg font-bold text-on-surface">如何开启多用户管理模式？</h4>
+<p class="text-slate-500 text-sm">在管理面板开启 RBAC 权限系统即可。</p>
+</div>
+</div>
+<button class="bg-surface-container-highest text-on-surface px-6 py-2 rounded-full text-sm font-bold hover:bg-surface-container-high transition-all">
+                                了解详情
+                            </button>
+</div>
+</div>
+</section>
+<!-- Section 4: Migration & Upgrade -->
+<section id="migration">
+<div class="flex items-center gap-4 mb-8">
+<span class="w-12 h-px bg-primary/30"></span>
+<h3 class="text-sm font-bold tracking-[0.2em] uppercase text-primary">迁移与升级</h3>
+</div>
+<div class="bg-[#12121A] rounded-3xl p-10 relative overflow-hidden group">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-700"></div>
+<div class="relative z-10 max-w-xl">
+<h4 class="text-3xl font-black tracking-tight text-on-surface mb-6">无缝升级到 v2.0 架构</h4>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                                我们重构了底层数据存储逻辑。如果您是从 v1.x 版本迁移，请务必先备份数据库。我们提供了一键迁移工具来确保您的 Agent 记忆和对话历史完整。
+                            </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-3 bg-gradient-to-br from-primary-container to-primary text-on-primary font-bold rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all">
+                                    开始迁移
+                                </button>
+<button class="px-8 py-3 bg-surface-container text-on-surface font-bold rounded-full border border-outline-variant/20 hover:bg-surface-container-high transition-all">
+                                    阅读变更日志
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Contact Support CTA -->
+<section class="mt-40 text-center py-20 bg-surface-container-low rounded-[3rem] border border-outline-variant/10">
+<h3 class="text-4xl font-black text-on-surface mb-4 tracking-tighter">没找到您要的答案？</h3>
+<p class="text-on-surface-variant mb-10 max-w-lg mx-auto">我们的技术支持团队 7x24 小时在线，随时准备为您解决复杂的集成问题。</p>
+<div class="flex flex-col md:flex-row justify-center items-center gap-4">
+<div class="flex -space-x-4 mb-4 md:mb-0">
+<div class="w-12 h-12 rounded-full border-4 border-surface-container-low overflow-hidden">
+<img alt="Support 1" class="w-full h-full object-cover" data-alt="professional technician headshot with neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC07IGML4LnVIuDnDjZq0SXqlplTcd3M32qKFilt_ew3Dqs8Xgp1c5iDx6KAIQWoHP2RoemHvMRnqjIzSf0XYCuMmjFJVyJcyRW-UKnQeyxCJk7TR3cijYcC1UFNbF2T7lQ_xidHKlBkJtxcTjC20cnz6n6DWXVDckQe8Ucw0D3wj2SDbryiQPxDC9M1y29iqQP8RXwVLfwlXpkOM_xGx4ynSbQuxTq1XdKv-4kBDMnDfvIJF501NRC4jqE0GAB71ZTc9AQcSNLqls"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-surface-container-low overflow-hidden">
+<img alt="Support 2" class="w-full h-full object-cover" data-alt="smiling tech support specialist headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCppjT40veDQSsTG6mE4X38b4wdxqS591yer-9vqTgluTrvXQzeewzKhZylnqiEWg1-MkaOy68fToe6KFGDIx7dKSxdoXwLdKmVI8yT_z7-Ezi4HCbIC0RmrZrxtTyRkTd6yBX30m4X5L86ZFM2r_SuQDL95cndiLJHsXESQKcFocWuP9So009cKgObbvqdkvaJk6A7XPxDKrZXHUtyNAJTDjbCKsQh8am-mUU7QJh9RhywM1WPfpwM-W5QHfu-6xeXA7-tScfLvak"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-surface-container-low overflow-hidden">
+<img alt="Support 3" class="w-full h-full object-cover" data-alt="focused developer headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBjcROyBXiWITamn9qS6RzJtzve0zP27jdRyqAYKzusIS6OE8S22TgutLG-hdhAZsPKuF5aHCo5_RlJUT0DpaHnx2BHYyINWY3azblZ__S9yrsgkMhIYTlIoBJAy_KMXXFut9lq-GgdApwi2_yEkz662N_N5BKEo17Amyi2L-0tPyFgL3isNFpfH5P7kGJBF8c7zgnxKV6h3d1NePP5q5VQFE9tlyUYuGF7VOMFOTDyDeYLENedDlj3v4UmiCYCTfZQd4LFwa5GHA"/>
+</div>
+</div>
+<button class="bg-white text-black font-black px-10 py-4 rounded-full hover:scale-105 active:scale-95 transition-all">
+                    在线咨询
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-8 mt-auto border-t border-[#3B4A41]/15">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 w-full max-w-7xl mx-auto">
+<div class="text-slate-500 font-['Inter'] text-sm leading-relaxed">
+                © 2024 Hermes Agent. All rights reserved.
+            </div>
+<div class="flex gap-8">
+<a class="text-slate-500 text-sm hover:text-white transition-all cursor-pointer" href="#">Privacy</a>
+<a class="text-slate-500 text-sm hover:text-white transition-all cursor-pointer" href="#">Terms</a>
+<a class="text-slate-500 text-sm hover:text-white transition-all cursor-pointer" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>
