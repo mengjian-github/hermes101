@@ -1,0 +1,36 @@
+🎨 Generating 8 infographics...
+
+[1/8] day1-install generating...
+  ✅ day1-install (45s): https://v3b.fal.media/files/b/0a96f9a3/IPDAnNirL0euBYAyfFa9d_ZMz1JtQx.png
+
+[2/8] day2-models generating...
+  ✅ day2-models (35s): https://v3b.fal.media/files/b/0a96f9a7/1_axmFOxymHTgXMMXoDSs_aEjMGXQk.png
+
+[3/8] day3-platform generating...
+  ✅ day3-platform (42s): https://v3b.fal.media/files/b/0a96f9ab/XYme9bSphNGBpim6dYhpP_p5REequ2.png
+
+[4/8] day4-tools generating...
+  ✅ day4-tools (34s): https://v3b.fal.media/files/b/0a96f9af/y6RbakxjLst_tNBP3lCdK_9bTODSJf.png
+
+[5/8] day5-skills generating...
+  ✅ day5-skills (40s): https://v3b.fal.media/files/b/0a96f9b3/-mQfxdldt2ofQ_0TAVELd_nVr828oH.png
+
+[6/8] day6-multiagent generating...
+  ✅ day6-multiagent (49s): https://v3b.fal.media/files/b/0a96f9b7/MUi9m4N-2H9ZK49noBBlI_lPquY4CX.png
+
+[7/8] day7-advanced generating...
+  ✅ day7-advanced (33s): https://v3b.fal.media/files/b/0a96f9bc/uUznFZbekB4w3A00GRlXT_aqBDLTlW.png
+
+[8/8] day8-migration generating...
+  ✅ day8-migration (34s): https://v3b.fal.media/files/b/0a96f9bf/G8eDxdMefpjxXr6c7EsFm_K7GMNJFZ.png
+
+============================================================
+Done: 8/8 successful. Saved to /root/projects/hermes101-site/infographic/urls.txt
+  ✅ day1-install: https://v3b.fal.media/files/b/0a96f9a3/IPDAnNirL0euBYAyfFa9d_ZMz1JtQx.png
+  ✅ day2-models: https://v3b.fal.media/files/b/0a96f9a7/1_axmFOxymHTgXMMXoDSs_aEjMGXQk.png
+  ✅ day3-platform: https://v3b.fal.media/files/b/0a96f9ab/XYme9bSphNGBpim6dYhpP_p5REequ2.png
+  ✅ day4-tools: https://v3b.fal.media/files/b/0a96f9af/y6RbakxjLst_tNBP3lCdK_9bTODSJf.png
+  ✅ day5-skills: https://v3b.fal.media/files/b/0a96f9b3/-mQfxdldt2ofQ_0TAVELd_nVr828oH.png
+  ✅ day6-multiagent: https://v3b.fal.media/files/b/0a96f9b7/MUi9m4N-2H9ZK49noBBlI_lPquY4CX.png
+  ✅ day7-advanced: https://v3b.fal.media/files/b/0a96f9bc/uUznFZbekB4w3A00GRlXT_aqBDLTlW.png
+  ✅ day8-migration: https://v3b.fal.media/files/b/0a96f9bf/G8eDxdMefpjxXr6c7EsFm_K7GMNJFZ.png

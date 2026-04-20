@@ -81,23 +81,22 @@ const troubleshooting = [
       <p class="text-base text-[#666] mb-8">使用 <code class="bg-[#fafafa] px-1.5 py-0.5 rounded text-sm">hermes claw migrate</code> 一键迁移。附带完整检查清单、常见失败修复和迁移后验证步骤。</p>
 
       <!-- Timeline -->
-      <section class="mb-10">
-        <div class="flex items-center justify-between relative px-2">
-          <div class="absolute top-1/2 left-0 w-full h-0.5 bg-[#e5e5e5] -translate-y-1/2 z-0"></div>
-          <div class="absolute top-1/2 left-0 w-[66%] h-0.5 bg-[#18E299] -translate-y-1/2 z-0"></div>
-          <div class="z-10 flex flex-col items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-[#18E299] flex items-center justify-center text-white text-sm font-bold">✓</div>
-            <span class="text-[11px] font-medium uppercase tracking-wider text-[#666]">迁移前</span>
+      <section class="mb-12">
+        <div class="grid grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#18E299] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">1</div>
+            <h3 class="font-bold text-[#0d0d0d] mb-1">迁移前备份</h3>
+            <p class="text-xs text-[#666]">备份旧配置，记录 API key</p>
           </div>
-          <div class="z-10 flex flex-col items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-[#18E299] flex items-center justify-center text-white text-sm font-bold">✓</div>
-            <span class="text-[11px] font-medium uppercase tracking-wider text-[#666]">迁移中</span>
+          <div class="flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#18E299] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">2</div>
+            <h3 class="font-bold text-[#0d0d0d] mb-1">一条命令迁移</h3>
+            <p class="text-xs text-[#666]">hermes claw migrate 自动完成</p>
           </div>
-          <div class="z-10 flex flex-col items-center gap-2">
-            <div class="w-10 h-10 rounded-full bg-[#d4fae8] ring-4 ring-white flex items-center justify-center text-[#0fa76e]">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-            </div>
-            <span class="text-[11px] font-bold uppercase tracking-wider text-[#0fa76e]">迁移后</span>
+          <div class="flex flex-col items-center text-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#18E299] flex items-center justify-center text-white text-2xl font-black mb-3 shadow-lg shadow-[#18E299]/20">3</div>
+            <h3 class="font-bold text-[#0d0d0d] mb-1">验证 + 上线</h3>
+            <p class="text-xs text-[#666]">确认机器人正常回复</p>
           </div>
         </div>
       </section>
@@ -120,43 +119,49 @@ const troubleshooting = [
 
       <!-- Command Blocks -->
       <section class="mb-10 space-y-4">
-        <div class="bg-[#f3f3f3] rounded-xl p-5 space-y-4">
-          <div class="flex justify-between items-start">
-            <code class="font-mono text-[15px] text-[#0d0d0d] font-medium">hermes claw migrate</code>
-            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-black/[0.06] text-[#666] text-xs font-semibold hover:bg-[#fafafa] transition-colors" data-copy="hermes claw migrate">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-              复制
-            </button>
+        <div class="bg-[#1e1e1e] rounded-xl overflow-hidden">
+          <div class="flex items-center gap-2 px-5 py-3 border-b border-white/10">
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+            <span class="ml-3 text-xs text-[#888] font-mono">terminal</span>
           </div>
-          <div class="space-y-2 border-t border-black/[0.06] pt-4">
-            <div class="flex items-center gap-2 text-xs text-[#0fa76e] font-medium">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              正在读取 OpenClaw 配置...
+          <div class="p-5 space-y-3">
+            <div class="flex justify-between items-start">
+              <code class="font-mono text-[15px] text-[#e5e5e5] font-medium"><span class="text-[#18E299]">$</span> hermes claw migrate</code>
+              <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 text-[#aaa] text-xs font-semibold hover:bg-white/20 transition-colors" data-copy="hermes claw migrate">
+                复制
+              </button>
             </div>
-            <div class="flex items-center gap-2 text-xs text-[#0fa76e] font-medium">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              正在迁移渠道设置...
-            </div>
-            <div class="flex items-center gap-2 text-xs text-[#0fa76e] font-medium">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              正在迁移工具配置...
-            </div>
-            <div class="flex items-center gap-2 text-[#18E299] mt-3 pt-3 border-t border-black/[0.06] text-sm font-bold">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-              迁移完成！共迁移 12 项配置。
+            <div class="space-y-2 border-t border-white/10 pt-4">
+              <div class="flex items-center gap-2 text-xs text-[#18E299] font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                正在读取 OpenClaw 配置...
+              </div>
+              <div class="flex items-center gap-2 text-xs text-[#18E299] font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                正在迁移渠道设置...
+              </div>
+              <div class="flex items-center gap-2 text-xs text-[#18E299] font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                正在迁移工具配置...
+              </div>
+              <div class="flex items-center gap-2 text-[#18E299] mt-3 pt-3 border-t border-white/10 text-sm font-bold">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                迁移完成！共迁移 12 项配置。
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="bg-[#f3f3f3] rounded-xl p-5">
+        <div class="bg-[#1e1e1e] rounded-xl p-5">
           <div class="flex justify-between items-start">
-            <code class="font-mono text-[15px] text-[#0d0d0d] font-medium leading-tight">hermes backup --output ~/hermes-migrated.zip</code>
-            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-black/[0.06] text-[#666] text-xs font-semibold hover:bg-[#fafafa] transition-colors" data-copy="hermes backup --output ~/hermes-migrated.zip">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            <code class="font-mono text-[15px] text-[#e5e5e5] font-medium leading-tight"><span class="text-[#18E299]">$</span> hermes backup --output ~/hermes-migrated.zip</code>
+            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 text-[#aaa] text-xs font-semibold hover:bg-white/20 transition-colors" data-copy="hermes backup --output ~/hermes-migrated.zip">
               复制
             </button>
           </div>
-          <p class="text-xs text-[#666] mt-2">迁移后立即创建备份（推荐）</p>
+          <p class="text-xs text-[#888] mt-2">迁移后立即创建备份（推荐）</p>
         </div>
       </section>
 

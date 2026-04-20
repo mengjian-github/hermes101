@@ -1,0 +1,8 @@
+✅ day1-install: https://v3b.fal.media/files/b/0a96f9a3/IPDAnNirL0euBYAyfFa9d_ZMz1JtQx.png
+✅ day2-models: https://v3b.fal.media/files/b/0a96f9a7/1_axmFOxymHTgXMMXoDSs_aEjMGXQk.png
+✅ day3-platform: https://v3b.fal.media/files/b/0a96f9ab/XYme9bSphNGBpim6dYhpP_p5REequ2.png
+✅ day4-tools: https://v3b.fal.media/files/b/0a96f9af/y6RbakxjLst_tNBP3lCdK_9bTODSJf.png
+✅ day5-skills: https://v3b.fal.media/files/b/0a96f9b3/-mQfxdldt2ofQ_0TAVELd_nVr828oH.png
+✅ day6-multiagent: https://v3b.fal.media/files/b/0a96f9b7/MUi9m4N-2H9ZK49noBBlI_lPquY4CX.png
+✅ day7-advanced: https://v3b.fal.media/files/b/0a96f9bc/uUznFZbekB4w3A00GRlXT_aqBDLTlW.png
+✅ day8-migration: https://v3b.fal.media/files/b/0a96f9bf/G8eDxdMefpjxXr6c7EsFm_K7GMNJFZ.png
