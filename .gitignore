@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+.next
+
+next-env.d.ts
+
+tsconfig.tsbuildinfo
+
+.wrangler

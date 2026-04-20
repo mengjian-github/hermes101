@@ -31,10 +31,10 @@ const preChecks = [
 
 const postChecks = [
   { id: "mig-post-1", text: "hermes --version 正常返回 v0.9.x" },
-  { id: "mig-post-2", text: "hermes config 显示已迁移的配置" },
+  { id: "mig-post-2", text: "hermes model 验证 provider 配置" },
   { id: "mig-post-3", text: "渠道机器人能正常回复消息" },
   { id: "mig-post-4", text: "API 调用测试通过（发送消息看是否有回复）" },
-  { id: "mig-post-5", text: "工具列表与迁移前一致（/tools list 对比）" },
+  { id: "mig-post-5", text: "hermes tools 列出可用工具" },
 ];
 
 const troubleshooting = [
@@ -161,64 +161,105 @@ const troubleshooting = [
 
         <div class="bg-[#0E0E13] rounded-xl p-5">
           <div class="flex justify-between items-start">
-            <code class="font-mono text-[15px] text-[#e5e5e5] font-medium leading-tight"><span class="text-[#18E299]">$</span> hermes backup --output ~/hermes-migrated.zip</code>
-            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 text-[#aaa] text-xs font-semibold hover:bg-white/20 transition-colors" data-copy="hermes backup --output ~/hermes-migrated.zip">
+            <code class="font-mono text-[15px] text-[#e5e5e5] font-medium leading-tight"><span class="text-[#18E299]">$</span> hermes profile import ~/.openclaw</code>
+            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 text-[#aaa] text-xs font-semibold hover:bg-white/20 transition-colors" data-copy="hermes profile import ~/.openclaw">
               复制
             </button>
           </div>
-          <p class="text-xs text-[#888] mt-2">迁移后立即创建备份（推荐）</p>
+          <p class="text-xs text-[#888] mt-2">从 OpenClaw 目录导入配置到 Hermes Profile</p>
         </div>
       </section>
 
       <!-- Comparison Table -->
       <section class="mb-10">
-        <h2 class="text-xl font-semibold mb-5">Hermes v0.9 新功能对照表</h2>
+        <h2 class="text-xl font-semibold mb-5">OpenClaw vs Hermes 深度对比</h2>
+        <p class="text-sm text-[#859589] mb-5">两种哲学：OpenClaw 是「原子能力」，Hermes 是「开箱即用」。选哪个取决于你的需求。</p>
         <TableWrap>
           <thead class="bg-[#131318]">
             <tr>
-              <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">功能</th>
+              <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">维度</th>
               <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">OpenClaw</th>
-              <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">Hermes v0.9.x</th>
+              <th class="text-left py-3.5 px-4 font-semibold border-b border-white/[0.06]">Hermes</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Dashboard</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">—</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ Web 实时状态面板</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">安装方式</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">pip install / curl | bash（需预装 Python 3.10+）</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">curl | bash 一键安装（自动处理所有依赖）</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Backup / Import</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">手动拷贝</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ hermes backup / import</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">配置向导</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">openclaw setup / onboard 交互引导</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">hermes setup 交互式向导</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">平台接入</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE]">Telegram / 飞书</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ 8+ 平台</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">平台支持</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">Telegram、Discord、Slack、飞书等</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">Telegram、Discord、Slack、WhatsApp 等 8+</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Debug 命令</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">—</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ /debug 快速诊断</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Gateway 管理</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">openclaw gateway start/stop/status/install</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">hermes gateway start/stop/status/install</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">Watch Patterns</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">—</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ 后台进程输出监控</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">定时任务</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">openclaw cron（需手动配置触发）</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">hermes cron create（支持自然语言描述）</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">MCP / Skill 市场</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE]">基础工具</td>
-              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">✓ /skills 丰富生态</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">MCP 支持</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">openclaw mcp list / show，基础集成</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">完整 MCP 集成（数据库、文件系统、搜索）</td>
             </tr>
             <tr>
-              <td class="py-3.5 px-4 text-[#BACBBE] font-medium">Cron 自动化</td>
-              <td class="py-3.5 px-4 text-[#859589]">—</td>
-              <td class="py-3.5 px-4 text-[#51FFB4] font-medium">✓ 自然语言定时任务</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">内置工具</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">canvas、nodes、web_search、browser、image、video、tts</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">web_search、terminal、browser、vision、image_gen 等 15+</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">技能策略</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">核心精简，通过 ClawHub 显式安装扩展</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">安装自带 100+ 技能，自动发现加载</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#BACBBE] font-medium">终端后端</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#859589]">本地执行为主</td>
+              <td class="py-3.5 px-4 border-b border-white/[0.06] text-[#51FFB4] font-medium">local / docker / ssh / modal / daytona</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-4 text-[#BACBBE] font-medium">核心哲学</td>
+              <td class="py-3.5 px-4 text-[#859589]">Primitives（原子能力，完全可控）</td>
+              <td class="py-3.5 px-4 text-[#51FFB4] font-medium">Batteries included（开箱即用，减少决策）</td>
             </tr>
           </tbody>
         </TableWrap>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div class="bg-[#131318] rounded-xl border border-white/[0.06] p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-lg">🔧</span>
+              <h3 class="font-bold text-[#E4E1E9]">选 OpenClaw 如果...</h3>
+            </div>
+            <ul class="space-y-2 text-sm text-[#859589]">
+              <li class="flex items-start gap-2"><span class="text-[#666]">•</span><span>你需要 100% 控制权，每个行为都可预测</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#666]">•</span><span>在生产环境或团队中运行，可审计性比速度重要</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#666]">•</span><span>你只想要基础工具，自己决定装什么</span></li>
+            </ul>
+          </div>
+          <div class="bg-[#131318] rounded-xl border border-white/[0.06] p-6">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-lg">🚀</span>
+              <h3 class="font-bold text-[#E4E1E9]">选 Hermes 如果...</h3>
+            </div>
+            <ul class="space-y-2 text-sm text-[#859589]">
+              <li class="flex items-start gap-2"><span class="text-[#666]">•</span><span>你想快速上手，第一天就有生产力</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#666]">•</span><span>你喜欢「约定优于配置」，不想做太多决策</span></li>
+              <li class="flex items-start gap-2"><span class="text-[#666]">•</span><span>你需要丰富的内置技能和自动化能力</span></li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <!-- Troubleshooting -->
