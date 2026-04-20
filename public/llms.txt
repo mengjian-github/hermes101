@@ -1,0 +1,33 @@
+# hermes101.site
+> Hermes Agent 中文入门指南。5 分钟安装，7 天跟练，OpenClaw 一键迁移。
+
+## 站点定位
+Hermes Agent（hermes-agent）是由 Nous Research 开发的开源 AI 编程助手框架。本站是社区独立维护的中文入门指南，帮助中文用户快速上手。
+
+## 支持平台
+Telegram, Discord, Slack, 飞书, WhatsApp, GitHub, 企业微信, 钉钉, Line, Matrix, Teams, 微信公众号, Twitter/X, Reddit, Email, Web, TUI, CLI 等 22+ 平台。
+
+## 核心功能
+- 智能记忆：跨 session 记忆
+- 多 Agent 协作：Profile 隔离
+- 定时自动化：自然语言 cron
+- MCP 生态：200+ 技能包
+- 安全沙箱：危险命令审批
+- 多模型：OpenAI/Claude/GLM/Kimi/Ollama 等
+- 并行执行：多 subagent 并发
+
+## 页面列表
+- / — 首页，介绍 Hermes Agent
+- /setup — 安装指南，5 分钟完成安装
+- /7-days — 7 天入门教程，每天一个成果
+- /migrate — OpenClaw 迁移指南
+- /faq — 常见问题
+
+## 快速安装
+curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+
+## 版本
+当前指南基于 Hermes v0.9.x
+
+## 维护者
+社区独立指南，非 Nous Research 官方文档。

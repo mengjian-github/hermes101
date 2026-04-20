@@ -1,17 +1,49 @@
 ---
 ---
-<footer class="bg-[#fafafa] border-t border-black/[0.06] py-10 mt-auto">
-  <div class="max-w-[960px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-    <div class="text-center md:text-left">
-      <span class="font-semibold text-lg tracking-[-0.3px]">hermes101</span>
-      <p class="text-xs text-[#888] mt-2">本站为社区独立指南，内容仅供参考，非 Nous Research 官方文档</p>
+<footer style="background: #06060a; color: #a0a0b8;" class="mt-auto">
+  <div class="max-w-[1200px] mx-auto px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <!-- Brand -->
+      <div>
+        <span class="font-display text-lg font-semibold tracking-[-0.3px] text-[#e8e8f0] flex items-center gap-1.5">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#18E299]"></span>
+          hermes101
+        </span>
+        <p class="text-sm mt-3 leading-relaxed" style="color: #6a6a82;">
+          Hermes Agent 中文入门指南。<br/>
+          5 分钟安装，7 天掌握。
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h4 class="text-sm font-semibold text-[#e8e8f0] mb-4">导航</h4>
+        <div class="flex flex-col gap-2.5">
+          <a href="/setup" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">安装指南</a>
+          <a href="/7-days" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">7 天教程</a>
+          <a href="/migrate" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">迁移指南</a>
+          <a href="/faq" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">常见问题</a>
+        </div>
+      </div>
+
+      <!-- Community -->
+      <div>
+        <h4 class="text-sm font-semibold text-[#e8e8f0] mb-4">社区</h4>
+        <div class="flex flex-col gap-2.5">
+          <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">GitHub</a>
+          <a href="https://github.com/NousResearch/hermes-agent/discussions" target="_blank" rel="noopener" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">Discussions</a>
+          <a href="#" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">Telegram 群组</a>
+          <a href="#" class="text-sm hover:text-[#18E299] transition-colors" style="color: #6a6a82;">Discord</a>
+        </div>
+      </div>
     </div>
-    <div class="flex gap-5 flex-wrap justify-center">
-      <a href="/setup" class="text-sm text-[#666] hover:text-[#0d0d0d]">安装</a>
-      <a href="/7-days" class="text-sm text-[#666] hover:text-[#0d0d0d]">7天教程</a>
-      <a href="/migrate" class="text-sm text-[#666] hover:text-[#0d0d0d]">迁移</a>
-      <a href="/faq" class="text-sm text-[#666] hover:text-[#0d0d0d]">FAQ</a>
+
+    <!-- Divider & Copyright -->
+    <div class="mt-12 pt-8 border-t" style="border-color: rgba(255,255,255,0.06);">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+        <p class="text-xs" style="color: #4a4a6a;">© 2026 hermes101.site · 社区独立指南，非 Nous Research 官方文档</p>
+        <p class="text-xs" style="color: #4a4a6a;">基于 Hermes v0.9.x · 最后更新 2026-04-15</p>
+      </div>
     </div>
-    <p class="text-[13px] text-[#666]">© 2026 hermes101.site</p>
   </div>
 </footer>

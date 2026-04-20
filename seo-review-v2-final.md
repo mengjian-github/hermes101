@@ -2,7 +2,7 @@
 
 > 验收时间：2026-04-15  
 > 验收站点：https://hermes101.site  
-> 构建目录：`/root/hermes101-site/dist`  
+> 构建目录：`/root/projects/hermes101-site/dist`  
 > 对比 PRD：`PRD-v2.md` (Hermes v0.9.x 大升级)
 
 ---

@@ -9,7 +9,7 @@ const { title, description, schema } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,41 +17,55 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
   <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/geist@1/dist/fonts/geist-sans/style.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- OG Image -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL('/og-image.png', Astro.site).toString()} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={new URL('/og-image.png', Astro.site).toString()} />
+
+  <!-- Schema.org -->
   {schema && (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   )}
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #0d0d0d;
-      --text-secondary: #333333;
-      --text-muted: #666666;
-      --border: rgba(0,0,0,0.06);
-      --border-hover: rgba(0,0,0,0.1);
-      --brand: #18E299;
-      --brand-deep: #0fa76e;
-      --brand-light: #d4fae8;
-      --surface: #fafafa;
-      --code-bg: #1e1e1e;
-      --code-text: #e5e5e5;
-      --warn-bg: #fffbeb;
-      --warn-border: #fde68a;
-      --error: #d45656;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-    }
-    code {
-      font-family: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    }
-  </style>
+
+  <!-- Theme Init (runs before render to prevent flash) -->
+  <script is:inline>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+      const dark = stored ? stored === 'dark' : prefersDark;
+      document.documentElement.classList.toggle('dark', dark);
+    })();
+  </script>
 </head>
 <body class="antialiased">
   <slot />
+
+  <!-- Global fade-in-up observer -->
+  <script is:inline>
+    (function() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.fade-in-up').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
 </body>
 </html>

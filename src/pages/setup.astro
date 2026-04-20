@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import VersionBanner from '../components/VersionBanner.astro';
 import CodeBlock from '../components/CodeBlock.astro';
 import Accordion from '../components/Accordion.astro';
 import CheckItem from '../components/CheckItem.astro';
@@ -16,242 +15,284 @@ const schema = {
   "description": description,
   "author": { "@type": "Organization", "name": "hermes101" },
   "datePublished": "2026-04-15",
-  "dateModified": "2026-04-15",
+  "dateModified": "2026-04-20",
   "keywords": "Hermes Agent 安装, Hermes Agent Windows 安装, Hermes Agent WSL2, Hermes Agent Termux, Hermes v0.9"
 };
 ---
 <Layout title={title} description={description} schema={schema}>
   <Nav />
   <main class="pb-20">
-    <article class="max-w-[800px] mx-auto px-6">
-      <VersionBanner />
+    <article class="max-w-[860px] mx-auto px-6">
 
-      <h1 class="text-[36px] font-semibold leading-[1.3] tracking-[-0.3px] mt-10 mb-2">5 分钟安装 Hermes Agent</h1>
-      <p class="text-base text-[#666] mb-8">选择你的操作系统，每步都有可复制命令。即使你是第一次打开终端，也能顺利跑通。</p>
+      <!-- Hero Section -->
+      <section class="pt-16 pb-10 fade-in-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[13px] font-medium mb-5"
+             style="background: var(--brand-glow); color: var(--brand-deep);">
+          <span>🚀</span>
+          <span>5 分钟完成安装</span>
+        </div>
+        <h1 class="text-[40px] font-semibold leading-[1.2] tracking-[-0.3px] mb-4" style="color: var(--text-primary);">
+          安装 Hermes Agent
+        </h1>
+        <p class="text-[17px] leading-relaxed max-w-[600px]" style="color: var(--text-secondary);">
+          选择你的操作系统，每步都有可复制命令。即使你是第一次打开终端，也能顺利跑通。
+        </p>
+      </section>
 
-      <h2 class="text-xl font-semibold mt-10 mb-4">前置检查清单</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-8">
-        <CheckItem id="setup-check-1" text="有一台能联网的电脑或手机" />
-        <CheckItem id="setup-check-2" text="已注册 LLM API（OpenAI / Anthropic）" />
-        <CheckItem id="setup-check-3" text="有 5 分钟跟着操作" />
-      </div>
+      <!-- Pre-check List -->
+      <section class="mb-10 fade-in-up">
+        <h2 class="text-xl font-semibold mb-4" style="color: var(--text-primary);">前置检查清单</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <CheckItem id="setup-check-1" text="有一台能联网的电脑或手机" />
+          <CheckItem id="setup-check-2" text="已注册 LLM API key（OpenAI / Anthropic / 国产模型均可）" />
+          <CheckItem id="setup-check-3" text="有 5 分钟跟着操作" />
+        </div>
+      </section>
 
-      <div class="tabs flex flex-col md:flex-row md:gap-6 border-b border-black/[0.06] mb-7">
-        <button class="tab active text-left md:text-center py-3 md:pb-3 text-[15px] font-medium text-[#666] border-b-2 border-transparent md:-mb-[1px]" data-tab="mac">Mac</button>
-        <button class="tab text-left md:text-center py-3 md:pb-3 text-[15px] font-medium text-[#666] border-b-2 border-transparent md:-mb-[1px]" data-tab="linux">Linux</button>
-        <button class="tab text-left md:text-center py-3 md:pb-3 text-[15px] font-medium text-[#666] border-b-2 border-transparent md:-mb-[1px]" data-tab="windows">Windows WSL2</button>
-        <button class="tab text-left md:text-center py-3 md:pb-3 text-[15px] font-medium text-[#666] border-b-2 border-transparent md:-mb-[1px]" data-tab="termux">Termux / Android</button>
-      </div>
+      <!-- OS Tabs -->
+      <section class="mb-12 fade-in-up">
+        <div class="tabs flex gap-1 border-b mb-8" style="border-color: var(--border);">
+          <button class="tab active relative py-3 px-5 text-[15px] font-medium transition-colors" data-tab="mac"
+                  style="color: var(--text-muted);">Mac</button>
+          <button class="tab relative py-3 px-5 text-[15px] font-medium transition-colors" data-tab="linux"
+                  style="color: var(--text-muted);">Linux</button>
+          <button class="tab relative py-3 px-5 text-[15px] font-medium transition-colors" data-tab="windows"
+                  style="color: var(--text-muted);">Windows WSL2</button>
+          <button class="tab relative py-3 px-5 text-[15px] font-medium transition-colors" data-tab="termux"
+                  style="color: var(--text-muted);">Termux / Android</button>
+        </div>
 
-      <div class="tab-content" data-content="mac">
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">1</span>
-            <h3 class="text-[17px] font-semibold">安装 Python 环境</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">Hermes 需要 Python 3.10 或更高版本。首先确认你的系统已经安装。</p>
-          <CodeBlock code="python3 --version" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">2</span>
-            <h3 class="text-[17px] font-semibold">安装 Hermes Agent</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">使用 pip 一键安装。如果提示权限不足，可以加上 <code class="bg-[#fafafa] px-1.5 py-0.5 rounded text-sm">--user</code> 参数。</p>
-          <CodeBlock code="pip3 install --user hermes-agent" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">3</span>
-            <h3 class="text-[17px] font-semibold">运行安装验证</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">安装完成后，运行以下命令确认版本。</p>
-          <CodeBlock code="hermes --version" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">4</span>
-            <h3 class="text-[17px] font-semibold">初始化配置向导</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">v0.9 新增的交互式配置向导，会自动生成 <code class="bg-[#fafafa] px-1.5 py-0.5 rounded text-sm">~/.hermes/config.yaml</code>。</p>
-          <CodeBlock code="hermes setup" />
-        </section>
+        <!-- ========== Mac Tab ========== -->
+        <div class="tab-content" data-content="mac">
+          <div class="timeline relative pl-10 space-y-8">
+            <!-- vertical line -->
+            <div class="absolute left-[15px] top-2 bottom-2 w-0.5 rounded-full" style="background: var(--border);"></div>
 
-        <h2 class="text-xl font-semibold mt-10 mb-4">常见安装错误速查</h2>
-        <Accordion title="Python 版本过低">
-          <p>访问 <a href="https://python.org" class="text-[#0fa76e] underline">python.org</a> 下载 Python 3.11，或使用 Homebrew 安装：<code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">brew install python@3.11</code>。</p>
-        </Accordion>
-        <Accordion title="pip 安装权限失败">
-          <p>尝试 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">pip3 install --user hermes-agent</code>，或使用虚拟环境 venv 进行安装。</p>
-        </Accordion>
-        <Accordion title="hermes 命令找不到">
-          <p>运行 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">export PATH="$HOME/.local/bin:$PATH"</code>，并添加到 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">~/.zshrc</code> 或 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">~/.bashrc</code>。</p>
-        </Accordion>
-      </div>
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">1</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">运行一键安装脚本</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">在终端中运行以下命令，自动完成下载、依赖安装和环境配置。</p>
+              <CodeBlock code={`curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`} />
+            </div>
 
-      <div class="tab-content hidden" data-content="linux">
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">1</span>
-            <h3 class="text-[17px] font-semibold">安装 Python 环境</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">大多数 Linux 发行版已带 Python3。检查版本，不足时请通过包管理器安装。</p>
-          <CodeBlock code="python3 --version" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">2</span>
-            <h3 class="text-[17px] font-semibold">安装 pip（如果没有）</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">例如在 Ubuntu/Debian 上。</p>
-          <CodeBlock code="sudo apt update && sudo apt install python3-pip -y" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">3</span>
-            <h3 class="text-[17px] font-semibold">安装 Hermes Agent</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">建议使用 <code class="bg-[#fafafa] px-1.5 py-0.5 rounded text-sm">--user</code> 避免权限问题。</p>
-          <CodeBlock code="pip3 install --user hermes-agent" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">4</span>
-            <h3 class="text-[17px] font-semibold">验证安装</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">如果命令不在 PATH，请将 pip 的本地 bin 目录加入 PATH。</p>
-          <CodeBlock code="hermes --version" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">5</span>
-            <h3 class="text-[17px] font-semibold">初始化配置向导</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">运行 v0.9 交互式向导生成配置文件。</p>
-          <CodeBlock code="hermes setup" />
-        </section>
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">2</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">重新加载 Shell 环境</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">安装脚本会将 hermes 命令加入 PATH，重新加载后即可使用。</p>
+              <CodeBlock code={`source ~/.bashrc  # 如果用 zsh 则改为 source ~/.zshrc`} />
+            </div>
 
-        <h2 class="text-xl font-semibold mt-10 mb-4">常见安装错误速查</h2>
-        <Accordion title="Python 版本过低">
-          <p>Ubuntu/Debian 用户可运行 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">sudo apt install python3.11 python3.11-pip -y</code>，然后用 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">python3.11 -m pip install --user hermes-agent</code> 安装。</p>
-        </Accordion>
-        <Accordion title="pip 安装权限失败">
-          <p>优先使用 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">pip3 install --user hermes-agent</code>；次选在 venv 虚拟环境中安装。</p>
-        </Accordion>
-        <Accordion title="hermes 命令找不到">
-          <p>执行 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">export PATH="$HOME/.local/bin:$PATH"</code> 并写入 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">~/.bashrc</code>，然后 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">source ~/.bashrc</code>。</p>
-        </Accordion>
-      </div>
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">3</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">运行诊断检查</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">验证所有依赖是否就绪，环境配置是否正确。</p>
+              <CodeBlock code={`hermes version\nhermes doctor`} />
+            </div>
 
-      <div class="tab-content hidden" data-content="windows">
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">1</span>
-            <h3 class="text-[17px] font-semibold">启用 WSL2</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">以管理员身份打开 PowerShell，运行以下命令并重启电脑。</p>
-          <CodeBlock code="wsl --install" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">2</span>
-            <h3 class="text-[17px] font-semibold">进入 Ubuntu 终端</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">在开始菜单搜索并打开 Ubuntu，设置用户名和密码。</p>
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">3</span>
-            <h3 class="text-[17px] font-semibold">更新系统并安装 Python</h3>
-          </div>
-          <CodeBlock code="sudo apt update && sudo apt install python3 python3-pip -y" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">4</span>
-            <h3 class="text-[17px] font-semibold">安装 Hermes Agent</h3>
-          </div>
-          <CodeBlock code="pip3 install --user hermes-agent" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">5</span>
-            <h3 class="text-[17px] font-semibold">验证安装</h3>
-          </div>
-          <CodeBlock code="hermes --version" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">6</span>
-            <h3 class="text-[17px] font-semibold">初始化配置向导</h3>
-          </div>
-          <CodeBlock code="hermes setup" />
-        </section>
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">4</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">初始化配置向导</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">交互式向导帮你生成 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">~/.hermes/config.yaml</code>，配置模型和 API key。</p>
+              <CodeBlock code={`hermes setup`} />
+            </div>
 
-        <h2 class="text-xl font-semibold mt-10 mb-4">常见安装错误速查</h2>
-        <Accordion title="WSL2 未启用">
-          <p>在 PowerShell 中以管理员身份运行 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">wsl --install</code>，重启后继续安装。如仍失败，在 BIOS 开启虚拟化（Intel VT-x / AMD-V）。</p>
-        </Accordion>
-        <Accordion title="hermes 命令找不到">
-          <p>在 WSL2 Ubuntu 中运行 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">export PATH="$HOME/.local/bin:$PATH"</code>，并写入 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">~/.bashrc</code>。</p>
-        </Accordion>
-        <Accordion title="WSL2 网络无法访问模型 API">
-          <p>检查 Windows 防火墙是否阻止了 WSL2 网络访问；必要时在 WSL2 中配置代理（如 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">export https_proxy=http://host.docker.internal:7890</code>）。</p>
-        </Accordion>
-      </div>
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">5</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">配置 API Key（推荐方式）</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">也可以在向导中配置，这里提供命令行方式方便后续修改。</p>
+              <CodeBlock code={`hermes config set OPENROUTER_API_KEY sk-or-v1-your-key`} />
+            </div>
+          </div>
 
-      <div class="tab-content hidden" data-content="termux">
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">1</span>
-            <h3 class="text-[17px] font-semibold">安装 Termux</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">从 F-Droid 或 GitHub 发行版下载安装 Termux（建议不要使用应用宝版本）。</p>
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">2</span>
-            <h3 class="text-[17px] font-semibold">更新包列表并安装 Python</h3>
-          </div>
-          <CodeBlock code="pkg update && pkg install python python-pip -y" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">3</span>
-            <h3 class="text-[17px] font-semibold">安装 Hermes Agent</h3>
-          </div>
-          <p class="text-[15px] text-[#333] mb-3">Termux 环境完全兼容，直接使用 pip 安装即可。</p>
-          <CodeBlock code="pip install hermes-agent" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">4</span>
-            <h3 class="text-[17px] font-semibold">验证安装</h3>
-          </div>
-          <CodeBlock code="hermes --version" />
-        </section>
-        <section class="mb-8">
-          <div class="flex items-center gap-3 mb-3">
-            <span class="w-7 h-7 rounded-full bg-[#0d0d0d] text-white flex items-center justify-center text-[13px] font-semibold">5</span>
-            <h3 class="text-[17px] font-semibold">初始化配置向导</h3>
-          </div>
-          <CodeBlock code="hermes setup" />
-        </section>
+          <h2 class="text-xl font-semibold mt-12 mb-4" style="color: var(--text-primary);">常见安装错误速查</h2>
+          <Accordion title="Python 版本过低">
+            <p>访问 <a href="https://python.org" class="underline" style="color: var(--brand-deep);">python.org</a> 下载 Python 3.11+，或使用 Homebrew：<code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">brew install python@3.11</code>。</p>
+          </Accordion>
+          <Accordion title="hermes 命令找不到">
+            <p>运行 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">source ~/.zshrc</code> 或 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">source ~/.bashrc</code>。如果仍找不到，手动添加：<code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">export PATH="$HOME/.local/bin:$PATH"</code></p>
+          </Accordion>
+          <Accordion title="安装脚本报网络错误">
+            <p>检查是否能访问 GitHub。如果网络受限，可使用代理或手动下载脚本后执行：<code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">bash install.sh</code></p>
+          </Accordion>
+        </div>
 
-        <h2 class="text-xl font-semibold mt-10 mb-4">常见安装错误速查</h2>
-        <Accordion title="pip 安装失败或编译错误">
-          <p>运行 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">pkg install clang libffi openssl -y</code> 后重试。</p>
-        </Accordion>
-        <Accordion title="Android 杀后台导致 Hermes 断连">
-          <p>进入 Android 设置 → 电池 → 应用省电策略，将 Termux 设为无限制。如果运行了 gateway，建议使用 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">termux-wake-lock</code> 保持唤醒。</p>
-        </Accordion>
-        <Accordion title="hermes setup 卡住">
-          <p>Termux 中某些键盘输入法可能与交互式向导不兼容，尝试换用 Hacker's Keyboard 或直接手动编辑 <code class="bg-[#fff] px-1.5 py-0.5 rounded text-sm">~/.hermes/config.yaml</code>。</p>
-        </Accordion>
-      </div>
+        <!-- ========== Linux Tab ========== -->
+        <div class="tab-content hidden" data-content="linux">
+          <div class="timeline relative pl-10 space-y-8">
+            <div class="absolute left-[15px] top-2 bottom-2 w-0.5 rounded-full" style="background: var(--border);"></div>
 
-      <div class="text-center pt-12 pb-4">
-        <a href="/7-days#day-1" class="inline-block bg-[#0d0d0d] text-white px-8 py-3 rounded-full text-[15px] font-medium hover:opacity-92 transition-opacity">继续 Day 1 学习路径 →</a>
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">1</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">运行一键安装脚本</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">脚本会自动检测系统包管理器并安装所需依赖（Python 3.10+、pip 等）。</p>
+              <CodeBlock code={`curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">2</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">重新加载 Shell 环境</h3>
+              <CodeBlock code={`source ~/.bashrc  # 或 source ~/.zshrc`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">3</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">运行诊断检查</h3>
+              <CodeBlock code={`hermes version\nhermes doctor`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">4</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">初始化配置向导</h3>
+              <CodeBlock code={`hermes setup`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">5</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">配置 API Key</h3>
+              <CodeBlock code={`hermes config set OPENROUTER_API_KEY sk-or-v1-your-key`} />
+            </div>
+          </div>
+
+          <h2 class="text-xl font-semibold mt-12 mb-4" style="color: var(--text-primary);">常见安装错误速查</h2>
+          <Accordion title="Python 版本过低">
+            <p>Ubuntu/Debian：<code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">sudo apt install python3.11 python3.11-pip -y</code>；CentOS/RHEL：<code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">sudo yum install python3.11</code></p>
+          </Accordion>
+          <Accordion title="hermes 命令找不到">
+            <p>执行 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">export PATH="$HOME/.local/bin:$PATH"</code> 并写入 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">~/.bashrc</code>，然后 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">source ~/.bashrc</code>。</p>
+          </Accordion>
+          <Accordion title="安装脚本权限不足">
+            <p>确保当前用户有 home 目录写权限。如需 sudo，可先 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">sudo bash install.sh</code>，但推荐用户级安装。</p>
+          </Accordion>
+        </div>
+
+        <!-- ========== Windows WSL2 Tab ========== -->
+        <div class="tab-content hidden" data-content="windows">
+          <div class="timeline relative pl-10 space-y-8">
+            <div class="absolute left-[15px] top-2 bottom-2 w-0.5 rounded-full" style="background: var(--border);"></div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">1</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">启用 WSL2</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">以管理员身份打开 PowerShell，运行以下命令并重启电脑。</p>
+              <CodeBlock code={`wsl --install`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">2</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">进入 Ubuntu 终端</h3>
+              <p class="text-[15px]" style="color: var(--text-secondary);">在开始菜单搜索并打开 Ubuntu，设置用户名和密码。</p>
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">3</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">运行一键安装脚本</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">在 WSL2 Ubuntu 终端中执行：</p>
+              <CodeBlock code={`curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">4</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">重新加载环境并诊断</h3>
+              <CodeBlock code={`source ~/.bashrc\nhermes version\nhermes doctor`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">5</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">初始化配置向导</h3>
+              <CodeBlock code={`hermes setup`} />
+            </div>
+          </div>
+
+          <h2 class="text-xl font-semibold mt-12 mb-4" style="color: var(--text-primary);">常见安装错误速查</h2>
+          <Accordion title="WSL2 未启用">
+            <p>在 PowerShell 中以管理员身份运行 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">wsl --install</code>，重启后继续。如仍失败，在 BIOS 开启虚拟化（Intel VT-x / AMD-V）。</p>
+          </Accordion>
+          <Accordion title="hermes 命令找不到">
+            <p>在 WSL2 Ubuntu 中运行 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">export PATH="$HOME/.local/bin:$PATH"</code>，并写入 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">~/.bashrc</code>。</p>
+          </Accordion>
+          <Accordion title="WSL2 网络无法访问模型 API">
+            <p>检查 Windows 防火墙是否阻止了 WSL2 网络访问；必要时在 WSL2 中配置代理（如 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">export https_proxy=http://host.docker.internal:7890</code>）。</p>
+          </Accordion>
+        </div>
+
+        <!-- ========== Termux Tab ========== -->
+        <div class="tab-content hidden" data-content="termux">
+          <div class="timeline relative pl-10 space-y-8">
+            <div class="absolute left-[15px] top-2 bottom-2 w-0.5 rounded-full" style="background: var(--border);"></div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">1</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">安装 Termux</h3>
+              <p class="text-[15px]" style="color: var(--text-secondary);">从 F-Droid 或 GitHub 发行版下载安装 Termux（建议不要使用应用宝版本）。</p>
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">2</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">更新包列表并安装 Python</h3>
+              <CodeBlock code={`pkg update && pkg install python -y`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">3</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">运行一键安装脚本</h3>
+              <p class="text-[15px] mb-3" style="color: var(--text-secondary);">Termux 环境兼容一键脚本。如遇问题可回退到 pip 安装。</p>
+              <CodeBlock code={`curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">4</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">重新加载并验证</h3>
+              <CodeBlock code={`source ~/.bashrc\nhermes version\nhermes doctor`} />
+            </div>
+
+            <div class="step relative">
+              <div class="absolute left-[-25px] w-[30px] h-[30px] rounded-full flex items-center justify-center text-[13px] font-bold text-white z-10"
+                   style="background: var(--brand);">5</div>
+              <h3 class="text-[17px] font-semibold mb-2" style="color: var(--text-primary);">初始化配置向导</h3>
+              <CodeBlock code={`hermes setup`} />
+            </div>
+          </div>
+
+          <h2 class="text-xl font-semibold mt-12 mb-4" style="color: var(--text-primary);">常见安装错误速查</h2>
+          <Accordion title="pip 安装失败或编译错误">
+            <p>运行 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">pkg install clang libffi openssl -y</code> 后重试。如果一键脚本不可用，回退到 pip：<code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">pip install hermes-agent</code></p>
+          </Accordion>
+          <Accordion title="Android 杀后台导致断连">
+            <p>进入 Android 设置 → 电池 → 应用省电策略，将 Termux 设为无限制。建议使用 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">termux-wake-lock</code> 保持唤醒。</p>
+          </Accordion>
+          <Accordion title="hermes setup 卡住">
+            <p>某些输入法可能与交互式向导不兼容，尝试换用 Hacker's Keyboard 或直接手动编辑 <code class="px-1.5 py-0.5 rounded text-sm" style="background: var(--bg-tertiary);">~/.hermes/config.yaml</code>。</p>
+          </Accordion>
+        </div>
+      </section>
+
+      <!-- Bottom CTA -->
+      <div class="text-center pt-12 pb-4 fade-in-up">
+        <a href="/7-days#day-1"
+           class="inline-flex items-center gap-2 px-8 py-3.5 rounded-[var(--radius-button)] text-[15px] font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.98]"
+           style="background: var(--brand-gradient); box-shadow: var(--glow-sm);">
+          继续 Day 1 学习路径
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
     </article>
   </main>
@@ -259,7 +300,22 @@ const schema = {
 </Layout>
 
 <style>
-  .tab.active { color: #0d0d0d; border-bottom-color: #18E299; }
+  .tab.active {
+    color: var(--text-primary) !important;
+  }
+  .tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--brand);
+    border-radius: 1px;
+  }
+  .tab:hover {
+    color: var(--text-primary);
+  }
 </style>
 <script is:inline>
   (function() {

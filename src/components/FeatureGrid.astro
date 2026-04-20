@@ -1,0 +1,32 @@
+---
+export interface Feature {
+  icon: string;
+  title: string;
+  desc: string;
+}
+export interface Props {
+  features: Feature[];
+}
+const { features } = Astro.props;
+---
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {features.map((f, i) => (
+    <div class="feature-card group rounded-[var(--radius-card)] p-7 transition-all duration-300 hover:-translate-y-1"
+         style={`background: var(--bg-secondary); border: 1px solid var(--border); animation-delay: ${i * 50}ms;`}>
+      <!-- Icon area with gradient background -->
+      <div class="w-12 h-12 rounded-xl flex items-center justify-center text-xl mb-5"
+           style="background: var(--brand-gradient); box-shadow: var(--glow-sm);">
+        {f.icon}
+      </div>
+      <h3 class="text-lg font-semibold mb-2.5" style="color: var(--text-primary);">{f.title}</h3>
+      <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">{f.desc}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .feature-card:hover {
+    border-color: rgba(24, 226, 153, 0.3) !important;
+    box-shadow: 0 0 30px rgba(24, 226, 153, 0.08);
+  }
+</style>

@@ -2,12 +2,12 @@
 export interface Props { title: string; id?: string; }
 const { title, id } = Astro.props;
 ---
-<div class="accordion border border-black/[0.06] rounded-xl overflow-hidden mb-3" {...(id ? { id } : {})}>
-  <button class="accordion-header w-full px-5 py-4 bg-white flex justify-between items-center text-[15px] font-medium hover:bg-[#fafafa]">
+<div class="accordion rounded-[var(--radius-card)] overflow-hidden mb-3" {...(id ? { id } : {})} style="border: 1px solid var(--border);">
+  <button class="accordion-header w-full px-5 py-4 flex justify-between items-center text-[15px] font-medium transition-colors cursor-pointer" style="background: var(--bg-primary); color: var(--text-primary);">
     <span>{title}</span>
-    <span class="accordion-icon transition-transform duration-200">&#9662;</span>
+    <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted);">&#9662;</span>
   </button>
-  <div class="accordion-body hidden px-5 py-4 bg-[#fafafa] text-sm text-[#333] border-t border-black/[0.06] leading-relaxed">
+  <div class="accordion-body hidden px-5 py-4 text-sm leading-relaxed" style="background: var(--bg-secondary); color: var(--text-secondary); border-top: 1px solid var(--border);">
     <slot />
   </div>
 </div>

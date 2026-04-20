@@ -318,4 +318,4 @@ v0.9 新增 backup/import 与 /debug 诊断，迁移更安心。
 - [ ] 7-days.astro 重写为 7 天详细大纲，每天含失败分支和 0.9 功能融入
 - [ ] migrate.astro 增加 0.9 功能对照表和具体命令示例
 - [ ] faq.astro 增加 backup/import、watch_patterns、/debug、新平台问题
-- [ ] PRD-v2.md 已输出到 `/root/hermes101-site/PRD-v2.md`
+- [ ] PRD-v2.md 已输出到 `/root/projects/hermes101-site/PRD-v2.md`
