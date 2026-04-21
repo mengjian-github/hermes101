@@ -1,0 +1,430 @@
+ <article class="max-w-[960px] mx-auto px-6"> <div class="bg-[#fffbeb] border border-[#fde68a] rounded-[10px] px-5 py-3 mt-6 flex flex-wrap gap-4 items-center text-[13px] text-[#92400e]"> <span>📌 本指南基于 Hermes v0.10.x</span> <span>最后更新：2026-04-20</span> <span>⚠️ 非官方站点</span> </div> <h1 class="text-[36px] font-semibold leading-[1.3] tracking-[-0.3px] mt-10 mb-2">7 天入门路径</h1> <p class="text-base text-[#859589] mb-8">从安装到自动化，每天一个可验证成果。所有命令均经 <a href="https://hermes-agent.nousresearch.com/docs/reference/cli-commands" class="text-[#51FFB4] underline" target="_blank">hermes-agent.nousresearch.com</a> 核对。</p> <!-- TOC --> <nav class="mb-12 p-5 rounded-xl bg-[#131318] border border-white/[0.06]"> <h2 class="text-sm font-bold text-[#E4E1E9] mb-3 uppercase tracking-wider">目录</h2> <ol class="grid grid-cols-1 sm:grid-cols-2 gap-2"> <li> <a href="#day-1" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"> <span class="text-base">💻</span> <span class="font-medium">Day 1</span> <span class="truncate">安装 Hermes，说出第一句话</span> </a> </li><li> <a href="#day-2" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"> <span class="text-base">🔑</span> <span class="font-medium">Day 2</span> <span class="truncate">配置模型与 API Key</span> </a> </li><li> <a href="#day-3" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"> <span class="text-base">🤖</span> <span class="font-medium">Day 3</span> <span class="truncate">连接消息平台机器人</span> </a> </li><li> <a href="#day-4" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"> <span class="text-base">🛠</span> <span class="font-medium">Day 4</span> <span class="truncate">调用内置工具</span> </a> </li><li> <a href="#day-5" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"> <span class="text-base">📦</span> <span class="font-medium">Day 5</span> <span class="truncate">安装并使用技能</span> </a> </li><li> <a href="#day-6" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"> <span class="text-base">🧠</span> <span class="font-medium">Day 6</span> <span class="truncate">记忆、会话与备份</span> </a> </li><li> <a href="#day-7" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"> <span class="text-base">🚀</span> <span class="font-medium">Day 7</span> <span class="truncate">自动化、诊断与迁移</span> </a> </li> </ol> </nav> <!-- Days --> <section id="day-1" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">💻</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 1</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">安装 Hermes，说出第一句话</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: hermes version 有输出，且完成第一次对话 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 检查环境 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 要求 Python ≥ 3.10，支持 Linux、macOS、WSL2。Windows 原生不支持，请使用 WSL2。</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> python3 --version
+<span class="text-[#888]">Python 3.11.8</span>
+</div>
+<p class="text-sm text-[#859589]">若版本低于 3.10，请先安装新版本（推荐 pyenv 或 python.org 官方包）。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 一键安装 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">官方推荐安装方式（官网验证）：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+</div>
+<p class="text-sm text-[#859589] mb-3">安装器会自动处理平台特定配置，将 <code class="bg-[#131318] px-1.5 rounded">hermes</code> 加入 PATH。</p>
+<p class="mb-2"><strong>Android / Termux 用户：</strong></p>
+<p class="text-sm text-[#859589]">Termux 需手动安装，使用 <code class="bg-[#131318] px-1.5 rounded">.[termux]</code> extra（不含语音依赖）。详细步骤见官方 Termux 指南。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 验证安装 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes version
+<span class="text-[#888]">hermes v0.10.0</span>
+</div>
+<p class="text-sm text-[#859589]">显示版本号即安装成功。如果提示 command not found，执行 <code class="bg-[#131318] px-1.5 rounded">source ~/.bashrc</code>（或 ~/.zshrc）刷新 shell。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 运行诊断 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">首次使用前建议运行诊断，确认所有依赖正常：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes doctor
+</div>
+<p class="text-sm text-[#859589]">如有问题，加上 <code class="bg-[#131318] px-1.5 rounded">--fix</code> 参数尝试自动修复：<code class="bg-[#131318] px-1.5 rounded">hermes doctor --fix</code></p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 运行配置向导 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">交互式向导会引导你完成 provider、模型、工具等核心配置：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes setup
+</div>
+<p class="text-sm text-[#859589] mb-2">向导会生成 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/config.yaml</code> 配置文件。Day 2 会详细讲解模型配置，如果网络不通可先跳过 provider 步骤。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 第一次对话 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">直接运行 <code class="bg-[#131318] px-1.5 rounded">hermes</code> 进入交互式 CLI：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes
+<span class="text-[#888]">Welcome to Hermes Agent v0.10.0</span>
+<span class="text-[#888]">Type your message or /help for commands</span>
+
+<span class="text-[#51FFB4]">You:</span> 你好，Hermes
+<span class="text-[#51FFB4]">Hermes:</span> 你好！我是 Hermes，你的 AI 助手。有什么我能帮你的吗？
+</div>
+<p class="text-sm text-[#859589]">如果模型未配置，会提示你先设置 provider。这时按 Ctrl+C 退出，先完成 Day 2 的模型配置。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes version
+hermes v0.10.0
+
+$ hermes
+Welcome to Hermes Agent v0.10.0
+Type your message or /help for commands
+
+You: 你好
+Hermes: 你好！我是 Hermes，有什么可以帮你的？</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">Python 版本过低</span> </div> <p class="text-sm text-[#FFB962]/80">安装 Python 3.10+。推荐 pyenv：pyenv install 3.11 &amp;&amp; pyenv global 3.11</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes: command not found</span> </div> <p class="text-sm text-[#FFB962]/80">执行 source ~/.bashrc（或 ~/.zshrc）。如仍不行，检查 ~/.local/bin 是否在 PATH：export PATH=&quot;$HOME/.local/bin:$PATH&quot;</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装脚本执行失败</span> </div> <p class="text-sm text-[#FFB962]/80">检查网络能否访问 GitHub。如不能，尝试 pip install: python3 -m pip install hermes-agent</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes setup 卡住</span> </div> <p class="text-sm text-[#FFB962]/80">按 Ctrl+C 退出，跳过 provider 配置。Day 2 手动配置模型。</p> </div> </div> <!-- Links --> <div class="mt-6 flex flex-wrap gap-2"> <a href="/setup" class="flex items-center gap-1 bg-[#131318] border border-white/[0.06] px-3 py-1.5 rounded-full text-xs font-medium text-[#859589] hover:bg-[#1F1F25] hover:text-[#51FFB4] transition-colors"> <span class="text-sm">→</span> 安装指南 → </a> </div> <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section><section id="day-2" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🔑</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 2</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">配置模型与 API Key</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: 发送消息后，Hermes 能调用 LLM 并返回有意义的回答 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 理解模型配置方式 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 支持 20+ provider：OpenRouter、Anthropic、OpenAI、DeepSeek、Kimi、Gemini、HuggingFace 等。两种配置方式：</p>
+<ul class="list-disc list-inside text-sm text-[#859589] space-y-1 mb-3">
+<li><strong>hermes model</strong>（终端命令）：完整的 provider 设置向导，可新增 provider、运行 OAuth、输入 API key</li>
+<li><strong>/model</strong>（对话内 slash）：只能在已配置的 provider 之间切换，不能新增</li>
+</ul>
+<p class="text-sm text-[#859589]">需要新增 provider 时，必须先退出对话（Ctrl+C），在终端运行 <code class="bg-[#131318] px-1.5 rounded">hermes model</code>。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 运行模型向导 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes model
+</div>
+<p class="text-sm text-[#859589] mb-2">交互式向导会引导你：</p>
+<ol class="list-decimal list-inside text-sm text-[#859589] space-y-1">
+<li>选择 provider（OpenRouter、Anthropic、OpenAI 等）</li>
+<li>输入 API key 或运行 OAuth 登录</li>
+<li>从 provider 的模型列表中选择默认模型</li>
+<li>保存到 config.yaml</li>
+</ol>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 管理凭证（推荐） </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">v0.10 推荐用 <code class="bg-[#131318] px-1.5 rounded">hermes auth</code> 管理 API key，支持多 key 轮换和加密存储：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes auth add openrouter --api-key sk-or-v1-xxx
+<span class="text-[#18E299]">$</span> hermes auth list
+<span class="text-[#888]">openrouter: pool-1 (active)</span>
+</div>
+<p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">hermes login</code> 和 <code class="bg-[#131318] px-1.5 rounded">hermes logout</code> 已废弃，请使用 <code class="bg-[#131318] px-1.5 rounded">hermes auth</code>。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 在对话中切换模型 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">进入 hermes 对话后，用 <code class="bg-[#131318] px-1.5 rounded">/model</code> 切换已配置的模型：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /model
+<span class="text-[#888]">Current: openrouter/anthropic/claude-sonnet-4</span>
+<span class="text-[#888]">Available: claude-sonnet-4, gpt-4.1, deepseek-chat...</span>
+
+<span class="text-[#51FFB4]">You:</span> /model gpt-4.1 --global
+<span class="text-[#888]">Switched to gpt-4.1 (saved to config.yaml)</span>
+</div>
+<p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">--global</code> 会将切换持久化到配置文件，否则仅当前会话有效。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 验证回复质量 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">发送一条需要推理的消息，确认模型工作正常：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> 9.8 和 9.11 哪个大？
+<span class="text-[#51FFB4]">Hermes:</span> 9.8 比 9.11 大。因为 9.8 = 9.80，9.11 = 9.11，所以 9.80 > 9.11。
+</div>
+<p class="text-sm text-[#859589]">如果回复为空或报错，检查 API key 是否有效、账户余额是否充足。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看用量 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /usage
+<span class="text-[#888]">Tokens: 1,234 / Cost: $0.0042 / Duration: 5m 32s</span>
+</div>
+<p class="text-sm text-[#859589]">长期用量分析用 <code class="bg-[#131318] px-1.5 rounded">hermes insights --days 7</code>。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes model
+? Select provider: OpenRouter
+? Enter API key: sk-or-v1-...
+? Select model: anthropic/claude-sonnet-4
+✓ Saved to ~/.hermes/config.yaml
+
+$ hermes
+You: /provider
+Provider: openrouter
+Model: anthropic/claude-sonnet-4
+Status: ✓ Connected
+
+You: 9.8 和 9.11 哪个大？
+Hermes: 9.8 比 9.11 大...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">API key 无效</span> </div> <p class="text-sm text-[#FFB962]/80">检查 key 是否过期；国产模型需同步修改 base_url；用 hermes auth list 查看是否正确写入。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">回复为空或报错 429</span> </div> <p class="text-sm text-[#FFB962]/80">速率限制。换 provider 或在 config.yaml 中设置 fallback_model。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">/model 只显示 OpenRouter 模型</span> </div> <p class="text-sm text-[#FFB962]/80">退出对话，运行 hermes model 添加其他 provider。/model 只能在已配置 provider 间切换。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section><section id="day-3" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🤖</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 3</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">连接消息平台机器人</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: 在 Telegram / Discord / Slack 中 @机器人，它能回复你 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 理解 Gateway 架构 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 的消息网关（gateway）是一个独立进程，负责连接 Telegram、Discord、Slack、WhatsApp、Signal 等平台。启动 gateway 后，你可以在任何已配置的平台上与 Hermes 对话，且会话状态跨平台同步。</p>
+<p class="text-sm text-[#859589]">CLI 和 messaging 是两条独立入口：hermes 启动终端 UI，hermes gateway 启动消息服务。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 配置 Telegram 机器人 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">推荐先接入 Telegram（配置最简单）：</p>
+<ol class="list-decimal list-inside text-sm text-[#859589] space-y-2 mb-3">
+<li>在 Telegram 中找 <a href="https://t.me/BotFather" class="text-[#51FFB4] underline" target="_blank">@BotFather</a>，发送 /newbot 创建机器人，获取 token</li>
+<li>运行交互式配置向导：</li>
+</ol>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes gateway setup
+<span class="text-[#888]">? Select platform: telegram</span>
+<span class="text-[#888]">? Enter Telegram Bot Token: 7123456789:AAH...</span>
+<span class="text-[#18E299]">✓ Telegram gateway configured</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 启动 Gateway </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">前台运行（推荐 WSL、Docker、Termux）：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes gateway run
+<span class="text-[#888]">Gateway started</span>
+<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Telegram bot is online</span>
+</div>
+<p class="text-sm text-[#859589] mb-2">Linux/macOS 可安装为后台服务：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes gateway install   <span class="text-[#888]"># 安装 systemd/launchd 服务</span>
+<span class="text-[#18E299]">$</span> hermes gateway start     <span class="text-[#888]"># 启动服务</span>
+<span class="text-[#18E299]">$</span> hermes gateway status    <span class="text-[#888]"># 查看状态</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 测试机器人 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">在 Telegram 中找到你的机器人，发送一条消息：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#888]">[Telegram]</span>
+<span class="text-[#51FFB4]">You:</span> 你好
+<span class="text-[#51FFB4]">Bot:</span> 你好！我是 Hermes，你的 AI 助手。
+</div>
+<p class="text-sm text-[#859589]">如果无回复，检查 gateway 日志：<code class="bg-[#131318] px-1.5 rounded">hermes logs gateway -f</code></p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看 Gateway 状态 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /platforms
+<span class="text-[#888]">Gateway: running</span>
+<span class="text-[#888]">Platforms: telegram ✓, discord ✗, slack ✗</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> Dashboard（可选） </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 内置 Web Dashboard，用于管理配置和监控会话：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes dashboard
+<span class="text-[#888]">Serving on http://127.0.0.1:9119</span>
+</div>
+<p class="text-sm text-[#859589]">默认端口 9119，加 <code class="bg-[#131318] px-1.5 rounded">--no-open</code> 不自动打开浏览器，<code class="bg-[#131318] px-1.5 rounded">--port</code> 自定义端口。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes gateway run
+Gateway started
+✓ Telegram bot is online
+
+[在 Telegram 中]
+You: 你好
+Bot: 你好！我是 Hermes，有什么可以帮你的？</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">Telegram bot 不回复</span> </div> <p class="text-sm text-[#FFB962]/80">检查 token 是否正确；运行 hermes logs gateway -f 查看推送日志；确认没有 webhook 冲突。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">Discord bot 显示离线</span> </div> <p class="text-sm text-[#FFB962]/80">在 Discord Developer Portal 开启 MESSAGE CONTENT INTENT；确认 token 和 gateway 配置正确。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes gateway setup 没有想要的平台</span> </div> <p class="text-sm text-[#FFB962]/80">升级 Hermes：pip install --upgrade hermes-agent</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">WSL 中 gateway start 失败</span> </div> <p class="text-sm text-[#FFB962]/80">WSL 的 systemd 支持不可靠。使用 hermes gateway run 前台运行，或用 tmux 保持：tmux new -s hermes &#39;hermes gateway run&#39;</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section><section id="day-4" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🛠</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 4</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">调用内置工具</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: Hermes 成功调用至少 2 个工具并返回结果 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看可用工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 内置 47+ 工具，按 toolset 组织。查看当前启用的工具：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /tools list
+<span class="text-[#888]">Enabled toolsets: web, terminal, skills, browser</span>
+<span class="text-[#888]">Tools: web_search, web_extract, browser_navigate, terminal, ...</span>
+</div>
+<p class="text-sm text-[#859589]">或用 <code class="bg-[#131318] px-1.5 rounded">hermes tools --summary</code> 在终端快速查看。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验 Web 搜索 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">直接发送搜索请求，Hermes 会自动调用 web_search 工具：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> 搜索 Hermes Agent v0.10 新功能
+<span class="text-[#888]">🔧 Calling tool: web_search</span>
+<span class="text-[#51FFB4]">Hermes:</span> Hermes v0.10.0 主要更新包括：...
+</div>
+<p class="text-sm text-[#859589]">搜索需要配置 FIRECRAWL_API_KEY 或 EXA_API_KEY（取决于默认搜索后端）。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验终端工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">让 Hermes 执行安全的终端命令：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> 帮我查看 ~/.hermes 目录结构
+<span class="text-[#888]">🔧 Calling tool: terminal</span>
+<span class="text-[#888]">$ ls -la ~/.hermes</span>
+<span class="text-[#888]">drwxr-xr-x  .hermes</span>
+<span class="text-[#888]">-rw-r--r--  config.yaml</span>
+<span class="text-[#888]">-rw-r--r--  state.db</span>
+</div>
+<p class="text-sm text-[#859589]">危险命令会弹出 approval 提示，输入 y 确认或开启 YOLO 模式（<code class="bg-[#131318] px-1.5 rounded">/yolo</code>）跳过确认。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验浏览器工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">让 Hermes 打开网页并提取内容：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> 打开 https://github.com/mengjian-github/hermes101 并总结最新提交
+<span class="text-[#888]">🔧 Calling tool: browser_navigate</span>
+<span class="text-[#888]">🔧 Calling tool: browser_snapshot</span>
+<span class="text-[#51FFB4]">Hermes:</span> 最新提交是 ...
+</div>
+<p class="text-sm text-[#859589]">浏览器工具会自动启动 Chrome（如果未运行）。手动连接：<code class="bg-[#131318] px-1.5 rounded">/browser connect</code></p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 配置工具集 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">交互式启用/禁用工具：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes tools
+<span class="text-[#888]"># 打开交互式工具配置界面</span>
+</div>
+<p class="text-sm text-[#859589]">也可以直接编辑 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/config.yaml</code> 中的 enabled_toolsets 字段。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: 搜索今天 AI 领域的重要新闻
+🔧 Calling tool: web_search
+Hermes: 今天 AI 领域的主要动态包括...
+
+You: 查看我当前目录的文件
+🔧 Calling tool: terminal
+$ ls -la
+Hermes: 当前目录包含以下文件...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">工具没有触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 config.yaml 中 enabled_toolsets 是否包含对应工具集；用 /tools list 确认工具已启用。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">终端命令被拒绝</span> </div> <p class="text-sm text-[#FFB962]/80">Hermes 会弹出 approval 提示，输入 y 确认。或在 CLI 中开启 YOLO 模式：/yolo</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">搜索没有结果</span> </div> <p class="text-sm text-[#FFB962]/80">确认 FIRECRAWL_API_KEY 或 EXA_API_KEY 已配置在 ~/.hermes/.env 中。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">浏览器工具报错 timeout</span> </div> <p class="text-sm text-[#FFB962]/80">检查网络；确认 Chrome 可启动；或改用 web_search + web_extract 组合。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section><section id="day-5" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">📦</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 5</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">安装并使用技能</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: 成功安装一个技能，并通过对话触发它 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 理解技能系统 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">技能（Skills）是 Hermes 的程序性记忆——可复用的工作流和知识包。安装后，技能会作为动态 slash 命令可用（如 <code class="bg-[#131318] px-1.5 rounded">/github-pr-workflow</code>）。Hermes 自带大量技能，也支持从技能市场安装。</p>
+<p class="text-sm text-[#859589]">技能与工具的区别：工具是底层能力（如搜索、执行命令），技能是高层工作流（如完整的 GitHub PR 流程）。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 浏览技能市场 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills browse
+<span class="text-[#888]"># 分页浏览官方技能注册表</span>
+
+<span class="text-[#18E299]">$</span> hermes skills search weather --source skills-sh
+<span class="text-[#888]"># 在 skills.sh 市场搜索天气相关技能</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 安装技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills install official/migration/openclaw-migration
+<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Installed openclaw-migration</span>
+</div>
+<p class="text-sm text-[#859589]">安装前可以用 <code class="bg-[#131318] px-1.5 rounded">hermes skills inspect &lt;name&gt;</code> 预览技能内容。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看已安装技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills list
+<span class="text-[#888]">Installed skills:</span>
+<span class="text-[#888]">  - github-pr-workflow</span>
+<span class="text-[#888]">  - openclaw-migration</span>
+<span class="text-[#888]">  - ...</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 触发技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">安装的技能会自动注册为 slash 命令：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /github-pr-workflow
+<span class="text-[#888]">📦 Loading skill: github-pr-workflow</span>
+<span class="text-[#888]">This skill guides you through creating a PR...</span>
+</div>
+<p class="text-sm text-[#859589]">也可以在对话中直接描述需求，Hermes 会自动调用匹配的技能。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 管理技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills check     <span class="text-[#888]"># 检查更新</span>
+<span class="text-[#18E299]">$</span> hermes skills update    <span class="text-[#888]"># 更新有变动的技能</span>
+<span class="text-[#18E299]">$</span> hermes skills config    <span class="text-[#888]"># 按平台启用/禁用技能</span>
+<span class="text-[#18E299]">$</span> hermes skills uninstall &lt;name&gt;  <span class="text-[#888]"># 卸载</span>
+</div>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes skills install official/migration/openclaw-migration
+✓ Installed openclaw-migration
+
+$ hermes skills list
+Installed skills:
+  - openclaw-migration
+  - github-pr-workflow
+
+You: /openclaw-migration
+📦 Loading skill: openclaw-migration
+I&#39;ll help you migrate from OpenClaw to Hermes...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装失败（网络超时）</span> </div> <p class="text-sm text-[#FFB962]/80">检查 GitHub 访问；必要时配置代理；或手动下载 skill 放到 ~/.hermes/skills/</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装成功但无法触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 skill 的 SKILL.md 中的 trigger 条件；确认技能已在对应平台启用（hermes skills config）。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">与现有工具冲突</span> </div> <p class="text-sm text-[#FFB962]/80">用 /tools disable &amp;lt;tool&amp;gt; 临时禁用冲突工具，或在 hermes skills config 中调整。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section><section id="day-6" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🧠</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 6</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">记忆、会话与备份</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: 掌握上下文压缩、会话管理和备份恢复 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 理解记忆系统 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 有两层记忆：</p>
+<ul class="list-disc list-inside text-sm text-[#859589] space-y-1 mb-3">
+<li><strong>内置记忆</strong>（始终活跃）：MEMORY.md（环境/项目信息）、USER.md（用户画像），跨会话持久</li>
+<li><strong>外部记忆 provider</strong>（可选）：Honcho、mem0 等，提供更强大的跨会话检索和推理</li>
+</ul>
+<p class="text-sm text-[#859589]">对话过长时，Hermes 会自动压缩上下文，将关键信息写入记忆文件。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 手动压缩上下文 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">当对话变长或需要刷新记忆时：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /compress
+<span class="text-[#888]">Compressing context... Summary saved to memory.</span>
+
+<span class="text-[#51FFB4]">You:</span> /compress 项目进度
+<span class="text-[#888]">Compressing with focus: "项目进度"</span>
+</div>
+<p class="text-sm text-[#859589]">可带可选参数聚焦特定主题，压缩后只保留相关信息。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看记忆文件 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 的记忆存储在文本文件中，可直接查看和编辑：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> cat ~/.hermes/MEMORY.md
+<span class="text-[#888]"># Memory</span>
+<span class="text-[#888]">- 用户偏好：使用中文交流</span>
+<span class="text-[#888]">- 项目：hermes101 站点开发中</span>
+
+<span class="text-[#18E299]">$</span> cat ~/.hermes/USER.md
+<span class="text-[#888]"># User Profile</span>
+<span class="text-[#888]">- 编程语言：Python, TypeScript</span>
+</div>
+<p class="text-sm text-[#859589]">这些文件会在每次对话后自动更新。你也可以手动编辑来修正或补充信息。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 会话管理 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 自动保存所有会话。在 CLI 中用 <code class="bg-[#131318] px-1.5 rounded">/history</code> 查看当前会话历史，用 <code class="bg-[#131318] px-1.5 rounded">/title</code> 给会话命名以便识别。</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /history
+<span class="text-[#888]">[1] You: 你好</span>
+<span class="text-[#888]">[2] Hermes: 你好！有什么可以帮你的？</span>
+
+<span class="text-[#51FFB4]">You:</span> /title Day 1 安装配置
+<span class="text-[#888]">Session title set: Day 1 安装配置</span>
+</div>
+<p class="text-sm text-[#859589] mb-2">终端命令管理会话：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes sessions list        <span class="text-[#888]"># 列出所有会话</span>
+<span class="text-[#18E299]">$</span> hermes sessions browse      <span class="text-[#888]"># 交互式选择并恢复</span>
+<span class="text-[#18E299]">$</span> hermes sessions export backup.jsonl  <span class="text-[#888]"># 导出</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 创建备份 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes backup
+<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Backup saved: ~/hermes-backup-2026-04-20-143000.zip</span>
+
+<span class="text-[#18E299]">$</span> hermes backup --quick --label "pre-upgrade"
+<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Quick snapshot: pre-upgrade</span>
+</div>
+<p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">--quick</code> 只备份关键状态文件（config.yaml、state.db、.env），速度更快。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 恢复备份 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes import ~/hermes-backup-2026-04-20-143000.zip
+<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Restored 42 skills, config, and memories</span>
+</div>
+<p class="text-sm text-[#859589]">备份使用 SQLite 的 backup() API，即使 Hermes 正在运行也能安全备份（WAL 模式安全）。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: /compress
+Compressing context... Summary saved to memory.
+
+$ hermes backup
+✓ Backup saved: ~/hermes-backup-2026-04-20-143000.zip
+
+$ hermes sessions list
+Recent sessions:
+  1. Day 1 安装配置 (2h ago)
+  2. Day 2 模型配置 (1d ago)</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes backup 报错权限不足</span> </div> <p class="text-sm text-[#FFB962]/80">检查 ~/.hermes 目录是否有可读权限；backup 会自动跳过过大的源码目录。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes import 提示不是有效的备份</span> </div> <p class="text-sm text-[#FFB962]/80">确认 zip 内包含 config.yaml 或 .env；手动压缩的目录需确保结构正确。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">MEMORY.md 为空</span> </div> <p class="text-sm text-[#FFB962]/80">内置记忆需要对话积累；多聊几轮后 Hermes 会自动提取关键信息写入 ~/.hermes/MEMORY.md。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section><section id="day-7" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🚀</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 7</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">自动化、诊断与迁移</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: 掌握定时任务、诊断排错和 OpenClaw 迁移 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 定时任务（Cron） </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 内置 cron 调度器，可用自然语言创建定时任务：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes cron create --schedule "0 9 * * *" --prompt "总结今天的新闻并发送到 Telegram"
+<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Job created: daily-news</span>
+</div>
+<p class="text-sm text-[#859589] mb-2">常用 cron 命令：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes cron list        <span class="text-[#888]"># 查看所有任务</span>
+<span class="text-[#18E299]">$</span> hermes cron pause 1     <span class="text-[#888]"># 暂停任务</span>
+<span class="text-[#18E299]">$</span> hermes cron resume 1    <span class="text-[#888]"># 恢复任务</span>
+<span class="text-[#18E299]">$</span> hermes cron run 1       <span class="text-[#888]"># 立即触发一次</span>
+<span class="text-[#18E299]">$</span> hermes cron remove 1    <span class="text-[#888]"># 删除任务</span>
+</div>
+<p class="text-sm text-[#859589]">任务可以附加技能（<code class="bg-[#131318] px-1.5 rounded">--skill</code>），执行时自动加载。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> Webhook 触发 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">通过 webhook 让外部事件触发 Hermes（如 GitHub PR、CI 构建完成）：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes webhook subscribe github-pr   --prompt "Review this PR: {pull_request.title}"   --events pull_request   --deliver telegram
+<span class="text-[#888]">Webhook URL: https://your-server/webhook/github-pr</span>
+<span class="text-[#888]">Secret: whsec_xxx</span>
+</div>
+<p class="text-sm text-[#859589]">订阅持久化到 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/webhook_subscriptions.json</code>，gateway 热重载无需重启。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 诊断问题 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">遇到问题时的诊断工具链：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes status           <span class="text-[#888]"># 查看模型、平台、工具状态</span>
+<span class="text-[#18E299]">$</span> hermes doctor           <span class="text-[#888]"># 自动诊断配置和依赖</span>
+<span class="text-[#18E299]">$</span> hermes dump             <span class="text-[#888]"># 导出完整配置摘要（用于求助）</span>
+<span class="text-[#18E299]">$</span> hermes debug share      <span class="text-[#888]"># 上传调试报告获取分享链接</span>
+</div>
+<p class="text-sm text-[#859589] mb-2"><code class="bg-[#131318] px-1.5 rounded">hermes dump</code> 输出示例：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#888]">--- hermes dump ---</span>
+<span class="text-[#888]">version:          0.10.0</span>
+<span class="text-[#888]">model:            anthropic/claude-sonnet-4</span>
+<span class="text-[#888]">provider:         openrouter</span>
+<span class="text-[#888]">gateway:          running (systemd)</span>
+<span class="text-[#888]">platforms:        telegram, discord</span>
+<span class="text-[#888]">cron_jobs:        3 active</span>
+<span class="text-[#888]">skills:           42</span>
+<span class="text-[#888]">--- end dump ---</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看日志 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes logs -f                  <span class="text-[#888]"># 实时跟踪 agent 日志</span>
+<span class="text-[#18E299]">$</span> hermes logs gateway -n 100      <span class="text-[#888]"># 查看 gateway 最近 100 行</span>
+<span class="text-[#18E299]">$</span> hermes logs --level WARNING --since 1h  <span class="text-[#888]"># 最近 1 小时的警告和错误</span>
+<span class="text-[#18E299]">$</span> hermes logs --session abc123    <span class="text-[#888]"># 过滤特定会话</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 从 OpenClaw 迁移 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">如果你有 OpenClaw 历史配置，Hermes 提供自动迁移：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes claw migrate --dry-run
+<span class="text-[#888]"># 预览将要迁移的内容</span>
+
+<span class="text-[#18E299]">$</span> hermes claw migrate
+<span class="text-[#888]"># 完整迁移（包含 API key）</span>
+
+<span class="text-[#18E299]">$</span> hermes claw migrate --preset user-data
+<span class="text-[#888]"># 只迁移用户数据（不含 secrets）</span>
+</div>
+<p class="text-sm text-[#859589] mb-2">迁移覆盖 30+ 类别：SOUL.md、MEMORY.md、技能、模型配置、平台 token、MCP 服务器等。</p>
+<p class="text-sm text-[#859589]">如果 OpenClaw 已卸载，手动复制：<code class="bg-[#131318] px-1.5 rounded">cp ~/.openclaw/config.yaml ~/.hermes/</code> 后再运行迁移。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 进阶：MCP 集成 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">通过 MCP（Model Context Protocol）连接外部工具和服务：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes mcp add playwright --command npx --args @playwright/mcp@latest
+<span class="text-[#18E299]">$</span> hermes mcp list
+<span class="text-[#18E299]">$</span> hermes mcp test playwright
+</div>
+<p class="text-sm text-[#859589]">MCP 让 Hermes 能安全地调用外部服务器提供的工具，如数据库、浏览器自动化、文件系统等。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes cron create --schedule &quot;0 9 * * *&quot; --prompt &quot;总结今天的新闻&quot;
+✓ Job created: daily-news
+
+$ hermes status
+Model: anthropic/claude-sonnet-4 ✓
+Gateway: running
+Platforms: telegram ✓, discord ✓
+Skills: 5 installed
+
+$ hermes claw migrate --dry-run
+Would migrate: SOUL.md, 12 skills, config.yaml, telegram token...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">Cron 任务没有触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 hermes cron list 中任务状态；确认 gateway 正在运行；cron 调度器需要 gateway 或独立 cron 进程。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes debug share 上传失败</span> </div> <p class="text-sm text-[#FFB962]/80">加 --local 参数在本地输出报告：hermes debug share --local</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">migrate 报错 &#39;claw 不存在&#39;</span> </div> <p class="text-sm text-[#FFB962]/80">确认 ~/.openclaw 目录存在；如已卸载，手动复制 config.yaml 后重试。</p> </div> </div> <!-- Links --> <div class="mt-6 flex flex-wrap gap-2"> <a href="/migrate" class="flex items-center gap-1 bg-[#131318] border border-white/[0.06] px-3 py-1.5 rounded-full text-xs font-medium text-[#859589] hover:bg-[#1F1F25] hover:text-[#51FFB4] transition-colors"> <span class="text-sm">→</span> 从 OpenClaw 迁移 → </a> </div> <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section> <!-- Completion --> <div class="text-center py-12"> <div class="w-16 h-16 bg-[var(--brand)]/10 rounded-full flex items-center justify-center mx-auto mb-4"> <span class="text-3xl">🎉</span> </div> <h2 class="text-xl font-bold text-[#E4E1E9] mb-2">完成 7 天学习路径</h2> <p class="text-sm text-[#859589]">你已掌握 Hermes Agent 的核心能力。接下来可以探索 <a href="https://hermes-agent.nousresearch.com/docs" class="text-[#51FFB4] underline" target="_blank">官方文档</a> 深入了解高级功能。</p> </div> </article> 

@@ -2,156 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { readFileSync } from 'node:fs';
 
 const title = "Hermes Agent 优质教程资源整合 — hermes101";
 const description = "全网最全 Hermes Agent 教程资源汇总：官方文档、视频教程、中文指南、社区讨论、进阶技巧，一站式收藏。";
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Hermes Agent 教程资源整合",
-  "url": "https://hermes101.site/resources",
-  "description": description
-};
+const schema = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Hermes Agent 优质教程资源整合 — hermes101", "description": "全网最全 Hermes Agent 教程资源汇总：官方文档、视频教程、中文指南、社区讨论、进阶技巧，一站式收藏。"};
 
-const categories = [
-  {
-    icon: "verified",
-    title: "官方资源",
-    desc: "Hermes Agent 官方文档与仓库，最权威的信息源",
-    links: [
-      { title: "官方快速入门", badge: "必读", url: "https://hermes-agent.dev/docs/quickstart", desc: "5 分钟从零到跑起来的完整指南" },
-      { title: "官方学习路径", badge: "路线图", url: "https://hermes-agent.dev/docs/learning-path", desc: "从入门到高级的分阶学习路线，含预估时长" },
-      { title: "GitHub 仓库", badge: "源码", url: "https://github.com/NousResearch/hermes-agent", desc: "源码、Issue、贡献指南" },
-      { title: "官方文档首页", badge: "文档", url: "https://hermes-agent.dev/docs", desc: "完整文档索引：安装、配置、技能、MCP、RL 训练" },
-    ]
-  },
-  {
-    icon: "play_circle",
-    title: "视频教程",
-    desc: "YouTube 优质 Hermes Agent 教程，从安装到进阶",
-    links: [
-      { title: "Hermes Full Course 2 Hours", badge: "全集", url: "#", desc: "Julian Goldie 出品，2 小时从零到精通" },
-      { title: "HERMES AGENT SETUP: the OpenClaw killer", badge: "入门", url: "#", desc: "Wes Roth 深度安装演示，45K 播放" },
-      { title: "Hermes Agent Full Setup Tutorial", badge: "入门", url: "#", desc: "Bart Slodyczka 手把手安装，适合新手" },
-      { title: "Full Hermes Agent Setup: Step-by-Step", badge: "入门", url: "#", desc: "Metics Media 出品，含 VPS 部署" },
-      { title: "Hermes Agent v0.10 — Every New Feature", badge: "更新", url: "#", desc: "Panda Making Money 解析最新版本功能" },
-      { title: "The Hermes Setup That Makes OpenClaw 10x More Powerful", badge: "进阶", url: "#", desc: "Craig Hewitt 深度配置技巧" },
-      { title: "Hermes Just Solved the Biggest Problem With OpenClaw", badge: "对比", url: "#", desc: "Craig Hewitt 分析 Hermes vs OpenClaw" },
-      { title: "Hermes Agent 新手使用十大技巧", badge: "中文", url: "#", desc: "AI随风 出品，中文教程，8.3K 播放" },
-    ]
-  },
-  {
-    icon: "language",
-    title: "中文教程",
-    desc: "中文社区原创教程，解决国内网络和环境问题",
-    links: [
-      { title: "Hermes Agent | 菜鸟教程", badge: "入门", url: "#", desc: "完整的中文安装与配置教程，含多平台接入" },
-      { title: "Windows 本地部署 + 飞书接入", badge: "实战", url: "#", desc: "腾讯云社区出品，WSL2 全流程避坑指南" },
-      { title: "国内安装踩坑全记录", badge: "避坑", url: "#", desc: "GitHub 超时、镜像源配置、国内网络全解决方案" },
-      { title: "5.3万星的 Hermes Agent 安装指南", badge: "入门", url: "#", desc: "知乎深度解析，从技术原理到实际使用" },
-      { title: "Hermes-Agent 安装与基础配置完整指南", badge: "配置", url: "#", desc: "AtomGit 开源社区出品，含 Docker 安装方式" },
-    ]
-  },
-  {
-    icon: "terminal",
-    title: "进阶指南",
-    desc: "深入 Skills、Memory、MCP、RL 训练等高级主题",
-    links: [
-      { title: "DataCamp: Setup and Tutorial Guide", badge: "权威", url: "#", desc: "DataCamp 深度教程，覆盖架构、Skills、MCP、RL 训练" },
-      { title: "Petronella Tech: Complete Guide 2026", badge: "企业", url: "#", desc: "企业级部署指南，含安全模型、GPU 基础设施" },
-      { title: "Antigravity: The Agent That Grows With You", badge: "架构", url: "#", desc: "深入分析架构设计、Skills、Memory 模型" },
-      { title: "MCP Integration Tutorial", badge: "MCP", url: "#", desc: "MCP 服务器集成详解：数据库、文件系统、搜索" },
-      { title: "Hands-On: VPS 24/7 运行实战", badge: "实战", url: "#", desc: "本地/Docker/$5 VPS 三种部署方案对比" },
-    ]
-  },
-  {
-    icon: "forum",
-    title: "社区讨论",
-    desc: "Reddit、GitHub Discussions 等社区热门讨论",
-    links: [
-      { title: "Reddit: Complete Setup Guide", badge: "精华", url: "#", desc: "r/hermesagent 社区置顶安装指南" },
-      { title: "GitHub Issues", badge: "社区", url: "https://github.com/NousResearch/hermes-agent/issues", desc: "本项目反馈与贡献入口" },
-      { title: "Hermes Agent vs OpenClaw 深度对比", badge: "对比", url: "#", desc: "VERTU Signals 出品的详细竞品分析" },
-      { title: "自进化 AI 完整指南", badge: "原理", url: "#", desc: "三层记忆模型 + 15 任务自改进循环详解" },
-    ]
-  },
-];
+const pageContent = readFileSync('/root/hermes101-site/src/content/resources-content.html', 'utf-8');
 ---
 
 <Layout title={title} description={description} schema={schema}>
   <Nav />
-  <main class="pt-28 pb-24 px-6 max-w-[960px] mx-auto min-h-screen">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#18E299]/10 text-[#18E299] text-xs font-bold tracking-widest uppercase mb-4">
-        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-        全网最全 · 每日更新
-      </div>
-      <h1 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">
-        Hermes Agent 教程资源<span class="text-[#18E299]">整合</span>
-      </h1>
-      <p class="text-[#bacbbe] text-lg max-w-2xl mx-auto">
-        官方文档、视频教程、中文指南、社区讨论、进阶技巧——一站式收藏全网优质 Hermes Agent 学习资源
-      </p>
-      <div class="flex justify-center gap-8 mt-8">
-        <div class="text-center">
-          <span class="text-2xl font-black text-[#18E299]">29</span>
-          <span class="text-xs text-white/40 block mt-1">精选资源</span>
-        </div>
-        <div class="text-center">
-          <span class="text-2xl font-black text-[#18E299]">5</span>
-          <span class="text-xs text-white/40 block mt-1">分类</span>
-        </div>
-        <div class="text-center">
-          <span class="text-2xl font-black text-[#18E299]">每日</span>
-          <span class="text-xs text-white/40 block mt-1">自动更新</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Resource Categories -->
-    {categories.map(cat => (
-      <section class="mb-12">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-10 h-10 rounded-xl bg-[#18E299]/10 flex items-center justify-center border border-[#18E299]/20">
-            <span class="material-symbols-outlined text-[#51ffb4] text-xl" style="font-variation-settings: 'FILL' 1;">{cat.icon}</span>
-          </div>
-          <div>
-            <h2 class="text-xl font-bold text-white">{cat.title}</h2>
-            <p class="text-sm text-[#bacbbe]">{cat.desc}</p>
-          </div>
-        </div>
-        <div class="space-y-3">
-          {cat.links.map(link => (
-            <a href={link.url} target="_blank" rel="noopener noreferrer"
-               class="block bg-[#12121A] rounded-xl p-5 border border-white/[0.05] hover:border-[#18E299]/30 transition-all group">
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex-1">
-                  <div class="flex items-center gap-2 mb-1">
-                    <h3 class="font-bold text-white group-hover:text-[#18E299] transition-colors">{link.title}</h3>
-                    <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full bg-[#18E299]/10 text-[#18E299]">{link.badge}</span>
-                  </div>
-                  <p class="text-sm text-[#bacbbe]">{link.desc}</p>
-                </div>
-                <span class="material-symbols-outlined text-white/20 group-hover:text-[#18E299] transition-colors text-xl mt-1">open_in_new</span>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-    ))}
-
-    <!-- CTA -->
-    <div class="text-center mt-16 p-8 bg-[#12121A] rounded-2xl border border-white/[0.05]">
-      <span class="material-symbols-outlined text-[#18E299] text-3xl" style="font-variation-settings: 'FILL' 1;">add_circle</span>
-      <h2 class="text-xl font-bold text-white mt-4 mb-2">发现更多资源？</h2>
-      <p class="text-[#bacbbe] text-sm mb-6">如果你有优质的 Hermes Agent 教程资源想要推荐，欢迎提交</p>
-      <a href="https://github.com/mengjian-github/hermes101/issues" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 text-[#18E299] font-medium hover:text-[#51ffb4] transition-colors">
-        <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">forum</span>
-        在社区分享
-      </a>
-    </div>
+  <main class="pt-28 pb-24 min-h-screen">
+    <Fragment set:html={pageContent} />
   </main>
   <Footer />
 </Layout>
