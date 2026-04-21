@@ -17,42 +17,132 @@
         <div><a href="/7-days" class="text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">目录</a></div>
         <div></div>
     </div>
+
+    <!-- Day Hero Banner -->
+    <div class="relative mb-8 rounded-2xl overflow-hidden border border-white/[0.06]" style="background: linear-gradient(135deg, #06B6D415 0%, transparent 60%);">
+        <div class="px-8 py-10">
+            <div class="flex items-center gap-4 mb-4">
+                <span class="text-5xl">🚀</span>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="bg-[#06B6D4] text-white text-xs font-black px-2.5 py-1 rounded-md">Day 7</span>
+                        <span class="text-xs text-[#859589]">7 天入门教程</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-[#E4E1E9]">自动化进阶与项目实战</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
     <!-- Day content -->
     <section id="day-7" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🚀</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 7</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">自动化、诊断与迁移</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
-今日目标: 掌握定时任务、诊断排错和 OpenClaw 迁移 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 定时任务（Cron） </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+今日目标: 掌握定时任务、诊断排错和 OpenClaw 迁移 </div> <!-- Topics Overview -->
+    <div class="mb-6">
+        <div class="flex items-center gap-2 mb-3">
+            <span class="text-sm">📑</span>
+            <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">本节内容</span>
+        </div>
+    <div class="grid grid-cols-2 gap-2 mb-8"><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">1</span>
+                定时任务（Cron）
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">2</span>
+                Webhook 触发
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">3</span>
+                诊断问题
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">4</span>
+                查看日志
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">5</span>
+                从 OpenClaw 迁移
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">6</span>
+                进阶：MCP 集成
+            </div></div></div>
+<!-- Sections --> <div class="space-y-8"> <div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">1</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">定时任务（Cron）</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">Hermes 内置 cron 调度器，可用自然语言创建定时任务：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes cron create --schedule "0 9 * * *" --prompt "总结今天的新闻并发送到 Telegram"
 <span class="text-[#18E299]">✓</span> <span class="text-[#888]">Job created: daily-news</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589] mb-2">常用 cron 命令：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes cron list        <span class="text-[#888]"># 查看所有任务</span>
 <span class="text-[#18E299]">$</span> hermes cron pause 1     <span class="text-[#888]"># 暂停任务</span>
 <span class="text-[#18E299]">$</span> hermes cron resume 1    <span class="text-[#888]"># 恢复任务</span>
 <span class="text-[#18E299]">$</span> hermes cron run 1       <span class="text-[#888]"># 立即触发一次</span>
 <span class="text-[#18E299]">$</span> hermes cron remove 1    <span class="text-[#888]"># 删除任务</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">任务可以附加技能（<code class="bg-[#131318] px-1.5 rounded">--skill</code>），执行时自动加载。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> Webhook 触发 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">2</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">Webhook 触发</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">通过 webhook 让外部事件触发 Hermes（如 GitHub PR、CI 构建完成）：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes webhook subscribe github-pr   --prompt "Review this PR: {pull_request.title}"   --events pull_request   --deliver telegram
 <span class="text-[#888]">Webhook URL: https://your-server/webhook/github-pr</span>
 <span class="text-[#888]">Secret: whsec_xxx</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">订阅持久化到 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/webhook_subscriptions.json</code>，gateway 热重载无需重启。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 诊断问题 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">3</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">诊断问题</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">遇到问题时的诊断工具链：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes status           <span class="text-[#888]"># 查看模型、平台、工具状态</span>
 <span class="text-[#18E299]">$</span> hermes doctor           <span class="text-[#888]"># 自动诊断配置和依赖</span>
 <span class="text-[#18E299]">$</span> hermes dump             <span class="text-[#888]"># 导出完整配置摘要（用于求助）</span>
 <span class="text-[#18E299]">$</span> hermes debug share      <span class="text-[#888]"># 上传调试报告获取分享链接</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589] mb-2"><code class="bg-[#131318] px-1.5 rounded">hermes dump</code> 输出示例：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#888]">--- hermes dump ---</span>
 <span class="text-[#888]">version:          0.10.0</span>
 <span class="text-[#888]">model:            anthropic/claude-sonnet-4</span>
@@ -63,16 +153,38 @@
 <span class="text-[#888]">skills:           42</span>
 <span class="text-[#888]">--- end dump ---</span>
 </div>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看日志 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+    </div>
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">4</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">查看日志</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes logs -f                  <span class="text-[#888]"># 实时跟踪 agent 日志</span>
 <span class="text-[#18E299]">$</span> hermes logs gateway -n 100      <span class="text-[#888]"># 查看 gateway 最近 100 行</span>
 <span class="text-[#18E299]">$</span> hermes logs --level WARNING --since 1h  <span class="text-[#888]"># 最近 1 小时的警告和错误</span>
 <span class="text-[#18E299]">$</span> hermes logs --session abc123    <span class="text-[#888]"># 过滤特定会话</span>
 </div>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 从 OpenClaw 迁移 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+    </div>
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">5</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">从 OpenClaw 迁移</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">如果你有 OpenClaw 历史配置，Hermes 提供自动迁移：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes claw migrate --dry-run
 <span class="text-[#888]"># 预览将要迁移的内容</span>
 
@@ -82,17 +194,29 @@
 <span class="text-[#18E299]">$</span> hermes claw migrate --preset user-data
 <span class="text-[#888]"># 只迁移用户数据（不含 secrets）</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589] mb-2">迁移覆盖 30+ 类别：SOUL.md、MEMORY.md、技能、模型配置、平台 token、MCP 服务器等。</p>
 <p class="text-sm text-[#859589]">如果 OpenClaw 已卸载，手动复制：<code class="bg-[#131318] px-1.5 rounded">cp ~/.openclaw/config.yaml ~/.hermes/</code> 后再运行迁移。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 进阶：MCP 集成 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">6</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">进阶：MCP 集成</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">通过 MCP（Model Context Protocol）连接外部工具和服务：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes mcp add playwright --command npx --args @playwright/mcp@latest
 <span class="text-[#18E299]">$</span> hermes mcp list
 <span class="text-[#18E299]">$</span> hermes mcp test playwright
 </div>
+    </div>
 <p class="text-sm text-[#859589]">MCP 让 Hermes 能安全地调用外部服务器提供的工具，如数据库、浏览器自动化、文件系统等。</p>
-         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes cron create --schedule &quot;0 9 * * *&quot; --prompt &quot;总结今天的新闻&quot;
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes cron create --schedule &quot;0 9 * * *&quot; --prompt &quot;总结今天的新闻&quot;
 ✓ Job created: daily-news
 
 $ hermes status

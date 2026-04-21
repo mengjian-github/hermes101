@@ -17,20 +17,76 @@
         <div><a href="/7-days" class="text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">目录</a></div>
         <div><a href="/7-days/day-3/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 3 <span>→</span></a></div>
     </div>
+
+    <!-- Day Hero Banner -->
+    <div class="relative mb-8 rounded-2xl overflow-hidden border border-white/[0.06]" style="background: linear-gradient(135deg, #8B5CF615 0%, transparent 60%);">
+        <div class="px-8 py-10">
+            <div class="flex items-center gap-4 mb-4">
+                <span class="text-5xl">🧠</span>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="bg-[#8B5CF6] text-white text-xs font-black px-2.5 py-1 rounded-md">Day 2</span>
+                        <span class="text-xs text-[#859589]">7 天入门教程</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-[#E4E1E9]">配置 AI 模型与 Provider</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
     <!-- Day content -->
     <section id="day-2" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🔑</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 2</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">配置模型与 API Key</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
-今日目标: 发送消息后，Hermes 能调用 LLM 并返回有意义的回答 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 理解模型配置方式 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+今日目标: 发送消息后，Hermes 能调用 LLM 并返回有意义的回答 </div> <!-- Topics Overview -->
+    <div class="mb-6">
+        <div class="flex items-center gap-2 mb-3">
+            <span class="text-sm">📑</span>
+            <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">本节内容</span>
+        </div>
+    <div class="grid grid-cols-2 gap-2 mb-8"><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] text-[10px] font-bold flex items-center justify-center flex-shrink-0">1</span>
+                理解模型配置方式
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] text-[10px] font-bold flex items-center justify-center flex-shrink-0">2</span>
+                运行模型向导
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] text-[10px] font-bold flex items-center justify-center flex-shrink-0">3</span>
+                管理凭证（推荐）
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] text-[10px] font-bold flex items-center justify-center flex-shrink-0">4</span>
+                在对话中切换模型
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] text-[10px] font-bold flex items-center justify-center flex-shrink-0">5</span>
+                验证回复质量
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#8B5CF6]/10 text-[#8B5CF6] text-[10px] font-bold flex items-center justify-center flex-shrink-0">6</span>
+                查看用量
+            </div></div></div>
+<!-- Sections --> <div class="space-y-8"> <div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-black flex items-center justify-center mt-0.5">1</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">理解模型配置方式</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">Hermes 支持 20+ provider：OpenRouter、Anthropic、OpenAI、DeepSeek、Kimi、Gemini、HuggingFace 等。两种配置方式：</p>
 <ul class="list-disc list-inside text-sm text-[#859589] space-y-1 mb-3">
 <li><strong>hermes model</strong>（终端命令）：完整的 provider 设置向导，可新增 provider、运行 OAuth、输入 API key</li>
 <li><strong>/model</strong>（对话内 slash）：只能在已配置的 provider 之间切换，不能新增</li>
 </ul>
 <p class="text-sm text-[#859589]">需要新增 provider 时，必须先退出对话（Ctrl+C），在终端运行 <code class="bg-[#131318] px-1.5 rounded">hermes model</code>。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 运行模型向导 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-black flex items-center justify-center mt-0.5">2</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">运行模型向导</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes model
 </div>
+    </div>
 <p class="text-sm text-[#859589] mb-2">交互式向导会引导你：</p>
 <ol class="list-decimal list-inside text-sm text-[#859589] space-y-1">
 <li>选择 provider（OpenRouter、Anthropic、OpenAI 等）</li>
@@ -38,17 +94,38 @@
 <li>从 provider 的模型列表中选择默认模型</li>
 <li>保存到 config.yaml</li>
 </ol>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 管理凭证（推荐） </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-black flex items-center justify-center mt-0.5">3</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">管理凭证（推荐）</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">v0.10 推荐用 <code class="bg-[#131318] px-1.5 rounded">hermes auth</code> 管理 API key，支持多 key 轮换和加密存储：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes auth add openrouter --api-key sk-or-v1-xxx
 <span class="text-[#18E299]">$</span> hermes auth list
 <span class="text-[#888]">openrouter: pool-1 (active)</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">hermes login</code> 和 <code class="bg-[#131318] px-1.5 rounded">hermes logout</code> 已废弃，请使用 <code class="bg-[#131318] px-1.5 rounded">hermes auth</code>。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 在对话中切换模型 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-black flex items-center justify-center mt-0.5">4</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">在对话中切换模型</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">进入 hermes 对话后，用 <code class="bg-[#131318] px-1.5 rounded">/model</code> 切换已配置的模型：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> /model
 <span class="text-[#888]">Current: openrouter/anthropic/claude-sonnet-4</span>
 <span class="text-[#888]">Available: claude-sonnet-4, gpt-4.1, deepseek-chat...</span>
@@ -56,21 +133,44 @@
 <span class="text-[#51FFB4]">You:</span> /model gpt-4.1 --global
 <span class="text-[#888]">Switched to gpt-4.1 (saved to config.yaml)</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">--global</code> 会将切换持久化到配置文件，否则仅当前会话有效。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 验证回复质量 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-black flex items-center justify-center mt-0.5">5</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">验证回复质量</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">发送一条需要推理的消息，确认模型工作正常：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> 9.8 和 9.11 哪个大？
 <span class="text-[#51FFB4]">Hermes:</span> 9.8 比 9.11 大。因为 9.8 = 9.80，9.11 = 9.11，所以 9.80 > 9.11。
 </div>
+    </div>
 <p class="text-sm text-[#859589]">如果回复为空或报错，检查 API key 是否有效、账户余额是否充足。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看用量 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#8B5CF6]/20 text-[#8B5CF6] text-xs font-black flex items-center justify-center mt-0.5">6</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">查看用量</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> /usage
 <span class="text-[#888]">Tokens: 1,234 / Cost: $0.0042 / Duration: 5m 32s</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">长期用量分析用 <code class="bg-[#131318] px-1.5 rounded">hermes insights --days 7</code>。</p>
-         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes model
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes model
 ? Select provider: OpenRouter
 ? Enter API key: sk-or-v1-...
 ? Select model: anthropic/claude-sonnet-4

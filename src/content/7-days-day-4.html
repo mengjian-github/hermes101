@@ -17,28 +17,99 @@
         <div><a href="/7-days" class="text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">目录</a></div>
         <div><a href="/7-days/day-5/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 5 <span>→</span></a></div>
     </div>
+
+    <!-- Day Hero Banner -->
+    <div class="relative mb-8 rounded-2xl overflow-hidden border border-white/[0.06]" style="background: linear-gradient(135deg, #F59E0B15 0%, transparent 60%);">
+        <div class="px-8 py-10">
+            <div class="flex items-center gap-4 mb-4">
+                <span class="text-5xl">📝</span>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="bg-[#F59E0B] text-white text-xs font-black px-2.5 py-1 rounded-md">Day 4</span>
+                        <span class="text-xs text-[#859589]">7 天入门教程</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-[#E4E1E9]">写入 SOUL.md，定义 Agent 人格</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
     <!-- Day content -->
     <section id="day-4" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🛠</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 4</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">调用内置工具</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
-今日目标: Hermes 成功调用至少 2 个工具并返回结果 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看可用工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+今日目标: Hermes 成功调用至少 2 个工具并返回结果 </div> <!-- Topics Overview -->
+    <div class="mb-6">
+        <div class="flex items-center gap-2 mb-3">
+            <span class="text-sm">📑</span>
+            <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">本节内容</span>
+        </div>
+    <div class="grid grid-cols-2 gap-2 mb-8"><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#F59E0B]/10 text-[#F59E0B] text-[10px] font-bold flex items-center justify-center flex-shrink-0">1</span>
+                查看可用工具
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#F59E0B]/10 text-[#F59E0B] text-[10px] font-bold flex items-center justify-center flex-shrink-0">2</span>
+                体验 Web 搜索
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#F59E0B]/10 text-[#F59E0B] text-[10px] font-bold flex items-center justify-center flex-shrink-0">3</span>
+                体验终端工具
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#F59E0B]/10 text-[#F59E0B] text-[10px] font-bold flex items-center justify-center flex-shrink-0">4</span>
+                体验浏览器工具
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#F59E0B]/10 text-[#F59E0B] text-[10px] font-bold flex items-center justify-center flex-shrink-0">5</span>
+                配置工具集
+            </div></div></div>
+<!-- Sections --> <div class="space-y-8"> <div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] text-xs font-black flex items-center justify-center mt-0.5">1</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">查看可用工具</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">Hermes 内置 47+ 工具，按 toolset 组织。查看当前启用的工具：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> /tools list
 <span class="text-[#888]">Enabled toolsets: web, terminal, skills, browser</span>
 <span class="text-[#888]">Tools: web_search, web_extract, browser_navigate, terminal, ...</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">或用 <code class="bg-[#131318] px-1.5 rounded">hermes tools --summary</code> 在终端快速查看。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验 Web 搜索 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] text-xs font-black flex items-center justify-center mt-0.5">2</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">体验 Web 搜索</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">直接发送搜索请求，Hermes 会自动调用 web_search 工具：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> 搜索 Hermes Agent v0.10 新功能
 <span class="text-[#888]">🔧 Calling tool: web_search</span>
 <span class="text-[#51FFB4]">Hermes:</span> Hermes v0.10.0 主要更新包括：...
 </div>
+    </div>
 <p class="text-sm text-[#859589]">搜索需要配置 FIRECRAWL_API_KEY 或 EXA_API_KEY（取决于默认搜索后端）。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验终端工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] text-xs font-black flex items-center justify-center mt-0.5">3</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">体验终端工具</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">让 Hermes 执行安全的终端命令：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> 帮我查看 ~/.hermes 目录结构
 <span class="text-[#888]">🔧 Calling tool: terminal</span>
 <span class="text-[#888]">$ ls -la ~/.hermes</span>
@@ -46,24 +117,47 @@
 <span class="text-[#888]">-rw-r--r--  config.yaml</span>
 <span class="text-[#888]">-rw-r--r--  state.db</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">危险命令会弹出 approval 提示，输入 y 确认或开启 YOLO 模式（<code class="bg-[#131318] px-1.5 rounded">/yolo</code>）跳过确认。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验浏览器工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] text-xs font-black flex items-center justify-center mt-0.5">4</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">体验浏览器工具</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">让 Hermes 打开网页并提取内容：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> 打开 https://github.com/mengjian-github/hermes101 并总结最新提交
 <span class="text-[#888]">🔧 Calling tool: browser_navigate</span>
 <span class="text-[#888]">🔧 Calling tool: browser_snapshot</span>
 <span class="text-[#51FFB4]">Hermes:</span> 最新提交是 ...
 </div>
+    </div>
 <p class="text-sm text-[#859589]">浏览器工具会自动启动 Chrome（如果未运行）。手动连接：<code class="bg-[#131318] px-1.5 rounded">/browser connect</code></p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 配置工具集 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] text-xs font-black flex items-center justify-center mt-0.5">5</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">配置工具集</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">交互式启用/禁用工具：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes tools
 <span class="text-[#888]"># 打开交互式工具配置界面</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">也可以直接编辑 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/config.yaml</code> 中的 enabled_toolsets 字段。</p>
-         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: 搜索今天 AI 领域的重要新闻
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: 搜索今天 AI 领域的重要新闻
 🔧 Calling tool: web_search
 Hermes: 今天 AI 领域的主要动态包括...
 

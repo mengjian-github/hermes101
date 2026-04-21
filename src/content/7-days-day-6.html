@@ -17,29 +17,95 @@
         <div><a href="/7-days" class="text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">目录</a></div>
         <div><a href="/7-days/day-7/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 7 <span>→</span></a></div>
     </div>
+
+    <!-- Day Hero Banner -->
+    <div class="relative mb-8 rounded-2xl overflow-hidden border border-white/[0.06]" style="background: linear-gradient(135deg, #EC489915 0%, transparent 60%);">
+        <div class="px-8 py-10">
+            <div class="flex items-center gap-4 mb-4">
+                <span class="text-5xl">🧩</span>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="bg-[#EC4899] text-white text-xs font-black px-2.5 py-1 rounded-md">Day 6</span>
+                        <span class="text-xs text-[#859589]">7 天入门教程</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-[#E4E1E9]">记忆系统与个性化</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
     <!-- Day content -->
     <section id="day-6" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🧠</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 6</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">记忆、会话与备份</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
-今日目标: 掌握上下文压缩、会话管理和备份恢复 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 理解记忆系统 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+今日目标: 掌握上下文压缩、会话管理和备份恢复 </div> <!-- Topics Overview -->
+    <div class="mb-6">
+        <div class="flex items-center gap-2 mb-3">
+            <span class="text-sm">📑</span>
+            <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">本节内容</span>
+        </div>
+    <div class="grid grid-cols-2 gap-2 mb-8"><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#EC4899]/10 text-[#EC4899] text-[10px] font-bold flex items-center justify-center flex-shrink-0">1</span>
+                理解记忆系统
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#EC4899]/10 text-[#EC4899] text-[10px] font-bold flex items-center justify-center flex-shrink-0">2</span>
+                手动压缩上下文
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#EC4899]/10 text-[#EC4899] text-[10px] font-bold flex items-center justify-center flex-shrink-0">3</span>
+                查看记忆文件
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#EC4899]/10 text-[#EC4899] text-[10px] font-bold flex items-center justify-center flex-shrink-0">4</span>
+                会话管理
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#EC4899]/10 text-[#EC4899] text-[10px] font-bold flex items-center justify-center flex-shrink-0">5</span>
+                创建备份
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#EC4899]/10 text-[#EC4899] text-[10px] font-bold flex items-center justify-center flex-shrink-0">6</span>
+                恢复备份
+            </div></div></div>
+<!-- Sections --> <div class="space-y-8"> <div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#EC4899]/20 text-[#EC4899] text-xs font-black flex items-center justify-center mt-0.5">1</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">理解记忆系统</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">Hermes 有两层记忆：</p>
 <ul class="list-disc list-inside text-sm text-[#859589] space-y-1 mb-3">
 <li><strong>内置记忆</strong>（始终活跃）：MEMORY.md（环境/项目信息）、USER.md（用户画像），跨会话持久</li>
 <li><strong>外部记忆 provider</strong>（可选）：Honcho、mem0 等，提供更强大的跨会话检索和推理</li>
 </ul>
 <p class="text-sm text-[#859589]">对话过长时，Hermes 会自动压缩上下文，将关键信息写入记忆文件。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 手动压缩上下文 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#EC4899]/20 text-[#EC4899] text-xs font-black flex items-center justify-center mt-0.5">2</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">手动压缩上下文</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">当对话变长或需要刷新记忆时：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> /compress
 <span class="text-[#888]">Compressing context... Summary saved to memory.</span>
 
 <span class="text-[#51FFB4]">You:</span> /compress 项目进度
 <span class="text-[#888]">Compressing with focus: "项目进度"</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">可带可选参数聚焦特定主题，压缩后只保留相关信息。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看记忆文件 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#EC4899]/20 text-[#EC4899] text-xs font-black flex items-center justify-center mt-0.5">3</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">查看记忆文件</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">Hermes 的记忆存储在文本文件中，可直接查看和编辑：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> cat ~/.hermes/MEMORY.md
 <span class="text-[#888]"># Memory</span>
 <span class="text-[#888]">- 用户偏好：使用中文交流</span>
@@ -49,10 +115,21 @@
 <span class="text-[#888]"># User Profile</span>
 <span class="text-[#888]">- 编程语言：Python, TypeScript</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">这些文件会在每次对话后自动更新。你也可以手动编辑来修正或补充信息。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 会话管理 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#EC4899]/20 text-[#EC4899] text-xs font-black flex items-center justify-center mt-0.5">4</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">会话管理</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">Hermes 自动保存所有会话。在 CLI 中用 <code class="bg-[#131318] px-1.5 rounded">/history</code> 查看当前会话历史，用 <code class="bg-[#131318] px-1.5 rounded">/title</code> 给会话命名以便识别。</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#51FFB4]">You:</span> /history
 <span class="text-[#888]">[1] You: 你好</span>
 <span class="text-[#888]">[2] Hermes: 你好！有什么可以帮你的？</span>
@@ -60,28 +137,59 @@
 <span class="text-[#51FFB4]">You:</span> /title Day 1 安装配置
 <span class="text-[#888]">Session title set: Day 1 安装配置</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589] mb-2">终端命令管理会话：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes sessions list        <span class="text-[#888]"># 列出所有会话</span>
 <span class="text-[#18E299]">$</span> hermes sessions browse      <span class="text-[#888]"># 交互式选择并恢复</span>
 <span class="text-[#18E299]">$</span> hermes sessions export backup.jsonl  <span class="text-[#888]"># 导出</span>
 </div>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 创建备份 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+    </div>
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#EC4899]/20 text-[#EC4899] text-xs font-black flex items-center justify-center mt-0.5">5</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">创建备份</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes backup
 <span class="text-[#18E299]">✓</span> <span class="text-[#888]">Backup saved: ~/hermes-backup-2026-04-20-143000.zip</span>
 
 <span class="text-[#18E299]">$</span> hermes backup --quick --label "pre-upgrade"
 <span class="text-[#18E299]">✓</span> <span class="text-[#888]">Quick snapshot: pre-upgrade</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">--quick</code> 只备份关键状态文件（config.yaml、state.db、.env），速度更快。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 恢复备份 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#EC4899]/20 text-[#EC4899] text-xs font-black flex items-center justify-center mt-0.5">6</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">恢复备份</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes import ~/hermes-backup-2026-04-20-143000.zip
 <span class="text-[#18E299]">✓</span> <span class="text-[#888]">Restored 42 skills, config, and memories</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">备份使用 SQLite 的 backup() API，即使 Hermes 正在运行也能安全备份（WAL 模式安全）。</p>
-         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: /compress
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: /compress
 Compressing context... Summary saved to memory.
 
 $ hermes backup

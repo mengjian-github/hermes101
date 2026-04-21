@@ -17,45 +17,152 @@
         <div><a href="/7-days/day-2/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 2 <span>→</span></a></div>
         <div></div>
     </div>
+
+    <!-- Day Hero Banner -->
+    <div class="relative mb-8 rounded-2xl overflow-hidden border border-white/[0.06]" style="background: linear-gradient(135deg, #18E29915 0%, transparent 60%);">
+        <div class="px-8 py-10">
+            <div class="flex items-center gap-4 mb-4">
+                <span class="text-5xl">💻</span>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="bg-[#18E299] text-white text-xs font-black px-2.5 py-1 rounded-md">Day 1</span>
+                        <span class="text-xs text-[#859589]">7 天入门教程</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-[#E4E1E9]">安装 Hermes，说出第一句话</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
     <!-- Day content -->
     <section id="day-1" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">💻</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 1</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">安装 Hermes，说出第一句话</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
-今日目标: hermes version 有输出，且完成第一次对话 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 检查环境 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+今日目标: hermes version 有输出，且完成第一次对话 </div> <!-- Topics Overview -->
+    <div class="mb-6">
+        <div class="flex items-center gap-2 mb-3">
+            <span class="text-sm">📑</span>
+            <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">本节内容</span>
+        </div>
+    <div class="grid grid-cols-2 gap-2 mb-8"><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#18E299]/10 text-[#18E299] text-[10px] font-bold flex items-center justify-center flex-shrink-0">1</span>
+                检查环境
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#18E299]/10 text-[#18E299] text-[10px] font-bold flex items-center justify-center flex-shrink-0">2</span>
+                一键安装
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#18E299]/10 text-[#18E299] text-[10px] font-bold flex items-center justify-center flex-shrink-0">3</span>
+                验证安装
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#18E299]/10 text-[#18E299] text-[10px] font-bold flex items-center justify-center flex-shrink-0">4</span>
+                运行诊断
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#18E299]/10 text-[#18E299] text-[10px] font-bold flex items-center justify-center flex-shrink-0">5</span>
+                运行配置向导
+            </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
+                <span class="w-5 h-5 rounded bg-[#18E299]/10 text-[#18E299] text-[10px] font-bold flex items-center justify-center flex-shrink-0">6</span>
+                第一次对话
+            </div></div></div>
+<!-- Sections --> <div class="space-y-8"> <div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#18E299]/20 text-[#18E299] text-xs font-black flex items-center justify-center mt-0.5">1</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">检查环境</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">Hermes 要求 Python ≥ 3.10，支持 Linux、macOS、WSL2。Windows 原生不支持，请使用 WSL2。</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> python3 --version
 <span class="text-[#888]">Python 3.11.8</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">若版本低于 3.10，请先安装新版本（推荐 pyenv 或 python.org 官方包）。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 一键安装 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#18E299]/20 text-[#18E299] text-xs font-black flex items-center justify-center mt-0.5">2</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">一键安装</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">官方推荐安装方式（官网验证）：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
 </div>
+    </div>
 <p class="text-sm text-[#859589] mb-3">安装器会自动处理平台特定配置，将 <code class="bg-[#131318] px-1.5 rounded">hermes</code> 加入 PATH。</p>
 <p class="mb-2"><strong>Android / Termux 用户：</strong></p>
 <p class="text-sm text-[#859589]">Termux 需手动安装，使用 <code class="bg-[#131318] px-1.5 rounded">.[termux]</code> extra（不含语音依赖）。详细步骤见官方 Termux 指南。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 验证安装 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#18E299]/20 text-[#18E299] text-xs font-black flex items-center justify-center mt-0.5">3</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">验证安装</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes version
 <span class="text-[#888]">hermes v0.10.0</span>
 </div>
+    </div>
 <p class="text-sm text-[#859589]">显示版本号即安装成功。如果提示 command not found，执行 <code class="bg-[#131318] px-1.5 rounded">source ~/.bashrc</code>（或 ~/.zshrc）刷新 shell。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 运行诊断 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#18E299]/20 text-[#18E299] text-xs font-black flex items-center justify-center mt-0.5">4</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">运行诊断</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">首次使用前建议运行诊断，确认所有依赖正常：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes doctor
 </div>
+    </div>
 <p class="text-sm text-[#859589]">如有问题，加上 <code class="bg-[#131318] px-1.5 rounded">--fix</code> 参数尝试自动修复：<code class="bg-[#131318] px-1.5 rounded">hermes doctor --fix</code></p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 运行配置向导 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#18E299]/20 text-[#18E299] text-xs font-black flex items-center justify-center mt-0.5">5</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">运行配置向导</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">交互式向导会引导你完成 provider、模型、工具等核心配置：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes setup
 </div>
+    </div>
 <p class="text-sm text-[#859589] mb-2">向导会生成 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/config.yaml</code> 配置文件。Day 2 会详细讲解模型配置，如果网络不通可先跳过 provider 步骤。</p>
-         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 第一次对话 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+         </div> </div><div> <div class="flex items-start gap-3 mb-3">
+            <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#18E299]/20 text-[#18E299] text-xs font-black flex items-center justify-center mt-0.5">6</div>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">第一次对话</h3>
+        </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
 <p class="mb-3">直接运行 <code class="bg-[#131318] px-1.5 rounded">hermes</code> 进入交互式 CLI：</p>
-<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
+        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
+            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+        </div>
+        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes
 <span class="text-[#888]">Welcome to Hermes Agent v0.10.0</span>
 <span class="text-[#888]">Type your message or /help for commands</span>
@@ -63,8 +170,9 @@
 <span class="text-[#51FFB4]">You:</span> 你好，Hermes
 <span class="text-[#51FFB4]">Hermes:</span> 你好！我是 Hermes，你的 AI 助手。有什么我能帮你的吗？
 </div>
+    </div>
 <p class="text-sm text-[#859589]">如果模型未配置，会提示你先设置 provider。这时按 Ctrl+C 退出，先完成 Day 2 的模型配置。</p>
-         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes version
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes version
 hermes v0.10.0
 
 $ hermes

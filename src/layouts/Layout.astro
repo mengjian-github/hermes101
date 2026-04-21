@@ -56,6 +56,54 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
         observer.observe(el);
       });
     })();
+
+    // Accordion toggle (FAQ page)
+    document.querySelectorAll('.accordion-header').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.accordion-item');
+        var body = item.querySelector('.accordion-body');
+        var icon = btn.querySelector('.accordion-icon');
+        body.classList.toggle('hidden');
+        if (icon) icon.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+      });
+    });
+
+    // Checklist toggle (migrate page)
+    document.querySelectorAll('.check-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        var box = item.querySelector('.check-box');
+        if (!box) return;
+        var checked = box.dataset.checked === 'true';
+        box.dataset.checked = checked ? 'false' : 'true';
+        if (!checked) {
+          box.style.background = 'var(--brand)';
+          box.style.borderColor = 'var(--brand)';
+          box.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
+          item.style.opacity = '0.6';
+          item.querySelector('.check-text').style.textDecoration = 'line-through';
+        } else {
+          box.style.background = '';
+          box.style.borderColor = '';
+          box.innerHTML = '';
+          item.style.opacity = '';
+          item.querySelector('.check-text').style.textDecoration = '';
+        }
+      });
+    });
+
+    // Copy buttons
+    document.querySelectorAll('.copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = btn.dataset.copy;
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function() {
+          var orig = btn.textContent;
+          btn.textContent = '已复制';
+          setTimeout(function() { btn.textContent = orig; }, 1500);
+        });
+      });
+    });
   </script>
 </body>
 </html>
