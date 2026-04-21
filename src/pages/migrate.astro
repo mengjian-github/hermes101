@@ -18,8 +18,7 @@ const pageContent = readFileSync('/root/hermes101-site/src/content/migrate-conte
   </main>
   <Footer />
   <script is:inline>
-    requestAnimationFrame(function() {
-      // Accordion toggle
+    function initMigratePage() {
       document.querySelectorAll('.trouble-header').forEach(btn => {
         btn.addEventListener('click', function() {
           const body = this.nextElementSibling;
@@ -30,7 +29,6 @@ const pageContent = readFileSync('/root/hermes101-site/src/content/migrate-conte
           }
         });
       });
-      // Checklist
       const checkItems = document.querySelectorAll('.check-item');
       const postCount = document.getElementById('post-count');
       function updateCount() {
@@ -60,6 +58,17 @@ const pageContent = readFileSync('/root/hermes101-site/src/content/migrate-conte
           }
         });
       });
-    });
+    }
+    if (document.querySelectorAll('.trouble-header').length > 0) {
+      initMigratePage();
+    } else {
+      const obs = new MutationObserver(function() {
+        if (document.querySelectorAll('.trouble-header').length > 0) {
+          obs.disconnect();
+          initMigratePage();
+        }
+      });
+      obs.observe(document.body, { childList: true, subtree: true });
+    }
   </script>
 </Layout>
