@@ -30,3 +30,4 @@ next-env.d.ts
 tsconfig.tsbuildinfo
 
 .wrangler
+__pycache__/
