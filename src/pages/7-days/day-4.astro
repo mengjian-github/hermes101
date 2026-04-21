@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { readFileSync } from 'node:fs';
+
+const title = "Day 4 — 调用内置工具 | 7 天教程 — hermes101";
+const description = "调用 Hermes 内置工具：搜索、执行命令、浏览器、文件操作等。";
+const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
+
+const pageContent = readFileSync('/root/hermes101-site/src/content/7-days-day-4.html', 'utf-8');
+---
+
+<Layout title={title} description={description} schema={schema}>
+  <Nav />
+  <main class="pt-28 pb-24 min-h-screen">
+    <Fragment set:html={pageContent} />
+  </main>
+  <Footer />
+</Layout>

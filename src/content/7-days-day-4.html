@@ -1,0 +1,80 @@
+<article class="max-w-[800px] mx-auto px-6">
+    <!-- Info banner -->
+    <div class="bg-[#fffbeb] border border-[#fde68a] rounded-[10px] px-5 py-3 mt-6 flex flex-wrap gap-4 items-center text-[13px] text-[#92400e]">
+        <span>📌 本指南基于 Hermes v0.10.x</span>
+        <span>⚠️ 非官方站点</span>
+    </div>
+    
+    <!-- Progress bar -->
+    <div class="flex items-center gap-1 mb-8">
+        <a href="/7-days/day-1/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-2/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-3/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-4/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-5/" class="w-8 h-1 rounded-full bg-white/10 hover:opacity-80 transition-opacity"></a><a href="/7-days/day-6/" class="w-8 h-1 rounded-full bg-white/10 hover:opacity-80 transition-opacity"></a><a href="/7-days/day-7/" class="w-8 h-1 rounded-full bg-white/10 hover:opacity-80 transition-opacity"></a>
+        <span class="ml-3 text-xs text-[#859589]">4 / 7</span>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.06]">
+        <div><a href="/7-days/day-3/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"><span>←</span> Day 3</a></div>
+        <div><a href="/7-days" class="text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">目录</a></div>
+        <div><a href="/7-days/day-5/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 5 <span>→</span></a></div>
+    </div>
+    
+    <!-- Day content -->
+    <section id="day-4" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">🛠</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 4</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">调用内置工具</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: Hermes 成功调用至少 2 个工具并返回结果 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看可用工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">Hermes 内置 47+ 工具，按 toolset 组织。查看当前启用的工具：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /tools list
+<span class="text-[#888]">Enabled toolsets: web, terminal, skills, browser</span>
+<span class="text-[#888]">Tools: web_search, web_extract, browser_navigate, terminal, ...</span>
+</div>
+<p class="text-sm text-[#859589]">或用 <code class="bg-[#131318] px-1.5 rounded">hermes tools --summary</code> 在终端快速查看。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验 Web 搜索 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">直接发送搜索请求，Hermes 会自动调用 web_search 工具：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> 搜索 Hermes Agent v0.10 新功能
+<span class="text-[#888]">🔧 Calling tool: web_search</span>
+<span class="text-[#51FFB4]">Hermes:</span> Hermes v0.10.0 主要更新包括：...
+</div>
+<p class="text-sm text-[#859589]">搜索需要配置 FIRECRAWL_API_KEY 或 EXA_API_KEY（取决于默认搜索后端）。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验终端工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">让 Hermes 执行安全的终端命令：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> 帮我查看 ~/.hermes 目录结构
+<span class="text-[#888]">🔧 Calling tool: terminal</span>
+<span class="text-[#888]">$ ls -la ~/.hermes</span>
+<span class="text-[#888]">drwxr-xr-x  .hermes</span>
+<span class="text-[#888]">-rw-r--r--  config.yaml</span>
+<span class="text-[#888]">-rw-r--r--  state.db</span>
+</div>
+<p class="text-sm text-[#859589]">危险命令会弹出 approval 提示，输入 y 确认或开启 YOLO 模式（<code class="bg-[#131318] px-1.5 rounded">/yolo</code>）跳过确认。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 体验浏览器工具 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">让 Hermes 打开网页并提取内容：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> 打开 https://github.com/mengjian-github/hermes101 并总结最新提交
+<span class="text-[#888]">🔧 Calling tool: browser_navigate</span>
+<span class="text-[#888]">🔧 Calling tool: browser_snapshot</span>
+<span class="text-[#51FFB4]">Hermes:</span> 最新提交是 ...
+</div>
+<p class="text-sm text-[#859589]">浏览器工具会自动启动 Chrome（如果未运行）。手动连接：<code class="bg-[#131318] px-1.5 rounded">/browser connect</code></p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 配置工具集 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">交互式启用/禁用工具：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes tools
+<span class="text-[#888]"># 打开交互式工具配置界面</span>
+</div>
+<p class="text-sm text-[#859589]">也可以直接编辑 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/config.yaml</code> 中的 enabled_toolsets 字段。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: 搜索今天 AI 领域的重要新闻
+🔧 Calling tool: web_search
+Hermes: 今天 AI 领域的主要动态包括...
+
+You: 查看我当前目录的文件
+🔧 Calling tool: terminal
+$ ls -la
+Hermes: 当前目录包含以下文件...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">工具没有触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 config.yaml 中 enabled_toolsets 是否包含对应工具集；用 /tools list 确认工具已启用。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">终端命令被拒绝</span> </div> <p class="text-sm text-[#FFB962]/80">Hermes 会弹出 approval 提示，输入 y 确认。或在 CLI 中开启 YOLO 模式：/yolo</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">搜索没有结果</span> </div> <p class="text-sm text-[#FFB962]/80">确认 FIRECRAWL_API_KEY 或 EXA_API_KEY 已配置在 ~/.hermes/.env 中。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">浏览器工具报错 timeout</span> </div> <p class="text-sm text-[#FFB962]/80">检查网络；确认 Chrome 可启动；或改用 web_search + web_extract 组合。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
+    
+    <!-- Bottom navigation -->
+    <div class="flex items-center justify-between mt-12 pt-6 border-t border-white/[0.06]">
+        <div><a href="/7-days/day-3/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"><span>←</span> Day 3</a></div>
+        <div><a href="/7-days/day-5/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 5 <span>→</span></a></div>
+    </div>
+</article>

@@ -6,9 +6,9 @@ import { readFileSync } from 'node:fs';
 
 const title = "Hermes Agent 教程：7 天入门路径 — hermes101";
 const description = "从安装到自动化，7 天跟练计划。每天一个可验证成果，所有命令均经官网核对。";
-const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": "Hermes Agent 教程：7 天入门路径 — hermes101", "description": "从安装到自动化，7 天跟练计划。每天一个可验证成果，所有命令均经官网核对。"};
+const schema = {"@context": "https://schema.org", "@type": "ItemList", "name": "Hermes Agent 7 天入门路径", "description": description, "numberOfItems": 7};
 
-const pageContent = readFileSync('/root/hermes101-site/src/content/7-days-content.html', 'utf-8');
+const pageContent = readFileSync('/root/hermes101-site/src/content/7-days-index.html', 'utf-8');
 ---
 
 <Layout title={title} description={description} schema={schema}>

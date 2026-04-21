@@ -1,0 +1,80 @@
+<article class="max-w-[800px] mx-auto px-6">
+    <!-- Info banner -->
+    <div class="bg-[#fffbeb] border border-[#fde68a] rounded-[10px] px-5 py-3 mt-6 flex flex-wrap gap-4 items-center text-[13px] text-[#92400e]">
+        <span>📌 本指南基于 Hermes v0.10.x</span>
+        <span>⚠️ 非官方站点</span>
+    </div>
+    
+    <!-- Progress bar -->
+    <div class="flex items-center gap-1 mb-8">
+        <a href="/7-days/day-1/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-2/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-3/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-4/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-5/" class="w-8 h-1 rounded-full bg-[#51FFB4] hover:opacity-80 transition-opacity"></a><a href="/7-days/day-6/" class="w-8 h-1 rounded-full bg-white/10 hover:opacity-80 transition-opacity"></a><a href="/7-days/day-7/" class="w-8 h-1 rounded-full bg-white/10 hover:opacity-80 transition-opacity"></a>
+        <span class="ml-3 text-xs text-[#859589]">5 / 7</span>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.06]">
+        <div><a href="/7-days/day-4/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"><span>←</span> Day 4</a></div>
+        <div><a href="/7-days" class="text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">目录</a></div>
+        <div><a href="/7-days/day-6/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 6 <span>→</span></a></div>
+    </div>
+    
+    <!-- Day content -->
+    <section id="day-5" class="mb-16 scroll-mt-24"> <!-- Day Header --> <div class="flex items-center gap-3 mb-4"> <span class="text-2xl">📦</span> <span class="bg-[var(--brand)] text-[#005f3d] text-xs font-black px-2 py-1 rounded">Day 5</span> <h2 class="text-2xl font-bold tracking-tight text-[#E4E1E9]">安装并使用技能</h2> </div> <!-- Goal --> <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1F1F25] text-[#006c47] font-bold text-xs mb-8"> <span class="text-sm">🎯</span>
+今日目标: 成功安装一个技能，并通过对话触发它 </div> <!-- Sections --> <div class="space-y-8"> <div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 理解技能系统 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">技能（Skills）是 Hermes 的程序性记忆——可复用的工作流和知识包。安装后，技能会作为动态 slash 命令可用（如 <code class="bg-[#131318] px-1.5 rounded">/github-pr-workflow</code>）。Hermes 自带大量技能，也支持从技能市场安装。</p>
+<p class="text-sm text-[#859589]">技能与工具的区别：工具是底层能力（如搜索、执行命令），技能是高层工作流（如完整的 GitHub PR 流程）。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 浏览技能市场 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills browse
+<span class="text-[#888]"># 分页浏览官方技能注册表</span>
+
+<span class="text-[#18E299]">$</span> hermes skills search weather --source skills-sh
+<span class="text-[#888]"># 在 skills.sh 市场搜索天气相关技能</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 安装技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills install official/migration/openclaw-migration
+<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Installed openclaw-migration</span>
+</div>
+<p class="text-sm text-[#859589]">安装前可以用 <code class="bg-[#131318] px-1.5 rounded">hermes skills inspect &lt;name&gt;</code> 预览技能内容。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 查看已安装技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills list
+<span class="text-[#888]">Installed skills:</span>
+<span class="text-[#888]">  - github-pr-workflow</span>
+<span class="text-[#888]">  - openclaw-migration</span>
+<span class="text-[#888]">  - ...</span>
+</div>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 触发技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<p class="mb-3">安装的技能会自动注册为 slash 命令：</p>
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#51FFB4]">You:</span> /github-pr-workflow
+<span class="text-[#888]">📦 Loading skill: github-pr-workflow</span>
+<span class="text-[#888]">This skill guides you through creating a PR...</span>
+</div>
+<p class="text-sm text-[#859589]">也可以在对话中直接描述需求，Hermes 会自动调用匹配的技能。</p>
+         </div> </div><div> <h3 class="text-base font-semibold text-[#E4E1E9] mb-3 flex items-center gap-2"> <span class="w-1.5 h-1.5 rounded-full bg-[var(--brand)]"></span> 管理技能 </h3> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
+<div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] mb-3">
+<span class="text-[#18E299]">$</span> hermes skills check     <span class="text-[#888]"># 检查更新</span>
+<span class="text-[#18E299]">$</span> hermes skills update    <span class="text-[#888]"># 更新有变动的技能</span>
+<span class="text-[#18E299]">$</span> hermes skills config    <span class="text-[#888]"># 按平台启用/禁用技能</span>
+<span class="text-[#18E299]">$</span> hermes skills uninstall &lt;name&gt;  <span class="text-[#888]"># 卸载</span>
+</div>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">📋</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes skills install official/migration/openclaw-migration
+✓ Installed openclaw-migration
+
+$ hermes skills list
+Installed skills:
+  - openclaw-migration
+  - github-pr-workflow
+
+You: /openclaw-migration
+📦 Loading skill: openclaw-migration
+I&#39;ll help you migrate from OpenClaw to Hermes...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装失败（网络超时）</span> </div> <p class="text-sm text-[#FFB962]/80">检查 GitHub 访问；必要时配置代理；或手动下载 skill 放到 ~/.hermes/skills/</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装成功但无法触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 skill 的 SKILL.md 中的 trigger 条件；确认技能已在对应平台启用（hermes skills config）。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">与现有工具冲突</span> </div> <p class="text-sm text-[#FFB962]/80">用 /tools disable &amp;lt;tool&amp;gt; 临时禁用冲突工具，或在 hermes skills config 中调整。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
+    
+    <!-- Bottom navigation -->
+    <div class="flex items-center justify-between mt-12 pt-6 border-t border-white/[0.06]">
+        <div><a href="/7-days/day-4/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors"><span>←</span> Day 4</a></div>
+        <div><a href="/7-days/day-6/" class="flex items-center gap-2 text-sm text-[#859589] hover:text-[#51FFB4] transition-colors">Day 6 <span>→</span></a></div>
+    </div>
+</article>

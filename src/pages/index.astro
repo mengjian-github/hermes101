@@ -207,7 +207,7 @@ const days = [
 
         <div class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory no-scrollbar" style="-webkit-overflow-scrolling: touch;">
           {days.map(d => (
-            <a href="/7-days" class="flex-shrink-0 w-[200px] snap-start rounded-xl p-6 bg-[#1b1b20] border border-[#3b4a41]/15 transition-all duration-300 hover:-translate-y-1 hover:border-[#18E299]/30 group block">
+            <a href={`/7-days/day-${d.day}/`} class="flex-shrink-0 w-[200px] snap-start rounded-xl p-6 bg-[#1b1b20] border border-[#3b4a41]/15 transition-all duration-300 hover:-translate-y-1 hover:border-[#18E299]/30 group block">
               <div class="w-12 h-12 rounded-xl bg-[#18E299]/10 flex items-center justify-center text-[#51ffb4] mb-4 border border-[#18E299]/20 group-hover:bg-[#18E299] group-hover:text-[#003823] transition-all">
                 <span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">{d.icon}</span>
               </div>
