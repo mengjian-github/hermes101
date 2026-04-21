@@ -18,7 +18,7 @@ const pageContent = readFileSync('/root/hermes101-site/src/content/migrate-conte
   </main>
   <Footer />
   <script is:inline>
-    (function() {
+    requestAnimationFrame(function() {
       // Accordion toggle
       document.querySelectorAll('.trouble-header').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -60,6 +60,6 @@ const pageContent = readFileSync('/root/hermes101-site/src/content/migrate-conte
           }
         });
       });
-    })();
+    });
   </script>
 </Layout>
