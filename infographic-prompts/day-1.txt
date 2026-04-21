@@ -1,0 +1,29 @@
+Create a hand-drawn educational infographic for a tutorial page.
+
+TITLE: "Day 1: 安装 Hermes"
+
+STYLE: hand-drawn-edu — Macaron pastel colors, hand-drawn wobble lines, cute stick figures, doodle-style icons, warm and friendly educational tone.
+
+LAYOUT: linear-progression — 6 steps flowing left-to-right in a horizontal timeline.
+
+CONTENT:
+Step 1: 检查 Python 版本 ≥ 3.10
+Step 2: curl 一键安装脚本
+Step 3: hermes version 验证
+Step 4: hermes doctor 诊断
+Step 5: hermes setup 配置向导
+Step 6: 输入第一条对话
+
+VISUAL REQUIREMENTS:
+- Large "💻" emoji icon as the hero element on the left
+- "Day 1" badge in #18E299 color
+- Each step is a card with a number badge and icon
+- Connected by dashed arrows between steps
+- Pastel color palette with #18E299 as primary accent
+- Background: soft cream/off-white with subtle grid dots
+- Chinese text throughout
+- Title in bold Chinese: "Day 1: 安装 Hermes"
+- Keep text minimal, use icons to represent each step
+- Aspect ratio: 16:9 landscape
+
+IMPORTANT: All text must be in Chinese. Make it look like a cute hand-drawn tutorial roadmap.

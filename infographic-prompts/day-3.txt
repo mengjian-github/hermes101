@@ -1,0 +1,28 @@
+Create a hand-drawn educational infographic for a tutorial page.
+
+TITLE: "Day 3: 接入平台渠道"
+
+STYLE: hand-drawn-edu — Macaron pastel colors, hand-drawn wobble lines, cute stick figures, doodle-style icons, warm and friendly educational tone.
+
+LAYOUT: linear-progression — 5 steps flowing left-to-right in a horizontal timeline.
+
+CONTENT:
+Step 1: hermes gateway setup
+Step 2: 接入 Telegram Bot
+Step 3: 接入 Discord Bot
+Step 4: 接入飞书机器人
+Step 5: 多渠道同时在线测试
+
+VISUAL REQUIREMENTS:
+- Large "🔌" emoji icon as the hero element on the left
+- "Day 3" badge in #3B82F6 color
+- Each step is a card with a number badge and icon
+- Connected by dashed arrows between steps
+- Pastel color palette with #3B82F6 as primary accent
+- Background: soft cream/off-white with subtle grid dots
+- Chinese text throughout
+- Title in bold Chinese: "Day 3: 接入平台渠道"
+- Keep text minimal, use icons to represent each step
+- Aspect ratio: 16:9 landscape
+
+IMPORTANT: All text must be in Chinese. Make it look like a cute hand-drawn tutorial roadmap.

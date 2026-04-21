@@ -1,0 +1,28 @@
+Create a hand-drawn educational infographic for a tutorial page.
+
+TITLE: "Day 6: 记忆与个性化"
+
+STYLE: hand-drawn-edu — Macaron pastel colors, hand-drawn wobble lines, cute stick figures, doodle-style icons, warm and friendly educational tone.
+
+LAYOUT: linear-progression — 5 steps flowing left-to-right in a horizontal timeline.
+
+CONTENT:
+Step 1: 了解记忆系统架构
+Step 2: MEMORY.md 持久记忆
+Step 3: Honcho 外部 Provider
+Step 4: 用户画像自动积累
+Step 5: 跨会话记忆召回
+
+VISUAL REQUIREMENTS:
+- Large "🧩" emoji icon as the hero element on the left
+- "Day 6" badge in #EC4899 color
+- Each step is a card with a number badge and icon
+- Connected by dashed arrows between steps
+- Pastel color palette with #EC4899 as primary accent
+- Background: soft cream/off-white with subtle grid dots
+- Chinese text throughout
+- Title in bold Chinese: "Day 6: 记忆与个性化"
+- Keep text minimal, use icons to represent each step
+- Aspect ratio: 16:9 landscape
+
+IMPORTANT: All text must be in Chinese. Make it look like a cute hand-drawn tutorial roadmap.

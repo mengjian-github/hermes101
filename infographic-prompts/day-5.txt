@@ -1,0 +1,28 @@
+Create a hand-drawn educational infographic for a tutorial page.
+
+TITLE: "Day 5: 掌握工具与 Skill"
+
+STYLE: hand-drawn-edu — Macaron pastel colors, hand-drawn wobble lines, cute stick figures, doodle-style icons, warm and friendly educational tone.
+
+LAYOUT: linear-progression — 5 steps flowing left-to-right in a horizontal timeline.
+
+CONTENT:
+Step 1: hermes skills list 查看技能
+Step 2: 安装 ClawHub 技能
+Step 3: 使用 GitHub/Notion 工具
+Step 4: 创建自定义 Skill
+Step 5: 技能组合自动化
+
+VISUAL REQUIREMENTS:
+- Large "🔧" emoji icon as the hero element on the left
+- "Day 5" badge in #EF4444 color
+- Each step is a card with a number badge and icon
+- Connected by dashed arrows between steps
+- Pastel color palette with #EF4444 as primary accent
+- Background: soft cream/off-white with subtle grid dots
+- Chinese text throughout
+- Title in bold Chinese: "Day 5: 掌握工具与 Skill"
+- Keep text minimal, use icons to represent each step
+- Aspect ratio: 16:9 landscape
+
+IMPORTANT: All text must be in Chinese. Make it look like a cute hand-drawn tutorial roadmap.

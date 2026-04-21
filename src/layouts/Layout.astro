@@ -104,6 +104,37 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
         });
       });
     });
+
+    // Trouble accordion (migrate page - 常见失败场景)
+    document.querySelectorAll('.trouble-header').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.trouble-item');
+        var body = item.querySelector('.trouble-body');
+        var arrow = btn.querySelector('.trouble-arrow');
+        body.classList.toggle('hidden');
+        if (arrow) arrow.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+      });
+    });
+
+    // Setup page tab switcher
+    window.switchTab = function(tab) {
+      var buttons = document.querySelectorAll('[data-tab]');
+      buttons.forEach(function(b) {
+        if (b.dataset.tab === tab) {
+          b.className = 'pb-4 text-[#51ffb4] font-bold border-b-2 border-[#51ffb4] transition-all whitespace-nowrap';
+        } else {
+          b.className = 'pb-4 text-[#bacbbe] font-medium hover:text-white transition-all whitespace-nowrap';
+        }
+      });
+      var panels = document.querySelectorAll('[data-panel]');
+      panels.forEach(function(p) {
+        if (p.dataset.panel === tab) {
+          p.classList.remove('hidden');
+        } else {
+          p.classList.add('hidden');
+        }
+      });
+    };
   </script>
 </body>
 </html>

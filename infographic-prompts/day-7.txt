@@ -1,0 +1,28 @@
+Create a hand-drawn educational infographic for a tutorial page.
+
+TITLE: "Day 7: 自动化与实战"
+
+STYLE: hand-drawn-edu — Macaron pastel colors, hand-drawn wobble lines, cute stick figures, doodle-style icons, warm and friendly educational tone.
+
+LAYOUT: linear-progression — 5 steps flowing left-to-right in a horizontal timeline.
+
+CONTENT:
+Step 1: Cron 定时任务
+Step 2: 多 Agent 协作
+Step 3: 项目实战：从0到1建站
+Step 4: 监控与日志
+Step 5: 持续优化循环
+
+VISUAL REQUIREMENTS:
+- Large "🚀" emoji icon as the hero element on the left
+- "Day 7" badge in #06B6D4 color
+- Each step is a card with a number badge and icon
+- Connected by dashed arrows between steps
+- Pastel color palette with #06B6D4 as primary accent
+- Background: soft cream/off-white with subtle grid dots
+- Chinese text throughout
+- Title in bold Chinese: "Day 7: 自动化与实战"
+- Keep text minimal, use icons to represent each step
+- Aspect ratio: 16:9 landscape
+
+IMPORTANT: All text must be in Chinese. Make it look like a cute hand-drawn tutorial roadmap.

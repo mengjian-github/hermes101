@@ -1,0 +1,28 @@
+Create a hand-drawn educational infographic for a tutorial page.
+
+TITLE: "Day 4: 定义 Agent 人格"
+
+STYLE: hand-drawn-edu — Macaron pastel colors, hand-drawn wobble lines, cute stick figures, doodle-style icons, warm and friendly educational tone.
+
+LAYOUT: linear-progression — 5 steps flowing left-to-right in a horizontal timeline.
+
+CONTENT:
+Step 1: 理解 SOUL.md 结构
+Step 2: 编写 Agent 人设
+Step 3: 设置说话风格
+Step 4: 定义行为规则
+Step 5: 测试人格效果
+
+VISUAL REQUIREMENTS:
+- Large "📝" emoji icon as the hero element on the left
+- "Day 4" badge in #F59E0B color
+- Each step is a card with a number badge and icon
+- Connected by dashed arrows between steps
+- Pastel color palette with #F59E0B as primary accent
+- Background: soft cream/off-white with subtle grid dots
+- Chinese text throughout
+- Title in bold Chinese: "Day 4: 定义 Agent 人格"
+- Keep text minimal, use icons to represent each step
+- Aspect ratio: 16:9 landscape
+
+IMPORTANT: All text must be in Chinese. Make it look like a cute hand-drawn tutorial roadmap.
