@@ -17,4 +17,47 @@ const pageContent = readFileSync('/root/hermes101-site/src/content/migrate-conte
     <Fragment set:html={pageContent} />
   </main>
   <Footer />
+  <script is:inline>
+    // Accordion toggle
+    document.querySelectorAll('.trouble-header').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const body = this.nextElementSibling;
+        const arrow = this.querySelector('.trouble-arrow');
+        if (body) {
+          body.classList.toggle('hidden');
+          if (arrow) arrow.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        }
+      });
+    });
+    // Checklist
+    const checkItems = document.querySelectorAll('.check-item');
+    const postCount = document.getElementById('post-count');
+    function updateCount() {
+      const checked = document.querySelectorAll('.check-box.checked').length;
+      if (postCount) postCount.textContent = checked + ' / ' + checkItems.length;
+    }
+    checkItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const box = this.querySelector('.check-box');
+        const text = this.querySelector('.check-text');
+        if (box) {
+          box.classList.toggle('checked');
+          if (box.classList.contains('checked')) {
+            box.innerHTML = '✓';
+            box.style.background = '#51ffb4';
+            box.style.borderColor = '#51ffb4';
+            box.style.color = '#000';
+            if (text) text.style.textDecoration = 'line-through';
+          } else {
+            box.innerHTML = '';
+            box.style.background = '';
+            box.style.borderColor = '';
+            box.style.color = '';
+            if (text) text.style.textDecoration = '';
+          }
+          updateCount();
+        }
+      });
+    });
+  </script>
 </Layout>

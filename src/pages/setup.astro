@@ -17,4 +17,32 @@ const pageContent = readFileSync('/root/hermes101-site/src/content/setup-content
     <Fragment set:html={pageContent} />
   </main>
   <Footer />
+  <script is:inline>
+    // OS tab switching
+    function switchTab(tab) {
+      document.querySelectorAll('[data-panel]').forEach(p => p.classList.add('hidden'));
+      document.querySelectorAll('[data-tab]').forEach(b => {
+        b.classList.remove('text-[#51ffb4]', 'font-bold', 'border-b-2', 'border-[#51ffb4]');
+        b.classList.add('text-[#bacbbe]', 'font-medium');
+      });
+      const panel = document.querySelector('[data-panel="' + tab + '"]');
+      const btn = document.querySelector('[data-tab="' + tab + '"]');
+      if (panel) panel.classList.remove('hidden');
+      if (btn) {
+        btn.classList.remove('text-[#bacbbe]', 'font-medium');
+        btn.classList.add('text-[#51ffb4]', 'font-bold', 'border-b-2', 'border-[#51ffb4]');
+      }
+    }
+    // Copy buttons
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const text = this.getAttribute('data-copy');
+        navigator.clipboard.writeText(text).then(() => {
+          const orig = this.innerHTML;
+          this.innerHTML = '<span class="material-symbols-outlined text-sm">check</span>';
+          setTimeout(() => { this.innerHTML = orig; }, 1500);
+        });
+      });
+    });
+  </script>
 </Layout>
