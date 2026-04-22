@@ -3,12 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
 const title = "安装 Hermes Agent — hermes101";
 const description = "60 秒完成 Hermes Agent 安装。支持 Linux / macOS / Windows WSL2 / Termux，官方一键脚本。";
 const schema = {"@context": "https://schema.org", "@type": "HowTo", "name": "安装 Hermes Agent — hermes101", "description": "60 秒完成 Hermes Agent 安装。支持 Linux / macOS / Windows WSL2 / Termux，官方一键脚本。"};
 
-const pageContent = readFileSync('/root/hermes101-site/src/content/setup-content.html', 'utf-8');
+const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'setup-content.html'), 'utf-8');
 ---
 
 <Layout title={title} description={description} schema={schema}>

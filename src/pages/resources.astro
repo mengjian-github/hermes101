@@ -3,12 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
 const title = "Hermes Agent 优质教程资源整合 — hermes101";
 const description = "全网最全 Hermes Agent 教程资源汇总：官方文档、视频教程、中文指南、社区讨论、进阶技巧，一站式收藏。";
 const schema = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Hermes Agent 优质教程资源整合 — hermes101", "description": "全网最全 Hermes Agent 教程资源汇总：官方文档、视频教程、中文指南、社区讨论、进阶技巧，一站式收藏。"};
 
-const pageContent = readFileSync('/root/hermes101-site/src/content/resources-content.html', 'utf-8');
+const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'resources-content.html'), 'utf-8');
 ---
 
 <Layout title={title} description={description} schema={schema}>
