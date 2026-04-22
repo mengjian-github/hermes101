@@ -111,12 +111,12 @@
             <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> cat ~/.hermes/MEMORY.md
+<span class="text-[#18E299]">$</span> cat ~/.hermes/memories/MEMORY.md
 <span class="text-[#888]"># Memory</span>
 <span class="text-[#888]">- 用户偏好：使用中文交流</span>
 <span class="text-[#888]">- 项目：hermes101 站点开发中</span>
 
-<span class="text-[#18E299]">$</span> cat ~/.hermes/USER.md
+<span class="text-[#18E299]">$</span> cat ~/.hermes/memories/USER.md
 <span class="text-[#888]"># User Profile</span>
 <span class="text-[#888]">- 编程语言：Python, TypeScript</span>
 </div>
@@ -153,8 +153,8 @@
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes sessions list        <span class="text-[#888]"># 列出所有会话</span>
-<span class="text-[#18E299]">$</span> hermes sessions browse      <span class="text-[#888]"># 交互式选择并恢复</span>
-<span class="text-[#18E299]">$</span> hermes sessions export backup.jsonl  <span class="text-[#888]"># 导出</span>
+<span class="text-[#18E299]">$</span> hermes sessions list      <span class="text-[#888]"># 交互式选择并恢复</span>
+<span class="text-[#18E299]">$</span> hermes sessions export &lt;session-id&gt;  # 导出指定会话</span>
 </div>
     </div>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
@@ -169,14 +169,14 @@
             <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes backup
-<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Backup saved: ~/hermes-backup-2026-04-20-143000.zip</span>
+<span class="text-[#18E299]">$</span> tar -czf ~/hermes-backup-$(date +%Y%m%d).tar.gz -C ~ .hermes/
+<span class="text-[#888]"># 备份完成</span>
 
-<span class="text-[#18E299]">$</span> hermes backup --quick --label "pre-upgrade"
-<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Quick snapshot: pre-upgrade</span>
+<span class="text-[#18E299]">$</span> cp -r ~/.hermes ~/.hermes-backup-$(date +%Y%m%d)
+<span class="text-[#888]"># 快速快照</span>
 </div>
     </div>
-<p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">--quick</code> 只备份关键状态文件（config.yaml、state.db、.env），速度更快。</p>
+<p class="text-sm text-[#859589]"><code class="bg-[#131318] px-1.5 rounded">tar</code> 创建完整归档；<code class="bg-[#131318] px-1.5 rounded">cp -r</code> 只做目录快照，速度更快。</p>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
             <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#EC4899]/20 text-[#EC4899] text-xs font-black flex items-center justify-center mt-0.5">6</div>
             <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">恢复备份</h3>
@@ -189,21 +189,21 @@
             <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes import ~/hermes-backup-2026-04-20-143000.zip
-<span class="text-[#18E299]">✓</span> <span class="text-[#888]">Restored 42 skills, config, and memories</span>
+<span class="text-[#18E299]">$</span> tar -xzf ~/hermes-backup-20260420.tar.gz -C ~/
+<span class="text-[#888]"># 恢复完成</span>
 </div>
     </div>
-<p class="text-sm text-[#859589]">备份使用 SQLite 的 backup() API，即使 Hermes 正在运行也能安全备份（WAL 模式安全）。</p>
+<p class="text-sm text-[#859589]">恢复前建议先停止 Hermes 进程，恢复完成后重新启动即可。</p>
          </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">You: /compress
 Compressing context... Summary saved to memory.
 
-$ hermes backup
-✓ Backup saved: ~/hermes-backup-2026-04-20-143000.zip
+$ tar -czf ~/hermes-backup-$(date +%Y%m%d).tar.gz -C ~ .hermes/
+# 备份完成
 
 $ hermes sessions list
 Recent sessions:
   1. Day 1 安装配置 (2h ago)
-  2. Day 2 模型配置 (1d ago)</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes backup 报错权限不足</span> </div> <p class="text-sm text-[#FFB962]/80">检查 ~/.hermes 目录是否有可读权限；backup 会自动跳过过大的源码目录。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes import 提示不是有效的备份</span> </div> <p class="text-sm text-[#FFB962]/80">确认 zip 内包含 config.yaml 或 .env；手动压缩的目录需确保结构正确。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">MEMORY.md 为空</span> </div> <p class="text-sm text-[#FFB962]/80">内置记忆需要对话积累；多聊几轮后 Hermes 会自动提取关键信息写入 ~/.hermes/MEMORY.md。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
+  2. Day 2 模型配置 (1d ago)</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">备份失败或文件不完整</span> </div> <p class="text-sm text-[#FFB962]/80">备份前确认 ~/.hermes 目录可读；大文件（如 node_modules）可排除。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">恢复后配置丢失</span> </div> <p class="text-sm text-[#FFB962]/80">恢复时确认备份文件完整；优先恢复 config.yaml 和 .env。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">MEMORY.md 为空</span> </div> <p class="text-sm text-[#FFB962]/80">内置记忆需要对话积累；多聊几轮后 Hermes 会自动提取关键信息写入 ~/.hermes/memories/MEMORY.md。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
     
     <!-- Bottom navigation -->
     <div class="flex items-center justify-between mt-12 pt-6 border-t border-white/[0.06]">

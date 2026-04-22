@@ -88,7 +88,7 @@
 <span class="text-[#18E299]">$</span> hermes skills browse
 <span class="text-[#888]"># 分页浏览官方技能注册表</span>
 
-<span class="text-[#18E299]">$</span> hermes skills search weather --source skills-sh
+<span class="text-[#18E299]">$</span> hermes skills search weather
 <span class="text-[#888]"># 在 skills.sh 市场搜索天气相关技能</span>
 </div>
     </div>
@@ -159,9 +159,9 @@
             <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes skills check     <span class="text-[#888]"># 检查更新</span>
-<span class="text-[#18E299]">$</span> hermes skills update    <span class="text-[#888]"># 更新有变动的技能</span>
-<span class="text-[#18E299]">$</span> hermes skills config    <span class="text-[#888]"># 按平台启用/禁用技能</span>
+<span class="text-[#18E299]">$</span> hermes skills audit    <span class="text-[#888]"># 重新扫描所有技能</span>
+<span class="text-[#18E299]">$</span> hermes skills install &lt;skill-name&gt; <span class="text-[#888]"># 重新安装以更新技能</span>
+<span class="text-[#18E299]">$</span> hermes tools            <span class="text-[#888]"># 交互式工具/技能配置</span>
 <span class="text-[#18E299]">$</span> hermes skills uninstall &lt;name&gt;  <span class="text-[#888]"># 卸载</span>
 </div>
     </div>
@@ -175,7 +175,7 @@ Installed skills:
 
 You: /openclaw-migration
 📦 Loading skill: openclaw-migration
-I&#39;ll help you migrate from OpenClaw to Hermes...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装失败（网络超时）</span> </div> <p class="text-sm text-[#FFB962]/80">检查 GitHub 访问；必要时配置代理；或手动下载 skill 放到 ~/.hermes/skills/</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装成功但无法触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 skill 的 SKILL.md 中的 trigger 条件；确认技能已在对应平台启用（hermes skills config）。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">与现有工具冲突</span> </div> <p class="text-sm text-[#FFB962]/80">用 /tools disable &amp;lt;tool&amp;gt; 临时禁用冲突工具，或在 hermes skills config 中调整。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
+I&#39;ll help you migrate from OpenClaw to Hermes...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装失败（网络超时）</span> </div> <p class="text-sm text-[#FFB962]/80">检查 GitHub 访问；必要时配置代理；或手动下载 skill 放到 ~/.hermes/skills/</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">安装成功但无法触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 skill 的 SKILL.md 中的 trigger 条件；确认技能已启用（hermes tools）。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">与现有工具冲突</span> </div> <p class="text-sm text-[#FFB962]/80">用 /tools disable &amp;lt;tool&amp;gt; 临时禁用冲突工具，或在 hermes tools 中调整。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
     
     <!-- Bottom navigation -->
     <div class="flex items-center justify-between mt-12 pt-6 border-t border-white/[0.06]">

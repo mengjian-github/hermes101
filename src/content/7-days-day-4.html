@@ -33,7 +33,7 @@
                         <span class="bg-[#F59E0B] text-white text-xs font-black px-2.5 py-1 rounded-md">Day 4</span>
                         <span class="text-xs text-[#859589]">7 天入门教程</span>
                     </div>
-                    <h1 class="text-2xl font-bold text-[#E4E1E9]">写入 SOUL.md，定义 Agent 人格</h1>
+                    <h1 class="text-2xl font-bold text-[#E4E1E9]">调用内置工具</h1>
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@
 <span class="text-[#51FFB4]">Hermes:</span> Hermes v0.10.0 主要更新包括：...
 </div>
     </div>
-<p class="text-sm text-[#859589]">搜索需要配置 FIRECRAWL_API_KEY 或 EXA_API_KEY（取决于默认搜索后端）。</p>
+<p class="text-sm text-[#859589]">搜索需要配置 FIRECRAWL_API_KEY。</p>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
             <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] text-xs font-black flex items-center justify-center mt-0.5">3</div>
             <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">体验终端工具</h3>
@@ -123,7 +123,7 @@
 <span class="text-[#888]">-rw-r--r--  state.db</span>
 </div>
     </div>
-<p class="text-sm text-[#859589]">危险命令会弹出 approval 提示，输入 y 确认或开启 YOLO 模式（<code class="bg-[#131318] px-1.5 rounded">/yolo</code>）跳过确认。</p>
+<p class="text-sm text-[#859589]">危险命令会弹出 approval 提示，输入 y 确认即可执行。</p>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
             <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#F59E0B]/20 text-[#F59E0B] text-xs font-black flex items-center justify-center mt-0.5">4</div>
             <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">体验浏览器工具</h3>
@@ -169,7 +169,7 @@ Hermes: 今天 AI 领域的主要动态包括...
 You: 查看我当前目录的文件
 🔧 Calling tool: terminal
 $ ls -la
-Hermes: 当前目录包含以下文件...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">工具没有触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 config.yaml 中 enabled_toolsets 是否包含对应工具集；用 /tools list 确认工具已启用。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">终端命令被拒绝</span> </div> <p class="text-sm text-[#FFB962]/80">Hermes 会弹出 approval 提示，输入 y 确认。或在 CLI 中开启 YOLO 模式：/yolo</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">搜索没有结果</span> </div> <p class="text-sm text-[#FFB962]/80">确认 FIRECRAWL_API_KEY 或 EXA_API_KEY 已配置在 ~/.hermes/.env 中。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">浏览器工具报错 timeout</span> </div> <p class="text-sm text-[#FFB962]/80">检查网络；确认 Chrome 可启动；或改用 web_search + web_extract 组合。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
+Hermes: 当前目录包含以下文件...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">工具没有触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 config.yaml 中 enabled_toolsets 是否包含对应工具集；用 /tools list 确认工具已启用。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">终端命令被拒绝</span> </div> <p class="text-sm text-[#FFB962]/80">Hermes 会弹出 approval 提示，输入 y 确认即可执行。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">搜索没有结果</span> </div> <p class="text-sm text-[#FFB962]/80">确认 FIRECRAWL_API_KEY 已配置在 ~/.hermes/.env 中。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">浏览器工具报错 timeout</span> </div> <p class="text-sm text-[#FFB962]/80">检查网络；确认 Chrome 可启动；或改用 web_search + web_extract 组合。</p> </div> </div> <!-- Links -->  <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
     
     <!-- Bottom navigation -->
     <div class="flex items-center justify-between mt-12 pt-6 border-t border-white/[0.06]">

@@ -53,7 +53,7 @@
                 定时任务（Cron）
             </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
                 <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">2</span>
-                Webhook 触发
+                事件驱动模式
             </div><div class="flex items-center gap-2 text-xs text-[#BACBBE]">
                 <span class="w-5 h-5 rounded bg-[#06B6D4]/10 text-[#06B6D4] text-[10px] font-bold flex items-center justify-center flex-shrink-0">3</span>
                 诊断问题
@@ -80,7 +80,7 @@
             <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes cron create --schedule "0 9 * * *" --prompt "总结今天的新闻并发送到 Telegram"
+<span class="text-[#18E299]">$</span> hermes cron create "0 9 * * *" "总结今天的新闻并发送到 Telegram" --name "daily-news"
 <span class="text-[#18E299]">✓</span> <span class="text-[#888]">Job created: daily-news</span>
 </div>
     </div>
@@ -96,30 +96,22 @@
 <span class="text-[#18E299]">$</span> hermes cron list        <span class="text-[#888]"># 查看所有任务</span>
 <span class="text-[#18E299]">$</span> hermes cron pause 1     <span class="text-[#888]"># 暂停任务</span>
 <span class="text-[#18E299]">$</span> hermes cron resume 1    <span class="text-[#888]"># 恢复任务</span>
-<span class="text-[#18E299]">$</span> hermes cron run 1       <span class="text-[#888]"># 立即触发一次</span>
+<span class="text-[#18E299]">$</span> hermes cron tick 1       <span class="text-[#888]"># 立即触发一次</span>
 <span class="text-[#18E299]">$</span> hermes cron remove 1    <span class="text-[#888]"># 删除任务</span>
 </div>
     </div>
 <p class="text-sm text-[#859589]">任务可以附加技能（<code class="bg-[#131318] px-1.5 rounded">--skill</code>），执行时自动加载。</p>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
             <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">2</div>
-            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">Webhook 触发</h3>
+            <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">事件驱动模式</h3>
         </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<p class="mb-3">通过 webhook 让外部事件触发 Hermes（如 GitHub PR、CI 构建完成）：</p>
-<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
-        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
-            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
-            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
-        </div>
-        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes webhook subscribe github-pr   --prompt "Review this PR: {pull_request.title}"   --events pull_request   --deliver telegram
-<span class="text-[#888]">Webhook URL: https://your-server/webhook/github-pr</span>
-<span class="text-[#888]">Secret: whsec_xxx</span>
-</div>
-    </div>
-<p class="text-sm text-[#859589]">订阅持久化到 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/webhook_subscriptions.json</code>，gateway 热重载无需重启。</p>
+<p class="mb-3">目前 Hermes 没有内置的 webhook 订阅功能，但你可以结合 cron 实现常见的自动化场景：</p>
+<ul class="list-disc list-inside text-sm text-[#859589] space-y-1 mb-3">
+<li><strong>定时检查</strong>：用 cron 定时查询外部服务（如 RSS、API），有更新时发送通知</li>
+<li><strong>外部触发</strong>：通过 <code class="bg-[#131318] px-1.5 rounded">hermes cron tick &lt;id&gt;</code> 从外部脚本（如 GitHub Actions）手动触发任务</li>
+<li><strong>组合模式</strong>：cron 任务 + 技能，实现"定时拉取数据 → 分析 → 发送结果"的流水线</li>
+</ul>
+<p class="text-sm text-[#859589]">后续版本可能增加原生 webhook 支持，届时文档会同步更新。</p>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
             <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">3</div>
             <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">诊断问题</h3>
@@ -135,11 +127,9 @@
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
 <span class="text-[#18E299]">$</span> hermes status           <span class="text-[#888]"># 查看模型、平台、工具状态</span>
 <span class="text-[#18E299]">$</span> hermes doctor           <span class="text-[#888]"># 自动诊断配置和依赖</span>
-<span class="text-[#18E299]">$</span> hermes dump             <span class="text-[#888]"># 导出完整配置摘要（用于求助）</span>
-<span class="text-[#18E299]">$</span> hermes debug share      <span class="text-[#888]"># 上传调试报告获取分享链接</span>
 </div>
     </div>
-<p class="text-sm text-[#859589] mb-2"><code class="bg-[#131318] px-1.5 rounded">hermes dump</code> 输出示例：</p>
+<p class="text-sm text-[#859589] mb-2"><code class="bg-[#131318] px-1.5 rounded">hermes status</code> 输出示例：</p>
 <div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
         <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
             <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
@@ -148,7 +138,7 @@
             <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#888]">--- hermes dump ---</span>
+<span class="text-[#888]">--- hermes status ---</span>
 <span class="text-[#888]">version:          0.10.0</span>
 <span class="text-[#888]">model:            anthropic/claude-sonnet-4</span>
 <span class="text-[#888]">provider:         openrouter</span>
@@ -156,7 +146,7 @@
 <span class="text-[#888]">platforms:        telegram, discord</span>
 <span class="text-[#888]">cron_jobs:        3 active</span>
 <span class="text-[#888]">skills:           42</span>
-<span class="text-[#888]">--- end dump ---</span>
+<span class="text-[#888]">--- end status ---</span>
 </div>
     </div>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
@@ -171,57 +161,51 @@
             <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes logs -f                  <span class="text-[#888]"># 实时跟踪 agent 日志</span>
-<span class="text-[#18E299]">$</span> hermes logs gateway -n 100      <span class="text-[#888]"># 查看 gateway 最近 100 行</span>
-<span class="text-[#18E299]">$</span> hermes logs --level WARNING --since 1h  <span class="text-[#888]"># 最近 1 小时的警告和错误</span>
-<span class="text-[#18E299]">$</span> hermes logs --session abc123    <span class="text-[#888]"># 过滤特定会话</span>
+<span class="text-[#888]"># Linux (systemd):</span>
+<span class="text-[#18E299]">$</span> journalctl --user -u hermes-gateway -f
+
+<span class="text-[#888]"># macOS:</span>
+<span class="text-[#18E299]">$</span> tail -f ~/.hermes/logs/gateway.log
 </div>
     </div>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
             <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">5</div>
             <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">从 OpenClaw 迁移</h3>
         </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<p class="mb-3">如果你有 OpenClaw 历史配置，Hermes 提供自动迁移：</p>
-<div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
-        <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
-            <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
-            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
-        </div>
-        <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes claw migrate --dry-run
-<span class="text-[#888]"># 预览将要迁移的内容</span>
-
-<span class="text-[#18E299]">$</span> hermes claw migrate
-<span class="text-[#888]"># 完整迁移（包含 API key）</span>
-
-<span class="text-[#18E299]">$</span> hermes claw migrate --preset user-data
-<span class="text-[#888]"># 只迁移用户数据（不含 secrets）</span>
-</div>
-    </div>
-<p class="text-sm text-[#859589] mb-2">迁移覆盖 30+ 类别：SOUL.md、MEMORY.md、技能、模型配置、平台 token、MCP 服务器等。</p>
-<p class="text-sm text-[#859589]">如果 OpenClaw 已卸载，手动复制：<code class="bg-[#131318] px-1.5 rounded">cp ~/.openclaw/config.yaml ~/.hermes/</code> 后再运行迁移。</p>
+<p class="mb-3">如果你有 OpenClaw 历史配置，可以手动迁移到 Hermes：</p>
+<ul class="list-disc list-inside text-sm text-[#859589] space-y-1 mb-3">
+<li><strong>复制 SOUL.md</strong>：<code class="bg-[#131318] px-1.5 rounded">cp ~/.openclaw/SOUL.md ~/.hermes/</code></li>
+<li><strong>重新配置 provider</strong>：编辑 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/config.yaml</code>，填入 API key 和模型设置</li>
+<li><strong>安装技能</strong>：用 <code class="bg-[#131318] px-1.5 rounded">hermes skill install</code> 逐个安装之前使用的技能</li>
+</ul>
+<p class="text-sm text-[#859589]">完整的迁移指南请参考 <a href="/migrate" class="text-[#51FFB4] hover:underline">迁移页面</a>。</p>
          </div> </div><div> <div class="flex items-start gap-3 mb-3">
             <div class="flex-shrink-0 w-7 h-7 rounded-lg bg-[#06B6D4]/20 text-[#06B6D4] text-xs font-black flex items-center justify-center mt-0.5">6</div>
             <h3 class="text-base font-semibold text-[#E4E1E9] flex items-center gap-2">进阶：MCP 集成</h3>
         </div> <div class="pl-3.5 border-l-2 border-white/[0.06]"> 
-<p class="mb-3">通过 MCP（Model Context Protocol）连接外部工具和服务：</p>
+<p class="mb-3">通过 MCP（Model Context Protocol）连接外部工具和服务。MCP 服务器在 <code class="bg-[#131318] px-1.5 rounded">~/.hermes/config.yaml</code> 中配置：</p>
 <div class="bg-[#0E0E13] rounded-lg overflow-hidden border border-white/[0.06] mb-3">
         <div class="flex items-center gap-2 px-4 py-2 bg-[#131318] border-b border-white/[0.06]">
             <div class="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-[#28C840]"></div>
-            <span class="ml-2 text-[10px] text-[#859589]">terminal</span>
+            <span class="ml-2 text-[10px] text-[#859589]">~/.hermes/config.yaml</span>
         </div>
         <div class="p-4 font-mono text-sm leading-relaxed text-[#e5e5e5]">
-<span class="text-[#18E299]">$</span> hermes mcp add playwright --command npx --args @playwright/mcp@latest
-<span class="text-[#18E299]">$</span> hermes mcp list
-<span class="text-[#18E299]">$</span> hermes mcp test playwright
+<span class="text-[#888]">mcp_servers:</span>
+<span class="text-[#888]">  playwright:</span>
+<span class="text-[#888]">    command: npx</span>
+<span class="text-[#888]">    args:</span>
+<span class="text-[#888]">      - "@playwright/mcp@latest"</span>
+<span class="text-[#888]">  filesystem:</span>
+<span class="text-[#888]">    command: npx</span>
+<span class="text-[#888]">    args:</span>
+<span class="text-[#888]">      - "@anthropic/mcp-filesystem"</span>
+<span class="text-[#888]">      - "/path/to/allowed/dir"</span>
 </div>
     </div>
-<p class="text-sm text-[#859589]">MCP 让 Hermes 能安全地调用外部服务器提供的工具，如数据库、浏览器自动化、文件系统等。</p>
-         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes cron create --schedule &quot;0 9 * * *&quot; --prompt &quot;总结今天的新闻&quot;
+<p class="text-sm text-[#859589]">MCP 让 Hermes 能安全地调用外部服务器提供的工具，如数据库、浏览器自动化、文件系统等。修改配置后重启 gateway 生效。</p>
+         </div> </div> </div> <!-- Expected Output --> <div class="mt-8"> <div class="flex items-center gap-2 mb-3"> <span class="text-sm">✅</span> <span class="text-xs font-bold text-[#E4E1E9] uppercase tracking-wider">你将看到</span> </div> <div class="bg-[#0E0E13] rounded-lg p-4 font-mono text-sm leading-relaxed text-[#e5e5e5] whitespace-pre-wrap">$ hermes cron create "0 9 * * *" "总结今天的新闻" --name "daily-news"
 ✓ Job created: daily-news
 
 $ hermes status
@@ -230,8 +214,8 @@ Gateway: running
 Platforms: telegram ✓, discord ✓
 Skills: 5 installed
 
-$ hermes claw migrate --dry-run
-Would migrate: SOUL.md, 12 skills, config.yaml, telegram token...</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">Cron 任务没有触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 hermes cron list 中任务状态；确认 gateway 正在运行；cron 调度器需要 gateway 或独立 cron 进程。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes debug share 上传失败</span> </div> <p class="text-sm text-[#FFB962]/80">加 --local 参数在本地输出报告：hermes debug share --local</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">migrate 报错 &#39;claw 不存在&#39;</span> </div> <p class="text-sm text-[#FFB962]/80">确认 ~/.openclaw 目录存在；如已卸载，手动复制 config.yaml 后重试。</p> </div> </div> <!-- Links --> <div class="mt-6 flex flex-wrap gap-2"> <a href="/migrate" class="flex items-center gap-1 bg-[#131318] border border-white/[0.06] px-3 py-1.5 rounded-full text-xs font-medium text-[#859589] hover:bg-[#1F1F25] hover:text-[#51FFB4] transition-colors"> <span class="text-sm">→</span> 从 OpenClaw 迁移 → </a> </div> <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
+$ hermes doctor
+All checks passed ✓</div> </div> <!-- Errors --> <div class="mt-8 space-y-3"> <div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">Cron 任务没有触发</span> </div> <p class="text-sm text-[#FFB962]/80">检查 hermes cron list 中任务状态；确认 gateway 正在运行；cron 调度器需要 gateway 或独立 cron 进程。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">hermes doctor 报错</span> </div> <p class="text-sm text-[#FFB962]/80">运行 hermes doctor 查看详细错误信息；常见问题包括 API key 过期、网络不通、配置文件格式错误等。</p> </div><div class="bg-[rgba(255,185,98,0.06)] border-l-4 border-[rgba(255,185,98,0.3)] p-4 rounded-lg"> <div class="flex items-center gap-2 mb-1"> <span class="text-[#FFB962] text-sm">⚠️</span> <span class="text-xs font-bold text-[#FFB962]">迁移后配置不生效</span> </div> <p class="text-sm text-[#FFB962]/80">确认 ~/.hermes/config.yaml 格式正确；迁移后需重启 gateway。参考 <a href="/migrate" class="text-[#51FFB4] hover:underline">迁移指南</a> 获取详细步骤。</p> </div> </div> <!-- Links --> <div class="mt-6 flex flex-wrap gap-2"> <a href="/migrate" class="flex items-center gap-1 bg-[#131318] border border-white/[0.06] px-3 py-1.5 rounded-full text-xs font-medium text-[#859589] hover:bg-[#1F1F25] hover:text-[#51FFB4] transition-colors"> <span class="text-sm">→</span> 从 OpenClaw 迁移 → </a> </div> <!-- Divider --> <div class="mt-12 border-t border-white/[0.06]"></div> </section>
     
     <!-- Bottom navigation -->
     <div class="flex items-center justify-between mt-12 pt-6 border-t border-white/[0.06]">
