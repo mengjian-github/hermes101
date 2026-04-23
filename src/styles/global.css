@@ -131,6 +131,13 @@ code, pre {
   font-size: 13px;
   line-height: 1.7;
   color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.code-block code {
+  white-space: inherit;
 }
 
 /* --- Component: Card --- */
