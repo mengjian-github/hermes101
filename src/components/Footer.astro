@@ -1,17 +1,27 @@
 ---
+interface Props {
+  lang?: 'en' | 'zh-CN';
+}
+
+const { lang = 'en' } = Astro.props;
 const year = new Date().getFullYear();
+const isZh = lang === 'zh-CN';
+const prefix = isZh ? '/zh' : '';
+const labels = isZh
+  ? { faq: '常见问题', resources: '教程资源', migrate: '迁移指南' }
+  : { faq: 'FAQ', resources: 'Resources', migrate: 'Migration guide' };
 ---
 <footer class="w-full py-12 bg-[#0A0A0F] border-t border-white/[0.05]">
   <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-6xl mx-auto">
     <div class="mb-8 md:mb-0">
-      <a href="/" class="text-[#18E299] font-bold text-xl">Hermes Agent</a>
+      <a href={isZh ? '/zh/' : '/'} class="text-[#18E299] font-bold text-xl">Hermes Agent</a>
       <p class="text-white/40 text-sm mt-2 tracking-tight">© {year} Hermes Agent. All rights reserved.</p>
     </div>
     <div class="flex gap-8">
-      <a class="text-white/40 text-sm hover:text-white transition-colors" href="/faq">常见问题</a>
-      <a class="text-white/40 text-sm hover:text-white transition-colors" href="/resources">教程资源</a>
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href={`${prefix}/faq`}>{labels.faq}</a>
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href={`${prefix}/resources`}>{labels.resources}</a>
       <a class="text-white/40 text-sm hover:text-white transition-colors" href="https://github.com/mengjian-github/hermes101" target="_blank">GitHub</a>
-      <a class="text-white/40 text-sm hover:text-white transition-colors" href="/migrate">迁移指南</a>
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href={`${prefix}/migrate`}>{labels.migrate}</a>
     </div>
   </div>
 </footer>

@@ -1,19 +1,49 @@
 ---
+interface Props {
+  lang?: 'en' | 'zh-CN';
+}
+
+const { lang = 'en' } = Astro.props;
 const currentPath = Astro.url.pathname;
+const isZh = lang === 'zh-CN';
+const prefix = isZh ? '/zh' : '';
+const labels = isZh
+  ? {
+      home: '首页',
+      setup: '安装',
+      days: '7天教程',
+      resources: '资源',
+      migrate: '迁移',
+      faq: 'FAQ',
+      cta: '开始安装',
+      switch: 'English',
+    }
+  : {
+      home: 'Home',
+      setup: 'Install',
+      days: '7-Day Guide',
+      resources: 'Resources',
+      migrate: 'Migrate',
+      faq: 'FAQ',
+      cta: 'Start',
+      switch: '中文',
+    };
 const links = [
-  { href: "/", label: "首页" },
-  { href: "/setup", label: "安装" },
-  { href: "/7-days", label: "7天教程" },
-  { href: "/resources", label: "资源" },
-  { href: "/migrate", label: "迁移" },
-  { href: "/faq", label: "FAQ" },
+  { href: `${prefix}/`, label: labels.home },
+  { href: `${prefix}/setup`, label: labels.setup },
+  { href: `${prefix}/7-days`, label: labels.days },
+  { href: `${prefix}/resources`, label: labels.resources },
+  { href: `${prefix}/migrate`, label: labels.migrate },
+  { href: `${prefix}/faq`, label: labels.faq },
 ];
+const switchHref = isZh ? (currentPath.replace(/^\/zh/, '') || '/') : `/zh${currentPath === '/' ? '/' : currentPath}`;
+const normalize = (path: string) => path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
 ---
 <header class="fixed top-0 w-full z-50 bg-[#0A0A0F]/80 backdrop-blur-xl border-b border-white/[0.05]">
   <div class="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
     <div class="flex items-center gap-2">
       <span class="material-symbols-outlined text-[#18E299]" style="font-variation-settings: 'FILL' 1;">terminal</span>
-      <a href="/" class="text-2xl font-black text-white italic tracking-[-0.04em]">Hermes Agent</a>
+      <a href={isZh ? '/zh/' : '/'} class="text-2xl font-black text-white italic tracking-[-0.04em]">Hermes Agent</a>
     </div>
     <nav class="hidden md:flex items-center gap-8">
       {links.map(link => (
@@ -21,7 +51,7 @@ const links = [
           href={link.href}
           class:list={[
             "font-medium text-sm transition-all duration-300",
-            currentPath === link.href
+            normalize(currentPath) === normalize(link.href)
               ? "text-[#18E299] font-bold"
               : "text-white/60 hover:text-[#51FFB4]"
           ]}
@@ -30,18 +60,21 @@ const links = [
         </a>
       ))}
     </nav>
-    <div class="flex items-center gap-4">
-      <a href="/setup"
-         class="bg-white text-[#0A0A0F] px-6 py-2 rounded-full font-bold hover:bg-[#18E299] hover:text-[#003823] transition-all duration-300 text-sm">
-        开始安装
+    <div class="flex items-center gap-3">
+      <a href={switchHref}
+         hreflang={isZh ? 'en' : 'zh-CN'}
+         class="hidden sm:inline-flex px-4 py-2 rounded-full border border-white/10 text-white/70 text-sm font-bold hover:text-[#18E299] hover:border-[#18E299]/40 transition-all">
+        {labels.switch}
       </a>
-      <!-- Mobile menu button -->
-      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white">
+      <a href={`${prefix}/setup`}
+         class="bg-white text-[#0A0A0F] px-6 py-2 rounded-full font-bold hover:bg-[#18E299] hover:text-[#003823] transition-all duration-300 text-sm">
+        {labels.cta}
+      </a>
+      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white" aria-label="Open menu">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
   </div>
-  <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.05]">
     <nav class="flex flex-col px-6 py-4 gap-4">
       {links.map(link => (
@@ -49,7 +82,7 @@ const links = [
           href={link.href}
           class:list={[
             "font-medium text-sm py-2",
-            currentPath === link.href
+            normalize(currentPath) === normalize(link.href)
               ? "text-[#18E299] font-bold"
               : "text-white/60"
           ]}
@@ -57,6 +90,7 @@ const links = [
           {link.label}
         </a>
       ))}
+      <a href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'} class="font-medium text-sm py-2 text-white/60">{labels.switch}</a>
     </nav>
   </div>
 </header>

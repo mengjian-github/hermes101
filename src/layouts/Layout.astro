@@ -4,21 +4,41 @@ export interface Props {
   title: string;
   description: string;
   schema?: object;
+  lang?: 'en' | 'zh-CN';
+  canonicalPath?: string;
+  hasAlternate?: boolean;
+  noindex?: boolean;
 }
-const { title, description, schema } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site).toString();
-const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
-const clarityProjectId = import.meta.env.PUBLIC_CLARITY_PROJECT_ID;
+const { title, description, schema, lang = 'en', canonicalPath, hasAlternate = false, noindex = false } = Astro.props;
+const path = canonicalPath || Astro.url.pathname;
+const normalizedPath = path.endsWith('/') ? path : `${path}/`;
+const canonical = new URL(normalizedPath, Astro.site).toString();
+const isZh = normalizedPath === '/zh/' || normalizedPath.startsWith('/zh/');
+const pairedPath = isZh ? normalizedPath.replace(/^\/zh/, '') || '/' : `/zh${normalizedPath}`;
+const alternates = hasAlternate ? [
+  { lang: 'en', href: new URL(isZh ? pairedPath : normalizedPath, Astro.site).toString() },
+  { lang: 'zh-CN', href: new URL(isZh ? normalizedPath : pairedPath, Astro.site).toString() },
+  { lang: 'x-default', href: new URL(isZh ? pairedPath : normalizedPath, Astro.site).toString() },
+] : [];
+// Public analytics identifiers for the dedicated hermes101.dev properties.
+// Env overrides keep preview/staging flexible, but production deploys should not
+// silently drop analytics if Cloudflare Pages build env vars are unavailable.
+const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || 'G-FDGWTRC2MF';
+const clarityProjectId = import.meta.env.PUBLIC_CLARITY_PROJECT_ID || 'x1tz4iudu9';
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.dev';
 ---
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark">
+<html lang={lang} class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex,follow" />}
   <link rel="canonical" href={canonical} />
+  {alternates.map((alternate) => (
+    <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />
+  ))}
   <link rel="sitemap" href="/sitemap-index.xml" />
 
   <!-- Fonts: Inter + Geist Mono + Material Symbols -->
