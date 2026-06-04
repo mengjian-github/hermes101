@@ -1,7 +1,7 @@
 # hermes101 SEO 复验报告 v2 Final
 
 > 验收时间：2026-04-15  
-> 验收站点：https://hermes101.site  
+> 验收站点：https://hermes101.dev  
 > 构建目录：`/root/projects/hermes101-site/dist`  
 > 对比 PRD：`PRD-v2.md` (Hermes v0.9.x 大升级)
 

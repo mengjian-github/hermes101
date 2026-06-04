@@ -1,4 +1,4 @@
-# hermes101.site
+# hermes101.dev
 > Hermes Agent 中文入门指南。5 分钟安装，7 天跟练，OpenClaw 一键迁移。
 
 ## 站点定位

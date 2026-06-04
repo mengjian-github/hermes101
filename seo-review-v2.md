@@ -1,7 +1,7 @@
 # hermes101 SEO 验收报告 v2
 
 > 验收时间：2026-04-15  
-> 验收站点：https://hermes101.site  
+> 验收站点：https://hermes101.dev  
 > 构建目录：`/root/projects/hermes101-site/dist`
 
 ---

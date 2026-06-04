@@ -3,7 +3,7 @@
 版本：2026-04-29  
 依据：`/mnt/HC_Volume_105300089/projects/hermes101-site/PRD-v2.md`、当前代码结构、当前会话信息  
 站点：Hermes 101 / Hermes Agent 中文入门指南  
-域名：[待确认：当前会话出现 `hermes101.dev`，代码 schema 仍有 `hermes101.site`]  
+域名：[待确认：当前会话出现 `hermes101.dev`，代码 schema 仍有 `hermes101.dev`]  
 运营主体：Nextfield Labs LLC  
 管辖地：Wyoming, USA  
 联系邮箱：[待确认]  
@@ -166,7 +166,7 @@
 - [ ] `/refund` 已上线，页脚可访问
 - [ ] 每页有 Last updated
 - [ ] 联系邮箱已填充，不再是 `[待确认]`
-- [ ] 域名统一为最终域名，不混用 `hermes101.dev` / `hermes101.site`
+- [ ] 域名统一为最终域名，不混用 `hermes101.dev` / `hermes101.dev`
 
 ### 数据与 Cookie
 - [ ] 确认是否启用 Cloudflare Web Analytics

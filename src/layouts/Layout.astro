@@ -7,6 +7,9 @@ export interface Props {
 }
 const { title, description, schema } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID;
+const clarityProjectId = import.meta.env.PUBLIC_CLARITY_PROJECT_ID;
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.dev';
 ---
 <!DOCTYPE html>
 <html lang="zh-CN" class="dark">
@@ -32,6 +35,32 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={new URL('/og-image.png', Astro.site).toString()} />
+
+  <!-- Paid-readiness analytics: IDs are injected at build time; no ad accounts or spend are mutated. -->
+  {ga4MeasurementId && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}></script>
+      <script is:inline define:vars={{ ga4MeasurementId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = window.gtag || gtag;
+        gtag('js', new Date());
+        gtag('config', ga4MeasurementId, { send_page_view: true });
+      </script>
+    </>
+  )}
+  {plausibleDomain && (
+    <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.tagged-events.js"></script>
+  )}
+  {clarityProjectId && (
+    <script is:inline define:vars={{ clarityProjectId }}>
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", clarityProjectId);
+    </script>
+  )}
 
   <!-- Schema.org -->
   {schema && (
@@ -115,6 +144,97 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
         if (arrow) arrow.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
       });
     });
+
+    // Paid-readiness event + UTM contract
+    (function() {
+      var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id'];
+      var storageKey = 'hermes101_utm_params';
+
+      function pickUtms(searchParams) {
+        var out = {};
+        UTM_KEYS.forEach(function(key) {
+          var value = searchParams.get(key);
+          if (value) out[key] = value;
+        });
+        return out;
+      }
+
+      function getStoredUtms() {
+        try { return JSON.parse(sessionStorage.getItem(storageKey) || '{}') || {}; }
+        catch (e) { return {}; }
+      }
+
+      function currentUtms() {
+        var fromUrl = pickUtms(new URLSearchParams(window.location.search));
+        if (Object.keys(fromUrl).length) {
+          try { sessionStorage.setItem(storageKey, JSON.stringify(fromUrl)); } catch (e) {}
+          return fromUrl;
+        }
+        return getStoredUtms();
+      }
+
+      function decorateInternalLinks(utms) {
+        if (!Object.keys(utms).length) return;
+        document.querySelectorAll('a[href]').forEach(function(anchor) {
+          var href = anchor.getAttribute('href');
+          if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+          var url;
+          try { url = new URL(href, window.location.href); } catch (e) { return; }
+          if (url.origin !== window.location.origin) return;
+          Object.keys(utms).forEach(function(key) {
+            if (!url.searchParams.has(key)) url.searchParams.set(key, utms[key]);
+          });
+          anchor.href = url.toString();
+        });
+      }
+
+      function inferEvent(anchor) {
+        if (anchor.dataset.trackEvent) return anchor.dataset.trackEvent;
+        if (anchor.matches('[data-language-switch], [hreflang]')) return 'language_switch_click';
+        var url;
+        try { url = new URL(anchor.href, window.location.href); } catch (e) { return null; }
+        if (url.hostname === 'github.com') return 'github_click';
+        if (url.pathname.match(/^\/7-days\/day-\d+\/?$/)) return 'tutorial_day_click';
+        if (url.pathname.startsWith('/resources')) return 'resource_click';
+        if (url.pathname.startsWith('/setup')) return 'start_install_click';
+        if (anchor.closest('nav, footer') || url.pathname.startsWith('/7-days') || url.pathname.startsWith('/migrate') || url.pathname.startsWith('/faq')) return 'doc_nav_click';
+        return null;
+      }
+
+      function eventParams(anchor, extra) {
+        var url;
+        try { url = new URL(anchor && anchor.href ? anchor.href : window.location.href, window.location.href); }
+        catch (e) { url = new URL(window.location.href); }
+        return Object.assign({
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+          link_url: url.toString(),
+          link_path: url.pathname,
+          link_text: (anchor && anchor.textContent ? anchor.textContent.trim().replace(/\s+/g, ' ').slice(0, 120) : ''),
+          outbound: url.origin !== window.location.origin
+        }, currentUtms(), extra || {});
+      }
+
+      function track(name, params) {
+        if (!name) return;
+        var payload = params || {};
+        window.__hermes101_events = window.__hermes101_events || [];
+        window.__hermes101_events.push({ name: name, params: payload, ts: Date.now() });
+        if (typeof window.gtag === 'function') window.gtag('event', name, payload);
+        if (typeof window.plausible === 'function') window.plausible(name, { props: payload });
+        if (typeof window.clarity === 'function') window.clarity('event', name);
+      }
+
+      var utms = currentUtms();
+      decorateInternalLinks(utms);
+      document.addEventListener('click', function(event) {
+        var anchor = event.target.closest && event.target.closest('a[href]');
+        if (!anchor) return;
+        var name = inferEvent(anchor);
+        if (name) track(name, eventParams(anchor));
+      }, true);
+      window.hermes101Analytics = { track: track, currentUtms: currentUtms, decorateInternalLinks: decorateInternalLinks };
+    })();
 
     // Setup page tab switcher
     window.switchTab = function(tab) {
