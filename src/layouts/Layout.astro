@@ -145,13 +145,46 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
     document.querySelectorAll('.copy-btn').forEach(function(btn) {
       btn.addEventListener('click', function(e) {
         e.stopPropagation();
-        var text = btn.dataset.copy;
-        if (!text) return;
-        navigator.clipboard.writeText(text).then(function() {
-          var orig = btn.textContent;
-          btn.textContent = '已复制';
-          setTimeout(function() { btn.textContent = orig; }, 1500);
-        });
+        if (btn._copying) return;
+        btn._copying = true;
+        var text = btn.dataset.copy || btn.getAttribute('data-copy');
+        if (!text) { btn._copying = false; return; }
+
+        function showResult(iconText, label, color) {
+          var origHTML = btn.innerHTML;
+          btn.innerHTML = '<span class="material-symbols-outlined text-sm" style="color:' + color + ';">' + iconText + '</span>';
+          if (label) btn.setAttribute('aria-label', label);
+          setTimeout(function() { btn.innerHTML = origHTML; btn.removeAttribute('aria-label'); btn._copying = false; }, 1500);
+        }
+
+        function doCopy() {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function() {
+              showResult('check', '已复制', '#51FFB4');
+            }).catch(function() { fallbackCopy(); });
+          } else { fallbackCopy(); }
+        }
+
+        function fallbackCopy() {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            if (document.execCommand('copy')) {
+              showResult('check', '已复制', '#51FFB4');
+            } else { throw new Error('execCommand failed'); }
+          } catch (err) {
+            showResult('error', '复制失败', '#FFB962');
+            console.error('Copy failed:', err);
+          }
+          document.body.removeChild(ta);
+          btn._copying = false;
+        }
+
+        doCopy();
       });
     });
 

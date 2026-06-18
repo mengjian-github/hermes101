@@ -70,7 +70,7 @@ const normalize = (path: string) => path.endsWith('/') && path !== '/' ? path.sl
          class="bg-white text-[#0A0A0F] px-6 py-2 rounded-full font-bold hover:bg-[#18E299] hover:text-[#003823] transition-all duration-300 text-sm">
         {labels.cta}
       </a>
-      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white" aria-label="Open menu">
+      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white active:text-white active:scale-95 transition-transform" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
@@ -96,7 +96,15 @@ const normalize = (path: string) => path.endsWith('/') && path !== '/' ? path.sl
 </header>
 
 <script is:inline>
-  document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
-    document.getElementById('mobile-menu')?.classList.toggle('hidden');
-  });
+  (function() {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function() {
+      var isOpen = menu.classList.contains('hidden');
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+  })();
 </script>

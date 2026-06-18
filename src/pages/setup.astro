@@ -34,16 +34,5 @@ const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'set
         btn.classList.add('text-[#51ffb4]', 'font-bold', 'border-b-2', 'border-[#51ffb4]');
       }
     }
-    // Copy buttons
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const text = this.getAttribute('data-copy');
-        navigator.clipboard.writeText(text).then(() => {
-          const orig = this.innerHTML;
-          this.innerHTML = '<span class="material-symbols-outlined text-sm">check</span>';
-          setTimeout(() => { this.innerHTML = orig; }, 1500);
-        });
-      });
-    });
   </script>
 </Layout>
