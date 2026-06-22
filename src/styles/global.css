@@ -436,6 +436,23 @@ code, pre {
   box-shadow: 0 0 30px var(--brand-glow-strong);
 }
 
+/* --- Day progress anchor hit area (P1-UX-001) --- */
+.day-progress-anchor {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  margin: -20px -6px;
+  padding: 20px 6px;
+  background-clip: content-box !important;
+  -webkit-background-clip: content-box !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 9999px !important;
+}
+
 /* --- Gradient text utility --- */
 .text-gradient {
   background: linear-gradient(135deg, var(--brand), var(--brand-bright));

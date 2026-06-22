@@ -43,14 +43,14 @@ const normalize = (path: string) => path.endsWith('/') && path !== '/' ? path.sl
   <div class="flex justify-between items-center px-6 py-4 max-w-6xl mx-auto">
     <div class="flex items-center gap-2">
       <span class="material-symbols-outlined text-[#18E299]" style="font-variation-settings: 'FILL' 1;">terminal</span>
-      <a href={isZh ? '/zh/' : '/'} class="text-2xl font-black text-white italic tracking-[-0.04em]">Hermes Agent</a>
+      <a href={isZh ? '/zh/' : '/'} class="text-xl md:text-2xl font-black text-white italic tracking-[-0.04em]">Hermes Agent</a>
     </div>
     <nav class="hidden md:flex items-center gap-8">
       {links.map(link => (
         <a
           href={link.href}
           class:list={[
-            "font-medium text-sm transition-all duration-300",
+            "font-medium text-sm transition-all duration-300 min-h-[44px] flex items-center px-2",
             normalize(currentPath) === normalize(link.href)
               ? "text-[#18E299] font-bold"
               : "text-white/60 hover:text-[#51FFB4]"
@@ -63,14 +63,14 @@ const normalize = (path: string) => path.endsWith('/') && path !== '/' ? path.sl
     <div class="flex items-center gap-3">
       <a href={switchHref}
          hreflang={isZh ? 'en' : 'zh-CN'}
-         class="hidden sm:inline-flex px-4 py-2 rounded-full border border-white/10 text-white/70 text-sm font-bold hover:text-[#18E299] hover:border-[#18E299]/40 transition-all">
+         class="hidden sm:inline-flex px-4 py-2 rounded-full border border-white/10 text-white/70 text-sm font-bold hover:text-[#18E299] hover:border-[#18E299]/40 transition-all min-h-[44px] items-center justify-center">
         {labels.switch}
       </a>
       <a href={`${prefix}/setup`}
-         class="bg-white text-[#0A0A0F] px-6 py-2 rounded-full font-bold hover:bg-[#18E299] hover:text-[#003823] transition-all duration-300 text-sm">
+         class="bg-white text-[#0A0A0F] px-4 md:px-6 py-2 rounded-full font-bold hover:bg-[#18E299] hover:text-[#003823] transition-all duration-300 text-sm min-h-[44px] flex items-center justify-center">
         {labels.cta}
       </a>
-      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white active:text-white active:scale-95 transition-transform" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white active:text-white active:scale-95 transition-transform min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
@@ -81,7 +81,7 @@ const normalize = (path: string) => path.endsWith('/') && path !== '/' ? path.sl
         <a
           href={link.href}
           class:list={[
-            "font-medium text-sm py-2",
+            "font-medium text-sm py-3 px-2 min-h-[44px] min-w-[44px] flex items-center",
             normalize(currentPath) === normalize(link.href)
               ? "text-[#18E299] font-bold"
               : "text-white/60"
@@ -90,7 +90,7 @@ const normalize = (path: string) => path.endsWith('/') && path !== '/' ? path.sl
           {link.label}
         </a>
       ))}
-      <a href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'} class="font-medium text-sm py-2 text-white/60">{labels.switch}</a>
+      <a href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'} class="font-medium text-sm py-3 px-2 min-h-[44px] min-w-[44px] flex items-center text-white/60">{labels.switch}</a>
     </nav>
   </div>
 </header>
