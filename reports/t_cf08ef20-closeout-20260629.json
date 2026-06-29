@@ -2,7 +2,7 @@
   "task_id": "t_cf08ef20",
   "site": "https://hermes101.dev",
   "generated_at_utc": "2026-06-29T10:12:04Z",
-  "git_commit": "527a2bf",
+  "git_commit": "6fb3b40",
   "git_status": "## main...origin/main",
   "analytics": {
     "ga4_property": "hermes101.dev",
@@ -63,5 +63,6 @@
   ],
   "known_limits": [
     "Bing sitemap feed is submitted and pending crawl; Ahrefs crawl metrics visible but no paid crawl credits were started."
-  ]
+  ],
+  "report_note": "Deployment commit was 527a2bf; this report-only commit is 6fb3b40."
 }
