@@ -54,19 +54,26 @@ const paths = [
           An English-first landing page for learning Hermes Agent, with the original Chinese tutorial preserved under <a href="/zh/" class="text-[#51ffb4] underline decoration-[#51ffb4]/40 underline-offset-4">/zh/</a>.
         </p>
 
+        <div class="w-full max-w-3xl mb-8 px-4 py-3 rounded-lg border border-[#FFB962]/20 bg-[#FFB962]/5 text-[#FFB962] text-sm text-center">
+          <span class="font-bold">Disclaimer:</span> This is an independent community guide. The <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" class="underline">official Hermes Agent docs</a> are the source of truth.
+        </div>
+
         <div class="flex flex-col sm:flex-row gap-4 mb-12">
           <a href="https://hermes-agent.nousresearch.com/docs"
              target="_blank"
              rel="noopener noreferrer"
+             data-track-event="official_docs_click"
              class="cta-primary px-10 py-4 text-lg inline-flex items-center gap-2">
             Read official docs
             <span class="material-symbols-outlined text-sm">open_in_new</span>
           </a>
           <a href="/zh/"
+             data-track-event="language_switch_click"
              class="px-10 py-4 border-2 border-white/20 text-white rounded-full font-bold text-lg hover:bg-white/5 transition-all active:scale-95">
             中文指南
           </a>
           <a href="https://github.com/mengjian-github/hermes101" target="_blank" rel="noopener noreferrer"
+             data-track-event="github_click"
              class="px-10 py-4 bg-[#1b1b20] border border-white/10 text-white rounded-full font-bold text-lg hover:border-[#18E299]/50 hover:text-[#18E299] transition-all active:scale-95 inline-flex items-center gap-2">
             GitHub
           </a>

@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Terms of Use — Hermes Agent 101";
+const description = "Terms of use for Hermes Agent 101: independent community guide, not official documentation.";
+---
+<Layout title={title} description={description} lang="en" noindex={true}>
+  <Nav lang="en" />
+  <main class="pt-24 pb-20 px-6 max-w-3xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-8 tracking-tight">Terms of Use</h1>
+    <div class="prose prose-invert prose-sm max-w-none text-white/80 space-y-6">
+      <p class="text-white/60 text-sm">Last updated: June 2026</p>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mt-8 mb-3">1. Independent community guide</h2>
+        <p>Hermes Agent 101 (hermes101.dev) is an <strong>independent community guide</strong> maintained by enthusiasts. It is <strong>not</strong> an official product of Nous Research, nor is it endorsed by or affiliated with the Hermes Agent project.</p>
+        <p class="mt-2">For authoritative, up-to-date information, always refer to the <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" class="text-[#51ffb4] underline">official Hermes Agent documentation</a> as the source of truth before running any commands.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mt-8 mb-3">2. No warranty</h2>
+        <p>All content is provided "as is" for educational purposes. We make no guarantees about accuracy, completeness, or fitness for any particular purpose. Use at your own risk.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mt-8 mb-3">3. Intellectual property</h2>
+        <p>Original content on this site is licensed under the same terms as the underlying repository (see GitHub). Third-party trademarks (Hermes Agent, Nous Research, etc.) belong to their respective owners.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mt-8 mb-3">4. Changes</h2>
+        <p>We may update these terms at any time. Continued use of the site constitutes acceptance of the current terms.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-white mt-8 mb-3">5. Contact</h2>
+        <p>For questions, visit the <a href="/faq" class="text-[#51ffb4] underline">FAQ page</a> or open an issue on GitHub.</p>
+      </section>
+    </div>
+  </main>
+  <Footer lang="en" />
+</Layout>

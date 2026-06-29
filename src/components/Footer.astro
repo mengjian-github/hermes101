@@ -8,8 +8,8 @@ const year = new Date().getFullYear();
 const isZh = lang === 'zh-CN';
 const prefix = isZh ? '/zh' : '';
 const labels = isZh
-  ? { faq: '常见问题', resources: '教程资源', migrate: '迁移指南' }
-  : { faq: 'FAQ', resources: 'Resources', migrate: 'Migration guide' };
+  ? { faq: '常见问题', resources: '教程资源', migrate: '迁移指南', privacy: '隐私政策', terms: '使用条款' }
+  : { faq: 'FAQ', resources: 'Resources', migrate: 'Migration guide', privacy: 'Privacy', terms: 'Terms' };
 ---
 <footer class="w-full py-12 bg-[#0A0A0F] border-t border-white/[0.05]">
   <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-6xl mx-auto">
@@ -22,6 +22,8 @@ const labels = isZh
       <a class="text-white/40 text-sm hover:text-white transition-colors" href={`${prefix}/resources`}>{labels.resources}</a>
       <a class="text-white/40 text-sm hover:text-white transition-colors" href="https://github.com/mengjian-github/hermes101" target="_blank">GitHub</a>
       <a class="text-white/40 text-sm hover:text-white transition-colors" href={`${prefix}/migrate`}>{labels.migrate}</a>
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href={`${prefix}/privacy`}>{labels.privacy}</a>
+      <a class="text-white/40 text-sm hover:text-white transition-colors" href={`${prefix}/terms`}>{labels.terms}</a>
     </div>
   </div>
 </footer>
