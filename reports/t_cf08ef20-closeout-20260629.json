@@ -1,0 +1,67 @@
+{
+  "task_id": "t_cf08ef20",
+  "site": "https://hermes101.dev",
+  "generated_at_utc": "2026-06-29T10:12:04Z",
+  "git_commit": "527a2bf",
+  "git_status": "## main...origin/main",
+  "analytics": {
+    "ga4_property": "hermes101.dev",
+    "ga4_stream_url": "https://hermes101.dev",
+    "ga4_stream_id": "15006207731",
+    "ga4_measurement_id": "G-FDGWTRC2MF",
+    "clarity_project_name": "Hermes101",
+    "clarity_project_id": "x1tz4iudu9",
+    "clarity_url": "https://hermes101.dev",
+    "plausible_domain": "hermes101.dev",
+    "production_html_contains_ga4": true,
+    "production_html_contains_clarity": true,
+    "production_html_contains_plausible_domain": true
+  },
+  "browser_evidence": {
+    "ga4_data_stream": "GA4 Admin > Data streams shows hermes101.dev / https://hermes101.dev, stream id 15006207731, measurement id G-FDGWTRC2MF, data collection active in past 48h.",
+    "clarity_project": "Clarity settings overview shows Project ID x1tz4iudu9, name Hermes101, Website URL https://hermes101.dev.",
+    "ahrefs_project": "Ahrefs dashboard has Hermes101 project for *.hermes101.dev/*, Basic/Shared, health score 86, crawled 104, broken 0, blocked 0.",
+    "production_runtime": "Browser console on https://hermes101.dev confirmed window.gtag/window.clarity/window.plausible functions, tracking surface present, and custom smoke event recorded in window.__hermes101_events."
+  },
+  "deployment": {
+    "cloudflare_pages_project": "hermes101",
+    "deployment_url": "https://b4327f90.hermes101.pages.dev",
+    "custom_domain_smoke": {
+      "/": "200 text/html",
+      "/robots.txt": "200 text/plain with sitemap https://hermes101.dev/sitemap-index.xml",
+      "/sitemap-index.xml": "200 application/xml",
+      "/llms.txt": "200 text/plain",
+      "/BingSiteAuth.xml": "200 application/xml",
+      "/zh/": "200 text/html lang zh-CN"
+    }
+  },
+  "bing": {
+    "site_url": "https://hermes101.dev/",
+    "verification_file": "public/BingSiteAuth.xml",
+    "verify_site_result": true,
+    "submitted_sitemap": "https://hermes101.dev/sitemap-index.xml",
+    "feed_status": "Pending",
+    "authentication_code_source": "Bing Webmaster API GetUserSites; value deployed in BingSiteAuth.xml (not a secret)"
+  },
+  "domain_consistency": {
+    "root_repo": "Active source/public/dist uses hermes101.dev; no hermes101.site in production outputs.",
+    "nested_repo": "Nested /root/projects/hermes101/hermes101 fast-forwarded from e2edccf to 038fda2; root submodule pointer committed in 527a2bf."
+  },
+  "changed_files": [
+    "public/BingSiteAuth.xml",
+    "hermes101 (submodule pointer)",
+    "reports/t_cf08ef20-closeout-20260629.json"
+  ],
+  "checks_run": [
+    "npm run build",
+    "git diff --check",
+    "git push origin main",
+    "npx wrangler pages deploy dist --project-name hermes101 --branch main",
+    "production curl smoke",
+    "browser GA4/Clarity/Ahrefs/runtime smoke",
+    "Bing VerifySite + SubmitFeed API"
+  ],
+  "known_limits": [
+    "Bing sitemap feed is submitted and pending crawl; Ahrefs crawl metrics visible but no paid crawl credits were started."
+  ]
+}
