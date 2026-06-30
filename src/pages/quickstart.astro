@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+
+const title = "Hermes Agent Quickstart: Setup Guide and First Chat — hermes101";
+const description = "The fastest beginner path for Hermes Agent: install on macOS, Linux, WSL2, Windows, or Termux; run setup; choose a provider; verify your first chat; fix common setup errors.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "dateModified": "2026-06-29",
+  "author": { "@type": "Organization", "name": "hermes101.dev" },
+  "publisher": { "@type": "Organization", "name": "hermes101.dev", "url": "https://hermes101.dev" },
+  "isPartOf": { "@type": "WebSite", "name": "hermes101.dev", "url": "https://hermes101.dev" },
+  "citation": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart"
+};
+
+const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'quickstart-content-en.html'), 'utf-8');
+---
+
+<Layout lang="en" canonicalPath="/quickstart/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
+  <main class="pt-28 pb-24 min-h-screen">
+    <Fragment set:html={pageContent} />
+  </main>
+  <Footer lang="en" />
+</Layout>

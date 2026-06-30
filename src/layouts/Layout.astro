@@ -251,6 +251,7 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
         if (url.pathname.match(/^\/7-days\/day-\d+\/?$/)) return 'tutorial_day_click';
         if (url.pathname.startsWith('/resources')) return 'resource_click';
         if (url.pathname.startsWith('/setup')) return 'start_install_click';
+        if (url.pathname.startsWith('/quickstart')) return 'start_quickstart_click';
         if (anchor.closest('nav, footer') || url.pathname.startsWith('/7-days') || url.pathname.startsWith('/migrate') || url.pathname.startsWith('/faq')) return 'doc_nav_click';
         return null;
       }
@@ -278,6 +279,16 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
         if (typeof window.plausible === 'function') window.plausible(name, { props: payload });
         if (typeof window.clarity === 'function') window.clarity('event', name);
       }
+
+      // Track copy button clicks via data-track-event on copy buttons
+      document.querySelectorAll('.copy-btn[data-track-event]').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          var name = btn.dataset.trackEvent;
+          if (!name) return;
+          var text = btn.dataset.copy || '';
+          track(name, Object.assign(eventParams(null), { copied_text: text.slice(0, 200) }));
+        });
+      });
 
       var utms = currentUtms();
       decorateInternalLinks(utms);

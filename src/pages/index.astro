@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const title = "Hermes Agent 101 — English-first beginner guide";
-const description = "A practical English starting point for Hermes Agent: install it, understand the CLI, connect tools and channels, then continue with the Chinese deep-dive guide when needed.";
+const title = "Hermes Agent Setup Tutorial for Beginners — hermes101";
+const description = "Learn Hermes Agent from install to first chat. Start with the official-checked setup path, choose a provider, verify a working chat, and follow a 7-day beginner plan.";
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -19,15 +19,17 @@ const schema = {
 };
 
 const quickStart = [
-  { step: "01", title: "Install", desc: "Use the official Hermes Agent docs as the source of truth before running local commands.", href: "https://hermes-agent.nousresearch.com/docs" },
-  { step: "02", title: "Configure", desc: "Set your provider, model, profiles, tools, and gateway surfaces from a single Hermes setup.", href: "https://hermes-agent.nousresearch.com/docs" },
-  { step: "03", title: "Operate", desc: "Run the CLI, connect browser or messaging channels, and automate recurring work with skills and cron jobs.", href: "https://hermes-agent.nousresearch.com/docs" },
+  { step: "01", title: "Install", desc: "Run the official install script for your OS. macOS, Linux, WSL2, Termux, and native Windows are supported.", href: "/setup/" },
+  { step: "02", title: "Configure", desc: "Choose a provider with hermes setup --portal or hermes model. This is the most important setup decision.", href: "/setup/" },
+  { step: "03", title: "Verify", desc: "Start hermes, ask a normal question, and confirm it returns a useful answer before adding gateways or tools.", href: "/setup/" },
 ];
 
 const paths = [
-  { title: "Chinese setup guide", desc: "The existing step-by-step Chinese install guide has moved under /zh/.", href: "/zh/setup" },
-  { title: "7-day Chinese tutorial", desc: "Keep the original hands-on learning path while the English version is prepared page by page.", href: "/zh/7-days" },
-  { title: "Migration notes", desc: "Chinese migration material for users moving from earlier local agent workflows.", href: "/zh/migrate" },
+  { title: "I just want Hermes working", desc: "Run hermes setup --portal, then start hermes and verify one normal chat.", href: "/setup/" },
+  { title: "I already know my provider", desc: "Run hermes model, save the provider and model, then test a plain chat.", href: "/setup/" },
+  { title: "I want Telegram, Discord, Slack", desc: "First prove the CLI chat works. Then run hermes gateway setup.", href: "/setup/" },
+  { title: "I want a local or self-hosted model", desc: "Configure a custom endpoint in hermes model, then verify endpoint URL, model name, and context length.", href: "/setup/" },
+  { title: "I want fallback or routing", desc: "Keep fallback off until one base provider is stable. Add routing only after a clean chat works.", href: "/setup/" },
 ];
 ---
 <Layout hasAlternate={true} title={title} description={description} schema={schema} lang="en" canonicalPath="/">
@@ -42,55 +44,55 @@ const paths = [
       <div class="flex flex-col items-center text-center mb-14">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.1] bg-[#1b1b20] mb-8">
           <span class="w-2 h-2 rounded-full bg-[#18E299] animate-pulse"></span>
-          <span class="text-xs font-bold tracking-widest text-white">ENGLISH DEFAULT · CHINESE GUIDE AVAILABLE</span>
+          <span class="text-xs font-bold tracking-widest text-white">OFFICIAL-CHECKED BEGINNER GUIDE · LAST CHECKED: 2026-06-29</span>
         </div>
 
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] mb-6">
-          <span class="text-[#18E299]">Start with</span><br/>
-          <span class="text-white">Hermes Agent</span>
+          <span class="text-[#18E299]">Hermes Agent</span><br/>
+          <span class="text-white">Setup Tutorial</span>
         </h1>
 
         <p class="text-xl md:text-2xl text-white/90 font-medium max-w-3xl mb-10">
-          An English-first landing page for learning Hermes Agent, with the original Chinese tutorial preserved under <a href="/zh/" class="text-[#51ffb4] underline decoration-[#51ffb4]/40 underline-offset-4">/zh/</a>.
+          Install Hermes Agent, choose your provider, verify your first chat, and know the next step before you touch gateways, skills, tools, or automation.
         </p>
 
         <div class="w-full max-w-3xl mb-8 px-4 py-3 rounded-lg border border-[#FFB962]/20 bg-[#FFB962]/5 text-[#FFB962] text-sm text-center">
-          <span class="font-bold">Disclaimer:</span> This is an independent community guide. The <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" class="underline">official Hermes Agent docs</a> are the source of truth.
+          <span class="font-bold">Disclaimer:</span> This is an independent beginner guide. Hermes Agent is developed by Nous Research. The <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" class="underline">official docs</a> are the source of truth.
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4 mb-12">
+          <a href="/quickstart/"
+             data-track-event="start_quickstart_click"
+             class="cta-primary px-10 py-4 text-lg inline-flex items-center gap-2">
+            Start the Quickstart
+          </a>
+          <a href="/setup/"
+             data-track-event="start_install_click"
+             class="px-10 py-4 border-2 border-white/20 text-white rounded-full font-bold text-lg hover:bg-white/5 transition-all active:scale-95">
+            Copy Install Command
+          </a>
           <a href="https://hermes-agent.nousresearch.com/docs"
              target="_blank"
              rel="noopener noreferrer"
              data-track-event="official_docs_click"
-             class="cta-primary px-10 py-4 text-lg inline-flex items-center gap-2">
-            Read official docs
-            <span class="material-symbols-outlined text-sm">open_in_new</span>
-          </a>
-          <a href="/zh/"
-             data-track-event="language_switch_click"
-             class="px-10 py-4 border-2 border-white/20 text-white rounded-full font-bold text-lg hover:bg-white/5 transition-all active:scale-95">
-            中文指南
-          </a>
-          <a href="https://github.com/mengjian-github/hermes101" target="_blank" rel="noopener noreferrer"
-             data-track-event="github_click"
              class="px-10 py-4 bg-[#1b1b20] border border-white/10 text-white rounded-full font-bold text-lg hover:border-[#18E299]/50 hover:text-[#18E299] transition-all active:scale-95 inline-flex items-center gap-2">
-            GitHub
+            View Official Docs
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
           </a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-y border-white/[0.05] py-10 w-full max-w-4xl">
           <div class="flex flex-col items-center">
-            <span class="text-3xl font-black text-white">Official-first</span>
-            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">Docs alignment</span>
+            <span class="text-3xl font-black text-white">Install</span>
+            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">One command</span>
           </div>
           <div class="flex flex-col items-center">
-            <span class="text-3xl font-black text-white">/zh/</span>
-            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">Chinese route</span>
+            <span class="text-3xl font-black text-white">Configure</span>
+            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">Provider + model</span>
           </div>
           <div class="flex flex-col items-center">
-            <span class="text-3xl font-black text-white">hreflang</span>
-            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">SEO ready</span>
+            <span class="text-3xl font-black text-white">First chat</span>
+            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">Verify it works</span>
           </div>
         </div>
       </div>
@@ -101,13 +103,13 @@ const paths = [
         <div class="inline-block px-4 py-1.5 rounded-full bg-[#1b1b20] border border-[#3b4a41]/10 text-[#18E299] text-[10px] font-black tracking-[0.2em] uppercase mb-6">
           Quick start
         </div>
-        <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">Use the official docs for commands</h2>
-        <p class="mt-8 text-[#bacbbe] max-w-2xl mx-auto text-lg">This site now avoids making the Chinese tutorial the default page. English content starts from official documentation and links into localized material only when useful.</p>
+        <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">From zero to working chat</h2>
+        <p class="mt-8 text-[#bacbbe] max-w-2xl mx-auto text-lg">Follow the shortest path. Do not add gateways, cron, skills, or routing until a plain chat works.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {quickStart.map(item => (
-          <a href={item.href} target="_blank" rel="noopener noreferrer" class="group bg-[#12121A] p-8 rounded-xl border border-[#3b4a41]/15 feature-card-glow transition-all duration-300 block">
+          <a href={item.href} class="group bg-[#12121A] p-8 rounded-xl border border-[#3b4a41]/15 feature-card-glow transition-all duration-300 block">
             <span class="text-[#18E299] text-xs font-bold tracking-widest uppercase">{item.step}</span>
             <h3 class="text-xl font-bold text-white mt-4 mb-3 tracking-tight">{item.title}</h3>
             <p class="text-[#bacbbe] text-sm leading-relaxed">{item.desc}</p>
@@ -119,17 +121,49 @@ const paths = [
     <section class="py-20 md:py-28 bg-[#131318]">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-14">
-          <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">Localized content plan</h2>
-          <p class="text-lg text-[#bacbbe]">Chinese pages are now available as secondary localized routes.</p>
+          <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">Pick the fastest path for your setup</h2>
+          <p class="text-lg text-[#bacbbe]">If Hermes cannot complete a normal chat, do not add gateway, cron, skills, voice, or routing yet. Fix the base chat first.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {paths.map(item => (
             <a href={item.href} class="rounded-xl p-6 bg-[#1b1b20] border border-[#3b4a41]/15 transition-all duration-300 hover:-translate-y-1 hover:border-[#18E299]/30 group block">
               <h3 class="font-bold text-white text-lg mb-2">{item.title}</h3>
               <p class="text-sm text-[#bacbbe] leading-relaxed">{item.desc}</p>
             </a>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">What you will have after this guide</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-xl bg-[#1b1b20] border border-[#3b4a41]/15">
+          <h3 class="font-bold text-white text-lg mb-2">Hermes installed</h3>
+          <p class="text-sm text-[#bacbbe]">On macOS, Linux, WSL2, Windows, or Termux.</p>
+        </div>
+        <div class="p-6 rounded-xl bg-[#1b1b20] border border-[#3b4a41]/15">
+          <h3 class="font-bold text-white text-lg mb-2">Provider selected</h3>
+          <p class="text-sm text-[#bacbbe]">Through hermes setup --portal or hermes model.</p>
+        </div>
+        <div class="p-6 rounded-xl bg-[#1b1b20] border border-[#3b4a41]/15">
+          <h3 class="font-bold text-white text-lg mb-2">One verified chat</h3>
+          <p class="text-sm text-[#bacbbe]">A plain CLI conversation that returns useful answers.</p>
+        </div>
+        <div class="p-6 rounded-xl bg-[#1b1b20] border border-[#3b4a41]/15">
+          <h3 class="font-bold text-white text-lg mb-2">Recovery checklist</h3>
+          <p class="text-sm text-[#bacbbe]">For broken replies, model errors, gateway issues, and profile confusion.</p>
+        </div>
+        <div class="p-6 rounded-xl bg-[#1b1b20] border border-[#3b4a41]/15">
+          <h3 class="font-bold text-white text-lg mb-2">7-day path</h3>
+          <p class="text-sm text-[#bacbbe]">For tools, memory, skills, messaging, and automation.</p>
+        </div>
+        <div class="p-6 rounded-xl bg-[#1b1b20] border border-[#3b4a41]/15">
+          <h3 class="font-bold text-white text-lg mb-2">Source links</h3>
+          <p class="text-sm text-[#bacbbe]">Every page links back to official docs and shows last checked date.</p>
         </div>
       </div>
     </section>

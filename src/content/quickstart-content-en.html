@@ -1,0 +1,308 @@
+<div class="max-w-[800px] mx-auto px-6">
+  <!-- Hero -->
+  <div class="mb-16 text-center md:text-left fade-in-up">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b1b20] ghost-border mb-6">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#51ffb4] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#51ffb4]"></span>
+      </span>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#51ffb4]">Quickstart · Official docs checked 2026-06-29</span>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-[-0.04em] mb-6">
+      Hermes Agent <span class="text-[#51ffb4]">Quickstart</span>
+    </h1>
+    <p class="text-[#bacbbe] text-lg max-w-2xl leading-relaxed">
+      Follow the shortest path from zero to a working Hermes Agent setup. Do not add gateways, cron, skills, or routing until a plain chat works.
+    </p>
+  </div>
+
+  <!-- Before you start -->
+  <div class="mb-16 fade-in-up">
+    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-6 flex items-center gap-3">
+      <span class="w-12 h-px bg-[var(--brand)]/30"></span>
+      Before you start
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-6 rounded-2xl bg-[#1b1b20] ghost-border">
+        <h3 class="text-white font-bold mb-2">You need</h3>
+        <ul class="text-sm text-[#bacbbe] space-y-2">
+          <li>• A terminal: Terminal.app, iTerm, Linux shell, WSL2, PowerShell, or Termux</li>
+          <li>• Internet access</li>
+          <li>• One model/provider path</li>
+          <li>• Ten minutes for the first working chat</li>
+        </ul>
+      </div>
+      <div class="p-6 rounded-2xl bg-[#1b1b20] ghost-border">
+        <h3 class="text-white font-bold mb-2">Not sure which provider?</h3>
+        <p class="text-sm text-[#bacbbe]">Use <code class="text-[#18E299]">hermes setup --portal</code> first. It gives the simplest guided path through Nous Portal.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steps -->
+  <div class="space-y-12">
+    <!-- Step 1 -->
+    <div class="relative flex gap-4 md:gap-10">
+      <div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#35343a] border border-[#51ffb4]/50 shrink-0">
+        <span class="text-[#51ffb4] font-bold">1</span>
+      </div>
+      <div class="flex-grow min-w-0 pt-1">
+        <h4 class="text-2xl font-bold text-white mb-4">Install Hermes Agent</h4>
+        <p class="text-[#bacbbe] mb-6 leading-relaxed">
+          Linux / macOS / WSL2 / Android Termux:
+        </p>
+        <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
+          <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn"
+                    data-copy="curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash"
+                    data-track-event="install_command_copy">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+            </button>
+          </div>
+          <div class="flex gap-1.5 mb-3 border-b border-[#3b4a41]/10 pb-3">
+            <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+          </div>
+          <code class="text-[#e4e1e9] break-all">
+            <span class="text-[#18E299]">curl</span> -fsSL https://hermes-agent.nousresearch.com/install.sh | <span class="text-[#18E299]">bash</span>
+          </code>
+        </div>
+        <p class="text-[#bacbbe] mb-6 leading-relaxed">
+          Native Windows PowerShell:
+        </p>
+        <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
+          <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn"
+                    data-copy="iex (irm https://hermes-agent.nousresearch.com/install.ps1)"
+                    data-track-event="install_command_copy">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+            </button>
+          </div>
+          <div class="flex gap-1.5 mb-3 border-b border-[#3b4a41]/10 pb-3">
+            <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+          </div>
+          <code class="text-[#e4e1e9] break-all">
+            <span class="text-[#18E299]">iex</span> (irm https://hermes-agent.nousresearch.com/install.ps1)
+          </code>
+        </div>
+        <p class="text-sm text-[#859589]">After install, reload your shell: <code class="text-[#18E299]">source ~/.bashrc</code> or <code class="text-[#18E299]">source ~/.zshrc</code></p>
+        <div class="mt-4 rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm">
+          <p class="text-[#51ffb4]">✓ Hermes installed successfully</p>
+          <p class="text-[#888]">Run `hermes` to start chatting</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="relative flex gap-4 md:gap-10">
+      <div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#35343a] border border-[#51ffb4]/50 shrink-0">
+        <span class="text-[#51ffb4] font-bold">2</span>
+      </div>
+      <div class="flex-grow min-w-0 pt-1">
+        <h4 class="text-2xl font-bold text-white mb-4">Choose a provider</h4>
+        <p class="text-[#bacbbe] mb-6 leading-relaxed">
+          Fast path (guided):
+        </p>
+        <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
+          <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes setup --portal">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+            </button>
+          </div>
+          <div class="flex gap-1.5 mb-3 border-b border-[#3b4a41]/10 pb-3">
+            <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+          </div>
+          <code class="text-[#e4e1e9]">
+            <span class="text-[#18E299]">hermes</span> setup --portal
+          </code>
+        </div>
+        <p class="text-[#bacbbe] mb-6 leading-relaxed">
+          Manual provider path:
+        </p>
+        <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
+          <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes model">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+            </button>
+          </div>
+          <div class="flex gap-1.5 mb-3 border-b border-[#3b4a41]/10 pb-3">
+            <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+          </div>
+          <code class="text-[#e4e1e9]">
+            <span class="text-[#18E299]">hermes</span> model
+          </code>
+        </div>
+        <p class="text-sm text-[#859589]">The provider is the most important setup decision. If model auth or model selection is wrong, Hermes may open but return broken, empty, or unhelpful replies.</p>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="relative flex gap-4 md:gap-10">
+      <div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#35343a] border border-[#51ffb4]/50 shrink-0">
+        <span class="text-[#51ffb4] font-bold">3</span>
+      </div>
+      <div class="flex-grow min-w-0 pt-1">
+        <h4 class="text-2xl font-bold text-white mb-4">Verify your first chat</h4>
+        <p class="text-[#bacbbe] mb-6 leading-relaxed">
+          Run:
+        </p>
+        <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
+          <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+            </button>
+          </div>
+          <div class="flex gap-1.5 mb-3 border-b border-[#3b4a41]/10 pb-3">
+            <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+          </div>
+          <code class="text-[#e4e1e9]">
+            <span class="text-[#18E299]">hermes</span>
+          </code>
+        </div>
+        <p class="text-[#bacbbe] mb-6 leading-relaxed">
+          Ask:
+        </p>
+        <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
+          <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="Say hello and tell me which provider/model you are using.">
+              <span class="material-symbols-outlined text-sm">content_copy</span>
+            </button>
+          </div>
+          <div class="flex gap-1.5 mb-3 border-b border-[#3b4a41]/10 pb-3">
+            <div class="w-3 h-3 rounded-full bg-red-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/30"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/30"></div>
+          </div>
+          <code class="text-[#e4e1e9]">
+            Say hello and tell me which provider/model you are using.
+          </code>
+        </div>
+        <p class="text-sm text-[#859589] mb-4">A successful first chat means:</p>
+        <ul class="text-sm text-[#bacbbe] space-y-2 mb-6">
+          <li>• Hermes responds in normal language</li>
+          <li>• The response is not empty or an auth error</li>
+          <li>• You can ask a follow-up question</li>
+          <li>• The terminal session does not crash</li>
+        </ul>
+        <div class="p-4 rounded-xl border border-[#FFB962]/20 bg-[#FFB962]/5 text-[#FFB962] text-sm">
+          <span class="font-bold">Rule:</span> Do not continue to gateway, skills, cron, or routing until this works.
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="relative flex gap-4 md:gap-10">
+      <div class="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#35343a] border border-[#51ffb4]/50 shrink-0">
+        <span class="text-[#51ffb4] font-bold">4</span>
+      </div>
+      <div class="flex-grow min-w-0 pt-1">
+        <h4 class="text-2xl font-bold text-white mb-4">Choose your next path</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left">
+            <thead>
+              <tr class="border-b border-white/[0.06]">
+                <th class="py-3 pr-4 text-[#859589] font-medium">Goal</th>
+                <th class="py-3 pr-4 text-[#859589] font-medium">Do this next</th>
+                <th class="py-3 text-[#859589] font-medium">Do not do yet</th>
+              </tr>
+            </thead>
+            <tbody class="text-[#bacbbe]">
+              <tr class="border-b border-white/[0.04]">
+                <td class="py-3 pr-4">Learn the CLI</td>
+                <td class="py-3 pr-4">Read the CLI guide and try file/search/tool examples</td>
+                <td class="py-3">Do not enable every tool at once</td>
+              </tr>
+              <tr class="border-b border-white/[0.04]">
+                <td class="py-3 pr-4">Use Telegram/Discord/Slack</td>
+                <td class="py-3 pr-4">Run <code class="text-[#18E299]">hermes gateway setup</code> after CLI chat works</td>
+                <td class="py-3">Do not debug bot tokens before the base provider works</td>
+              </tr>
+              <tr class="border-b border-white/[0.04]">
+                <td class="py-3 pr-4">Use local/self-hosted models</td>
+                <td class="py-3 pr-4">Verify endpoint URL, model name, and context length</td>
+                <td class="py-3">Do not add fallback before one model is stable</td>
+              </tr>
+              <tr class="border-b border-white/[0.04]">
+                <td class="py-3 pr-4">Resume old work</td>
+                <td class="py-3 pr-4">Try <code class="text-[#18E299]">hermes sessions list</code> then <code class="text-[#18E299]">hermes --continue</code></td>
+                <td class="py-3">Do not assume the session is in the current profile</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-4">Fix broken setup</td>
+                <td class="py-3 pr-4">Run the recovery checklist below</td>
+                <td class="py-3">Do not keep changing random config values</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recovery toolkit -->
+  <div class="mt-24 fade-in-up">
+    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3">
+      <span class="w-12 h-px bg-[var(--brand)]/30"></span>
+      Troubleshooting
+    </h3>
+    <p class="text-[#bacbbe] mb-6">Most Hermes setup failures come from adding too many layers before the first chat works. Start with the base provider and model. Then add gateway, tools, skills, cron, voice, routing, or fallback one at a time.</p>
+    <div class="space-y-3 mb-8">
+      <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
+        <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> doctor</code>
+        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes doctor">
+          <span class="material-symbols-outlined text-sm">content_copy</span>
+        </button>
+      </div>
+      <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
+        <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> model</code>
+        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes model">
+          <span class="material-symbols-outlined text-sm">content_copy</span>
+        </button>
+      </div>
+      <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
+        <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> setup</code>
+        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes setup">
+          <span class="material-symbols-outlined text-sm">content_copy</span>
+        </button>
+      </div>
+      <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
+        <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> sessions list</code>
+        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes sessions list">
+          <span class="material-symbols-outlined text-sm">content_copy</span>
+        </button>
+      </div>
+      <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
+        <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> --continue</code>
+        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes --continue">
+          <span class="material-symbols-outlined text-sm">content_copy</span>
+        </button>
+      </div>
+      <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
+        <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> gateway status</code>
+        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes gateway status">
+          <span class="material-symbols-outlined text-sm">content_copy</span>
+        </button>
+      </div>
+    </div>
+    <div class="p-4 rounded-xl border border-[#FFB962]/20 bg-[#FFB962]/5 text-[#FFB962] text-sm">
+      <span class="font-bold">Rule:</span> If the plain chat is broken, do not debug gateway, cron, skills, voice, or fallback yet.
+    </div>
+  </div>
+
+  <!-- Source -->
+  <div class="mt-16 p-6 rounded-2xl bg-[#1b1b20] ghost-border text-center">
+    <p class="text-sm text-[#859589]">
+      Source: <a href="https://hermes-agent.nousresearch.com/docs/getting-started/quickstart" class="text-[#51FFB4] underline" target="_blank" rel="noopener noreferrer">Hermes Agent Quickstart</a> ·
+      <a href="https://hermes-agent.nousresearch.com/docs" class="text-[#51FFB4] underline" target="_blank" rel="noopener noreferrer">Official Docs</a>
+    </p>
+  </div>
+</div>

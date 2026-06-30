@@ -5,17 +5,32 @@ import Footer from '../components/Footer.astro';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
-const title = "Hermes Agent 常见问题 FAQ — hermes101";
-const description = "安装失败、WSL2 报错、API key 配置、飞书/Telegram 不回复、v0.10 新功能等高频问题速查。";
-const schema = {"@context": "https://schema.org", "@type": "FAQPage", "name": "Hermes Agent 常见问题 FAQ — hermes101", "description": "安装失败、WSL2 报错、API key 配置、飞书/Telegram 不回复、v0.10 新功能等高频问题速查。"};
+const title = "Hermes Agent FAQ for Beginners — hermes101";
+const description = "Answers to common Hermes Agent setup, provider, tools, gateway, memory, skills, and troubleshooting questions.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Hermes Agent FAQ for Beginners",
+  "description": description,
+  "mainEntity": [
+    { "@type": "Question", "name": "Is hermes101.dev the official Hermes Agent website?", "acceptedAnswer": { "@type": "Answer", "text": "No. hermes101.dev is an independent beginner guide. The official Hermes Agent docs are at hermes-agent.nousresearch.com/docs." } },
+    { "@type": "Question", "name": "What is the fastest way to install Hermes Agent?", "acceptedAnswer": { "@type": "Answer", "text": "For Linux, macOS, WSL2, or Termux: curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash. For native Windows PowerShell: iex (irm https://hermes-agent.nousresearch.com/install.ps1)." } },
+    { "@type": "Question", "name": "Should I run hermes setup --portal or hermes model?", "acceptedAnswer": { "@type": "Answer", "text": "Use hermes setup --portal for the easiest guided path. Use hermes model if you already know your provider, model, API key, or custom endpoint." } },
+    { "@type": "Question", "name": "What should work before I set up Telegram, Discord, Slack, or another gateway?", "acceptedAnswer": { "@type": "Answer", "text": "A plain CLI chat should work first. Start hermes, ask a normal question, and confirm it returns a useful answer. Only then set up messaging with hermes gateway setup." } },
+    { "@type": "Question", "name": "Why does Hermes install but still not answer correctly?", "acceptedAnswer": { "@type": "Answer", "text": "The usual cause is provider auth, model selection, custom endpoint configuration, or fallback/routing being added too early. Run hermes doctor, then hermes model, then test a plain chat again." } },
+    { "@type": "Question", "name": "Can I use a local or self-hosted model with Hermes?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but verify the endpoint first. Check the base URL, model name, context length, and OpenAI-compatible behavior before relying on it in Hermes." } },
+    { "@type": "Question", "name": "What is the first success signal for a beginner?", "acceptedAnswer": { "@type": "Answer", "text": "A useful first success signal is simple: hermes opens, your provider is configured, and Hermes can answer one normal prompt without auth errors or empty output." } },
+    { "@type": "Question", "name": "Should I enable all tools, memory, skills, gateway, and cron on day one?", "acceptedAnswer": { "@type": "Answer", "text": "No. Get one clean conversation working first. Then add tools, skills, memory, gateway, cron, voice, routing, and fallback one layer at a time." } }
+  ]
+};
 
-const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'faq-content.html'), 'utf-8');
+const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'faq-content-en.html'), 'utf-8');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/zh/faq/" noindex={true} title={title} description={description} schema={schema}>
-  <Nav lang="zh-CN" />
+<Layout lang="en" canonicalPath="/faq/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />
   </main>
-  <Footer lang="zh-CN" />
+  <Footer lang="en" />
 </Layout>

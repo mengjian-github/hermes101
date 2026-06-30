@@ -1,0 +1,100 @@
+<article class="max-w-[960px] mx-auto px-6">
+  <div class="bg-[#fffbeb] border border-[#fde68a] rounded-[10px] px-5 py-3 mt-6 flex flex-wrap gap-4 items-center text-[13px] text-[#92400e]">
+    <span>📌 Based on Hermes v0.10.x</span>
+    <span>Last checked: 2026-06-29</span>
+    <span>⚠️ Independent guide — not official</span>
+  </div>
+
+  <h1 class="text-[36px] font-semibold leading-[1.3] tracking-[-0.3px] mt-10 mb-2">Hermes Agent FAQ for Beginners</h1>
+  <p class="text-base text-[#859589] mb-8">Answers to common Hermes Agent setup, provider, tools, gateway, memory, skills, and troubleshooting questions.</p>
+
+  <div class="mb-8">
+    <h2 class="text-lg font-bold text-[#E4E1E9] mb-4">Setup and Installation</h2>
+    <div class="space-y-3">
+      <div class="accordion-item" id="faq-0-0">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>Is hermes101.dev the official Hermes Agent website?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>No. hermes101.dev is an independent beginner guide. The official Hermes Agent docs are at <a href="https://hermes-agent.nousresearch.com/docs" class="text-[#51FFB4] underline" target="_blank" rel="noopener noreferrer">hermes-agent.nousresearch.com/docs</a>. Every setup page links back to the official source and shows when it was last checked.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-0-1">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>What is the fastest way to install Hermes Agent?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>For Linux, macOS, WSL2, or Termux: <code class="bg-[#131318] px-1 rounded text-sm">curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</code>. For native Windows PowerShell: <code class="bg-[#131318] px-1 rounded text-sm">iex (irm https://hermes-agent.nousresearch.com/install.ps1)</code>. Always verify against the official docs before running install commands.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-0-2">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>Should I run `hermes setup --portal` or `hermes model`?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>Use <code class="bg-[#131318] px-1 rounded text-sm">hermes setup --portal</code> if you want the easiest guided path through Nous Portal. Use <code class="bg-[#131318] px-1 rounded text-sm">hermes model</code> if you already know which provider, model, API key, or custom endpoint you want to use.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-0-3">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>What should work before I set up Telegram, Discord, Slack, or another gateway?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>A plain CLI chat should work first. Start <code class="bg-[#131318] px-1 rounded text-sm">hermes</code>, ask a normal question, and confirm it returns a useful answer. Only then set up messaging with <code class="bg-[#131318] px-1 rounded text-sm">hermes gateway setup</code>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
+    <h2 class="text-lg font-bold text-[#E4E1E9] mb-4">Troubleshooting</h2>
+    <div class="space-y-3">
+      <div class="accordion-item" id="faq-1-0">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>Why does Hermes install but still not answer correctly?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>The usual cause is provider auth, model selection, custom endpoint configuration, or fallback/routing being added too early. Run <code class="bg-[#131318] px-1 rounded text-sm">hermes doctor</code>, then <code class="bg-[#131318] px-1 rounded text-sm">hermes model</code>, then test a plain chat again.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-1-1">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>Can I use a local or self-hosted model with Hermes?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>Yes, but verify the endpoint first. Check the base URL, model name, context length, and OpenAI-compatible behavior before relying on it in Hermes. Test the endpoint in another client if possible.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-1-2">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>What is the first success signal for a beginner?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>A useful first success signal is simple: <code class="bg-[#131318] px-1 rounded text-sm">hermes</code> opens, your provider is configured, and Hermes can answer one normal prompt without auth errors or empty output.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-1-3">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>Should I enable all tools, memory, skills, gateway, and cron on day one?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>No. Get one clean conversation working first. Then add tools, skills, memory, gateway, cron, voice, routing, and fallback one layer at a time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-10 p-6 rounded-2xl bg-[#1b1b20] ghost-border">
+    <p class="text-sm text-[#859589]">
+      Still stuck? Run the recovery checklist in order: <code class="bg-[#131318] px-1 rounded text-sm">hermes doctor</code> → <code class="bg-[#131318] px-1 rounded text-sm">hermes model</code> → <code class="bg-[#131318] px-1 rounded text-sm">hermes setup</code> → <code class="bg-[#131318] px-1 rounded text-sm">hermes sessions list</code> → <code class="bg-[#131318] px-1 rounded text-sm">hermes --continue</code> → <code class="bg-[#131318] px-1 rounded text-sm">hermes gateway status</code>.
+    </p>
+  </div>
+</article>

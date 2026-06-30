@@ -5,34 +5,28 @@ import Footer from '../components/Footer.astro';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
-const title = "安装 Hermes Agent — hermes101";
-const description = "60 秒完成 Hermes Agent 安装。支持 Linux / macOS / Windows WSL2 / Termux，官方一键脚本。";
-const schema = {"@context": "https://schema.org", "@type": "HowTo", "name": "安装 Hermes Agent — hermes101", "description": "60 秒完成 Hermes Agent 安装。支持 Linux / macOS / Windows WSL2 / Termux，官方一键脚本。"};
+const title = "Hermes Agent Setup Guide — hermes101";
+const description = "Install Hermes Agent, reload your shell, choose a provider with hermes model or hermes setup --portal, and verify that Hermes can complete a normal chat.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Hermes Agent Setup Guide",
+  "description": description,
+  "step": [
+    { "@type": "HowToStep", "name": "Install Hermes Agent", "text": "Run curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash" },
+    { "@type": "HowToStep", "name": "Reload shell", "text": "source ~/.bashrc or source ~/.zshrc" },
+    { "@type": "HowToStep", "name": "Choose provider", "text": "Run hermes setup --portal or hermes model" },
+    { "@type": "HowToStep", "name": "Verify first chat", "text": "Run hermes and ask a normal question" }
+  ]
+};
 
-const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'setup-content.html'), 'utf-8');
+const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'setup-content-en.html'), 'utf-8');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/zh/setup/" noindex={true} title={title} description={description} schema={schema}>
-  <Nav lang="zh-CN" />
+<Layout lang="en" canonicalPath="/setup/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />
   </main>
-  <Footer lang="zh-CN" />
-  <script is:inline>
-    // OS tab switching
-    function switchTab(tab) {
-      document.querySelectorAll('[data-panel]').forEach(p => p.classList.add('hidden'));
-      document.querySelectorAll('[data-tab]').forEach(b => {
-        b.classList.remove('text-[#51ffb4]', 'font-bold', 'border-b-2', 'border-[#51ffb4]');
-        b.classList.add('text-[#bacbbe]', 'font-medium');
-      });
-      const panel = document.querySelector('[data-panel="' + tab + '"]');
-      const btn = document.querySelector('[data-tab="' + tab + '"]');
-      if (panel) panel.classList.remove('hidden');
-      if (btn) {
-        btn.classList.remove('text-[#bacbbe]', 'font-medium');
-        btn.classList.add('text-[#51ffb4]', 'font-bold', 'border-b-2', 'border-[#51ffb4]');
-      }
-    }
-  </script>
+  <Footer lang="en" />
 </Layout>

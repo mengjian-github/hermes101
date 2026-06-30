@@ -5,17 +5,32 @@ import Footer from '../components/Footer.astro';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
-const title = "Hermes Agent 教程：7 天入门路径 — hermes101";
-const description = "从安装到自动化，7 天跟练计划。每天一个可验证成果，所有命令均经官网核对。";
-const schema = {"@context": "https://schema.org", "@type": "ItemList", "name": "Hermes Agent 7 天入门路径", "description": description, "numberOfItems": 7};
+const title = "Learn Hermes Agent in 7 Days — hermes101";
+const description = "A 7-day Hermes Agent learning path from first setup to tools, memory, skills, gateway, automation, and troubleshooting.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Learn Hermes Agent in 7 Days",
+  "description": description,
+  "numberOfItems": 7,
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Day 1 — Install and first chat", "description": "Hermes responds to a normal prompt in CLI." },
+    { "@type": "ListItem", "position": 2, "name": "Day 2 — Provider and model control", "description": "You can switch or verify provider/model with hermes model." },
+    { "@type": "ListItem", "position": 3, "name": "Day 3 — Tools and toolsets", "description": "You understand which tools are enabled and how to keep toolsets minimal." },
+    { "@type": "ListItem", "position": 4, "name": "Day 4 — Memory and sessions", "description": "You can resume previous work and understand persistent memory vs session history." },
+    { "@type": "ListItem", "position": 5, "name": "Day 5 — Skills", "description": "You understand skills as procedural memory and know when Hermes creates or improves them." },
+    { "@type": "ListItem", "position": 6, "name": "Day 6 — Messaging gateway", "description": "You can plan a Telegram/Discord/Slack setup only after CLI works." },
+    { "@type": "ListItem", "position": 7, "name": "Day 7 — Recovery and maintenance", "description": "You can use hermes doctor, hermes model, hermes setup, sessions, continue, and gateway status to recover." }
+  ]
+};
 
-const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-index.html'), 'utf-8');
+const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-index-en.html'), 'utf-8');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/zh/7-days/" noindex={true} title={title} description={description} schema={schema}>
-  <Nav lang="zh-CN" />
+<Layout lang="en" canonicalPath="/7-days/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />
   </main>
-  <Footer lang="zh-CN" />
+  <Footer lang="en" />
 </Layout>
