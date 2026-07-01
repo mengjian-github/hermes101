@@ -1,20 +1,35 @@
 <div class="max-w-[800px] mx-auto px-6">
   <!-- Hero -->
   <div class="mb-16 text-center md:text-left fade-in-up">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b1b20] ghost-border mb-6">
+    <div class="inline-flex max-w-full flex-wrap items-center justify-center md:justify-start gap-2 px-3 py-1 rounded-full bg-[#1b1b20] ghost-border mb-6">
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#51ffb4] opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-[#51ffb4]"></span>
       </span>
-      <span class="text-[10px] font-bold uppercase tracking-widest text-[#51ffb4]">Official docs checked 2026-06-29</span>
+      <span class="min-w-0 break-words text-[10px] font-bold uppercase tracking-[0.14em] md:tracking-widest text-[#51ffb4]">Official docs checked 2026-07-01</span>
     </div>
-    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-[-0.04em] mb-6">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-[-0.04em] mb-6 break-words">
       Hermes Agent <span class="text-[#51ffb4]">Setup Guide</span>
     </h1>
     <p class="text-[#bacbbe] text-lg max-w-2xl leading-relaxed">
       Install Hermes Agent, select a provider, run the first chat, and verify your setup before adding messaging or advanced tools.
     </p>
   </div>
+
+
+  <!-- Setup TOC -->
+  <nav class="mb-16 p-6 rounded-2xl bg-[#101018] border border-[#18E299]/15 fade-in-up" aria-label="Setup table of contents">
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#51ffb4]">Beginner setup sequence</p>
+    <h2 class="text-2xl font-black text-white mt-2 mb-5">Install, choose a provider, then prove one chat works</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#setup-prerequisites">1. Prerequisites</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#install-hermes-agent">2. Install command</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#choose-a-provider">3. Provider/model</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#verify-your-first-chat">4. First chat</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#recovery-toolkit">5. Recovery toolkit</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#setup-faq">6. Setup FAQ</a>
+    </div>
+  </nav>
 
   <!-- Setup Illustration -->
   <div class="mb-16 rounded-2xl overflow-hidden border border-white/[0.06]">
@@ -23,10 +38,10 @@
 
   <!-- Pre-check -->
   <div class="mb-16 fade-in-up">
-    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-6 flex items-center gap-3">
+    <h2 id="setup-prerequisites" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-6 flex items-center gap-3 scroll-mt-28">
       <span class="w-12 h-px bg-[var(--brand)]/30"></span>
       Before you start
-    </h3>
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div class="p-6 rounded-2xl bg-[#1b1b20] ghost-border group hover:bg-[#1f1f25] transition-colors duration-300">
         <div class="mb-4">
@@ -66,7 +81,7 @@
         <span class="text-[#51ffb4] font-bold">1</span>
       </div>
       <div class="flex-grow min-w-0 pt-1">
-        <h4 class="text-2xl font-bold text-white mb-4">Install Hermes Agent</h4>
+        <h2 id="install-hermes-agent" class="text-2xl font-bold text-white mb-4 scroll-mt-28">Install Hermes Agent</h2>
         <p class="text-[#bacbbe] mb-6 leading-relaxed">
           Open a terminal and run the official install script. The script detects your environment and installs Hermes and its dependencies.
         </p>
@@ -125,7 +140,7 @@
         <span class="text-[#51ffb4] font-bold">2</span>
       </div>
       <div class="flex-grow min-w-0 pt-1">
-        <h4 class="text-2xl font-bold text-white mb-4">Choose a provider</h4>
+        <h2 id="choose-a-provider" class="text-2xl font-bold text-white mb-4 scroll-mt-28">Choose a provider</h2>
         <p class="text-[#bacbbe] mb-6 leading-relaxed">
           The first time you use Hermes, configure your model provider and API key. Use the interactive wizard or manual provider setup.
         </p>
@@ -169,7 +184,7 @@
         <span class="text-[#51ffb4] font-bold">3</span>
       </div>
       <div class="flex-grow min-w-0 pt-1">
-        <h4 class="text-2xl font-bold text-white mb-4">Verify your first chat</h4>
+        <h2 id="verify-your-first-chat" class="text-2xl font-bold text-white mb-4 scroll-mt-28">Verify your first chat</h2>
         <p class="text-[#bacbbe] mb-6 leading-relaxed">
           Everything ready! Run <code class="text-[#18E299]">hermes</code> to enter the interactive CLI and start your first conversation.
         </p>
@@ -232,10 +247,10 @@
 
   <!-- Recovery toolkit -->
   <div class="mt-24 fade-in-up">
-    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3">
+    <h2 id="recovery-toolkit" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3 scroll-mt-28">
       <span class="w-12 h-px bg-[var(--brand)]/30"></span>
       Recovery toolkit
-    </h3>
+    </h2>
     <p class="text-[#bacbbe] mb-6">If the plain chat is broken, run these in order. Do not debug gateway, cron, skills, voice, or fallback yet.</p>
     <div class="space-y-3">
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
@@ -279,10 +294,10 @@
 
   <!-- FAQ -->
   <div class="mt-24 fade-in-up">
-    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3">
+    <h2 id="setup-faq" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3 scroll-mt-28">
       <span class="w-12 h-px bg-[var(--brand)]/30"></span>
       Common questions
-    </h3>
+    </h2>
     <div class="space-y-4">
       <details class="group p-6 rounded-2xl bg-[#1b1b20] ghost-border cursor-pointer">
         <summary class="flex items-center justify-between list-none">

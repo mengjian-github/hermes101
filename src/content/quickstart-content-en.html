@@ -1,14 +1,14 @@
 <div class="max-w-[800px] mx-auto px-6">
   <!-- Hero -->
   <div class="mb-16 text-center md:text-left fade-in-up">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b1b20] ghost-border mb-6">
+    <div class="inline-flex max-w-full flex-wrap items-center justify-center md:justify-start gap-2 px-3 py-1 rounded-full bg-[#1b1b20] ghost-border mb-6">
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#51ffb4] opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-[#51ffb4]"></span>
       </span>
-      <span class="text-[10px] font-bold uppercase tracking-widest text-[#51ffb4]">Quickstart · Official docs checked 2026-06-29</span>
+      <span class="min-w-0 break-words text-[10px] font-bold uppercase tracking-[0.14em] md:tracking-widest text-[#51ffb4]">Quickstart · Official docs checked 2026-07-01</span>
     </div>
-    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-[-0.04em] mb-6">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-[-0.04em] mb-6 break-words">
       Hermes Agent <span class="text-[#51ffb4]">Quickstart</span>
     </h1>
     <p class="text-[#bacbbe] text-lg max-w-2xl leading-relaxed">
@@ -16,12 +16,32 @@
     </p>
   </div>
 
+
+  <!-- Task chain / TOC -->
+  <nav class="mb-16 p-6 rounded-2xl bg-[#101018] border border-[#18E299]/15 fade-in-up" aria-label="Quickstart task chain">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#51ffb4]">Install → Provider → First chat → Troubleshooting</p>
+        <h2 class="text-2xl font-black text-white mt-2">Quickstart task chain</h2>
+      </div>
+      <a href="/setup/" class="cta-primary w-full md:w-auto justify-center" data-track-event="start_install_click">Start install path</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#prerequisites">1. Prerequisites</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#install-hermes-agent">2. Install Hermes Agent</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#choose-a-provider">3. Provider and model</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#verify-your-first-chat">4. First chat verification</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#choose-your-next-path">5. Next path</a>
+      <a class="p-4 rounded-xl bg-[#1b1b20] ghost-border text-[#bacbbe] hover:text-white" href="#troubleshooting">6. Troubleshooting</a>
+    </div>
+  </nav>
+
   <!-- Before you start -->
   <div class="mb-16 fade-in-up">
-    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-6 flex items-center gap-3">
+    <h2 id="prerequisites" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-6 flex items-center gap-3 scroll-mt-28">
       <span class="w-12 h-px bg-[var(--brand)]/30"></span>
       Before you start
-    </h3>
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div class="p-6 rounded-2xl bg-[#1b1b20] ghost-border">
         <h3 class="text-white font-bold mb-2">You need</h3>
@@ -47,7 +67,7 @@
         <span class="text-[#51ffb4] font-bold">1</span>
       </div>
       <div class="flex-grow min-w-0 pt-1">
-        <h4 class="text-2xl font-bold text-white mb-4">Install Hermes Agent</h4>
+        <h2 id="install-hermes-agent" class="text-2xl font-bold text-white mb-4 scroll-mt-28">Install Hermes Agent</h2>
         <p class="text-[#bacbbe] mb-6 leading-relaxed">
           Linux / macOS / WSL2 / Android Termux:
         </p>
@@ -102,7 +122,7 @@
         <span class="text-[#51ffb4] font-bold">2</span>
       </div>
       <div class="flex-grow min-w-0 pt-1">
-        <h4 class="text-2xl font-bold text-white mb-4">Choose a provider</h4>
+        <h2 id="choose-a-provider" class="text-2xl font-bold text-white mb-4 scroll-mt-28">Choose a provider and model</h2>
         <p class="text-[#bacbbe] mb-6 leading-relaxed">
           Fast path (guided):
         </p>
@@ -149,7 +169,7 @@
         <span class="text-[#51ffb4] font-bold">3</span>
       </div>
       <div class="flex-grow min-w-0 pt-1">
-        <h4 class="text-2xl font-bold text-white mb-4">Verify your first chat</h4>
+        <h2 id="verify-your-first-chat" class="text-2xl font-bold text-white mb-4 scroll-mt-28">Verify your first chat</h2>
         <p class="text-[#bacbbe] mb-6 leading-relaxed">
           Run:
         </p>
@@ -205,7 +225,7 @@
         <span class="text-[#51ffb4] font-bold">4</span>
       </div>
       <div class="flex-grow min-w-0 pt-1">
-        <h4 class="text-2xl font-bold text-white mb-4">Choose your next path</h4>
+        <h2 id="choose-your-next-path" class="text-2xl font-bold text-white mb-4 scroll-mt-28">Choose your next path</h2>
         <div class="overflow-x-auto">
           <table class="w-full text-sm text-left">
             <thead>
@@ -250,10 +270,10 @@
 
   <!-- Recovery toolkit -->
   <div class="mt-24 fade-in-up">
-    <h3 class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3">
+    <h2 id="troubleshooting" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3 scroll-mt-28">
       <span class="w-12 h-px bg-[var(--brand)]/30"></span>
       Troubleshooting
-    </h3>
+    </h2>
     <p class="text-[#bacbbe] mb-6">Most Hermes setup failures come from adding too many layers before the first chat works. Start with the base provider and model. Then add gateway, tools, skills, cron, voice, routing, or fallback one at a time.</p>
     <div class="space-y-3 mb-8">
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
@@ -295,6 +315,38 @@
     </div>
     <div class="p-4 rounded-xl border border-[#FFB962]/20 bg-[#FFB962]/5 text-[#FFB962] text-sm">
       <span class="font-bold">Rule:</span> If the plain chat is broken, do not debug gateway, cron, skills, voice, or fallback yet.
+    </div>
+  </div>
+
+
+  <!-- FAQ -->
+  <div class="mt-24 fade-in-up">
+    <h2 id="quickstart-faq" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3 scroll-mt-28">
+      <span class="w-12 h-px bg-[var(--brand)]/30"></span>
+      Quickstart FAQ
+    </h2>
+    <div class="space-y-4">
+      <details class="group p-6 rounded-2xl bg-[#1b1b20] ghost-border cursor-pointer">
+        <summary class="flex items-center justify-between gap-4 list-none">
+          <span class="font-semibold text-white">Should I run hermes setup or hermes model first?</span>
+          <span class="material-symbols-outlined text-[#51ffb4] group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <div class="mt-4 text-[#bacbbe] text-sm leading-relaxed">Use <code class="text-[#18E299]">hermes setup</code> for the guided setup. If you already know your provider and model, use <code class="text-[#18E299]">hermes model</code>, save the choice, then verify one normal chat.</div>
+      </details>
+      <details class="group p-6 rounded-2xl bg-[#1b1b20] ghost-border cursor-pointer">
+        <summary class="flex items-center justify-between gap-4 list-none">
+          <span class="font-semibold text-white">When should I configure gateway or messaging?</span>
+          <span class="material-symbols-outlined text-[#51ffb4] group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <div class="mt-4 text-[#bacbbe] text-sm leading-relaxed">Configure Telegram, Discord, Slack, or other gateways only after the plain CLI chat works. If the base provider is broken, gateway setup makes the failure harder to isolate.</div>
+      </details>
+      <details class="group p-6 rounded-2xl bg-[#1b1b20] ghost-border cursor-pointer">
+        <summary class="flex items-center justify-between gap-4 list-none">
+          <span class="font-semibold text-white">What is the fastest recovery checklist?</span>
+          <span class="material-symbols-outlined text-[#51ffb4] group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <div class="mt-4 text-[#bacbbe] text-sm leading-relaxed">Run <code class="text-[#18E299]">hermes doctor</code>, confirm the selected provider with <code class="text-[#18E299]">hermes model</code>, then start <code class="text-[#18E299]">hermes</code> and test a short prompt before changing tools, skills, cron, or fallback.</div>
+      </details>
     </div>
   </div>
 

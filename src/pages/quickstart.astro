@@ -6,17 +6,41 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Hermes Agent Quickstart: Setup Guide and First Chat — hermes101";
-const description = "The fastest beginner path for Hermes Agent: install on macOS, Linux, WSL2, Windows, or Termux; run setup; choose a provider; verify your first chat; fix common setup errors.";
+const description = "Install Hermes Agent, choose a provider, verify your first chat, fix setup errors, and know when to add gateway, tools, skills, or cron.";
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "dateModified": "2026-06-29",
-  "author": { "@type": "Organization", "name": "hermes101.dev" },
-  "publisher": { "@type": "Organization", "name": "hermes101.dev", "url": "https://hermes101.dev" },
-  "isPartOf": { "@type": "WebSite", "name": "hermes101.dev", "url": "https://hermes101.dev" },
-  "citation": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": title,
+      "description": description,
+      "dateModified": "2026-07-01",
+      "author": { "@type": "Organization", "name": "hermes101.dev" },
+      "publisher": { "@type": "Organization", "name": "hermes101.dev", "url": "https://hermes101.dev" },
+      "isPartOf": { "@type": "WebSite", "name": "hermes101.dev", "url": "https://hermes101.dev" },
+      "citation": "https://hermes-agent.nousresearch.com/docs/getting-started/quickstart"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Should I run hermes setup or hermes model first?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Run hermes setup for the guided setup. If you already know your provider and model, run hermes model and then verify one normal chat." }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I configure gateway or messaging?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Only after a plain CLI chat works. If the provider or model is broken, gateway setup adds noise and makes debugging slower." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the quickest recovery path when Hermes does not respond?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Run hermes doctor, check the selected model with hermes model, then start hermes and test a short prompt before adding tools or automation." }
+        }
+      ]
+    }
+  ]
 };
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'quickstart-content-en.html'), 'utf-8');

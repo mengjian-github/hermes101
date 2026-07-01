@@ -53,6 +53,7 @@ html.transitioning *::after {
 /* --- Base Styles --- */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -60,8 +61,46 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.75;
+  overflow-x: hidden;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+}
+
+a,
+button,
+summary,
+code,
+pre,
+td,
+th {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+  body {
+    word-break: normal;
+  }
+
+  .cta-primary,
+  .cta-ghost {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 code, pre {

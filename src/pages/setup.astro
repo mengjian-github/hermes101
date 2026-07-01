@@ -9,14 +9,25 @@ const title = "Hermes Agent Setup Guide — hermes101";
 const description = "Install Hermes Agent, reload your shell, choose a provider with hermes model or hermes setup --portal, and verify that Hermes can complete a normal chat.";
 const schema = {
   "@context": "https://schema.org",
-  "@type": "HowTo",
-  "name": "Hermes Agent Setup Guide",
-  "description": description,
-  "step": [
-    { "@type": "HowToStep", "name": "Install Hermes Agent", "text": "Run curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash" },
-    { "@type": "HowToStep", "name": "Reload shell", "text": "source ~/.bashrc or source ~/.zshrc" },
-    { "@type": "HowToStep", "name": "Choose provider", "text": "Run hermes setup --portal or hermes model" },
-    { "@type": "HowToStep", "name": "Verify first chat", "text": "Run hermes and ask a normal question" }
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "Hermes Agent Setup Guide",
+      "description": description,
+      "step": [
+        { "@type": "HowToStep", "name": "Install Hermes Agent", "text": "Run curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash or iex (irm https://hermes-agent.nousresearch.com/install.ps1) on native Windows." },
+        { "@type": "HowToStep", "name": "Reload shell", "text": "Run source ~/.bashrc or source ~/.zshrc, then confirm the hermes command is available." },
+        { "@type": "HowToStep", "name": "Choose provider", "text": "Run hermes setup --portal for the guided Nous Portal path, or hermes model for manual provider selection." },
+        { "@type": "HowToStep", "name": "Verify first chat", "text": "Run hermes and ask a normal question before enabling gateway, cron, skills, or routing." }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Which setup command should beginners use?", "acceptedAnswer": { "@type": "Answer", "text": "Use hermes setup for the general guided setup. Use hermes setup --portal when you want the fastest Nous Portal path." } },
+        { "@type": "Question", "name": "What should I verify before adding Telegram or Discord?", "acceptedAnswer": { "@type": "Answer", "text": "Verify that the hermes command starts and returns a useful answer in a plain CLI chat." } }
+      ]
+    }
   ]
 };
 
