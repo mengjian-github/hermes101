@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 2 — 配置模型与 API Key | 7 天教程 — hermes101";
-const description = "配置模型 Provider 和 API Key，切换模型并验证回复质量。";
+const description = "第 2 天讲清 Hermes Agent 的 Provider、API Key、默认模型、fallback 配置、模型切换命令和回复质量验证流程，帮助初学者理解配置文件、环境变量、认证失败原因，并稳定跑通第一个可用模型。";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-2.html'), 'utf-8');

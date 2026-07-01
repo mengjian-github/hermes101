@@ -6,14 +6,14 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 2 — 配置模型与 API Key | 7 天教程 — hermes101";
-const description = "配置模型 Provider 和 API Key，切换模型并验证回复质量。";
+const description = "Day 2 explains Hermes Agent provider setup, API key placement, model switching, fallback checks, and a repeatable verification flow for reliable first responses.";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const rawContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-2.html'), 'utf-8');
 const pageContent = rawContent.replace(/href="\/zh\//g, 'href="/');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/zh/7-days/day-2/" noindex={true} title={title} description={description} schema={schema}>
+<Layout lang="zh-CN" canonicalPath="/7-days/day-2/" title={title} description={description} schema={schema}>
   <Nav lang="zh-CN" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />

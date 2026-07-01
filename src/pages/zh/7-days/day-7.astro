@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 7 — 自动化、诊断与迁移 | 7 天教程 — hermes101";
-const description = "定时任务、Webhook、诊断排错、OpenClaw 迁移。完成 7 天入门路径。";
+const description = "第 7 天完成 Hermes Agent 入门闭环：配置 cron 定时任务、Webhook、诊断排错、OpenClaw 迁移检查和最终自动化准备度复盘，确认通知、日志、失败恢复、任务验证都能支撑独立处理真实任务。";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-7.html'), 'utf-8');

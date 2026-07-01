@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 4 — 调用内置工具 | 7 天教程 — hermes101";
-const description = "调用 Hermes 内置工具：搜索、执行命令、浏览器、文件操作等。";
+const description = "第 4 天学习 Hermes Agent 内置工具，包括网页搜索、终端命令、浏览器操作、文件读取、代码检查和安全验证，用真实任务理解什么时候该调用工具、如何避免空想、怎样用输出确认结果，并把每一步操作转成可复查证据。";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-4.html'), 'utf-8');

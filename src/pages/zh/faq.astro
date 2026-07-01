@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Hermes Agent 常见问题 FAQ — hermes101";
-const description = "安装失败、WSL2 报错、API key 配置、飞书/Telegram 不回复、v0.10 新功能等高频问题速查。";
+const description = "Hermes Agent 中文 FAQ，集中解答安装失败、WSL2 报错、API Key 与 Provider 配置、Telegram/飞书等消息网关不回复、Skills、记忆、v0.10 新功能、OpenClaw 迁移和常见排错路径。";
 const schema = {"@context": "https://schema.org", "@type": "FAQPage", "name": "Hermes Agent 常见问题 FAQ — hermes101", "description": "安装失败、WSL2 报错、API key 配置、飞书/Telegram 不回复、v0.10 新功能等高频问题速查。"};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'faq-content.html'), 'utf-8');

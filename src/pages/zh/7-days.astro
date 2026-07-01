@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Hermes Agent 教程：7 天入门路径 — hermes101";
-const description = "从安装到自动化，7 天跟练计划。每天一个可验证成果，所有命令均经官网核对。";
+const description = "Hermes Agent 7 天中文跟练计划，从安装、模型配置、消息网关、工具调用、Skills、记忆系统到定时任务自动化，每天一个可验证成果，并配套官网核对命令、截图式检查点、常见错误解释和下一步练习。";
 const schema = {"@context": "https://schema.org", "@type": "ItemList", "name": "Hermes Agent 7 天入门路径", "description": description, "numberOfItems": 7};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-index.html'), 'utf-8');

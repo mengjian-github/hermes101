@@ -6,14 +6,14 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 3 — 连接消息平台机器人 | 7 天教程 — hermes101";
-const description = "连接 Telegram、Discord、Slack 等消息平台，让 Hermes 在聊天中回复你。";
+const description = "Day 3 connects Hermes Agent to message gateways such as Telegram, Discord, and Slack, then verifies bot replies, routing, permissions, and common delivery failures.";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const rawContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-3.html'), 'utf-8');
 const pageContent = rawContent.replace(/href="\/zh\//g, 'href="/');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/zh/7-days/day-3/" noindex={true} title={title} description={description} schema={schema}>
+<Layout lang="zh-CN" canonicalPath="/7-days/day-3/" title={title} description={description} schema={schema}>
   <Nav lang="zh-CN" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />

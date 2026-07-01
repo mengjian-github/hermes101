@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 3 — 连接消息平台机器人 | 7 天教程 — hermes101";
-const description = "连接 Telegram、Discord、Slack 等消息平台，让 Hermes 在聊天中回复你。";
+const description = "第 3 天把 Hermes Agent 接入 Telegram、Discord、Slack 等消息网关，完成 bot token、频道权限、路由配置、gateway 启动、回复验证和消息投递失败排查，让助手能在聊天里稳定工作。";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-3.html'), 'utf-8');

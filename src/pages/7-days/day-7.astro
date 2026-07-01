@@ -6,14 +6,14 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 7 — 自动化、诊断与迁移 | 7 天教程 — hermes101";
-const description = "定时任务、Webhook、诊断排错、OpenClaw 迁移。完成 7 天入门路径。";
+const description = "Day 7 finishes the Hermes Agent beginner path with cron jobs, webhooks, diagnostics, migration checks, and a final review of automation readiness.";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const rawContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-7.html'), 'utf-8');
 const pageContent = rawContent.replace(/href="\/zh\//g, 'href="/');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/zh/7-days/day-7/" noindex={true} title={title} description={description} schema={schema}>
+<Layout lang="zh-CN" canonicalPath="/7-days/day-7/" title={title} description={description} schema={schema}>
   <Nav lang="zh-CN" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />

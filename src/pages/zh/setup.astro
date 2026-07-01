@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "安装 Hermes Agent — hermes101";
-const description = "60 秒完成 Hermes Agent 安装。支持 Linux / macOS / Windows WSL2 / Termux，官方一键脚本。";
+const description = "Hermes Agent 中文安装指南，覆盖 Linux、macOS、Windows WSL2、Termux 的官方安装命令、Shell 重载、Provider 配置、首次对话验证，以及 PATH、权限、Node、API Key、网络代理等常见安装失败和环境变量问题修复。";
 const schema = {"@context": "https://schema.org", "@type": "HowTo", "name": "安装 Hermes Agent — hermes101", "description": "60 秒完成 Hermes Agent 安装。支持 Linux / macOS / Windows WSL2 / Termux，官方一键脚本。"};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'setup-content.html'), 'utf-8');

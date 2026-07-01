@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 5 — 安装并使用技能 | 7 天教程 — hermes101";
-const description = "安装并使用 Hermes 技能——可复用的工作流和知识包。";
+const description = "第 5 天学习 Hermes Agent Skills：何时加载技能、如何按技能检查执行任务、怎样把复杂流程沉淀成可复用知识包，并在任务完成后更新技能、维护过期步骤、补充踩坑记录，避免误导后续会话和团队协作。";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-5.html'), 'utf-8');

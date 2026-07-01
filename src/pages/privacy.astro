@@ -4,9 +4,9 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
 const title = "Privacy Policy — Hermes Agent 101";
-const description = "Privacy policy for Hermes Agent 101: what data we collect, how we use analytics, and your rights.";
+const description = "Privacy policy for Hermes Agent 101 explaining what site data is collected, how analytics providers are used, third-party links, retention expectations, and user rights.";
 ---
-<Layout title={title} description={description} lang="en" noindex={true}>
+<Layout title={title} description={description} lang="en" canonicalPath="/privacy/">
   <Nav lang="en" />
   <main class="pt-24 pb-20 px-6 max-w-3xl mx-auto">
     <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-8 tracking-tight">Privacy Policy</h1>
@@ -40,7 +40,7 @@ const description = "Privacy policy for Hermes Agent 101: what data we collect, 
 
       <section>
         <h2 class="text-xl font-bold text-white mt-8 mb-3">5. Contact</h2>
-        <p>For privacy questions, reach out via the <a href="/faq" class="text-[#51ffb4] underline">FAQ page</a> or the GitHub repository.</p>
+        <p>For privacy questions, reach out via the <a href="/faq/" class="text-[#51ffb4] underline">FAQ page</a> or the GitHub repository.</p>
       </section>
     </div>
   </main>

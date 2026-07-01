@@ -6,13 +6,13 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "OpenClaw 迁移 Hermes 完整指南 — hermes101";
-const description = "使用 hermes claw migrate 一键迁移。附 0.9 功能对照表、检查清单、常见失败修复、迁移后验证。";
+const description = "A practical OpenClaw to Hermes Agent migration guide covering hermes claw migrate, backup checks, version differences, failure fixes, and verification.";
 const schema = {"@context": "https://schema.org", "@type": "HowTo", "name": "OpenClaw 迁移 Hermes 完整指南 — hermes101", "description": "使用 hermes claw migrate 一键迁移。附 0.9 功能对照表、检查清单、常见失败修复、迁移后验证。"};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'migrate-content.html'), 'utf-8');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/zh/migrate/" noindex={true} title={title} description={description} schema={schema}>
+<Layout lang="zh-CN" canonicalPath="/migrate/" title={title} description={description} schema={schema}>
   <Nav lang="zh-CN" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />

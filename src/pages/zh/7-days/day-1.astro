@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 1 — 安装 Hermes Agent | 7 天教程 — hermes101";
-const description = "安装 Hermes Agent，运行第一次对话。支持 Mac、Linux、WSL2。";
+const description = "第 1 天带你从官方安装命令开始完成 Hermes Agent 初装、Shell 重新加载、首次 hermes 对话验证，并覆盖 macOS、Linux、Windows WSL2 的环境差异、PATH 问题、权限失败、网络异常、失败重试和新手检查项。";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-1.html'), 'utf-8');

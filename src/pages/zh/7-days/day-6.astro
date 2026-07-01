@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 6 — 记忆、会话与备份 | 7 天教程 — hermes101";
-const description = "掌握上下文压缩、会话管理、备份恢复。理解 Hermes 记忆系统。";
+const description = "第 6 天理解 Hermes Agent 的记忆、用户画像、会话上下文、压缩机制、备份习惯和恢复检查，学习如何记录长期有效事实、避免保存短期进度，区分 memory 与 skill，并让长项目跨会话保持连续、可追踪和可恢复。";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-6.html'), 'utf-8');
