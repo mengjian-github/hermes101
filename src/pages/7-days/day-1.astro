@@ -14,10 +14,10 @@ const rawContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-da
 const pageContent = rawContent.replace(/href="\/zh\//g, 'href="/');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/7-days/day-1/" title={title} description={description} schema={schema}>
-  <Nav lang="zh-CN" />
+<Layout lang="en" canonicalPath="/7-days/day-1/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />
   </main>
-  <Footer lang="zh-CN" />
+  <Footer lang="en" />
 </Layout>

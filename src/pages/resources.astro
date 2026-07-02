@@ -6,16 +6,16 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Hermes Agent 优质教程资源整合 — hermes101";
-const description = "A curated Hermes Agent resource hub with official docs, setup guides, Chinese tutorials, community links, troubleshooting references, and workflow examples.";
+const description = "A curated Hermes Agent resource hub with official docs, setup guides, tutorials, community links, troubleshooting references, and workflow examples.";
 const schema = {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Hermes Agent 优质教程资源整合 — hermes101", "description": "全网最全 Hermes Agent 教程资源汇总：官方文档、视频教程、中文指南、社区讨论、进阶技巧，一站式收藏。"};
 
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'resources-content.html'), 'utf-8');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/resources/" title={title} description={description} schema={schema}>
-  <Nav lang="zh-CN" />
+<Layout lang="en" canonicalPath="/resources/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />
   </main>
-  <Footer lang="zh-CN" />
+  <Footer lang="en" />
 </Layout>

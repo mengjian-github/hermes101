@@ -12,12 +12,12 @@ const schema = {"@context": "https://schema.org", "@type": "HowTo", "name": "Ope
 const pageContent = readFileSync(path.resolve(process.cwd(), 'src/content', 'migrate-content.html'), 'utf-8');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/migrate/" title={title} description={description} schema={schema}>
-  <Nav lang="zh-CN" />
+<Layout lang="en" canonicalPath="/migrate/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />
   </main>
-  <Footer lang="zh-CN" />
+  <Footer lang="en" />
   <script>
     document.querySelectorAll('.trouble-header').forEach(function(btn) {
       btn.addEventListener('click', function() {

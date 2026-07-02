@@ -6,17 +6,17 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const title = "Day 5 — 安装并使用技能 | 7 天教程 — hermes101";
-const description = "Day 5 shows how Hermes Agent skills package reusable workflows, when to load or create a skill, how to follow its checks, and how to avoid stale procedures.";
+const description = "Day 5 shows how Hermes Agent skills package workflows, when to load or create a skill, how to follow checks, and how to avoid stale procedures.";
 const schema = {"@context": "https://schema.org", "@type": "LearningResource", "name": title, "description": description};
 
 const rawContent = readFileSync(path.resolve(process.cwd(), 'src/content', '7-days-day-5.html'), 'utf-8');
 const pageContent = rawContent.replace(/href="\/zh\//g, 'href="/');
 ---
 
-<Layout lang="zh-CN" canonicalPath="/7-days/day-5/" title={title} description={description} schema={schema}>
-  <Nav lang="zh-CN" />
+<Layout lang="en" canonicalPath="/7-days/day-5/" title={title} description={description} schema={schema}>
+  <Nav lang="en" />
   <main class="pt-28 pb-24 min-h-screen">
     <Fragment set:html={pageContent} />
   </main>
-  <Footer lang="zh-CN" />
+  <Footer lang="en" />
 </Layout>

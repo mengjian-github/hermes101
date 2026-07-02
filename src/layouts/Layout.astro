@@ -15,11 +15,30 @@ const normalizedPath = path.endsWith('/') ? path : `${path}/`;
 const canonical = new URL(normalizedPath, Astro.site).toString();
 const isZh = normalizedPath === '/zh/' || normalizedPath.startsWith('/zh/');
 const pairedPath = isZh ? normalizedPath.replace(/^\/zh/, '') || '/' : `/zh${normalizedPath}`;
-const alternates = hasAlternate ? [
+const localizedPaths = new Set([
+  '/',
+  '/setup/',
+  '/7-days/',
+  '/7-days/day-1/',
+  '/7-days/day-2/',
+  '/7-days/day-3/',
+  '/7-days/day-4/',
+  '/7-days/day-5/',
+  '/7-days/day-6/',
+  '/7-days/day-7/',
+  '/resources/',
+  '/migrate/',
+  '/faq/',
+]);
+const rootPath = isZh ? (normalizedPath.replace(/^\/zh/, '') || '/') : normalizedPath;
+const hasLocalizedPair = hasAlternate || localizedPaths.has(rootPath);
+const alternates = hasLocalizedPair ? [
   { lang: 'en', href: new URL(isZh ? pairedPath : normalizedPath, Astro.site).toString() },
   { lang: 'zh-CN', href: new URL(isZh ? normalizedPath : pairedPath, Astro.site).toString() },
   { lang: 'x-default', href: new URL(isZh ? pairedPath : normalizedPath, Astro.site).toString() },
-] : [];
+] : [
+  { lang: 'x-default', href: canonical },
+];
 // Public analytics identifiers for the dedicated hermes101.dev properties.
 // Env overrides keep preview/staging flexible, but production deploys should not
 // silently drop analytics if Cloudflare Pages build env vars are unavailable.
