@@ -168,6 +168,14 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
         btn._copying = true;
         var text = btn.dataset.copy || btn.getAttribute('data-copy');
         if (!text) { btn._copying = false; return; }
+        if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+          window.hermes101Analytics.track(btn.dataset.trackEvent || 'command_copy', {
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+            copied_text: text.slice(0, 200),
+            copy_surface: btn.closest('section, article, main') ? 'content' : 'unknown'
+          });
+        }
 
         function showResult(iconText, label, color) {
           var origHTML = btn.innerHTML;
@@ -299,15 +307,6 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
         if (typeof window.clarity === 'function') window.clarity('event', name);
       }
 
-      // Track copy button clicks via data-track-event on copy buttons
-      document.querySelectorAll('.copy-btn[data-track-event]').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-          var name = btn.dataset.trackEvent;
-          if (!name) return;
-          var text = btn.dataset.copy || '';
-          track(name, Object.assign(eventParams(null), { copied_text: text.slice(0, 200) }));
-        });
-      });
 
       var utms = currentUtms();
       decorateInternalLinks(utms);

@@ -3,19 +3,32 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const title = "Hermes Agent Setup Tutorial for Beginners — hermes101";
+const title = "Hermes Agent Tutorial: Setup Guide for Beginners — hermes101";
 const description = "Learn Hermes Agent from install to first working chat with official setup steps, provider selection, troubleshooting, and a 7-day beginner plan.";
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Hermes Agent 101",
-  "url": "https://hermes101.dev",
-  "inLanguage": "en",
-  "description": description,
-  "potentialAction": {
-    "@type": "ReadAction",
-    "target": "https://hermes-agent.nousresearch.com/docs"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://hermes101.dev/#website",
+      "name": "Hermes Agent 101",
+      "url": "https://hermes101.dev",
+      "inLanguage": "en",
+      "description": description,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://hermes101.dev/resources/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hermes101.dev/#organization",
+      "name": "hermes101.dev",
+      "url": "https://hermes101.dev",
+      "logo": "https://hermes101.dev/favicon.svg"
+    }
+  ]
 };
 
 const quickStart = [
@@ -37,7 +50,7 @@ const paths = [
   <main class="pt-20">
     <section class="max-w-6xl mx-auto px-6 pt-16 pb-20 relative">
       <div class="absolute inset-0 -z-10 opacity-30 overflow-hidden rounded-3xl">
-        <img src="/images/hero.png" alt="Hermes Agent terminal setup dashboard preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1376" height="768" />
+        <img src="/images/hero.webp" alt="Hermes Agent terminal setup dashboard preview" class="w-full h-full object-cover" loading="eager" fetchpriority="high" width="1376" height="768" />
         <div class="absolute inset-0 bg-gradient-to-b from-[#0A0A0F]/50 via-[#0A0A0F]/80 to-[#0A0A0F]"></div>
       </div>
 

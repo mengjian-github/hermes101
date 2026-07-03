@@ -14,11 +14,14 @@ const schema = {
       "@type": "HowTo",
       "name": "Hermes Agent Setup Guide",
       "description": description,
+      "image": "https://hermes101.dev/images/setup.webp",
+      "totalTime": "PT10M",
+      "tool": [{ "@type": "HowToTool", "name": "Terminal" }],
       "step": [
-        { "@type": "HowToStep", "name": "Install Hermes Agent", "text": "Run curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash or iex (irm https://hermes-agent.nousresearch.com/install.ps1) on native Windows." },
-        { "@type": "HowToStep", "name": "Reload shell", "text": "Run source ~/.bashrc or source ~/.zshrc, then confirm the hermes command is available." },
-        { "@type": "HowToStep", "name": "Choose provider", "text": "Run hermes setup --portal for the guided Nous Portal path, or hermes model for manual provider selection." },
-        { "@type": "HowToStep", "name": "Verify first chat", "text": "Run hermes and ask a normal question before enabling gateway, cron, skills, or routing." }
+        { "@type": "HowToStep", "position": 1, "name": "Install Hermes Agent", "url": "https://hermes101.dev/setup/#install-hermes-agent", "image": "https://hermes101.dev/images/setup.webp", "text": "Run curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash or iex (irm https://hermes-agent.nousresearch.com/install.ps1) on native Windows." },
+        { "@type": "HowToStep", "position": 2, "name": "Reload shell", "url": "https://hermes101.dev/setup/#reload-shell", "text": "Run source ~/.bashrc or source ~/.zshrc, then confirm the hermes command is available." },
+        { "@type": "HowToStep", "position": 3, "name": "Choose provider", "url": "https://hermes101.dev/setup/#choose-provider", "text": "Run hermes setup --portal for the guided Nous Portal path, or hermes model for manual provider selection." },
+        { "@type": "HowToStep", "position": 4, "name": "Verify first chat", "url": "https://hermes101.dev/setup/#verify-first-chat", "text": "Run hermes and ask a normal question before enabling gateway, cron, skills, or routing." }
       ]
     },
     {
