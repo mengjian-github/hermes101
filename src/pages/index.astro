@@ -44,6 +44,12 @@ const paths = [
   { title: "I want a local or self-hosted model", desc: "Configure a custom endpoint in hermes model, then verify endpoint URL, model name, and context length.", href: "/setup/" },
   { title: "I want fallback or routing", desc: "Keep fallback off until one base provider is stable. Add routing only after a clean chat works.", href: "/setup/" },
 ];
+
+const comparisonRows = [
+  { question: "Hermes Agent tutorial", answer: "Start with installation, provider selection, and one successful CLI chat before adding gateway, skills, cron, memory, or MCP." },
+  { question: "Hermes Agent setup", answer: "Use hermes setup --portal for the fastest Nous Portal path, or hermes model when you already know the provider and model." },
+  { question: "Hermes Agent quickstart", answer: "Install, reload the shell, run hermes, ask one short prompt, then use the recovery checklist if the answer is empty or broken." },
+];
 ---
 <Layout hasAlternate={true} title={title} description={description} schema={schema} lang="en" canonicalPath="/">
   <Nav lang="en" />
@@ -150,6 +156,30 @@ const paths = [
     </section>
 
     <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
+        <div>
+          <div class="inline-block px-4 py-1.5 rounded-full bg-[#1b1b20] border border-[#3b4a41]/10 text-[#18E299] text-[10px] font-black tracking-[0.2em] uppercase mb-6">
+            Search answer
+          </div>
+          <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-5">Hermes Agent tutorial: what to do first?</h2>
+          <p class="text-[#bacbbe] text-lg leading-relaxed mb-8">The safe path is not “turn on every feature.” Install Hermes Agent, choose one provider, verify one normal chat, then add messaging, tools, memory, skills, cron, and MCP in that order. This keeps setup errors small and searchable.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/quickstart/" class="cta-primary px-8 py-3 justify-center" data-track-event="start_quickstart_click">Follow the quickstart</a>
+            <a href="/7-days/" class="px-8 py-3 rounded-full border border-white/10 text-white font-bold hover:border-[#18E299]/50 hover:text-[#18E299] transition-all text-center" data-track-event="doc_nav_click">See the 7-day path</a>
+          </div>
+        </div>
+        <div class="rounded-2xl bg-[#1b1b20] border border-white/[0.06] overflow-hidden">
+          {comparisonRows.map((row, index) => (
+            <div class:list={["p-6", index !== comparisonRows.length - 1 && "border-b border-white/[0.06]"]}>
+              <h3 class="text-white font-bold mb-2">{row.question}</h3>
+              <p class="text-sm text-[#bacbbe] leading-relaxed">{row.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
       <div class="text-center mb-14">
         <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">What you will have after this guide</h2>
       </div>
@@ -177,6 +207,22 @@ const paths = [
         <div class="p-6 rounded-xl bg-[#1b1b20] border border-[#3b4a41]/15">
           <h3 class="font-bold text-white text-lg mb-2">Source links</h3>
           <p class="text-sm text-[#bacbbe]">Every page links back to official docs and shows last checked date.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 pb-24">
+      <div class="rounded-3xl bg-gradient-to-br from-[#18E299]/12 via-[#1b1b20] to-[#0E0E13] border border-[#18E299]/15 p-8 md:p-10">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div>
+            <p class="text-xs font-black tracking-[0.2em] uppercase text-[#51ffb4] mb-3">After the tutorial</p>
+            <h2 class="text-2xl md:text-4xl font-black text-white tracking-[-0.03em] mb-3">Building a real always-on agent workflow?</h2>
+            <p class="text-[#bacbbe] leading-relaxed max-w-2xl">Use this guide to get Hermes stable first. If your next step is shipping a production site or AI workflow, track that referral separately so we can tell tutorial traffic from product-intent traffic.</p>
+          </div>
+          <div class="flex flex-col sm:flex-row lg:flex-col gap-3">
+            <a href="https://shipsolo.io/" target="_blank" rel="noopener noreferrer" data-product-referral="true" class="cta-primary px-8 py-3 justify-center">Explore ShipSolo</a>
+            <a href="https://github.com/mengjian-github/hermes101/issues" target="_blank" rel="noopener noreferrer" data-lead-intent="true" class="px-8 py-3 rounded-full border border-white/10 text-white font-bold hover:border-[#18E299]/50 hover:text-[#18E299] transition-all text-center">Request a guide</a>
+          </div>
         </div>
       </div>
     </section>

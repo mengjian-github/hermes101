@@ -168,8 +168,17 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
         btn._copying = true;
         var text = btn.dataset.copy || btn.getAttribute('data-copy');
         if (!text) { btn._copying = false; return; }
+        function inferCopyEvent() {
+          if (btn.dataset.trackEvent) return btn.dataset.trackEvent;
+          if (text.indexOf('install.sh') !== -1 || text.indexOf('install.ps1') !== -1) return 'install_command_copy';
+          if (text.indexOf('hermes setup') === 0 || text.indexOf('hermes model') === 0) return 'setup_command_copy';
+          if (text === 'hermes') return 'first_chat_command_copy';
+          if (text.indexOf('provider/model') !== -1) return 'first_chat_prompt_copy';
+          return 'command_copy';
+        }
+
         if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
-          window.hermes101Analytics.track(btn.dataset.trackEvent || 'command_copy', {
+          window.hermes101Analytics.track(inferCopyEvent(), {
             page_location: window.location.href,
             page_path: window.location.pathname,
             copied_text: text.slice(0, 200),
@@ -274,7 +283,10 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
         if (anchor.matches('[data-language-switch], [hreflang]')) return 'language_switch_click';
         var url;
         try { url = new URL(anchor.href, window.location.href); } catch (e) { return null; }
+        if (anchor.dataset.productReferral === 'true') return 'product_referral_click';
+        if (anchor.dataset.leadIntent === 'true') return 'lead_intent_click';
         if (url.hostname === 'github.com') return 'github_click';
+        if (url.hostname === 'shipsolo.io' || url.hostname === 'ziliu.online') return 'product_referral_click';
         if (url.pathname.match(/^\/7-days\/day-\d+\/?$/)) return 'tutorial_day_click';
         if (url.pathname.startsWith('/resources')) return 'resource_click';
         if (url.pathname.startsWith('/setup')) return 'start_install_click';

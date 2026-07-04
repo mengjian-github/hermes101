@@ -20,14 +20,20 @@ Implementation: `src/layouts/Layout.astro` stores incoming UTM parameters in `se
 Primary conversion until a paid/signup product exists:
 
 - `start_install_click`: click to `/setup`
+- `start_quickstart_click`: click to `/quickstart`
+- `install_command_copy`: copy the Linux/macOS/WSL2/Termux or Windows install command
+- `product_referral_click`: click to a Nextfield product/workflow referral such as ShipSolo
+- `lead_intent_click`: click to request a guide or open a GitHub issue
 - `github_click`: click to `https://github.com/mengjian-github/hermes101`
 
 Secondary events:
 
 - `doc_nav_click`: navigation/header/footer/documentation links
+- `next_day_click`: click from setup or the 7-day index into the next tutorial step
 - `tutorial_day_click`: click to `/7-days/day-N/`
 - `resource_click`: click to `/resources`
 - `language_switch_click`: click on elements marked with `data-language-switch` or `hreflang`
+- `setup_command_copy`, `first_chat_command_copy`, `first_chat_prompt_copy`, `command_copy`: command-copy intent events for non-install commands
 
 All events include `page_location`, `page_path`, `link_url`, `link_path`, `link_text`, `outbound`, and the current UTM fields when present.
 
