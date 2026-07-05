@@ -97,7 +97,7 @@ const switchHref = isZh
          class="bg-white text-[#0A0A0F] px-4 md:px-6 py-2 rounded-full font-bold hover:bg-[#18E299] hover:text-[#003823] transition-all duration-300 text-sm min-h-[44px] flex items-center justify-center">
         {isZh ? labels.cta : 'Start'}
       </a>
-      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white active:text-white active:scale-95 transition-transform min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <button id="mobile-menu-btn" class="md:hidden text-white/60 hover:text-white active:text-white active:scale-95 transition-transform min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" data-track-event="mobile_menu_toggle">
         <span class="material-symbols-outlined">menu</span>
       </button>
     </div>
@@ -132,6 +132,13 @@ const switchHref = isZh
       menu.classList.toggle('hidden');
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+        window.hermes101Analytics.track('mobile_menu_toggle', {
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+          open: isOpen
+        });
+      }
     });
   })();
 </script>

@@ -45,6 +45,7 @@ const alternates = hasLocalizedPair ? [
 const ga4MeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID || 'G-FDGWTRC2MF';
 const clarityProjectId = import.meta.env.PUBLIC_CLARITY_PROJECT_ID || 'x1tz4iudu9';
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.dev';
+const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausible.shipsolo.io').replace(/\/$/, '');
 ---
 <!DOCTYPE html>
 <html lang={lang} class="dark">
@@ -90,7 +91,7 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
     </>
   )}
   {plausibleDomain && (
-    <script defer data-domain={plausibleDomain} src="https://plausible.io/js/script.tagged-events.js"></script>
+    <script defer data-domain={plausibleDomain} src={`${plausibleHost}/js/script.tagged-events.js`}></script>
   )}
   {clarityProjectId && (
     <script is:inline define:vars={{ clarityProjectId }}>
@@ -132,8 +133,16 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
         var item = btn.closest('.accordion-item');
         var body = item.querySelector('.accordion-body');
         var icon = btn.querySelector('.accordion-icon');
+        var willOpen = body.classList.contains('hidden');
         body.classList.toggle('hidden');
         if (icon) icon.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        if (willOpen && window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+          window.hermes101Analytics.track('faq_expand', {
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+            question: btn.textContent ? btn.textContent.trim().replace(/\s+/g, ' ').slice(0, 160) : ''
+          });
+        }
       });
     });
 
@@ -322,17 +331,45 @@ const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN || 'hermes101.de
 
       var utms = currentUtms();
       decorateInternalLinks(utms);
+      track('tutorial_page_view', Object.assign({
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        page_title: document.title
+      }, currentUtms()));
       document.addEventListener('click', function(event) {
         var anchor = event.target.closest && event.target.closest('a[href]');
         if (!anchor) return;
         var name = inferEvent(anchor);
         if (name) track(name, eventParams(anchor));
       }, true);
+      var scrollMilestones = { 50: false, 90: false };
+      window.addEventListener('scroll', function() {
+        var doc = document.documentElement;
+        var max = Math.max(1, doc.scrollHeight - window.innerHeight);
+        var pct = Math.round((window.scrollY / max) * 100);
+        [50, 90].forEach(function(mark) {
+          if (!scrollMilestones[mark] && pct >= mark) {
+            scrollMilestones[mark] = true;
+            track('scroll_depth', {
+              page_location: window.location.href,
+              page_path: window.location.pathname,
+              percent: mark
+            });
+          }
+        });
+      }, { passive: true });
       window.hermes101Analytics = { track: track, currentUtms: currentUtms, decorateInternalLinks: decorateInternalLinks };
     })();
 
     // Setup page tab switcher
     window.switchTab = function(tab) {
+      if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+        window.hermes101Analytics.track('setup_tab_switch', {
+          page_location: window.location.href,
+          page_path: window.location.pathname,
+          tab: tab
+        });
+      }
       var buttons = document.querySelectorAll('[data-tab]');
       buttons.forEach(function(b) {
         if (b.dataset.tab === tab) {
