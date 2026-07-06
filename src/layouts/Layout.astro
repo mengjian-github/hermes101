@@ -326,6 +326,24 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
         if (typeof window.gtag === 'function') window.gtag('event', name, payload);
         if (typeof window.plausible === 'function') window.plausible(name, { props: payload });
         if (typeof window.clarity === 'function') window.clarity('event', name);
+
+        var conversionGoals = {
+          product_referral_click: 'product_referral',
+          lead_intent_click: 'guide_request',
+          official_docs_click: 'official_docs_referral',
+          install_command_copy: 'install_command_copy',
+          start_quickstart_click: 'quickstart_start'
+        };
+        if (conversionGoals[name]) {
+          var goalPayload = Object.assign({}, payload, {
+            goal_name: conversionGoals[name],
+            source_event: name
+          });
+          window.__hermes101_events.push({ name: 'conversion_goal', params: goalPayload, ts: Date.now() });
+          if (typeof window.gtag === 'function') window.gtag('event', 'conversion_goal', goalPayload);
+          if (typeof window.plausible === 'function') window.plausible('conversion_goal', { props: goalPayload });
+          if (typeof window.clarity === 'function') window.clarity('event', 'conversion_goal_' + conversionGoals[name]);
+        }
       }
 
 

@@ -292,6 +292,20 @@
     </div>
   </div>
 
+  <!-- Setup verification guardrail -->
+  <div class="mt-24 fade-in-up p-6 rounded-2xl bg-[#101018] border border-[#18E299]/15">
+    <h2 id="setup-verification-guardrail" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-5 flex items-center gap-3 scroll-mt-28">
+      <span class="w-12 h-px bg-[var(--brand)]/30"></span>
+      Setup verification guardrail
+    </h2>
+    <div class="space-y-4 text-sm leading-7 text-[#bacbbe]">
+      <p>Do not treat setup as complete until the command path, provider path, and first chat are all verified. The install command proves Hermes is present. <code class="text-[#18E299]">hermes model</code> or <code class="text-[#18E299]">hermes setup --portal</code> proves Hermes knows which provider to call. A plain <code class="text-[#18E299]">hermes</code> chat proves the selected provider can actually answer.</p>
+      <p>If you plan to use Telegram, Discord, Slack, cron, voice, MCP, or custom toolsets, keep those disabled until this base test passes. Once the base chat is healthy, advanced setup is much easier to debug because every new feature has one clear success signal and one rollback path.</p>
+      <p>For beginners, the most common mistake is treating every Hermes feature as part of installation. Installation is only the base layer. Provider selection is the second layer. The first useful answer is the third layer. Messaging, memory, skills, tools, and scheduled jobs belong after those checks. If a later layer fails, return to the setup guardrail instead of rotating API keys or changing several model settings at once.</p>
+      <p>Keep one written note of the setup that worked: operating system, shell, provider, model, and whether you used Nous Portal or a custom endpoint. That note makes future troubleshooting much faster, especially when you later add a gateway bot, a scheduled cron job, or a project-specific skill.</p>
+    </div>
+  </div>
+
   <!-- FAQ -->
   <div class="mt-24 fade-in-up">
     <h2 id="setup-faq" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-8 flex items-center gap-3 scroll-mt-28">

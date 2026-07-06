@@ -10,6 +10,7 @@
 
   <div class="mb-8">
     <h2 class="text-lg font-bold text-[#E4E1E9] mb-4">Setup and Installation</h2>
+    <h3 class="text-sm font-bold text-[#51FFB4] uppercase tracking-wider mb-3">Start with one clean CLI chat</h3>
     <div class="space-y-3">
       <div class="accordion-item" id="faq-0-0">
         <button class="accordion-header" style="font-size: 15px;">
@@ -52,6 +53,7 @@
 
   <div class="mb-8">
     <h2 class="text-lg font-bold text-[#E4E1E9] mb-4">Troubleshooting</h2>
+    <h3 class="text-sm font-bold text-[#51FFB4] uppercase tracking-wider mb-3">Recover the base profile before adding automation</h3>
     <div class="space-y-3">
       <div class="accordion-item" id="faq-1-0">
         <button class="accordion-header" style="font-size: 15px;">
@@ -90,6 +92,71 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="mb-8">
+    <h2 class="text-lg font-bold text-[#E4E1E9] mb-4">Tools, skills, memory, and gateway</h2>
+    <h3 class="text-sm font-bold text-[#51FFB4] uppercase tracking-wider mb-3">Add advanced Hermes features in the right order</h3>
+    <div class="space-y-3">
+      <div class="accordion-item" id="faq-2-0">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>When should I enable tools and toolsets?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>Enable tools after one normal chat works and you understand what task you want Hermes to perform. Keep toolsets narrow for setup debugging: use file/search tools for codebase inspection, browser tools for live pages, and terminal tools for builds or deploys. If a tool-heavy run fails, repeat the same question in plain chat first.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-2-1">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>What is the difference between memory and session history?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>Session history helps Hermes recall what happened in a previous conversation. Persistent memory is for compact facts that stay useful across sessions, such as durable preferences or stable environment conventions. Do not save temporary task progress, stale commit IDs, or one-off debugging notes as memory.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-2-2">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>What are Hermes skills for?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>Skills are reusable procedures. A good skill tells Hermes when to use it, what files or commands to inspect, which pitfalls matter, and how to verify the result. Use skills for repeatable workflows such as deploying a Cloudflare site, reviewing a PR, publishing a note, or operating a recurring content pipeline.</p>
+        </div>
+      </div>
+      <div class="accordion-item" id="faq-2-3">
+        <button class="accordion-header" style="font-size: 15px;">
+          <span>Why should gateway setup come after CLI setup?</span>
+          <span class="accordion-icon transition-transform duration-200" style="color: var(--text-muted); font-size: 12px;">▼</span>
+        </button>
+        <div class="accordion-body hidden">
+          <p>Gateway setup adds a second delivery path, platform permissions, bot tokens, webhooks, and message formatting. If the provider or model is already broken, those layers hide the real error. First confirm Hermes answers in the terminal. Then connect Telegram, Discord, Slack, or another gateway and verify one simple message.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8 rounded-2xl bg-[#1b1b20] border border-white/[0.06] p-6">
+    <h2 class="text-lg font-bold text-[#E4E1E9] mb-3">Recommended learning order</h2>
+    <h3 class="text-sm font-bold text-[#51FFB4] uppercase tracking-wider mb-3">The short answer for beginners</h3>
+    <p class="text-sm leading-7 text-[#BACBBE] mb-4">Install Hermes Agent, configure one provider, verify one CLI chat, then add one advanced surface at a time: tools, memory, skills, gateway, cron, and MCP. This order makes every failure easier to isolate. If a later feature breaks, return to the base chat test before changing unrelated settings.</p>
+    <div class="flex flex-col sm:flex-row gap-3">
+      <a href="/quickstart/" class="cta-primary px-6 py-3 justify-center text-sm" data-track-event="start_quickstart_click">Follow the quickstart</a>
+      <a href="https://hermes-agent.nousresearch.com/docs" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full border border-white/10 text-white font-bold hover:border-[#18E299]/50 hover:text-[#18E299] transition-all text-center text-sm" data-track-event="official_docs_click">Open official docs</a>
+    </div>
+  </div>
+
+  <div class="mb-8 rounded-2xl bg-[#0E0E13] border border-white/[0.06] p-6">
+    <h2 class="text-lg font-bold text-[#E4E1E9] mb-3">Fast diagnostic checklist</h2>
+    <h3 class="text-sm font-bold text-[#51FFB4] uppercase tracking-wider mb-3">Use this before changing multiple settings</h3>
+    <ol class="space-y-2 text-sm leading-7 text-[#BACBBE] list-decimal pl-5">
+      <li>Open a new terminal and confirm the <code class="bg-[#131318] px-1 rounded">hermes</code> command is on your path.</li>
+      <li>Run <code class="bg-[#131318] px-1 rounded">hermes doctor</code> and fix basic environment warnings first.</li>
+      <li>Open <code class="bg-[#131318] px-1 rounded">hermes model</code>, select one provider/model, and avoid changing fallback or routing during the test.</li>
+      <li>Ask one short prompt in the CLI. If that fails, do not debug Telegram, Discord, cron, MCP, or skills yet.</li>
+      <li>After the base chat works, add one feature at a time and write down the exact success signal for that feature.</li>
+    </ol>
   </div>
 
   <div class="mt-10 p-6 rounded-2xl bg-[#1b1b20] ghost-border">

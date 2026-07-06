@@ -372,6 +372,19 @@
     </div>
   </div>
 
+  <!-- Verification notes -->
+  <div class="mt-24 fade-in-up p-6 rounded-2xl bg-[#101018] border border-[#18E299]/15">
+    <h2 id="quickstart-verification" class="text-sm font-bold tracking-[0.2em] uppercase text-[#18E299] mb-5 flex items-center gap-3 scroll-mt-28">
+      <span class="w-12 h-px bg-[var(--brand)]/30"></span>
+      Verification before advanced setup
+    </h2>
+    <div class="space-y-4 text-sm leading-7 text-[#bacbbe]">
+      <p>A quickstart is successful only when Hermes can answer in a plain terminal session. Treat install completion, model selection, and gateway setup as separate checkpoints. If you change all three at once, failures become hard to attribute and you may waste time debugging the wrong layer.</p>
+      <p>After the first useful answer, write down the provider/model that worked, the shell you used, and whether the answer came from the expected profile. Then add one feature at a time: a tool-enabled task, a memory update, a skill, or a gateway message. Re-run the plain chat test after each major change so you always have a known-good baseline.</p>
+      <p>If you are comparing Hermes with other coding agents, this baseline matters even more. Measure Hermes after it can complete a normal chat, read the right files, and report real command output. That is the point where workflow automation becomes meaningful instead of being hidden by first-run configuration errors.</p>
+    </div>
+  </div>
+
   <!-- Source -->
   <div class="mt-16 p-6 rounded-2xl bg-[#1b1b20] ghost-border text-center">
     <p class="text-sm text-[#859589]">
