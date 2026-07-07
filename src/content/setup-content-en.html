@@ -230,15 +230,20 @@
           </div>
         </div>
         <!-- Done CTA -->
-        <div class="p-8 rounded-3xl bg-gradient-to-br from-[#18E299]/10 to-transparent border border-[var(--brand)]/10">
+        <div class="p-8 rounded-3xl bg-gradient-to-br from-[#18E299]/10 to-transparent border border-[var(--brand)]/10" data-success-panel>
           <div class="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <h5 class="text-xl font-bold text-white mb-2">Ready to go deeper?</h5>
-              <p class="text-[#bacbbe] text-sm">Start the 7-day learning path or jump to the Quickstart.</p>
+              <p class="text-[#bacbbe] text-sm">First mark the base CLI chat as working, then choose one next layer. This gives the guide a non-payment success signal without adding paid funnels.</p>
             </div>
-            <a href="/7-days/" class="cta-primary w-full md:w-auto px-10 py-4 text-center uppercase tracking-wider text-sm" data-track-event="start_7days_click">
-              Start 7-Day Path
-            </a>
+            <div class="flex w-full md:w-auto flex-col sm:flex-row gap-3">
+              <button type="button" class="cta-primary w-full md:w-auto px-8 py-4 text-center uppercase tracking-wider text-sm" data-setup-success data-success-label="Setup guide first chat verified">
+                My first chat works
+              </button>
+              <a href="/7-days/" class="px-8 py-4 rounded-full border border-white/10 text-white font-bold hover:border-[#18E299]/50 hover:text-[#18E299] transition-all text-center uppercase tracking-wider text-sm" data-track-event="start_7days_click">
+                Start 7-Day Path
+              </a>
+            </div>
           </div>
         </div>
       </div>

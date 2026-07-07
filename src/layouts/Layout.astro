@@ -166,6 +166,46 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
           item.style.opacity = '';
           item.querySelector('.check-text').style.textDecoration = '';
         }
+        if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+          var label = item.textContent ? item.textContent.trim().replace(/\s+/g, ' ').slice(0, 160) : '';
+          window.hermes101Analytics.track('setup_check_item_toggle', {
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+            checked: !checked,
+            item_label: label
+          });
+          var allItems = Array.prototype.slice.call(document.querySelectorAll('.check-item .check-box'));
+          if (allItems.length && allItems.every(function(candidate) { return candidate.dataset.checked === 'true'; })) {
+            window.hermes101Analytics.track('setup_checklist_complete', {
+              page_location: window.location.href,
+              page_path: window.location.pathname,
+              checked_items: allItems.length
+            });
+          }
+        }
+      });
+    });
+
+    // Explicit setup success CTA: gives users feedback and creates a non-payment North Star signal.
+    document.querySelectorAll('[data-setup-success]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var label = btn.dataset.successLabel || 'First chat verified';
+        if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+          window.hermes101Analytics.track('setup_success_click', {
+            page_location: window.location.href,
+            page_path: window.location.pathname,
+            success_label: label
+          });
+        }
+        var target = btn.closest('[data-success-panel]') || btn;
+        var existing = target.querySelector('[data-success-feedback]');
+        if (!existing) {
+          var feedback = document.createElement('p');
+          feedback.setAttribute('data-success-feedback', 'true');
+          feedback.className = 'mt-3 text-sm font-bold text-[#51FFB4]';
+          feedback.textContent = 'Saved as setup success. Next: pick one 7-day lesson or open the official docs.';
+          target.appendChild(feedback);
+        }
       });
     });
 
@@ -332,7 +372,9 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
           lead_intent_click: 'guide_request',
           official_docs_click: 'official_docs_referral',
           install_command_copy: 'install_command_copy',
-          start_quickstart_click: 'quickstart_start'
+          start_quickstart_click: 'quickstart_start',
+          setup_success_click: 'setup_success',
+          setup_checklist_complete: 'setup_checklist_complete'
         };
         if (conversionGoals[name]) {
           var goalPayload = Object.assign({}, payload, {

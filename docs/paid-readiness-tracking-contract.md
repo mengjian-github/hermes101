@@ -27,6 +27,8 @@ Primary conversion until a paid/signup product exists:
 - `github_click`: click to `https://github.com/mengjian-github/hermes101`
 - `tutorial_page_view`: first-party page-view debug event sent after UTM decoration initializes
 - `homepage_faq_click`: click from the homepage answer-first FAQ block
+- `setup_success_click`: explicit “first chat works” click after install/provider/plain CLI verification
+- `setup_checklist_complete`: all visible setup checklist items toggled complete in one page session
 
 Secondary events:
 
@@ -38,6 +40,7 @@ Secondary events:
 - `mobile_menu_toggle`: mobile navigation open/close state
 - `faq_expand`: FAQ accordion expansion
 - `setup_tab_switch`: OS setup tab selection
+- `setup_check_item_toggle`: setup checklist item checked or unchecked
 - `scroll_depth`: 50% / 90% content depth milestone
 - `setup_command_copy`, `first_chat_command_copy`, `first_chat_prompt_copy`, `command_copy`: command-copy intent events for non-install commands
 
