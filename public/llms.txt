@@ -1,8 +1,8 @@
 # hermes101.dev
-> Hermes Agent 中文入门指南。5 分钟安装，7 天跟练，OpenClaw 一键迁移。
+> Hermes Agent 入门教程与中文指南。先完成安装、Provider 配置和第一次 CLI 对话，再进入 7 天跟练、迁移、FAQ 与资源页。
 
 ## 站点定位
-Hermes Agent（hermes-agent）是由 Nous Research 开发的开源 AI 编程助手框架。本站是社区独立维护的中文入门指南，帮助中文用户快速上手。
+Hermes Agent（hermes-agent）是由 Nous Research 开发的开源 AI Agent 框架。本站是社区独立维护的入门教程，帮助用户按「安装 → Provider/Model → First Chat → Tools/Gateway/Skills」顺序上手，避免在基础聊天未验证前叠加复杂功能。
 
 ## 支持平台
 Telegram, Discord, Slack, 飞书, WhatsApp, GitHub, 企业微信, 钉钉, Line, Matrix, Teams, 微信公众号, Twitter/X, Reddit, Email, Web, TUI, CLI 等 22+ 平台。
@@ -11,23 +11,32 @@ Telegram, Discord, Slack, 飞书, WhatsApp, GitHub, 企业微信, 钉钉, Line, 
 - 智能记忆：跨 session 记忆
 - 多 Agent 协作：Profile 隔离
 - 定时自动化：自然语言 cron
-- MCP 生态：200+ 技能包
+- MCP 生态与 Skills Hub
 - 安全沙箱：危险命令审批
 - 多模型：OpenAI/Claude/GLM/Kimi/Ollama 等
 - 并行执行：多 subagent 并发
 
 ## 页面列表
-- / — 首页，介绍 Hermes Agent
-- /setup — 安装指南，5 分钟完成安装
+- / — 首页，介绍 Hermes Agent 和入门路径
+- /quickstart — 最短路径：安装、选择 Provider、验证第一次聊天
+- /setup — 安装指南和 setup_success 检查清单
 - /7-days — 7 天入门教程，每天一个成果
+- /resources — 官方文档、GitHub、教程资源入口
 - /migrate — OpenClaw 迁移指南
-- /faq — 常见问题
+- /faq — 常见问题与恢复清单
+- /privacy — 隐私政策
+- /terms — 使用条款
 
 ## 快速安装
-curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+
+Windows PowerShell:
+iex (irm https://hermes-agent.nousresearch.com/install.ps1)
+
+推荐顺序：安装后运行 `hermes setup --portal` 或 `hermes model`，然后运行 `hermes` 并确认一次普通对话成功。CLI 对话不工作时，不要先调 Gateway、cron、MCP、skills 或 fallback routing。
 
 ## 版本
-当前指南基于 Hermes v0.9.x
+当前指南基于 Hermes v0.10.x；关键命令与安装方式于 2026-07-08 对齐官方文档。
 
 ## 维护者
 社区独立指南，非 Nous Research 官方文档。

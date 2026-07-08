@@ -9,18 +9,29 @@ const title = "Learn Hermes Agent in 7 Days — hermes101";
 const description = "A 7-day Hermes Agent learning path from first setup to tools, memory, skills, gateway, automation, troubleshooting, and a final readiness checklist.";
 const schema = {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Learn Hermes Agent in 7 Days",
-  "description": description,
-  "numberOfItems": 7,
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Day 1 — Install and first chat", "description": "Hermes responds to a normal prompt in CLI." },
-    { "@type": "ListItem", "position": 2, "name": "Day 2 — Provider and model control", "description": "You can switch or verify provider/model with hermes model." },
-    { "@type": "ListItem", "position": 3, "name": "Day 3 — Tools and toolsets", "description": "You understand which tools are enabled and how to keep toolsets minimal." },
-    { "@type": "ListItem", "position": 4, "name": "Day 4 — Memory and sessions", "description": "You can resume previous work and understand persistent memory vs session history." },
-    { "@type": "ListItem", "position": 5, "name": "Day 5 — Skills", "description": "You understand skills as procedural memory and know when Hermes creates or improves them." },
-    { "@type": "ListItem", "position": 6, "name": "Day 6 — Messaging gateway", "description": "You can plan a Telegram/Discord/Slack setup only after CLI works." },
-    { "@type": "ListItem", "position": 7, "name": "Day 7 — Recovery and maintenance", "description": "You can use hermes doctor, hermes model, hermes setup, sessions, continue, and gateway status to recover." }
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "name": "Learn Hermes Agent in 7 Days",
+      "description": description,
+      "numberOfItems": 7,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Day 1 — Install and first chat", "url": "https://hermes101.dev/7-days/day-1/", "description": "Hermes responds to a normal prompt in CLI." },
+        { "@type": "ListItem", "position": 2, "name": "Day 2 — Provider and model control", "url": "https://hermes101.dev/7-days/day-2/", "description": "You can switch or verify provider/model with hermes model." },
+        { "@type": "ListItem", "position": 3, "name": "Day 3 — Tools and toolsets", "url": "https://hermes101.dev/7-days/day-3/", "description": "You understand which tools are enabled and how to keep toolsets minimal." },
+        { "@type": "ListItem", "position": 4, "name": "Day 4 — Memory and sessions", "url": "https://hermes101.dev/7-days/day-4/", "description": "You can resume previous work and understand persistent memory vs session history." },
+        { "@type": "ListItem", "position": 5, "name": "Day 5 — Skills", "url": "https://hermes101.dev/7-days/day-5/", "description": "You understand skills as procedural memory and know when Hermes creates or improves them." },
+        { "@type": "ListItem", "position": 6, "name": "Day 6 — Messaging gateway", "url": "https://hermes101.dev/7-days/day-6/", "description": "You can plan a Telegram/Discord/Slack setup only after CLI works." },
+        { "@type": "ListItem", "position": 7, "name": "Day 7 — Recovery and maintenance", "url": "https://hermes101.dev/7-days/day-7/", "description": "You can use hermes doctor, hermes model, hermes setup, sessions, continue, and gateway status to recover." }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Hermes Agent Tutorial", "item": "https://hermes101.dev/" },
+        { "@type": "ListItem", "position": 2, "name": "7-Day Learning Path", "item": "https://hermes101.dev/7-days/" }
+      ]
+    }
   ]
 };
 
