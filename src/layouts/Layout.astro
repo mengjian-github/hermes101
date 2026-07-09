@@ -113,6 +113,7 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
 
   <!-- Global fade-in-up observer -->
   <script is:inline>
+  try {
     (function() {
       const observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
@@ -229,12 +230,19 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
 
     // Copy buttons
     document.querySelectorAll('.copy-btn').forEach(function(btn) {
+      if (btn.tagName.toLowerCase() === 'button' && !btn.getAttribute('type')) btn.setAttribute('type', 'button');
+      if (!btn.getAttribute('aria-label')) btn.setAttribute('aria-label', 'Copy command');
+      if (!btn.getAttribute('title')) btn.setAttribute('title', 'Copy to clipboard');
+      if (!btn.dataset.originalHtml) btn.dataset.originalHtml = btn.innerHTML;
+
       btn.addEventListener('click', function(e) {
+        e.preventDefault();
         e.stopPropagation();
         if (btn._copying) return;
         btn._copying = true;
-        var text = btn.dataset.copy || btn.getAttribute('data-copy');
+        var text = (btn.dataset.copy || btn.getAttribute('data-copy') || '').trim();
         if (!text) { btn._copying = false; return; }
+
         function inferCopyEvent() {
           if (btn.dataset.trackEvent) return btn.dataset.trackEvent;
           if (text.indexOf('install.sh') !== -1 || text.indexOf('install.ps1') !== -1) return 'install_command_copy';
@@ -244,46 +252,62 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
           return 'command_copy';
         }
 
-        if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
-          window.hermes101Analytics.track(inferCopyEvent(), {
-            page_location: window.location.href,
-            page_path: window.location.pathname,
-            copied_text: text.slice(0, 200),
-            copy_surface: btn.closest('section, article, main') ? 'content' : 'unknown'
-          });
+        try {
+          if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+            window.hermes101Analytics.track(inferCopyEvent(), {
+              page_location: window.location.href,
+              page_path: window.location.pathname,
+              copied_text: text.slice(0, 200),
+              copy_surface: btn.closest('section, article, main') ? 'content' : 'unknown'
+            });
+          }
+        } catch (err) {
+          if (window.console && console.error) console.error('copy tracking error', err);
         }
 
         function showResult(iconText, label, color) {
-          var origHTML = btn.innerHTML;
           btn.innerHTML = '<span class="material-symbols-outlined text-sm" style="color:' + color + ';">' + iconText + '</span>';
           if (label) btn.setAttribute('aria-label', label);
-          setTimeout(function() { btn.innerHTML = origHTML; btn.removeAttribute('aria-label'); btn._copying = false; }, 1500);
+          btn.style.opacity = '0.9';
+          setTimeout(function() {
+            btn.innerHTML = btn.dataset.originalHtml || '<span class="material-symbols-outlined text-sm">content_copy</span>';
+            btn.removeAttribute('aria-label');
+            btn.setAttribute('aria-label', 'Copy command');
+            btn.style.opacity = '';
+            btn._copying = false;
+          }, 1500);
         }
 
         function doCopy() {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(function() {
-              showResult('check', '已复制', '#51FFB4');
-            }).catch(function() { fallbackCopy(); });
-          } else { fallbackCopy(); }
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(function() {
+                showResult('check', 'Copied', '#51FFB4');
+              }).catch(function() { fallbackCopy(); });
+            } else { fallbackCopy(); }
+          } catch (err) {
+            fallbackCopy();
+          }
         }
 
         function fallbackCopy() {
           var ta = document.createElement('textarea');
           ta.value = text;
+          ta.setAttribute('aria-hidden', 'true');
           ta.style.position = 'fixed';
           ta.style.opacity = '0';
+          ta.style.pointerEvents = 'none';
           document.body.appendChild(ta);
           ta.select();
           try {
             if (document.execCommand('copy')) {
-              showResult('check', '已复制', '#51FFB4');
+              showResult('check', 'Copied', '#51FFB4');
             } else { throw new Error('execCommand failed'); }
           } catch (err) {
-            showResult('error', '复制失败', '#FFB962');
-            console.error('Copy failed:', err);
+            showResult('error', 'Copy failed', '#FFB962');
+            if (window.console && console.error) console.error('Copy failed:', err);
           }
-          document.body.removeChild(ta);
+          try { document.body.removeChild(ta); } catch (e) {}
           btn._copying = false;
         }
 
@@ -472,6 +496,7 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
         }
       });
     };
+  } catch (e) { if (window.console && console.error) console.error('hermes101 global script error', e); }
   </script>
 </body>
 </html>

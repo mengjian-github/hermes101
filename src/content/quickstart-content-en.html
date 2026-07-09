@@ -37,8 +37,9 @@
   </nav>
 
   <section class="mb-16 p-6 rounded-2xl bg-[#1b1b20] border border-[#18E299]/20 fade-in-up" aria-labelledby="quickstart-answer">
-    <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#51ffb4] mb-3">Hermes Agent quickstart answer</p>
+    <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#51ffb4] mb-3">Hermes Agent tutorial answer</p>
     <h2 id="quickstart-answer" class="text-2xl font-black text-white mb-4">Use one clean feedback loop before adding automation</h2>
+    <p class="text-sm leading-7 text-[#bacbbe] mb-4">This Hermes Agent tutorial is designed as a quickstart: install, verify one chat, then add features one at a time.</p>
     <ol class="space-y-3 text-sm leading-7 text-[#bacbbe] list-decimal pl-5">
       <li>Install Hermes Agent with the official desktop installer or CLI installer.</li>
       <li>Choose one provider path: <code class="text-[#18E299]">hermes setup --portal</code> for Nous Portal, or <code class="text-[#18E299]">hermes model</code> for manual provider selection.</li>
@@ -84,9 +85,9 @@
         </p>
         <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
           <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn"
+            <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn"
                     data-copy="curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash"
-                    data-track-event="install_command_copy">
+                    data-track-event="install_command_copy" aria-label="Copy command" title="Copy to clipboard">
               <span class="material-symbols-outlined text-sm">content_copy</span>
             </button>
           </div>
@@ -104,9 +105,9 @@
         </p>
         <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
           <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn"
+            <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn"
                     data-copy="iex (irm https://hermes-agent.nousresearch.com/install.ps1)"
-                    data-track-event="install_command_copy">
+                    data-track-event="install_command_copy" aria-label="Copy command" title="Copy to clipboard">
               <span class="material-symbols-outlined text-sm">content_copy</span>
             </button>
           </div>
@@ -139,7 +140,7 @@
         </p>
         <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
           <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes setup --portal">
+            <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes setup --portal" aria-label="Copy command" title="Copy to clipboard">
               <span class="material-symbols-outlined text-sm">content_copy</span>
             </button>
           </div>
@@ -157,7 +158,7 @@
         </p>
         <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
           <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes model">
+            <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes model" aria-label="Copy command" title="Copy to clipboard">
               <span class="material-symbols-outlined text-sm">content_copy</span>
             </button>
           </div>
@@ -186,7 +187,7 @@
         </p>
         <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
           <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes">
+            <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes" aria-label="Copy command" title="Copy to clipboard">
               <span class="material-symbols-outlined text-sm">content_copy</span>
             </button>
           </div>
@@ -204,7 +205,7 @@
         </p>
         <div class="rounded-xl bg-[#0E0E13] p-6 ghost-border font-mono text-sm group relative overflow-hidden mb-4">
           <div class="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
-            <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="Say hello and tell me which provider/model you are using.">
+            <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="Say hello and tell me which provider/model you are using." aria-label="Copy command" title="Copy to clipboard">
               <span class="material-symbols-outlined text-sm">content_copy</span>
             </button>
           </div>
@@ -289,37 +290,37 @@
     <div class="space-y-3 mb-8">
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
         <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> doctor</code>
-        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes doctor">
+        <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes doctor" aria-label="Copy command" title="Copy to clipboard">
           <span class="material-symbols-outlined text-sm">content_copy</span>
         </button>
       </div>
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
         <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> model</code>
-        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes model">
+        <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes model" aria-label="Copy command" title="Copy to clipboard">
           <span class="material-symbols-outlined text-sm">content_copy</span>
         </button>
       </div>
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
         <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> setup</code>
-        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes setup">
+        <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes setup" aria-label="Copy command" title="Copy to clipboard">
           <span class="material-symbols-outlined text-sm">content_copy</span>
         </button>
       </div>
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
         <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> sessions list</code>
-        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes sessions list">
+        <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes sessions list" aria-label="Copy command" title="Copy to clipboard">
           <span class="material-symbols-outlined text-sm">content_copy</span>
         </button>
       </div>
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
         <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> --continue</code>
-        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes --continue">
+        <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes --continue" aria-label="Copy command" title="Copy to clipboard">
           <span class="material-symbols-outlined text-sm">content_copy</span>
         </button>
       </div>
       <div class="rounded-xl bg-[#0E0E13] p-4 ghost-border font-mono text-sm flex items-center justify-between">
         <code class="text-[#e4e1e9]"><span class="text-[#18E299]">hermes</span> gateway status</code>
-        <button class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes gateway status">
+        <button type="button" class="p-2 rounded-lg bg-[#2a292f] hover:bg-[#39383e] transition-colors text-[#51ffb4] copy-btn" data-copy="hermes gateway status" aria-label="Copy command" title="Copy to clipboard">
           <span class="material-symbols-outlined text-sm">content_copy</span>
         </button>
       </div>
