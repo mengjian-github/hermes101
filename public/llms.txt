@@ -36,7 +36,7 @@ iex (irm https://hermes-agent.nousresearch.com/install.ps1)
 推荐顺序：安装后运行 `hermes setup --portal` 或 `hermes model`，然后运行 `hermes` 并确认一次普通对话成功。CLI 对话不工作时，不要先调 Gateway、cron、MCP、skills 或 fallback routing。
 
 ## 版本
-当前指南基于 Hermes v0.10.x；关键命令与安装方式于 2026-07-08 对齐官方文档。
+当前指南基于 Hermes v0.10.x；关键命令与安装方式于 2026-07-09 对齐官方文档。
 
 ## 维护者
 社区独立指南，非 Nous Research 官方文档。

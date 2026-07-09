@@ -131,11 +131,12 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
     document.querySelectorAll('.accordion-header').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var item = btn.closest('.accordion-item');
+        if (!item) return;
         var body = item.querySelector('.accordion-body');
         var icon = btn.querySelector('.accordion-icon');
-        var willOpen = body.classList.contains('hidden');
-        body.classList.toggle('hidden');
-        if (icon) icon.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        var willOpen = body && body.classList.contains('hidden');
+        if (body) body.classList.toggle('hidden');
+        if (icon) icon.style.transform = (body && !body.classList.contains('hidden')) ? 'rotate(180deg)' : '';
         if (willOpen && window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
           window.hermes101Analytics.track('faq_expand', {
             page_location: window.location.href,
@@ -146,26 +147,43 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
       });
     });
 
-    // Checklist toggle (migrate page)
+    // Checklist toggle (migrate/setup pages)
+    function updateChecklistCounts() {
+      var preCount = document.getElementById('pre-count');
+      var postCount = document.getElementById('post-count');
+      if (preCount) {
+        var checked = document.querySelectorAll('#pre-checklist .check-box[data-checked="true"]').length;
+        var total = document.querySelectorAll('#pre-checklist .check-item').length;
+        preCount.textContent = checked + ' / ' + total;
+      }
+      if (postCount) {
+        var checked = document.querySelectorAll('#post-checklist .check-box[data-checked="true"]').length;
+        var total = document.querySelectorAll('#post-checklist .check-item').length;
+        postCount.textContent = checked + ' / ' + total;
+      }
+    }
     document.querySelectorAll('.check-item').forEach(function(item) {
       item.addEventListener('click', function() {
         var box = item.querySelector('.check-box');
         if (!box) return;
+        var text = item.querySelector('.check-text');
         var checked = box.dataset.checked === 'true';
         box.dataset.checked = checked ? 'false' : 'true';
+        box.classList.toggle('checked', !checked);
         if (!checked) {
           box.style.background = 'var(--brand)';
           box.style.borderColor = 'var(--brand)';
           box.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
           item.style.opacity = '0.6';
-          item.querySelector('.check-text').style.textDecoration = 'line-through';
+          if (text) text.style.textDecoration = 'line-through';
         } else {
           box.style.background = '';
           box.style.borderColor = '';
           box.innerHTML = '';
           item.style.opacity = '';
-          item.querySelector('.check-text').style.textDecoration = '';
+          if (text) text.style.textDecoration = '';
         }
+        updateChecklistCounts();
         if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
           var label = item.textContent ? item.textContent.trim().replace(/\s+/g, ' ').slice(0, 160) : '';
           window.hermes101Analytics.track('setup_check_item_toggle', {
@@ -277,10 +295,11 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
     document.querySelectorAll('.trouble-header').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var item = btn.closest('.trouble-item');
+        if (!item) return;
         var body = item.querySelector('.trouble-body');
         var arrow = btn.querySelector('.trouble-arrow');
-        body.classList.toggle('hidden');
-        if (arrow) arrow.style.transform = body.classList.contains('hidden') ? '' : 'rotate(180deg)';
+        if (body) body.classList.toggle('hidden');
+        if (arrow) arrow.style.transform = (body && !body.classList.contains('hidden')) ? 'rotate(180deg)' : '';
       });
     });
 
