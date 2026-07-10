@@ -7,10 +7,50 @@ const title = "Hermes Agent 教程：小白入门第一站 — hermes101";
 const description = "Hermes Agent 中文入门教程：从 5 分钟安装开始，按 7 天跟练路径完成模型 Provider、API Key、工具调用、记忆、Skills、消息网关、定时任务和 OpenClaw 迁移验证，适合第一次上手的 AI Agent 用户快速跑通真实工作流。";
 const schema = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "hermes101",
-  "url": "https://hermes101.dev",
-  "description": description
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://hermes101.dev/zh/#website",
+      "name": "hermes101",
+      "url": "https://hermes101.dev/zh/",
+      "inLanguage": "zh-CN",
+      "description": description,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://hermes101.dev/zh/resources/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hermes101.dev/#organization",
+      "name": "hermes101.dev",
+      "url": "https://hermes101.dev",
+      "logo": "https://hermes101.dev/favicon.svg"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hermes101.dev/zh/#homepage-faq",
+      "inLanguage": "zh-CN",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hermes Agent tutorial 新手应该先做什么？",
+          "acceptedAnswer": { "@type": "Answer", "text": "先安装 Hermes Agent，选择一个 Provider，完成一次普通 CLI 对话验证，再逐步接入消息网关、工具、记忆、Skills、Cron 和 MCP。" }
+        },
+        {
+          "@type": "Question",
+          "name": "hermes101 和官方文档怎么配合使用？",
+          "acceptedAnswer": { "@type": "Answer", "text": "hermes101.dev 适合作为中文入门路径；命令细节、最新功能和权威说明以 Nous Research 官方 Hermes Agent 文档为准。" }
+        },
+        {
+          "@type": "Question",
+          "name": "什么时候配置 Telegram、Discord、Slack 或定时任务？",
+          "acceptedAnswer": { "@type": "Answer", "text": "等基础 CLI 对话确认可用后再配置。Provider 或模型未跑通时接入网关和自动化，会让排查更复杂。" }
+        }
+      ]
+    }
+  ]
 };
 
 const features = [
@@ -71,12 +111,12 @@ const days = [
         <!-- CTAs -->
         <div class="flex flex-col sm:flex-row gap-4 mb-16">
           <a href="/zh/setup/"
-             data-track-event="install_cta_click"
+             data-track-event="start_install_click"
              class="cta-primary px-10 py-4 text-lg">
             开始安装
           </a>
           <a href="/zh/7-days/"
-             data-track-event="doc_nav_click"
+             data-track-event="start_7days_click"
              class="px-10 py-4 border-2 border-white/20 text-white rounded-full font-bold text-lg hover:bg-white/5 transition-all active:scale-95">
             查看文档
           </a>
@@ -227,7 +267,7 @@ const days = [
         </div>
 
         <div class="text-center mt-8">
-          <a href="/zh/7-days/" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#18E299] hover:text-[#51ffb4] transition-colors">
+          <a href="/zh/7-days/" data-track-event="start_7days_click" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#18E299] hover:text-[#51ffb4] transition-colors">
             查看完整 7 天路径 →
           </a>
         </div>
@@ -244,7 +284,7 @@ const days = [
             <p class="text-lg leading-relaxed text-[#bacbbe] mb-8">
               使用 <code class="text-[#18E299] font-mono px-2 py-0.5 bg-[#18E299]/5 rounded">hermes claw migrate</code> 一键迁移，配置不会丢。备份、导入、诊断一条龙。
             </p>
-            <a href="/zh/migrate/" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#18E299] hover:text-[#51ffb4] transition-colors">
+            <a href="/zh/migrate/" data-track-event="doc_nav_click" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#18E299] hover:text-[#51ffb4] transition-colors">
               查看迁移指南 →
             </a>
           </div>
@@ -279,12 +319,13 @@ const days = [
         <h2 class="text-3xl md:text-5xl font-black tracking-[-0.04em] text-white mb-4">准备好开始了吗？</h2>
         <p class="text-lg text-[#bacbbe] mb-10">5 分钟完成安装，立刻体验 AI Agent 的力量</p>
         <a href="/zh/setup/"
+           data-track-event="start_install_click"
            class="cta-primary px-12 py-5 text-lg">
           开始安装 Hermes Agent
           <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
         </a>
         <div class="mt-8 space-y-1">
-          <p class="text-[13px] text-white/40">📌 基于 Hermes v0.10.x | 最后更新：2026-07-09</p>
+          <p class="text-[13px] text-white/40">📌 基于 Hermes v0.10.x | 最后更新：2026-07-10</p>
           <p class="text-[13px] text-white/40">⚠️ 本站为社区独立指南，非官方文档</p>
         </div>
       </div>

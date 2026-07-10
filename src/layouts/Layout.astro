@@ -379,11 +379,13 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
         if (anchor.dataset.leadIntent === 'true') return 'lead_intent_click';
         if (url.hostname === 'github.com') return 'github_click';
         if (url.hostname === 'shipsolo.io' || url.hostname === 'ziliu.online') return 'product_referral_click';
-        if (url.pathname.match(/^\/7-days\/day-\d+\/?$/)) return 'tutorial_day_click';
-        if (url.pathname.startsWith('/resources')) return 'resource_click';
-        if (url.pathname.startsWith('/setup')) return 'start_install_click';
-        if (url.pathname.startsWith('/quickstart')) return 'start_quickstart_click';
-        if (anchor.closest('nav, footer') || url.pathname.startsWith('/7-days') || url.pathname.startsWith('/migrate') || url.pathname.startsWith('/faq')) return 'doc_nav_click';
+        var normalizedPath = url.pathname.replace(/^\/zh(?=\/|$)/, '') || '/';
+        if (normalizedPath.match(/^\/7-days\/day-\d+\/?$/)) return 'tutorial_day_click';
+        if (normalizedPath.startsWith('/resources')) return 'resource_click';
+        if (normalizedPath.startsWith('/setup')) return 'start_install_click';
+        if (normalizedPath.startsWith('/quickstart')) return 'start_quickstart_click';
+        if (normalizedPath === '/7-days/' || normalizedPath === '/7-days') return 'start_7days_click';
+        if (anchor.closest('nav, footer') || normalizedPath.startsWith('/7-days') || normalizedPath.startsWith('/migrate') || normalizedPath.startsWith('/faq')) return 'doc_nav_click';
         return null;
       }
 
@@ -419,6 +421,7 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
           first_chat_command_copy: 'first_chat_command_copy',
           first_chat_prompt_copy: 'first_chat_prompt_copy',
           start_quickstart_click: 'quickstart_start',
+          start_install_click: 'install_start',
           start_7days_click: 'tutorial_path_start',
           next_day_click: 'tutorial_day_start',
           tutorial_day_click: 'tutorial_day_start',

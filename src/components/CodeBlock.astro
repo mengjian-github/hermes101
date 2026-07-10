@@ -6,8 +6,13 @@ export interface Props {
 const { code, lang = 'bash' } = Astro.props;
 ---
 <div class="code-block relative group">
-  <button class="copy-btn absolute top-3 right-3 flex items-center gap-1.5 text-[12px] px-2.5 py-1.5 rounded-lg transition-colors hover:text-[#51FFB4] cursor-pointer opacity-100 md:opacity-0 md:group-hover:opacity-100"
-          style="color: var(--text-muted); background: rgba(255,255,255,0.06);" data-code={code}>
+  <button type="button"
+          class="copy-btn absolute top-3 right-3 flex items-center gap-1.5 text-[12px] px-2.5 py-1.5 rounded-lg transition-colors hover:text-[#51FFB4] cursor-pointer opacity-100 md:opacity-0 md:group-hover:opacity-100"
+          style="color: var(--text-muted); background: rgba(255,255,255,0.06);"
+          data-copy={code}
+          data-track-event={code.includes('install.sh') || code.includes('install.ps1') ? 'install_command_copy' : undefined}
+          aria-label="Copy command"
+          title="Copy to clipboard">
     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
     <span class="copy-text">复制</span>
   </button>
@@ -15,47 +20,3 @@ const { code, lang = 'bash' } = Astro.props;
     <pre class="text-[13px] leading-[1.7] m-0" style="font-family: var(--font-mono); color: var(--code-text);"><code set:html={code.replace(/^\$\s/gm, '<span style="color: #51FFB4;">$</span> ')} /></pre>
   </div>
 </div>
-<script>
-  document.querySelectorAll('.copy-btn').forEach((btn) => {
-    btn.addEventListener('click', async () => {
-      const code = btn.dataset.code || '';
-      let copied = false;
-
-      try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(code);
-          copied = true;
-        } else {
-          throw new Error('Clipboard API unavailable');
-        }
-      } catch (e) {
-        const ta = document.createElement('textarea');
-        ta.value = code;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          if (document.execCommand('copy')) copied = true;
-        } catch (err) {
-          console.error('Copy failed:', err);
-        }
-        document.body.removeChild(ta);
-      }
-
-      const textEl = btn.querySelector('.copy-text');
-      const original = textEl?.textContent || '';
-      if (copied) {
-        if (textEl) textEl.textContent = '已复制';
-        btn.style.color = '#51FFB4';
-      } else {
-        if (textEl) textEl.textContent = '复制失败';
-        btn.style.color = '#FFB962';
-      }
-      setTimeout(() => {
-        if (textEl) textEl.textContent = original;
-        btn.style.color = '';
-      }, 1500);
-    });
-  });
-</script>
