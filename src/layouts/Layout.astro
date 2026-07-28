@@ -234,6 +234,9 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
       if (!btn.getAttribute('aria-label')) btn.setAttribute('aria-label', 'Copy command');
       if (!btn.getAttribute('title')) btn.setAttribute('title', 'Copy to clipboard');
       if (!btn.dataset.originalHtml) btn.dataset.originalHtml = btn.innerHTML;
+      if (!btn.dataset.originalAriaLabel) btn.dataset.originalAriaLabel = btn.getAttribute('aria-label') || 'Copy command';
+      btn.setAttribute('aria-live', 'polite');
+      btn.setAttribute('aria-atomic', 'true');
 
       btn.addEventListener('click', function(e) {
         e.preventDefault();
@@ -242,6 +245,7 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
         btn._copying = true;
         var text = (btn.dataset.copy || btn.getAttribute('data-copy') || '').trim();
         if (!text) { btn._copying = false; return; }
+        var isChineseLabel = /[\u3400-\u9fff]/.test(btn.dataset.originalAriaLabel || '');
 
         function inferCopyEvent() {
           if (btn.dataset.trackEvent) return btn.dataset.trackEvent;
@@ -252,27 +256,34 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
           return 'command_copy';
         }
 
-        try {
-          if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
-            window.hermes101Analytics.track(inferCopyEvent(), {
-              page_location: window.location.href,
-              page_path: window.location.pathname,
-              copied_text: text.slice(0, 200),
-              copy_surface: btn.closest('section, article, main') ? 'content' : 'unknown'
-            });
+        var copyEvent = inferCopyEvent();
+
+        function trackCopyResult(success, method) {
+          try {
+            if (window.hermes101Analytics && typeof window.hermes101Analytics.track === 'function') {
+              window.hermes101Analytics.track(success ? copyEvent : 'command_copy_failed', {
+                page_location: window.location.href,
+                page_path: window.location.pathname,
+                copied_text: text.slice(0, 200),
+                copy_surface: btn.closest('section, article, main') ? 'content' : 'unknown',
+                copy_success: success,
+                copy_method: method,
+                intended_event: copyEvent
+              });
+            }
+          } catch (err) {
+            if (window.console && console.error) console.error('copy tracking error', err);
           }
-        } catch (err) {
-          if (window.console && console.error) console.error('copy tracking error', err);
         }
 
-        function showResult(iconText, label, color) {
+        function showResult(iconText, label, color, success, method) {
+          trackCopyResult(success, method);
           btn.innerHTML = '<span class="material-symbols-outlined text-sm" style="color:' + color + ';">' + iconText + '</span>';
           if (label) btn.setAttribute('aria-label', label);
           btn.style.opacity = '0.9';
           setTimeout(function() {
             btn.innerHTML = btn.dataset.originalHtml || '<span class="material-symbols-outlined text-sm">content_copy</span>';
-            btn.removeAttribute('aria-label');
-            btn.setAttribute('aria-label', 'Copy command');
+            btn.setAttribute('aria-label', btn.dataset.originalAriaLabel || 'Copy command');
             btn.style.opacity = '';
             btn._copying = false;
           }, 1500);
@@ -282,7 +293,7 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
           try {
             if (navigator.clipboard && navigator.clipboard.writeText) {
               navigator.clipboard.writeText(text).then(function() {
-                showResult('check', 'Copied', '#51FFB4');
+                showResult('check', isChineseLabel ? '已复制' : 'Copied', '#51FFB4', true, 'clipboard');
               }).catch(function() { fallbackCopy(); });
             } else { fallbackCopy(); }
           } catch (err) {
@@ -301,14 +312,13 @@ const plausibleHost = (import.meta.env.PUBLIC_PLAUSIBLE_HOST || 'https://plausib
           ta.select();
           try {
             if (document.execCommand('copy')) {
-              showResult('check', 'Copied', '#51FFB4');
+              showResult('check', isChineseLabel ? '已复制' : 'Copied', '#51FFB4', true, 'execCommand');
             } else { throw new Error('execCommand failed'); }
           } catch (err) {
-            showResult('error', 'Copy failed', '#FFB962');
+            showResult('error', isChineseLabel ? '复制失败' : 'Copy failed', '#FFB962', false, 'execCommand');
             if (window.console && console.error) console.error('Copy failed:', err);
           }
           try { document.body.removeChild(ta); } catch (e) {}
-          btn._copying = false;
         }
 
         doCopy();

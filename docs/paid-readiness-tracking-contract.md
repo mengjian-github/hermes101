@@ -21,7 +21,9 @@ Primary conversion until a paid/signup product exists:
 
 - `start_install_click`: click to `/setup`
 - `start_quickstart_click`: click to `/quickstart`
-- `install_command_copy`: copy the Linux/macOS/WSL2/Termux or Windows install command
+- `start_7days_click`: click to the 7-day learning-path index
+- `install_command_copy`: successful clipboard copy of the Linux/macOS/WSL2/Termux or Windows install command
+- `official_docs_click`: click to official Nous Research docs or source references
 - `product_referral_click`: click to a Nextfield product/workflow referral such as ShipSolo
 - `lead_intent_click`: click to request a guide or open a GitHub issue
 - `github_click`: click to `https://github.com/mengjian-github/hermes101`
@@ -29,6 +31,7 @@ Primary conversion until a paid/signup product exists:
 - `homepage_faq_click`: click from the homepage answer-first FAQ block
 - `setup_success_click`: explicit “first chat works” click after install/provider/plain CLI verification
 - `setup_checklist_complete`: all visible setup checklist items toggled complete in one page session
+- `conversion_goal`: emitted after a mapped primary action, with `goal_name` and `source_event`
 
 Secondary events:
 
@@ -43,8 +46,9 @@ Secondary events:
 - `setup_check_item_toggle`: setup checklist item checked or unchecked
 - `scroll_depth`: 50% / 90% content depth milestone
 - `setup_command_copy`, `first_chat_command_copy`, `first_chat_prompt_copy`, `command_copy`: command-copy intent events for non-install commands
+- `command_copy_failed`: clipboard and fallback copy both failed; never counted as a conversion
 
-All events include `page_location`, `page_path`, `link_url`, `link_path`, `link_text`, `outbound`, and the current UTM fields when present.
+Link events include `page_location`, `page_path`, `link_url`, `link_path`, `link_text`, `outbound`, and current UTM fields when present. Copy events are emitted only after the Clipboard API or fallback succeeds and include `copy_success`, `copy_method`, `copy_surface`, and `intended_event`.
 
 ## Analytics backend contract
 

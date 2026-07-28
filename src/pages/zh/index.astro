@@ -14,12 +14,17 @@ const schema = {
       "name": "hermes101",
       "url": "https://hermes101.dev/zh/",
       "inLanguage": "zh-CN",
+      "description": description
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://hermes101.dev/zh/#webpage",
+      "url": "https://hermes101.dev/zh/",
+      "name": title,
       "description": description,
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://hermes101.dev/zh/resources/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "zh-CN",
+      "dateModified": "2026-07-28",
+      "isPartOf": { "@id": "https://hermes101.dev/zh/#website" }
     },
     {
       "@type": "Organization",
@@ -55,10 +60,10 @@ const schema = {
 
 const features = [
   { icon: "psychology", title: "智能记忆", desc: "跨 session 记忆，越用越懂你。上下文持续积累，对话更高效。" },
-  { icon: "hub", title: "22+ 平台", desc: "Telegram / Discord / 飞书 / Slack / WhatsApp / GitHub / 企业微信……" },
+  { icon: "hub", title: "20+ 平台", desc: "Telegram / Discord / 飞书 / Slack / WhatsApp / Signal / Teams 等消息平台统一接入。" },
   { icon: "groups", title: "多 Agent 协作", desc: "Profile 隔离，独立 bot token，多 agent 各司其职。" },
   { icon: "update", title: "定时自动化", desc: "自然语言创建 cron，自动投递到任意平台，解放双手。" },
-  { icon: "extension", title: "MCP 生态", desc: "100+ 技能包，一键安装。搜索、代码、文件、网络……应有尽有。" },
+  { icon: "extension", title: "工具与扩展", desc: "60+ 内置工具，并可通过 Skills 与 MCP 按需扩展。" },
   { icon: "gpp_good", title: "安全沙箱", desc: "危险命令审批流程，容器隔离执行，安心使用无风险。" },
   { icon: "model_training", title: "多模型", desc: "OpenAI / Claude / GLM / Kimi / MiniMax / Ollama……灵活切换。" },
   { icon: "speed", title: "并行执行", desc: "多 subagent 并发执行，后台进程实时监控，效率倍增。" },
@@ -89,7 +94,7 @@ const days = [
         <!-- Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.1] bg-[#1b1b20] mb-8">
           <span class="w-2 h-2 rounded-full bg-[#18E299] animate-pulse"></span>
-          <span class="text-xs font-bold tracking-widest text-white">开源 AI AGENT · 22+ 平台 · 100+ 技能</span>
+          <span class="text-xs font-bold tracking-widest text-white">官方文档核对 · 20+ 平台 · 60+ 内置工具</span>
         </div>
 
         <!-- Title -->
@@ -128,20 +133,20 @@ const days = [
           </a>
         </div>
 
-        <!-- Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-y border-white/[0.05] py-10 w-full max-w-4xl">
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-black text-white">105K+</span>
-            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">GitHub Stars</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-black text-white">22+</span>
-            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">接入平台</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-4xl font-black text-white">v0.10</span>
-            <span class="text-sm font-bold text-white/60 tracking-widest uppercase mt-1">稳定版</span>
-          </div>
+        <!-- Verifiable source links: avoid stale social-proof counters. -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 border-y border-white/[0.05] py-10 w-full max-w-4xl">
+          <a href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener noreferrer" data-track-event="official_docs_click" class="flex min-h-[112px] flex-col items-center justify-center rounded-xl border border-white/[0.08] bg-[#12121A] px-5 transition-colors hover:border-[#18E299]/40">
+            <span class="text-2xl font-black text-white">公开源码</span>
+            <span class="mt-1 text-sm font-bold text-white/60">Nous Research 官方仓库 ↗</span>
+          </a>
+          <a href="https://hermes-agent.nousresearch.com/docs/user-guide/messaging" target="_blank" rel="noopener noreferrer" data-track-event="official_docs_click" class="flex min-h-[112px] flex-col items-center justify-center rounded-xl border border-white/[0.08] bg-[#12121A] px-5 transition-colors hover:border-[#18E299]/40">
+            <span class="text-3xl font-black text-white">20+</span>
+            <span class="mt-1 text-sm font-bold text-white/60">消息平台 · 官方说明 ↗</span>
+          </a>
+          <a href="https://hermes-agent.nousresearch.com/docs/user-guide/features/tools" target="_blank" rel="noopener noreferrer" data-track-event="official_docs_click" class="flex min-h-[112px] flex-col items-center justify-center rounded-xl border border-white/[0.08] bg-[#12121A] px-5 transition-colors hover:border-[#18E299]/40">
+            <span class="text-3xl font-black text-white">60+</span>
+            <span class="mt-1 text-sm font-bold text-white/60">内置工具 · 官方说明 ↗</span>
+          </a>
         </div>
       </div>
 
@@ -157,13 +162,13 @@ const days = [
               <div class="w-3 h-3 rounded-full bg-[#18E299]/30"></div>
             </div>
             <div class="text-[10px] font-mono text-white/40 tracking-widest">BASH — HERMES_INSTALLER</div>
-            <div class="w-12"></div>
+            <button type="button" class="copy-btn min-h-[44px] rounded-lg border border-white/10 bg-white/[0.04] px-3 text-xs font-bold text-white/70 transition-colors hover:border-[#18E299]/40 hover:text-[#51FFB4]" data-copy="curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash" data-track-event="install_command_copy" aria-label="复制安装命令" title="复制安装命令">复制命令</button>
           </div>
           <!-- Terminal Content -->
           <div class="p-6 md:p-8 font-mono text-sm md:text-base leading-relaxed">
             <div class="flex gap-4">
               <span class="text-white/40">1</span>
-              <p class="text-white"><span class="text-[#18E299]">$</span> curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash</p>
+              <p class="text-white"><span class="text-[#18E299]">$</span> curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash</p>
             </div>
             <div class="flex gap-4 mt-2">
               <span class="text-white/40">2</span>
@@ -175,7 +180,7 @@ const days = [
             </div>
             <div class="flex gap-4 mt-1">
               <span class="text-white/40">4</span>
-              <p class="text-[#4dffb3]">Mounting 22+ cloud platforms... [SUCCESS]</p>
+              <p class="text-[#4dffb3]">Messaging gateway ready... [SUCCESS]</p>
             </div>
             <div class="flex gap-4 mt-2">
               <span class="text-white/40">5</span>
@@ -210,7 +215,7 @@ const days = [
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map(f => (
-          <div class="group bg-[#12121A] p-8 rounded-xl border border-[#3b4a41]/15 feature-card-glow transition-all duration-300">
+          <div class="bg-[#12121A] p-8 rounded-xl border border-[#3b4a41]/15">
             <div class="w-12 h-12 rounded-full bg-[#18E299]/10 flex items-center justify-center mb-6 border border-[#18E299]/20">
               <span class="material-symbols-outlined text-[#51ffb4]" style="font-variation-settings: 'FILL' 1;">{f.icon}</span>
             </div>
@@ -222,20 +227,20 @@ const days = [
 
       <!-- Bento promo -->
       <div class="mt-16 grid grid-cols-1 md:grid-cols-12 gap-6">
-        <div class="md:col-span-8 bg-[#1b1b20] rounded-xl p-0 relative overflow-hidden group min-h-[220px]">
+        <a href="/zh/setup/" data-track-event="start_install_click" class="md:col-span-8 bg-[#1b1b20] rounded-xl p-0 relative overflow-hidden group min-h-[220px] border border-transparent transition-colors hover:border-[#18E299]/30">
           <img src="/images/platforms.webp" alt="多平台连接" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" loading="lazy" />
           <div class="absolute inset-0 bg-gradient-to-r from-[#1b1b20] via-[#1b1b20]/70 to-transparent"></div>
           <div class="relative z-10 p-10">
             <h3 class="text-2xl md:text-3xl font-black text-white mb-4">智能多平台部署</h3>
-            <p class="text-white/80 max-w-md">支持 Linux / macOS / WSL2 / Termux / Cloud / Server，随处运行。</p>
+            <p class="text-white/80 max-w-md">支持 Linux / macOS / WSL2 / Termux / Cloud / Server。查看安装路径 →</p>
           </div>
-        </div>
+        </a>
         <div class="md:col-span-4 bg-[#18E299] rounded-xl p-10 flex flex-col justify-between relative overflow-hidden">
           <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
           <span class="material-symbols-outlined text-4xl text-white relative z-10" style="font-variation-settings: 'FILL' 1;">bolt</span>
           <div class="relative z-10">
             <h3 class="text-2xl md:text-3xl font-black text-white mb-2">极速响应</h3>
-            <p class="text-white/90 font-bold">多模型并行推理，流式响应，工具调用零延迟。</p>
+            <p class="text-white/90 font-bold">按任务选择模型与工具，流式查看执行结果。</p>
           </div>
         </div>
       </div>
@@ -325,7 +330,7 @@ const days = [
           <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
         </a>
         <div class="mt-8 space-y-1">
-          <p class="text-[13px] text-white/40">📌 基于 Hermes v0.10.x | 最后更新：2026-07-10</p>
+          <p class="text-[13px] text-white/40">📌 已按官方文档核对 | 最后更新：2026-07-28</p>
           <p class="text-[13px] text-white/40">⚠️ 本站为社区独立指南，非官方文档</p>
         </div>
       </div>
